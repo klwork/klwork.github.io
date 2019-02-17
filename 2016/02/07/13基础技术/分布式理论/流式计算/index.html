@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>什么是流计算？ | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="什么是流计算？">
+            
+	            什么是流计算？
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/基础技术">
+            基础技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/流计算" title="流计算">
+                        流计算
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/02/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1106</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="计算分类"><a href="#计算分类" class="headerlink" title="计算分类"></a>计算分类</h1><p>大数据的计算模式主要分为批量计算、流式计算、交互计算、图计算(graph computing)等。其中，流式计算和批量计算是两种主要的大数据计算模式，分别适用于不同的大数据应用场景。</p>
+<p>Google MapReduce、Hadoop等处理大规模 数据变得简单。但这些处理的技术的目标都不是实时技术。但是随着大数据业务的快速增长，针对大规模数据处理的实时计算变成了一种业务上的需求，Storm类似的框架正是在这样的需求背景下出现的。</p>
+<h1 id="适用性"><a href="#适用性" class="headerlink" title="适用性"></a>适用性</h1><p>对于先存储后计算，实时性要求不高，同时数据的准确性、全面性更为重要的应用场景，批量计算更加适合。</p>
+<p>对于无需先存储，可以直接进行数据计算，实时性要求很严格，但数据的精确度往往不太苛刻的 应用场景，流式计算具有明显优势。</p>
+<h1 id="流计算的原理"><a href="#流计算的原理" class="headerlink" title="流计算的原理"></a>流计算的原理</h1><p>实时流计算的场景归纳起来多半是：业务系统根据实时的操作,不断生成事件（消息/调用）,然后引起一系列的处理分析,这个过程是分散在多台计算机上并行完成的,看上去就像事件连续不断的流经多个计算节点处理,形成一个实时流计算系统。</p>
+<h1 id="流式计算特征"><a href="#流式计算特征" class="headerlink" title="流式计算特征"></a>流式计算特征</h1><p>流式计算有点像数据库领域的触发器，大数据流式计算目前主要用于对动态产生的数据进行实时计算并及时反馈结果，但往往不要求结果绝对精确的应用场景，在数据的有效时间内获取其价值，是大数据流式计算系统的首要设计目标。</p>
+<p>流式计算中，数据往往是最近一个时间窗口内的增量数据，因此数据时延往往较短，实时性较强，但数据的信息量往往相对较少，只限于一个时间窗口内的信息，不具有全量信息。流式计算和批量计算具有明显的优劣互补特征，在多种应用场合下可以将两者结合起来使用，通过发挥流式计算的实时性优势和批量计算的计算精度优势，满足多种应用场景在不同阶段的数据计算要求。</p>
+<p>通常情况下，大数据流式计算场景具有以下鲜明特征：<br>在流式计算环境中，数据是以元组为单位，以连续数据流的形态，持续地到达大数据流式计算平台。数据并不是一次全部可用，不能够一次得到全量数据，只能在不同的时间点，以增量的方式，逐步得到相应数据。</p>
+<h1 id="流式计算应用场景"><a href="#流式计算应用场景" class="headerlink" title="流式计算应用场景"></a>流式计算应用场景</h1><h2 id="具体应用场景"><a href="#具体应用场景" class="headerlink" title="具体应用场景"></a>具体应用场景</h2><h2 id="金融"><a href="#金融" class="headerlink" title="金融"></a>金融</h2><p>在金融银行的实时监控场景中，大数据流式计算往往体现出自身的优势。例如：在风险管理方面，包括信用卡诈骗、保险诈骗、证券交易诈骗、程序交易等，需要实时跟踪发现；营销管理方面，根据客户信用卡消费记录，掌握客户的消费习惯和偏好，预测客户未来的消费需求，并为其推荐个性化的金融产品和服务。 </p>
+<h2 id="互联网领域"><a href="#互联网领域" class="headerlink" title="互联网领域"></a>互联网领域</h2><p>在互联网领域中，大数据流式计算的典型应用场景主要包括以下方面：搜索引擎提供商们往往会在反馈给客户的搜索页面中加入点击付费的广告信息，插入什么广告、在什么位置插入这些广告才能得到最佳效果，往往需要根据客户的查询偏好、浏览历史、地理位置等综合语义进行决定，而这种计算对于搜索服务器而言往往是大量的。一方面，每时每刻都会有大量客户进行搜索请求；另一方面，数据计算的时效性极低，需要保证极短的响应时间。同理，我们构建社交网站，一样需要实时分析用户的状态信息，及时提供最新的用户分享信息到相关的群体，准确地推荐朋友、推荐主题、提升用户体验，并能及时发现和屏蔽各种欺骗行为，至此大数据流式计算的方法就会帮助我们达成这种目标定位。 </p>
+<h2 id="物联网领域"><a href="#物联网领域" class="headerlink" title="物联网领域"></a>物联网领域</h2><p>在物联网领域中，大数据流式计算的典型应用场景主要有智能交通和环境监测。通过传感器实时感知车辆、道路的状态，并分析和预测一定范围、一段时间内的道路流量情况，以便有效地进行分流、调度和指挥；环境监控则通过传感器和移动终端，对一个地区的环境综合指标进行实时监控、远程查看、智能联动、远程控制，系统地解决综合环境问题。这些对计算系统的实时性、吞吐量、可靠性等方面都提出了很高要求。</p>
+<h2 id="流计算框架"><a href="#流计算框架" class="headerlink" title="流计算框架　"></a>流计算框架　</h2><p>流式大数据处理的三种框架：Storm，Spark和Samza</p>
+<p>比较具体参见<br><a href="http://www.csdn.net/article/2015-03-09/2824135" target="_blank" rel="noopener">http://www.csdn.net/article/2015-03-09/2824135</a></p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><ul>
+<li><a href="http://mt.sohu.com/20160305/n439484116.shtml" target="_blank" rel="noopener">剖析 大数据流式计算场景特征</a></li>
+<li><a href="http://www.xzbu.com/1/view-7122485.htm" target="_blank" rel="noopener">大数据流式计算应用的种种</a></li>
+<li><a href="http://www.csdn.net/article/2014-06-12/2820196-Storm" target="_blank" rel="noopener">实时计算，流数据处理系统简介与简单分析</a></li>
+<li><a href="http://blog.sina.com.cn/s/blog_8c243ea30101jb4r.html" target="_blank" rel="noopener">Storm实时处理方案架构</a></li>
+<li><a href="http://www.blogchong.com/post/storm_data_Platform.html" target="_blank" rel="noopener">实时处理方案架构</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/02/07/22programming/scala/Scala中的类型系统/" class="pre-post btn btn-default" title="Scala中的类型系统">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Scala中的类型系统</span>
+        </a>
+    
+    
+        <a href="/2016/02/07/22programming/javascript/es6/" class="next-post btn btn-default" title="需要知道的ECMAScript 6语法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">需要知道的ECMAScript 6语法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#计算分类"><span class="toc-text">计算分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#适用性"><span class="toc-text">适用性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流计算的原理"><span class="toc-text">流计算的原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流式计算特征"><span class="toc-text">流式计算特征</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#流式计算应用场景"><span class="toc-text">流式计算应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#具体应用场景"><span class="toc-text">具体应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#金融"><span class="toc-text">金融</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#互联网领域"><span class="toc-text">互联网领域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#物联网领域"><span class="toc-text">物联网领域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#流计算框架"><span class="toc-text">流计算框架　</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

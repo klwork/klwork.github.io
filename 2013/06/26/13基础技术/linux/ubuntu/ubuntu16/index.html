@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Ubuntu 16.04的配置和安装 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ubuntu 16.04的配置和安装">
+            
+	            Ubuntu 16.04的配置和安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Ubuntu" title="Ubuntu">
+                        Ubuntu
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2013/06/26</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>2062</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="常用安装"><a href="#常用安装" class="headerlink" title="常用安装"></a>常用安装</h1><h2 id="设置SSH服务"><a href="#设置SSH服务" class="headerlink" title="设置SSH服务"></a>设置SSH服务</h2><p><code>apt-get install openssh-server</code></p>
+<p>确认安装SSH服务成功与否</p>
+<p><code>ps -ef | grep sshd</code></p>
+<p>看到sshd表明ssh-server启动;否则 <code>/etc/init.d/ssh start</code> 手动进行启动</p>
+<p>##SSH无密码登录设置</p>
+<h3 id="在本地机器上使用ssh-keygen产生公钥私钥对"><a href="#在本地机器上使用ssh-keygen产生公钥私钥对" class="headerlink" title="在本地机器上使用ssh-keygen产生公钥私钥对"></a>在本地机器上使用ssh-keygen产生公钥私钥对</h3><p>确保本机有SSH公钥（一般是文件~/.ssh/id_rsa.pub），如果没有的话，使用ssh-keygen命令生成一个</p>
+<p><code>ssh-keygen -t rsa</code></p>
+<h3 id="用ssh-copy-id将公钥复制到远程机器中"><a href="#用ssh-copy-id将公钥复制到远程机器中" class="headerlink" title="用ssh-copy-id将公钥复制到远程机器中"></a>用ssh-copy-id将公钥复制到远程机器中</h3><p>将本机的公钥拷贝到服务器的authorized_keys文件<br><code>ssh-copy-id -i ~/.ssh/id_rsa.pub test@192.168.200.1</code></p>
+<p>如果对方机器ssh端口不是22，可以使用如下命令<br><code>ssh-copy-id -i ~/.ssh/id_rsa.pub &quot;-p 20022 test@192.168.200.1&quot;</code></p>
+<p>如果没有ssh-copy,可以使用<br><code>cat ~/.ssh/id_rsa.pub | ssh test@192.168.200.1 &quot;cat - &gt;&gt; ~/.ssh/authorized_keys&quot;</code></p>
+<h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p><code>ssh test@192.168.200.1</code></p>
+<h2 id="安装unrar"><a href="#安装unrar" class="headerlink" title="安装unrar"></a>安装unrar</h2><p><code>sudo apt install  unrar</code></p>
+<h2 id="安装git和svn"><a href="#安装git和svn" class="headerlink" title="安装git和svn"></a>安装git和svn</h2><p>sudo apt-get install  git<br>sudo apt-get install subversion</p>
+<h2 id="安装flashplugin"><a href="#安装flashplugin" class="headerlink" title="安装flashplugin"></a>安装flashplugin</h2><p>sudo apt-get install flashplugin-installer</p>
+<h2 id="安装Chrome"><a href="#安装Chrome" class="headerlink" title="安装Chrome"></a>安装Chrome</h2><p>到 <a href="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" target="_blank" rel="noopener">https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</a> 下载最新的安装文件。</p>
+<p>然后</p>
+<p>代码如下:</p>
+<p>sudo apt-get install libappindicator1 libindicator7</p>
+<p>sudo dpkg -i google-chrome-stable_current_amd64.deb</p>
+<p>sudo apt-get -f install</p>
+<h2 id="安装中文man手册"><a href="#安装中文man手册" class="headerlink" title="安装中文man手册"></a>安装中文man手册</h2><p><code>sudo apt-get install manpages-zh</code></p>
+<p>查看man 手册安装到哪里<br>dpkg -L manpages-zh | less</p>
+<h1 id="常用配置"><a href="#常用配置" class="headerlink" title="常用配置"></a>常用配置</h1><h2 id="用户配置"><a href="#用户配置" class="headerlink" title="用户配置"></a>用户配置</h2><p>添加用户组<br>addgroup admin</p>
+<p>添加一个新用户<br>useradd -d /home/test -s /bin/bash -m test</p>
+<blockquote>
+<p>参数m表示如果该目录不存在，则创建该目录</p>
+</blockquote>
+<p>设置密码<br>passwd test</p>
+<p>将新用户test添加到用户组admin<br>usermod -a -G admin test</p>
+<p>为新用户设定sudo权限<br>vi /etc/sudoers找到<br>root    ALL=(ALL:ALL) ALL，<br>下面在加入一行<br>test    ALL=(ALL) NOPASSWD: ALL</p>
+<blockquote>
+<p>NOPASSWD表示，切换sudo的时候，不需要输入密码</p>
+</blockquote>
+<h2 id="sudo不用输入密码的方法"><a href="#sudo不用输入密码的方法" class="headerlink" title="sudo不用输入密码的方法"></a>sudo不用输入密码的方法</h2><p>确保用户属于sudo组<br>sudo vi /etc/sudoers<br>确保下面的没有被“＃”注释<br>%sudo   ALL=(ALL:ALL) ALL<br>添加下面新命令到文件最下面<br>%sudo   ALL=NOPASSWD:ALL<br>wq! 保存修改</p>
+<h2 id="允许su到root"><a href="#允许su到root" class="headerlink" title="允许su到root"></a>允许su到root</h2><p>Ubuntu 安装后，root用户默认是被锁定了的，不允许登录，也不允许“su”到 root。<br>允许 su 到 root非常简单，设置密码就可以了</p>
+<pre><code>`sudo passwd`
+</code></pre><h2 id="更换国内软件源"><a href="#更换国内软件源" class="headerlink" title="更换国内软件源"></a>更换国内软件源</h2><p><code>sudo vi /etc/apt/sources.list</code></p>
+<p>在文件开头添加下面的网易的软件源</p>
+<pre><code>deb http://mirrors.163.com/ubuntu/ precise-updates main restricted
+deb-src http://mirrors.163.com/ubuntu/ precise-updates main restricted
+deb http://mirrors.163.com/ubuntu/ precise universe
+deb-src http://mirrors.163.com/ubuntu/ precise universe
+deb http://mirrors.163.com/ubuntu/ precise-updates universe
+deb-src http://mirrors.163.com/ubuntu/ precise-updates universe
+deb http://mirrors.163.com/ubuntu/ precise multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise multiverse
+deb http://mirrors.163.com/ubuntu/ precise-updates multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-updates multiverse
+deb http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ precise-backports main restricted universe multiverse
+</code></pre><p>或者</p>
+<pre><code>    # deb cdrom:[Ubuntu 16.04 LTS _Xenial Xerus_ - Release amd64 (20160420.1)]/ xenial main restricted
+deb-src http://archive.ubuntu.com/ubuntu xenial main restricted #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-updates main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-updates multiverse
+deb http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-backports main restricted universe multiverse #Added by software-properties
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ xenial-security main restricted multiverse universe #Added by software-properties
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security universe
+deb http://mirrors.aliyun.com/ubuntu/ xenial-security multiverse
+</code></pre><p>更新软件源：<br><code>sudo apt-get update</code></p>
+<p>如果出现错误E: Problem executing scripts APT::Update::Post-Invoke-Success，可以先执行如下命令</p>
+<p><code>sudo apt-get remove libappstream3</code></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2013/06/26/22programming/db/mysql/ubuntu14下安装mysql/" class="pre-post btn btn-default" title="ubuntu14下安装mysql5.6">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">ubuntu14下安装mysql5.6</span>
+        </a>
+    
+    
+        <a href="/2013/06/11/90杂七杂八/武侠看管理/" class="next-post btn btn-default" title="从古龙武侠看管理">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">从古龙武侠看管理</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用安装"><span class="toc-text">常用安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置SSH服务"><span class="toc-text">设置SSH服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地机器上使用ssh-keygen产生公钥私钥对"><span class="toc-text">在本地机器上使用ssh-keygen产生公钥私钥对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用ssh-copy-id将公钥复制到远程机器中"><span class="toc-text">用ssh-copy-id将公钥复制到远程机器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装unrar"><span class="toc-text">安装unrar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git和svn"><span class="toc-text">安装git和svn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装flashplugin"><span class="toc-text">安装flashplugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Chrome"><span class="toc-text">安装Chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装中文man手册"><span class="toc-text">安装中文man手册</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用配置"><span class="toc-text">常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户配置"><span class="toc-text">用户配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo不用输入密码的方法"><span class="toc-text">sudo不用输入密码的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#允许su到root"><span class="toc-text">允许su到root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换国内软件源"><span class="toc-text">更换国内软件源</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

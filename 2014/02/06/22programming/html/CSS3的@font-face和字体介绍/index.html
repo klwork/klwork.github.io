@@ -1,0 +1,423 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>CSS3的@font-face和字体介绍 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="CSS3的@font-face和字体介绍">
+            
+	            CSS3的@font-face和字体介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/HTML&amp;CSS" title="HTML&amp;CSS">
+                        HTML&amp;CSS
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2014/02/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1837</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>本文将介绍@font-face用法，以及用字体来代替图标的具体方法。</p>
+<h1 id="font-face学习"><a href="#font-face学习" class="headerlink" title="@font-face学习"></a>@font-face学习</h1><p>@font-face是CSS3中的一个模块，他主要是把自己定义的Web字体嵌入到你的网页中,@font-face的出现允许用户从网上下载字体并直接在电脑上自动完成安装，因此开发者不用担心某个字体在用户的电脑中是否存在的问题。</p>
+<h2 id="font-face的语法规则"><a href="#font-face的语法规则" class="headerlink" title="@font-face的语法规则"></a>@font-face的语法规则</h2><pre><code>@font-face {
+   font-family: &lt;YourWebFontName&gt;;
+   src: &lt;source&gt; [&lt;format&gt;][,&lt;source&gt; [&lt;format&gt;]]*;
+   [font-weight: &lt;weight&gt;];
+   [font-style: &lt;style&gt;];
+ }
+</code></pre><ol>
+<li>YourWebFontName:此值指的就是你自定义的字体名称，最好是使用你下载的默认字体，他将被引用到你的Web元素中的font-family。如<code>font-family:&quot;YourWebFontName&quot;;</code></li>
+<li>source:此值指的是你自定义的字体的存放路径，可以是相对路径也可以是绝路径；</li>
+<li>format：此值指的是你自定义的字体的格式，主要用来帮助浏览器识别，其值主要有以下几种类型：truetype,opentype,truetype-aat,embedded-opentype,avg等；</li>
+<li>weight和style:这两个值大家一定很熟悉,weight定义字体是否为粗体，style主要定义字体样式，如斜体。</li>
+</ol>
+<a id="more"></a>
+<h2 id="一个具体的使用例子"><a href="#一个具体的使用例子" class="headerlink" title="一个具体的使用例子"></a>一个具体的使用例子</h2><p>html使用字体部分</p>
+<pre><code>&lt;h2 class=&quot;neuesDemo&quot;&gt;Neues Bauen Demo&lt;/h2&gt;
+样式定义如下:
+h2.neuesDemo {
+   font-family: &apos;NeuesBauenDemo&apos;
+}
+</code></pre><p>NeuesBauenDemo是哪里来的? 答案通过@font-face来定义自己的Web Font:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> @font-face &#123;</span><br><span class="line">  font-family: &apos;NeuesBauenDemo&apos;;</span><br><span class="line">  src: url(&apos;../fonts/neues_bauen_demo-webfont.eot&apos;);</span><br><span class="line">  src: url(&apos;../fonts/neues_bauen_demo-webfont.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;),</span><br><span class="line">   url(&apos;../fonts/neues_bauen_demo-webfont.woff&apos;) format(&apos;woff&apos;),</span><br><span class="line">   url(&apos;../fonts/neues_bauen_demo-webfont.ttf&apos;) format(&apos;truetype&apos;),</span><br><span class="line">   url(&apos;../fonts/neues_bauen_demo-webfont.svg#NeuesBauenDemo&apos;) format(&apos;svg&apos;);</span><br><span class="line">  font-weight: normal;</span><br><span class="line">  font-style: normal;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>为什么要用多个url? 主要是为了解决浏览器的兼容问题。后面在讨论，先了解一下woff,ttf,svg这些字体的格式。</p>
+<h2 id="字体的格式"><a href="#字体的格式" class="headerlink" title="字体的格式"></a>字体的格式</h2><p>上面说了format：指的是你自定义的字体的格式，其值主要有以下几种类型：truetype,opentype,truetype-aat,embedded-opentype,avg等；现在简单的分别介绍。</p>
+<h3 id="TureTpe-ttf-格式"><a href="#TureTpe-ttf-格式" class="headerlink" title="TureTpe(.ttf)格式"></a>TureTpe(.ttf)格式</h3><p>ttf字体是Windows和Mac的最常见的字体，是一种RAW格式，因此他不为网站优化,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome4+,Safari3+,Opera10+,iOS Mobile Safari4.2+】；</p>
+<h3 id="OpenType-otf-格式"><a href="#OpenType-otf-格式" class="headerlink" title="OpenType(.otf)格式"></a>OpenType(.otf)格式</h3><p>.otf字体被认为是一种原始的字体格式，其内置在TureType的基础上，所以也提供了更多的功能,支持这种字体的浏览器有【Firefox3.5+,Chrome4.0+,Safari3.1+,Opera10.0+,iOS Mobile Safari4.2+】；</p>
+<h3 id="Web-Open-Font-Format-woff-格式"><a href="#Web-Open-Font-Format-woff-格式" class="headerlink" title="Web Open Font Format(.woff)格式"></a>Web Open Font Format(.woff)格式</h3><p>.woff字体是Web字体中最佳格式，他是一个开放的TrueType/OpenType的压缩版本，同时也支持元数据包的分离,支持这种字体的浏览器有【IE9+,Firefox3.5+,Chrome6+,Safari3.6+,Opera11.1+】；</p>
+<h3 id="Embedded-Open-Type-eot-格式"><a href="#Embedded-Open-Type-eot-格式" class="headerlink" title="Embedded Open Type(.eot)格式"></a>Embedded Open Type(.eot)格式</h3><p>.eot字体是IE专用字体，可以从TrueType创建此格式字体,支持这种字体的浏览器有【IE4+】；</p>
+<h3 id="SVG-svg-格式"><a href="#SVG-svg-格式" class="headerlink" title="SVG(.svg)格式"></a>SVG(.svg)格式</h3><p>.svg字体是基于SVG字体渲染的一种格式,支持这种字体的浏览器有【Chrome4+,Safari3.1+,Opera10.0+,iOS Mobile Safari3.2+】。</p>
+<h2 id="多浏览器支持"><a href="#多浏览器支持" class="headerlink" title="多浏览器支持"></a>多浏览器支持</h2><p>浏览器的支持情况：</p>
+<p><img src="!--￼1--&gt;/image/fontSup.jpg" alt="suppFont"></p>
+<p>从上面浏览器对字体支持情况可以得出,为了达到更多浏览版本的支持,至少需要.woff,.eot两种格式字体，甚至还需要.svg等字体达到更多种浏览版本的支持。为了使@font-face达到更多的浏览器支持，Paul Irish写了一个独特的@font-face语法叫Bulletproof @font-face:</p>
+<pre><code>@font-face {
+    font-family: &apos;YourWebFontName&apos;;
+    src: url(&apos;YourWebFontName.eot?&apos;) format(&apos;eot&apos;);/*IE*/
+    src:url(&apos;YourWebFontName.woff&apos;) format(&apos;woff&apos;), url(&apos;YourWebFontName.ttf&apos;) format(&apos;truetype&apos;);/*非IE*/
+}
+</code></pre><p>为了更多浏览器支持，你也可以写成：</p>
+<pre><code>@font-face {
+    font-family: &apos;YourWebFontName&apos;;
+    src: url(&apos;YourWebFontName.eot&apos;); /* IE9 Compat Modes */
+    src: url(&apos;YourWebFontName.eot?#iefix&apos;) format(&apos;embedded-opentype&apos;), /* IE6-IE8 */
+             url(&apos;YourWebFontName.woff&apos;) format(&apos;woff&apos;), /* Modern Browsers */
+             url(&apos;YourWebFontName.ttf&apos;)  format(&apos;truetype&apos;), /* Safari, Android, iOS */
+             url(&apos;YourWebFontName.svg#YourWebFontName&apos;) format(&apos;svg&apos;); /* Legacy iOS */
+   }
+</code></pre><p>这就是我们上面看到的多个url的来历。现在的问题是怎样获取字体，以及怎样生成几种不同的格式。</p>
+<h2 id="免费字体的获取和处理"><a href="#免费字体的获取和处理" class="headerlink" title="免费字体的获取和处理"></a>免费字体的获取和处理</h2><p><a href="http://www.oschina.net/news/24166/free-fonts-fontface" target="_blank" rel="noopener">40个可通过@font-face使用的免费字体</a>，可以挑选你的字体。例如我们到<a href="http://www.google.com/fonts/#" target="_blank" rel="noopener">Google Web Fonts</a>,下载我们需要的文件,例如文件名Duru_Sans.zip,解压缩会发现里面有一个DuruSans-Regular.ttf文件。现在我们需要想办法获得@font-face所需的.eot,.woff,.ttf,.svg所有字体格式。要获取这些字体格式，我们需要第三方工具或者软件来实现。可通过访问<a href="http://www.fontsquirrel.com/tools/webfont-generator" target="_blank" rel="noopener">fontsquirrel</a>来上传我们的DuruSans-Regular.ttf文件，</p>
+<p><img src="!--￼2--&gt;/image/selectFont.png" alt="selectFont"></p>
+<p>上载成功后，会出现一个下载按钮，可进行下载为一个zip文件,解压缩后包含我们所需的各种类型字体和用法的demo，见下图:</p>
+<p><img src="!--￼3--&gt;/image/selectFontResults.png" alt="selectFontResults"></p>
+<p>有没有更简单的？可以使用托管的Web字体服务。</p>
+<h2 id="使用托管的Web字体服务"><a href="#使用托管的Web字体服务" class="headerlink" title="使用托管的Web字体服务"></a>使用托管的Web字体服务</h2><p>以<a href="http://www.google.com/fonts/" target="_blank" rel="noopener">Google Web Fonts</a>服务为例，访问Google Web Fonts,选择一个你喜欢的字体（Add to collection），然后使用这个字体（Use），Google Web Fonts服务会自动生成一段类似<br><code>&lt;link href=&#39;http://fonts.googleapis.com/css?family=Artifika&#39; rel=&#39;stylesheet&#39; type=&#39;text/css&#39;&gt;</code>的代码,通过访问<code>http://fonts.googleapis.com/css?family=Artifika</code>用不同的浏览器的访问结果是不一样的，例如使用google浏览器，</p>
+<pre><code>@font-face {
+  font-family: &apos;Artifika&apos;;
+  font-style: normal;
+  font-weight: 400;
+  src: local(&apos;Artifika Medium&apos;), local(&apos;Artifika-Medium&apos;), url(http://themes.googleusercontent.com/static/fonts/artifika/v4/r0NXNnpds-Akyno8nTG0zfesZW2xOQ-xsNqO47m55DA.woff) format(&apos;woff&apos;);
+}
+</code></pre><p>使用Safari浏览器版本4,结果如下：</p>
+<pre><code>@font-face {
+  font-family: &apos;Artifika&apos;;
+  font-style: normal;
+  font-weight: 400;
+  src: local(&apos;Artifika Medium&apos;), local(&apos;Artifika-Medium&apos;), url(http://themes.googleusercontent.com/static/fonts/artifika/v4/z0sjSaXjDxxgrMTOLI1lSfesZW2xOQ-xsNqO47m55DA.ttf) format(&apos;truetype&apos;);
+}
+</code></pre><p>可见谷歌字体API具有跨浏览特性,具体的用法可访问<a href="http://www.chinaz.com/web/2010/0604/117757.shtml" target="_blank" rel="noopener">谷歌字体API使用教程</a>。</p>
+<h1 id="使用字体来代替图标"><a href="#使用字体来代替图标" class="headerlink" title="使用字体来代替图标"></a>使用字体来代替图标</h1><p>使用字体来实现图标,尺寸和颜色可以用css来控制,而且字体文件很小,对性能优化有好处。先介绍一个图标字体<a href="http://fortawesome.github.io/Font-Awesome/" target="_blank" rel="noopener">Font Awesome</a>,中文介绍可以访问<code>http://www.bootcss.com/p/font-awesome/</code>。Font Awesome是一套专为Twitter Bootstrap设计的图标字体，几乎囊括了网页中可能用到的所有图标，这些图标通过Web Font的方式来显示，可以被任意缩放、改变颜色，你可以像修改文字样式那样来修改图标样式。源码可访问<code>https://github.com/FortAwesome/Font-Awesome/</code><br>假设我要显示一个红色的铃铛<img src="!--￼4--&gt;/image/red.png" alt=""> 实现代码如下：</p>
+<pre><code>&lt;!doctype html&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;title&gt;&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./font-awesome/css/font-awesome.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+    &lt;a  href=&quot;#&quot;&gt;
+        &lt;i class=&quot;fa fa-bell&quot; style=&quot;color:red&quot; &gt;&lt;/i&gt;
+    &lt;/a&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>假设font-awesome.css已经存在，只用了fa和fa-bell样式就已经搞定，看看他们的定义:</p>
+<pre><code>.fa {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-bell:before {
+content: &quot;\f0f3&quot;;
+}
+</code></pre><p>这里用了一下css3的伪元素，fa用来进行占位，<code>line-height: 1</code>,行高定义为数字，实际高度随着font-size变化。<code>fa-bell:beforet</code>用于把icon覆盖到实际元素上面。<code>\f0f3</code>为铃铛的Unicode。这个编码我们记不住，可以借助字体编辑软件<a href="http://www.fontlab.com/font-editor/fontlab-studio/" target="_blank" rel="noopener">FontLab</a>，使用其打开fontawesome-webfont.ttf文件，进行搜索(ctrl+f5)，操作结果如下图：</p>
+<p><img src="!--￼5--&gt;/image/fontTool.png" alt=""></p>
+<p>FontLab可以设计自己的字体文件，具体使用可参见<a href="http://www.ui3g.com/artdetail.aspx?id=205" target="_blank" rel="noopener">CSS3 用字体来代替图标的显示完全指南</a>。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a href="http://www.ui3g.com/artdetail.aspx?id=204" target="_blank" rel="noopener">前端性能优化进阶之CSS无图片技术</a></li>
+<li><a href="http://www.fontsquirrel.com/fontface" target="_blank" rel="noopener">CSS3 @font-face</a></li>
+<li><a href="http://www.ui3g.com/artdetail.aspx?id=205" target="_blank" rel="noopener">CSS3 用字体来代替图标的显示完全指南</a></li>
+<li><a href="http://zh.wikipedia.org/wiki/WOFF" target="_blank" rel="noopener">Web开放字体格式</a></li>
+<li><a href="http://www.infoq.com/cn/news/2011/11/web-typography-and-css-font-face" target="_blank" rel="noopener">Web版式和@font-face简介</a></li>
+<li><a href="http://www.chinaz.com/web/2010/0604/117757.shtml" target="_blank" rel="noopener">谷歌字体API使用教程</a></li>
+<li><a href="http://www.oschina.net/news/24166/free-fonts-fontface" target="_blank" rel="noopener">40个可通过@font-face使用的免费字体</a></li>
+<li><a href="http://www.cnblogs.com/fengzheng126/archive/2012/05/18/2507632.html" target="_blank" rel="noopener">深入了解css的行高Line Height属性</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2014/06/21/90杂七杂八/使命 /" class="pre-post btn btn-default" title="中国圣贤的使命">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">中国圣贤的使命</span>
+        </a>
+    
+    
+        <a href="/2014/02/06/90杂七杂八/Hexo建站过程/" class="next-post btn btn-default" title="使用hexo搭建我的博客">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">使用hexo搭建我的博客</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#font-face学习"><span class="toc-text">@font-face学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#font-face的语法规则"><span class="toc-text">@font-face的语法规则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个具体的使用例子"><span class="toc-text">一个具体的使用例子</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字体的格式"><span class="toc-text">字体的格式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#TureTpe-ttf-格式"><span class="toc-text">TureTpe(.ttf)格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OpenType-otf-格式"><span class="toc-text">OpenType(.otf)格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web-Open-Font-Format-woff-格式"><span class="toc-text">Web Open Font Format(.woff)格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Embedded-Open-Type-eot-格式"><span class="toc-text">Embedded Open Type(.eot)格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG-svg-格式"><span class="toc-text">SVG(.svg)格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多浏览器支持"><span class="toc-text">多浏览器支持</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#免费字体的获取和处理"><span class="toc-text">免费字体的获取和处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用托管的Web字体服务"><span class="toc-text">使用托管的Web字体服务</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用字体来代替图标"><span class="toc-text">使用字体来代替图标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

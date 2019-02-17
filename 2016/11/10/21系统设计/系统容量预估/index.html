@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>如何预估系统容量? | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="如何预估系统容量?">
+            
+	            如何预估系统容量?
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/系统设计YY">
+            系统设计YY
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/10</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>829</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>随着业务的快速成长，日访问量越来越高，除了对功能要求很高以外，对性能要求也越来越高。<br>那问题也来了，怎么知道机器够不够用？如果不够，需要多少台满足要求？<br>或者运营需要在双11做个促销，服务器能抗住么？如果扛不住，需要加多少台？网络带宽够不够用？<br>这些都是系统容量预估需要回答的问题。</p>
+<h1 id="怎么进行预估？"><a href="#怎么进行预估？" class="headerlink" title="怎么进行预估？"></a>怎么进行预估？</h1><p>可以遵循如下步骤</p>
+<h2 id="预估网站流量（PV）"><a href="#预估网站流量（PV）" class="headerlink" title="预估网站流量（PV）"></a>预估网站流量（PV）</h2><p>网站流量是指网站的访问量，用来描述访问网站的用户数量以及用户所浏览的网页数量等指标，常用的统计指标包括网站的独立用户数量、总用户数量（含重复访问者）、网页浏览数量、每个用户的页面浏览数量、用户在网站的平均停留时间等。</p>
+<p>网站访问量的常用衡量标准：独立访客(UV) 和 综合浏览量（PV）,一般以日为单位来衡量和计算。</p>
+<blockquote>
+<p><strong>PV：</strong> 一定时间范围内页面浏览量或点击量，用户每次刷新即被计算一次<br><strong>UV</strong>：指一定时间范围内相同访客多次访问网站，只计算为1个独立访客</p>
+</blockquote>
+<h2 id="预估平均QPS"><a href="#预估平均QPS" class="headerlink" title="预估平均QPS"></a>预估平均QPS</h2><h3 id="什么是TPS"><a href="#什么是TPS" class="headerlink" title="什么是TPS?"></a>什么是TPS?</h3><p>Tps即每秒处理事务数，包括了<br>用户请求服务器/服务器自己的内部处理/服务器返回给用户.<br>这三个过程，每秒能够完成N个这三个过程，Tps也就是3；</p>
+<h3 id="什么QPS"><a href="#什么QPS" class="headerlink" title="什么QPS"></a>什么QPS</h3><p>Qps基本类似于Tps，但是不同的是，对于一个页面的一次访问，形成一个Tps；但一次页面请求，可能产生多次对服务器的请求，服务器对这些请求，就可计入“Qps”之中<br>例如访问一个页面会请求服务器3次，产生3个QPS</p>
+<p><code>QPS = req/sec = 请求数/秒</code></p>
+<h3 id="计算平均QPS"><a href="#计算平均QPS" class="headerlink" title="计算平均QPS"></a>计算平均QPS</h3><p><code>总请求数 = 总PV * 页面衍生连接数</code></p>
+<p><code>平均QPS = 总请求数 / 总时间</code></p>
+<p>比如：页面1小时内的总访问量是30w pv，衍生连接数为30  ,那么平均QPS的计算如下：</p>
+<p><code>平均QPS ＝ (30w * 30) /(60*60) = 2500</code></p>
+<h2 id="预估峰值QPS"><a href="#预估峰值QPS" class="headerlink" title="预估峰值QPS"></a>预估峰值QPS</h2><p>一般情况，峰值QPS大概是均值QPS的3-5倍，日均QPS为1000，于是评估出峰值QPS为1000*5 ＝ 5000<br>具体情况需要业务来定。</p>
+<h2 id="计算服务器的极限QPS"><a href="#计算服务器的极限QPS" class="headerlink" title="计算服务器的极限QPS"></a>计算服务器的极限QPS</h2><p>通过压力测试，算出服务器的单机极限QPS。一般的压力测试软件都能得到这个值。考虑到寿命和性能，单机线上允许跑到QPS为（<code>极限QPS＊0.8</code>)</p>
+<h2 id="计算需要的机器"><a href="#计算需要的机器" class="headerlink" title="计算需要的机器"></a>计算需要的机器</h2><p>需要的机器  = 峰值QPS / 单机极限 QPS<br>假设峰值QPS是5000，单机极限QPS是1000，线上部署了3台服务器。<br>理论需要5台。通个水平扩展，需要再加上2台可以满足要求。</p>
+<p>##怎么计算带宽？</p>
+<p><code>网站带宽= （PV / 统计时间（单位S））*平均页面大小（单位KB）* 8</code></p>
+<blockquote>
+<p>字节的单位是Byte，而带宽的单位是bit，1Byte=8bit,所以转换为带宽的时候，要乘以 8</p>
+</blockquote>
+<p>假设网站的平均日PV：10w 的访问量，页面平均大小0.4 M 。<br><code>网站带宽 = （10w / （24 * 60 * 60））* 0.4M * 8 =3.7 Mbps</code></p>
+<p>在实际的网站运行过程中，我们的网站必须要在峰值流量时保持正常的访问，假设，峰值流量是平均流量的5倍，按照这个计算，实际需要的带宽大约在 3.7 Mbps * 5=18.5 Mbps 。</p>
+<h1 id="通过压力测试QPS，得到网站支持的pv"><a href="#通过压力测试QPS，得到网站支持的pv" class="headerlink" title="通过压力测试QPS，得到网站支持的pv"></a>通过压力测试QPS，得到网站支持的pv</h1><p>`平均QPS = （总PV * 页面衍生连接数） / 总时间</p>
+<p>一台机器<br>`每天总PV = （2000 <em> 24 </em> 60 * 60）/30 ＝ 57.6万</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/12/06/13基础技术/linux/常用网络命令汇总/" class="pre-post btn btn-default" title="linux中与网络相关的命令">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">linux中与网络相关的命令</span>
+        </a>
+    
+    
+        <a href="/2016/11/07/21系统设计/函数VS面向对象/" class="next-post btn btn-default" title="理解函数式编程/面向对象编程">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">理解函数式编程/面向对象编程</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#怎么进行预估？"><span class="toc-text">怎么进行预估？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#预估网站流量（PV）"><span class="toc-text">预估网站流量（PV）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预估平均QPS"><span class="toc-text">预估平均QPS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是TPS"><span class="toc-text">什么是TPS?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么QPS"><span class="toc-text">什么QPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算平均QPS"><span class="toc-text">计算平均QPS</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#预估峰值QPS"><span class="toc-text">预估峰值QPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算服务器的极限QPS"><span class="toc-text">计算服务器的极限QPS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#计算需要的机器"><span class="toc-text">计算需要的机器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#通过压力测试QPS，得到网站支持的pv"><span class="toc-text">通过压力测试QPS，得到网站支持的pv</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>监控IO使用－iostat命令 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="监控IO使用－iostat命令">
+            
+	            监控IO使用－iostat命令
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>833</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#iostat</p>
+<p>iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。<br>如果没有安装，需要<code>sudo apt-get install sysstat</code></p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>iostat[参数][时间][次数]</p>
+<p><code>iostat</code><br>显示所有设备负载情况</p>
+<p><code>iostat 2 3</code></p>
+<h2 id="字段描述"><a href="#字段描述" class="headerlink" title="字段描述"></a>字段描述</h2><p><code>iostat -x</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Linux 4.4.0-53-generic (ubuntu) 	12/15/2016 	_x86_64_	(3 CPU)</span><br><span class="line"></span><br><span class="line">avg-cpu:  %user   %nice %system %iowait  %steal   %idle</span><br><span class="line">           0.33    0.00    0.36    0.12    0.00   99.19</span><br><span class="line"></span><br><span class="line">Device:         rrqm/s   wrqm/s     r/s     w/s    rkB/s    wkB/s avgrq-sz avgqu-sz   await r_await w_await  svctm  %util</span><br><span class="line">sda               0.08     3.01   20.35    3.14   231.60 31400.10  2692.38     0.01    0.45    0.37    0.96   0.19   0.45</span><br><span class="line">scd0              0.00     0.00    0.01    0.00     0.03     0.00     8.00     0.00    0.31    0.31    0.00   0.31   0.00</span><br></pre></td></tr></table></figure>
+<h3 id="cpu"><a href="#cpu" class="headerlink" title="cpu"></a>cpu</h3><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%user</td>
+<td>CPU处在用户模式下的时间百分比。</td>
+</tr>
+<tr>
+<td>%nice</td>
+<td>CPU处在带NICE值的用户模式下的时间百分比。</td>
+</tr>
+<tr>
+<td>%system</td>
+<td>CPU处在系统模式下的时间百分比。</td>
+</tr>
+<tr>
+<td>%iowait</td>
+<td>CPU等待输入输出完成时间的百分比。</td>
+</tr>
+<tr>
+<td>%steal</td>
+<td>管理程序维护另一个虚拟处理器时，虚拟CPU的无意识等待时间百分比。</td>
+</tr>
+<tr>
+<td>%idle</td>
+<td>CPU空闲时间百分比。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果%iowait的值过高，表示硬盘存在I/O瓶颈<br>%idle值高，表示CPU较空闲，如果%idle值高但系统响应慢时，有可能是CPU等待分配内存，此时应加大内存容量。%idle值如果持续低于10，那么系统的CPU处理能力相对较低，表明系统中最需要解决的资源是CPU。</p>
+</blockquote>
+<h2 id="Device"><a href="#Device" class="headerlink" title="Device"></a>Device</h2><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>rrqm/s</td>
+<td>每秒进行 merge 的读操作数目。即 rmerge/s</td>
+</tr>
+<tr>
+<td>wrqm/s</td>
+<td>每秒进行 merge 的写操作数目。即 wmerge/s</td>
+</tr>
+<tr>
+<td>r/s</td>
+<td>每秒完成的读 I/O 设备次数。即 rio/s</td>
+</tr>
+<tr>
+<td>w/s</td>
+<td>每秒完成的写 I/O 设备次数。即 wio/s</td>
+</tr>
+<tr>
+<td>rsec/s</td>
+<td>每秒读扇区数。即 rsect/s</td>
+</tr>
+<tr>
+<td>wsec/s</td>
+<td>每秒写扇区数。即 wsect/s</td>
+</tr>
+<tr>
+<td>rkB/s</td>
+<td>每秒读K字节数。是 rsect/s 的一半，因为每扇区大小为512字节。</td>
+</tr>
+<tr>
+<td>wkB/s</td>
+<td>每秒写K字节数。是 wsect/s 的一半。</td>
+</tr>
+<tr>
+<td>avgrq-sz</td>
+<td>平均每次设备I/O操作的数据大小 (扇区)。</td>
+</tr>
+<tr>
+<td>avgqu-sz</td>
+<td>平均I/O队列长度(分配给设备的平均请求数)。大于1表示设备已经饱和了。（不过有些设备可以并行处理请求，比如由多个磁盘组成的虚拟设备）</td>
+</tr>
+<tr>
+<td>await</td>
+<td>平均每次设备I/O操作的等待时间 (毫秒)。包括了队列时间和服务时间</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>svctm</td>
+<td>平均每次设备I/O操作的服务时间 (毫秒)。</td>
+</tr>
+<tr>
+<td>%util</td>
+<td>一秒中有百分之多少的时间用于 I/O 操作，即被io消耗的cpu百分比</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>如果 %util 接近 100%，说明产生的I/O请求太多，I/O系统已经满负荷，该磁盘可能存在瓶颈。<br>可以结合vmstat 查看查看b参数(等待资源的进程数)和wa参数(IO等待所占用的CPU时间的百分比，高过30%时IO压力高)。<br>%util低于60%通常是低性能的表现<br>如果 svctm 比较接近 await，说明 I/O 几乎没有等待时间；如果 await 远大于 svctm，说明I/O 队列太长，io响应太慢，则需要进行必要优化。<br>如果avgqu-sz比较大，也表示有大量io在等待。</p>
+</blockquote>
+<p>公式：<br>设备IO操作:总IO(io)/s = r/s(读) +w/s(写)<br>当前硬盘的超载比率： avgqu-sz /(r/s+r/w) <em>100<br>处理的请求数/s＝(r/s+r/w)</em>await / 1000ms</p>
+<p>util 表示I/O利用率，<br>在统计时间内所有处理IO时间，除以总共统计时间。例如，如果统计间隔1秒，该设备有0.8秒在处理IO，而0.2秒闲置，那么该设备的%util = 0.8/1 = 80%，所以该参数暗示了设备的繁忙程度</p>
+<blockquote>
+<p>监控磁盘使用率有两个目的。第一个目的与应用本身有关：如果应用正在做大量的磁盘 I/O 操作，那 I/O 就很容易成为瓶颈<br>监控磁盘使用率的第二个理由是——即便预计应用不会有很高的 I/O——有助于监控系统是否在进行内存交换。<br>正在内存交换的系统——从主内存移动数据到磁盘或者反过来——一般来说，性能比较差。还有其他系统工具可以报告系统交换，例如 vmstat 输出中有两列（si 是换进，so 是换出）可以警告我们系统是否正在交换。磁盘活动说明内存交换可能正在发生。</p>
+</blockquote>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-C</td>
+<td>显示CPU使用情况</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示磁盘使用情况</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>以 KB 为单位显示</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>以 M 为单位显示</td>
+</tr>
+<tr>
+<td>-N</td>
+<td>显示磁盘阵列(LVM)</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示NFS</td>
+</tr>
+<tr>
+<td>-p[磁盘]</td>
+<td>显示磁盘和分区的情况</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示终端和CPU的信息</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>显示详细信息</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>显示版本信息</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用法举例"><a href="#用法举例" class="headerlink" title="用法举例"></a>用法举例</h2><h2 id="查看TPS和吞吐量"><a href="#查看TPS和吞吐量" class="headerlink" title="查看TPS和吞吐量"></a>查看TPS和吞吐量</h2><p><code>iostat -d -k 1 1</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn</span><br><span class="line">sda              18.62       183.15     24832.22     403119   54655472</span><br><span class="line">scd0              0.01         0.02         0.00         52          0</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tps</td>
+<td>该设备每秒的传输次数,一次传输意思是一次I/O请求。多个逻辑请求可能会被合并为“一次I/O请求”。“一次传输”请求的大小是未知的。</td>
+</tr>
+<tr>
+<td>kB_read/s</td>
+<td>每秒从设备（drive expressed）读取的数据量；</td>
+</tr>
+<tr>
+<td>kB_wrtn/s</td>
+<td>每秒向设备（drive expressed）写入的数据量；</td>
+</tr>
+<tr>
+<td>kB_read</td>
+<td>读取的总数据量；kB_wrtn</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查看设备使用率（-util）和响应时间（await）"><a href="#查看设备使用率（-util）和响应时间（await）" class="headerlink" title="查看设备使用率（%util）和响应时间（await）"></a>查看设备使用率（%util）和响应时间（await）</h2><p><code>iostat -d -x -k 1 1</code></p>
+<p>##查看某个磁盘的使用情况<br>iostat -dmx 1 2 /dev/sda</p>
+<p>iostat -x sda sdb 2 6         #每隔2秒显示6次sda和sdb的扩展统计<br>$ iostat -p sda 2 6             #每隔2秒显示6次sda和它的分区的统计</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/11/06/22programming/配置管理/git入门/" class="pre-post btn btn-default" title="git入门">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">git入门</span>
+        </a>
+    
+    
+        <a href="/2016/11/06/13基础技术/linux/linuxshell总结/" class="next-post btn btn-default" title="Linux shell 总结">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Linux shell 总结</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段描述"><span class="toc-text">字段描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cpu"><span class="toc-text">cpu</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Device"><span class="toc-text">Device</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法举例"><span class="toc-text">用法举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看TPS和吞吐量"><span class="toc-text">查看TPS和吞吐量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看设备使用率（-util）和响应时间（await）"><span class="toc-text">查看设备使用率（%util）和响应时间（await）</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

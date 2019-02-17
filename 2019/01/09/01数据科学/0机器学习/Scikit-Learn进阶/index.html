@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Scikit-Learn进阶 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Scikit-Learn进阶">
+            
+	            Scikit-Learn进阶
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/机器学习">
+            机器学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+                    <a href="/tags/Scikit-Learn" title="Scikit-Learn">
+                        Scikit-Learn
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Scikit高级特性"><a href="#Scikit高级特性" class="headerlink" title="Scikit高级特性"></a>Scikit高级特性</h1><p>scikit-learn还提供了一下其他方便的特性。</p>
+<h2 id="管道（Pipeline）"><a href="#管道（Pipeline）" class="headerlink" title="管道（Pipeline）"></a>管道（Pipeline）</h2><p><a href="http://scikit-learn.org/stable/modules/pipeline.html" target="_blank" rel="noopener">http://scikit-learn.org/stable/modules/pipeline.html</a></p>
+<h2 id="网格搜索（Grid-search）"><a href="#网格搜索（Grid-search）" class="headerlink" title="网格搜索（Grid-search）"></a>网格搜索（Grid-search）</h2><p>超参数在参数估计中是不直接学习的，在scikit-learn库中，超参数会作为参数传递给估计类的构造函数，然后在超参数空间中搜索最佳的交叉验证分数在构建参数估计量时提供的任何参数都是可以用这种方式进行优化的。</p>
+<h2 id="验证曲线（Validation-curves）"><a href="#验证曲线（Validation-curves）" class="headerlink" title="验证曲线（Validation curves）"></a>验证曲线（Validation curves）</h2><p>每种估计方法都有其优缺点，它的泛化误差可以用偏差、方差和噪音来分解。估计量的偏差就是不同训练集的平均误差；估计量的方差是表示对不同训练集的敏感程度；噪声是数据本身的一个属性。</p>
+<p>绘制单个超参数对训练分数和验证分数的影响是非常有用的，因为从图中可以看出估计量对于某些超参数值是过拟合还是欠拟合。在Scikit-learn库中，有一个内置方法是可以实现以上过程的。</p>
+<h2 id="分类数据的独热编码（One-hot-encoding-of-categorical-data）"><a href="#分类数据的独热编码（One-hot-encoding-of-categorical-data）" class="headerlink" title="分类数据的独热编码（One-hot encoding of categorical data）"></a>分类数据的独热编码（One-hot encoding of categorical data）</h2><p>这是一种非常常见的数据预处理步骤，在分类或预测任务中（如混合了数量型和文本型特征的逻辑回归），常用于对多分类变量进行二分类编码。Scikit-learn库提供了有效而简单的方法来实现这一点。它可以直接在Pandas数据框或Numpy数组上运行，因此用户就可以为这些数据转换编写一些特殊的映射函数或应用函数。</p>
+<h2 id="多项式特征生成（Polynomial-feature-generation）"><a href="#多项式特征生成（Polynomial-feature-generation）" class="headerlink" title="多项式特征生成（Polynomial feature generation）"></a>多项式特征生成（Polynomial feature generation）</h2><p>对于无数的回归建模任务来说，一种常用的增加模型复杂程度的有效方法是增加解释变量的非线性特征。一种简单而常用的方法就是多项式特征，因为它可以得到特征的高阶项和交叉项。而Scikit-learn库中有现成的函数，它可根据给定的特征集和用户选择的最高多项式生成更高阶的交叉项。</p>
+<h2 id="数据集生成器（Dataset-generators）"><a href="#数据集生成器（Dataset-generators）" class="headerlink" title="数据集生成器（Dataset generators）"></a>数据集生成器（Dataset generators）</h2><p>Scikit-learn库包含各种随机样本生成器，可以根据不同大小和复杂程度来构建人工数据集，且具有分类、聚类、回归、矩阵分解和流形测试的功能。</p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="http://baijiahao.baidu.com/s?id=1600375182495419726&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">http://baijiahao.baidu.com/s?id=1600375182495419726&amp;wfr=spider&amp;for=pc</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/01/09/01数据科学/0机器学习/Scikit-Learn入门/" class="pre-post btn btn-default" title="Scikit-Learn入门学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Scikit-Learn入门学习</span>
+        </a>
+    
+    
+        <a href="/2019/01/07/22programming/python/Pandas分组/" class="next-post btn btn-default" title="Pandas分组技术">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Pandas分组技术</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scikit高级特性"><span class="toc-text">Scikit高级特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#管道（Pipeline）"><span class="toc-text">管道（Pipeline）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#网格搜索（Grid-search）"><span class="toc-text">网格搜索（Grid-search）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证曲线（Validation-curves）"><span class="toc-text">验证曲线（Validation curves）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类数据的独热编码（One-hot-encoding-of-categorical-data）"><span class="toc-text">分类数据的独热编码（One-hot encoding of categorical data）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#多项式特征生成（Polynomial-feature-generation）"><span class="toc-text">多项式特征生成（Polynomial feature generation）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集生成器（Dataset-generators）"><span class="toc-text">数据集生成器（Dataset generators）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,499 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>MQ简单学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MQ简单学习">
+            
+	            MQ简单学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/基础技术">
+            基础技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/消息队列" title="消息队列">
+                        消息队列
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/09/04</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>896</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="MQ"><a href="#MQ" class="headerlink" title="MQ"></a>MQ</h1><p>MQ全称为Message Queue, 消息队列（MQ）是一种应用程序对应用程序的通信方法。。</p>
+<a id="more"></a>
+<p>#JMS规范#</p>
+<p>JMS(Java Message Service)  即Java消息服务。它提供标准的产生、发送、接收消息的接口简化企业应用的开发。<br>它支持两种消息通信模型：点到点（point-to-point）（P2P）模型和发布/订阅（Pub/Sub）模型。</p>
+<p>当采用点对点模型时，消息将发送到一个队列，该队列的消息只能被一个消费者消费。</p>
+<p>而采用发布订阅模型时，消息可以被多个消费者消费。<br>在发布订阅模型中，生产者和消费者完全独立，不需要感知对方的存在。</p>
+<p>消息如何从producer端达到consumer端由message-routing来决定。在JMS中，消息路由非常简单，由producer和consumer链接到同一个queue（p2p）或者topic（pub/sub）来实现消息的路由。JMSconsumer同时支持message selector（消息选择器），通过消息选择器，consumer可以只消费那些通过了selector筛选的消息。在JMS中，消息路由机制的图示如下：</p>
+<p><img src="!--￼0--&gt;/image/mq/jms-mq.png" alt="type"></p>
+<h2 id="几个重要概念"><a href="#几个重要概念" class="headerlink" title="几个重要概念"></a>几个重要概念</h2><p> Destination：消息发送的目的地，也就是前面说的Queue和Topic。创建好一个消息之后，只需要把这个消息发送到目的地，消息的发送者就可以继续做自己的事情，而不用等待消息被处理完成。至于这个消息什么时候，会被哪个消费者消费，完全取决于消息的接受者。 </p>
+<p>  Message：从字面上就可以看出是被发送的消息。它有下面几种类型：<br>                   StreamMessage：Java 数据流消息，用标准流操作来顺序的填充和读取。<br>                   MapMessage：一个Map类型的消息；名称为 string 类型，而值为 Java 的基本类型。<br>                   TextMessage：普通字符串消息，包含一个String。<br>                   ObjectMessage：对象消息，包含一个可序列化的Java 对象<br>                   BytesMessage：二进制数组消息，包含一个byte[]。<br>                   XMLMessage:  一个XML类型的消息。<br>               最常用的是TextMessage和ObjectMessage。 </p>
+<pre><code>   Session：与JMS提供者所建立的会话，通过Session我们才可以创建一个Message。 
+   Connection：与JMS提供者建立的一个连接。可以从这个连接创建一个会话，即Session。 
+ConnectionFactory:那如何创建一个Connection呢？这就需要下面讲到的ConnectionFactory了。通过这个工厂类就可以得到一个与JMS提供者的连接，即Conection。 
+   Producer：消息的生产者，要发送一个消息，必须通过这个生产者来发送。 
+   MessageConsumer：与生产者相对应，这是消息的消费者或接收者，通过它来接收一个消息。
+</code></pre><h2 id="收发消息的对象创建过程"><a href="#收发消息的对象创建过程" class="headerlink" title="收发消息的对象创建过程"></a>收发消息的对象创建过程</h2><p>MS规范中，收发消息的对象创建过程如下：</p>
+<pre><code>1. 初始化ConnetionFactory
+
+2. ConnetionFactory创建Connection
+
+3. Connection创建Session
+
+4. Session创建Destination（包括Queue 和 Topic两种）
+
+5.发： Session创建消息生产者MessageProducer（收：Session创建消息消费者MessageConsumer）
+
+6.Seesion创建Message，（发：）MessageProducer发送到Destination，（收：）MessageConsumer从Destination接受消息。
+</code></pre><h2 id="ActiveMQ"><a href="#ActiveMQ" class="headerlink" title="ActiveMQ"></a>ActiveMQ</h2><p>ActiveMQ 是Apache出品，最流行的，能力强劲的开源消息总线。ActiveMQ 是一个完全支持JMS1.1和J2EE 1.4规范的 JMS Provider实现,尽管JMS规范出台已经是很久的事情了,但是JMS在当今的J2EE应用中间仍然扮演着特殊的地位。</p>
+<h3 id="主要特点"><a href="#主要特点" class="headerlink" title="主要特点"></a>主要特点</h3><ol>
+<li>多种语言和协议编写客户端。语言: Java, C, C++, C#, Ruby, Perl, Python, PHP。应用协议: OpenWire,Stomp REST,WSNotification,XMPP,AMQP</li>
+<li>完全支持JMS1.1和J2EE 1.4规范 (持久化,XA消息,事务)</li>
+<li>对Spring的支持,ActiveMQ可以很容易内嵌到使用Spring的系统里面去,而且也支持Spring2.0的特性</li>
+<li>通过了常见J2EE服务器(如 Geronimo,JBoss 4, GlassFish,WebLogic)的测试,其中通过JCA 1.5 resource adaptors的配置,可以让ActiveMQ可以自动的部署到任何兼容J2EE 1.4 商业服务器上</li>
+<li>支持多种传送协议:in-VM,TCP,SSL,NIO,UDP,JGroups,JXTA</li>
+<li>支持通过JDBC和journal提供高速的消息持久化</li>
+<li>从设计上保证了高性能的集群,客户端-服务器,点对点</li>
+<li>支持Ajax</li>
+<li>支持与Axis的整合</li>
+<li>可以很容易得调用内嵌JMS provider,进行测试</li>
+<li>ActiveMQ速度非常快；一般要比jbossMQ快10倍。</li>
+</ol>
+<p>###优点</p>
+<p>是一个快速的开源消息组件(框架)，支持集群，同等网络，自动检测，TCP，SSL，广播，持久化，XA，和J2EE1.4容器无缝结合，并且支持轻量级容器和大多数跨语言客户端上的Java虚拟机。消息异步接受，减少软件多系统集成的耦合度。消息可靠接收，确保消息在中间件可靠保存，多个消息也可以组成原子事务。<br>缺点：ActiveMQ默认的配置性能偏低，需要优化配置，但是配置文件复杂，ActiveMQ本身不提供管理工具；示例代码少；主页上的文档看上去比较全面，但是缺乏一种有效的组织方式，文档只有片段，用户很难由浅入深进行了解，二、文档整体的专业性太强。在研究阶段可以通过查maillist、看Javadoc、分析源代码来了解。</p>
+<p>###安装和启动</p>
+<p>输入<code>activemq.bat start</code>，启动AMQ。</p>
+<p>AMQ的默认使用的TCP连接端口是61616，可以通过命令 <code>netstat -an|find &quot;61616&quot;</code>来测试是否启动。<br>输入ctrl + c 或者使用<code>activemq stop</code>命令，停止AMQ。</p>
+<p>admin工程是管理控制台</p>
+<p>管理控制台地址：<code>http://localhost:8161/admin</code>     用户名密码都是admin</p>
+<p>demo地址：<code>http://localhost:8161/demo</code>  默认不启动，需要在jetty中配置</p>
+<p>###管理端说明</p>
+<p><a href="http://lhbthanks.iteye.com/blog/1940767" target="_blank" rel="noopener">http://lhbthanks.iteye.com/blog/1940767</a></p>
+<p>Number Of Consumers  消费者 这个是消费者端的消费者数量 </p>
+<p>Number Of Pending Messages 等待消费的消息 这个是当前未出队列的数量。可以理解为总接收数-总出队列数<br>Messages Enqueued 进入队列的消息  进入队列的总数量,包括出队列的。 这个数量只增不减<br>Messages Dequeued 出了队列的消息  可以理解为是消费这消费掉的数量 </p>
+<h3 id="ActiveMQ应用场景"><a href="#ActiveMQ应用场景" class="headerlink" title="ActiveMQ应用场景"></a>ActiveMQ应用场景</h3><p>1、 不同语言应用集成<br>ActiveMQ 中间件用Java语言编写，因此自然提供Java客户端 API。但是ActiveMQ 也为C/C++、.NET、Perl、PHP、Python、Ruby 和一些其它语言提供客户端。在你考虑如何集成不同平台不同语言编写应用的时候，ActiveMQ 拥有巨大优势。在这样的例子中，多种客户端API通过ActiveMQ 发送和接受消息成为可能，无论使用的是什么语言。此外，ActiveMQ 还提供交叉语言功能，该功能整合这种功能，无需使用远程过程调用（RPC）确实是个优势，因为消息协助应用解耦。</p>
+<p>2、 作为RPC的替代<br>使用RPC同步调用的应用十分普遍。假设大多数客户端服务器应用使用RPC，包括ATM、大多数WEB应用、信用卡系统、销售点系统等等。尽管很多系统很成功，但是转换使用异步消息可以带来很多好处，而且也不会放弃响应保证。使用同步请求的系统在规模上有较大的限制，因为请求会被阻塞，从而导致整个系统变慢。如果使用异步消息替代，可以很容易增加额外的消息接收者，使得消息能被并发消耗，从而加快请求处理。当然，你的系统应用间应该是解耦的。</p>
+<p>3、 应用之间解耦<br>正如之前讨论的，紧耦合架构可以导致很多问题，尤其是如果他们是分布的。松耦合架构，在另一方面，证实了更少的依赖性，能够更好地处理不可预见的改变。不仅可以在系统中改变组件而不影响整个系统，而且组件交互也相当的简单。相比使用同步的系统（调用者必须等待被调用者返回信息），异步系统（调用方发送消息后就不管，即fire-and-forget）能够给我们带来事件驱动架构（event-driven architecture EDA）。</p>
+<p>4、 作为事件驱动架构的主干<br>解耦，异步架构的系统允许通过代理器自己配置更多的客户端，内存等（即vertical scalability）来扩大系统，而不是增加更多的代理器（即horizontal scalability）。考虑如亚马逊这样繁忙的电子商务系统。当用户购买物品，事实上系统需要很多步骤去处理，包括下单，创建发票，付款，执行订单，运输等。但是用户下单后，会立即返回“谢谢你下单”的界面。不只是没有延迟，而且用户还会受到一封邮件表明订单已经收到。在亚马逊下单的例子就是一个多步处理的例子。每一步都由单独的服务去处理。当用户下单是，有一个同步的体积表单动作，但整个处理流程并不通过浏览器同步处理。相反地，订单马上被接受和反馈。而剩下的步骤就通过异步处理。如果在处理过程中出错，用户会通过邮件收到通知。这样的异步处理能提供高负载和高可用性。</p>
+<p>5、 提高系统扩展性<br>很多使用事件驱动设计的系统是为了获得高可扩展性，例如电子商务，政府，制造业，线上游戏等。通过异步消息分开商业处理步骤给各个应用，能够带来很多可能性。考虑设计一个应用来完成一项特殊的任务。这就是面向服务的架构（service-oriented architecture SOA）。每一个服务完成一个功能并且只有一个功能。应用就通过服务组合起来，服务间使用异步消息和最终一致性。这样的设计便可以引入一个复杂事件处理概念（complex event processing CEP）。使用CEP，部件间的交互可以被记录追踪。在异步消息系统中，可以很容易在部件间增加一层处理。</p>
+<p><a href="http://shmilyaw-hotmail-com.iteye.com/blog/1897635" target="_blank" rel="noopener">http://shmilyaw-hotmail-com.iteye.com/blog/1897635</a></p>
+<p>###其他注意的地方<br>接收和处理消息的方法有两种，分为同步和异步的，一般同步的方式我们是通过MessageConsumer.receive()方法来处理接收到的消息。而异步的方法则是通过注册一个MessageListener的方法，使用MessageConsumer.setMessageListener()。</p>
+<h2 id="RabbitMQ"><a href="#RabbitMQ" class="headerlink" title="RabbitMQ"></a>RabbitMQ</h2><p><a href="http://www.cnblogs.com/leocook/p/mq_rabbitmq_0.html" target="_blank" rel="noopener">http://www.cnblogs.com/leocook/p/mq_rabbitmq_0.html</a></p>
+<p>RabbitMQ是流行的开源消息队列系统，用erlang语言开发。RabbitMQ是AMQP（高级消息队列协议）的标准实现。他遵循Mozilla Public License开源协议。</p>
+<p>###安装和启动###</p>
+<pre><code>wget http://www.erlang.org/download/otp_src_17.3.tar.gz
+
+tar zxvf otp_src_17.3.tar.gz
+
+./configure --prefix=/home/ww/erlang
+
+sudo aptitude install libncurses5-dev
+
+make  make install
+
+tar zxvf　rabbitmq-server-generic-unix-3.3.5.tar.gz
+
+export PATH=$PATH:/usr/rabbitmq_server-3.3.5/sbin
+
+./rabbitmq-server start
+</code></pre><p>abbitmq web管理页面插件安装</p>
+<pre><code>./rabbitmq-plugins enable rabbitmq_management
+</code></pre><p>之后，netstat -napt|grep 5672 就会看到</p>
+<p>tcp        0      0 0.0.0.0:15672               0.0.0.0:<em>                   LISTEN      2506/beam.smp<br>tcp        0      0 0.0.0.0:55672               0.0.0.0:</em>                   LISTEN      2506/beam.smp<br>tcp        0      0 :::5672                     :::*                        LISTEN      2506/beam.smp</p>
+<p>通过 <a href="http://127.0.0.1:15672，和guest:guest的用户名密码就能登录管理页面了" target="_blank" rel="noopener">http://127.0.0.1:15672，和guest:guest的用户名密码就能登录管理页面了</a></p>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图　"></a>流程图　</h3><p><img src="!--￼1--&gt;/image/java-base/rabb.png" alt="type"></p>
+<p>RabbitMQ的消息发送模型核心思想是生产者不直接把消息发送到消息队列中</p>
+<h3 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念"></a>几个概念</h3><p>Broker：即消息队列服务器实体</p>
+<p>Exchange：消息交换机，它指定消息按什么规则，路由到哪个队列。</p>
+<p>Queue：消息队列载体，每个消息都会被投入到一个或多个队列。</p>
+<p>Binding：绑定，它的作用就是把exchange和queue按照路由规则绑定起来。</p>
+<p>Routing Key：路由关键字，exchange根据这个关键字进行消息投递。</p>
+<p>vhost：虚拟主机，一个broker里可以开设多个vhost，用作不同用户的权限分离。</p>
+<p>producer：消息生产者，就是投递消息的程序。</p>
+<p>consumer：消息消费者，就是接受消息的程序。</p>
+<p>channel：消息通道，在客户端的每个连接里，可建立多个channel，每个channel代表一个会话任务</p>
+<p>###　工作过程</p>
+<p>生产者客户端：</p>
+<ol>
+<li>客户端连接到RabbitMQ服务器上，打开一个消息通道（channel）；</li>
+<li>客户端声明一个消息交换机（exchange），并设置相关属性。</li>
+<li>客户端声明一个消息队列（queue），并设置相关属性。</li>
+<li>客户端使用routing key在消息交换机（exchange）和消息队列（queue）中建立好绑定关系。</li>
+<li>客户端投递消息都消息交换机（exchange）上</li>
+<li>客户端关闭消息通道（channel）以及和服务器的连接。</li>
+</ol>
+<p>服务器端：</p>
+<p>exchange接收到消息后，根据消息的key和以及设置的binding，进行消息路由，将消息投递到一个或多个消息队列中。</p>
+<h3 id="exchange类型"><a href="#exchange类型" class="headerlink" title="exchange类型"></a>exchange类型</h3><p>(1). Direct交换机：完全根据key进行投递。例如，绑定时设置了routing key为abc，客户端提交信息提交信息时只有设置了key为abc的才会投递到队列；</p>
+<p>(2).Topic交换机：在key进行模式匹配后进行投递。例如：符号”#”匹配一个或多个字符，符号”<em>”匹配一串连续的字母字符，例如”abc.#”可以匹配”abc.def.ghi”，而”abc.</em>”只可以匹配”abc.def”。</p>
+<p>(3).Fanout交换机：它采取广播模式，消息进来时，将会被投递到与改交换机绑定的所有队列中。</p>
+<p>RabbitMQ默认有一个exchange，叫default exchange，它用一个空字符串表示，它是direct exchange类型</p>
+<h3 id="RabbitMQ的消息持久化"><a href="#RabbitMQ的消息持久化" class="headerlink" title="RabbitMQ的消息持久化"></a>RabbitMQ的消息持久化</h3><p>RabbitMQ支持数据持久化，也就是把数据写在磁盘上，可以增加数据的安全性。消息队列持久化包括三个部分：</p>
+<p>消息交换机（exchange）持久化，在声明时指定durable为1<br>消息队列（queue）持久化，在声明时指定durable为1<br>消息持久化，在投递时指定delivery_mode为2（1是非持久化）<br>如果消息交换机（exchange）和消息队列（queue）都是持久化的话，那么他们之间的绑定（Binding）也是持久化的。如果消息交换机和消息队列之间一个持久化、一个非持久化，那么就不允许绑定。</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>在向消费者推送某条消息后，RabbitMQ会立刻删除掉这条消息。这样的话，如果我们kill掉某个worker的话，那么我们将会流失掉该worker正在处理任务的消息（改任务未处理完成），我们也会丢失所有被发送到这个消费者且未处理完成的消息。</p>
+<p>但是，我们不想丢失这部分消息，我们希望这类消息可以再次被发送到其它worker那。</p>
+<p>为了保证永远不会丢失消息，RabbitMQ支持消息应答机制。当消费者接收到消息并完成任务后会往RabbitMQ服务器发送一条确认的命令，然后RabbitMQ才会将消息删除。</p>
+<p>RabbitMQ接收到消息后，首先会把该消息写到内存缓冲区中，并不是直接把单条消息实时写到磁盘上的。消息的持久化不是健壮的，但是对于简单的任务队列是够用了。如果你需要一套很健壮的持久化方案，那么你可以使用publisher confirms</p>
+<p>使用消息应答机制和prefetchCount可以实现一个工作队列了。持久化的选项可以使任务即使队列和消息即使在RabbitMQ重启后，依然不会丢失。</p>
+<p>总结：</p>
+<ol>
+<li><p>消费者端在信道上打开消息应答机制，并确保能返回接收消息的确认信息，这样可以保证消费者发生故障也不会丢失消息。</p>
+</li>
+<li><p>服务器端和客户端都要指定队列的持久化和消息的持久化，这样可以保证RabbitMQ重启，队列和消息也不会。</p>
+</li>
+<li><p>指定消费者接收的消息个数，避免出现消息均匀推送出现的资源不合理利用的问题。</p>
+</li>
+</ol>
+<p>###　负载均衡　###</p>
+<h3 id="实现——一个已经命名的队列里发送和接收消息"><a href="#实现——一个已经命名的队列里发送和接收消息" class="headerlink" title="实现——一个已经命名的队列里发送和接收消息"></a>实现——一个已经命名的队列里发送和接收消息</h3><h3 id="实现——工作队列"><a href="#实现——工作队列" class="headerlink" title="实现——工作队列"></a>实现——工作队列</h3><p><img src="!--￼2--&gt;/image/java-base/work1.png" alt="type"></p>
+<p>使用Work Queue,rabbitMQ把每条任务消息只发给一个消费者。</p>
+<p>工作队列的主要思想就是避开立刻处理某个资源消耗交大的任务并且需要等待它执行完成。取而代之的是我们可以将它加入计划列表，并在后边执行这些任务。我们将任务分装成一个消息，并发送到队列中。后台的工作程序在接收到消息后将会立刻执行任务。当运行多个执行器时，任务将会在他们之间共享。</p>
+<p>这个概念在web应用程序中是比较实用的，对于一些在一个短的http请求里无法完成的复杂任务。</p>
+<p>channel执行basicConsume方法时autoAck为false，这就意味着接受者在收到消息后需要主动通知RabbitMQ才能将该消息从队列中删除，否则该在接收者跟MQ连接没断的情况下，消息将会变为untracked状态，一旦接收者断开连接，消息重新变为ready状态。</p>
+<p>RabbitMQ不允许你重新定义一个已经存在的消息队列，如果你尝试着去修改它的某些属性的话，那么你的程序将会报错。所以，这里你需要更换一个消息队列名称。</p>
+<p>标记消息持久化并不能百分百的保证消息一定不会被丢失，虽然RabbitMQ会把消息写到磁盘上，但是从RabbitMQ接收到消息到写到磁盘上，这个短时间的过程中发生的RabbitMQ重启依然会使得为写入到磁盘的消息被丢失。事实上是这样的，RabbitMQ接收到消息后，首先会把该消息写到内存缓冲区中，并不是直接把单条消息实时写到磁盘上的。消息的持久化不是健壮的，但是对于简单的任务队列是够用了。如果你需要一套很健壮的持久化方案，那么你可以使用publisher confirms（稍后会更新详细的使用方法）。</p>
+<h3 id="发布-订阅-Publish-Subscribe"><a href="#发布-订阅-Publish-Subscribe" class="headerlink" title="发布/订阅 Publish/Subscribe"></a>发布/订阅 Publish/Subscribe</h3><p>把一条消息推送给多个消费者，这种模式被称为publish/subscribe（发布/订阅）</p>
+<p>无论什么时候我们和RabbitMQ建立连接时，我们都要刷新、清空Queue。为了达到这一的目的，我们可以用一个随机的名字（随机性可由自己来定义）来创建Queue，也可以让服务器来自动建立一个随见的Queue。<br>当消费者断开连接时，Queue能自动被删除。<br>使用Java客户端时，我们使用无参数的queueDeclare方法，就可以创建一个已经生成名字的、排他性的且会自动删除的Queue：</p>
+<p>String queueName = channel.queueDeclare().getQueue();</p>
+<h3 id="消费者端怎么才能拿到生产者发送消息中的部分消息"><a href="#消费者端怎么才能拿到生产者发送消息中的部分消息" class="headerlink" title="消费者端怎么才能拿到生产者发送消息中的部分消息?"></a>消费者端怎么才能拿到生产者发送消息中的部分消息?</h3><p>一个感兴趣的日志级别进行绑定</p>
+<p>更复杂一点的使用Topic类型的exchange</p>
+<h3 id="用RabbitMQ来构建一个RPC系统"><a href="#用RabbitMQ来构建一个RPC系统" class="headerlink" title="用RabbitMQ来构建一个RPC系统"></a>用RabbitMQ来构建一个RPC系统</h3><p>RPC工作原理如下：</p>
+<p>当Client启动时，它将会创建一个匿名的callback queue。<br>对于一次RPC请求，client会发送一条含有两个属性的消息：replyTo和correlationId。Reply是设置的callback queue，correlationId是设置的当前请求的标示符。<br>请求将会被发送到rpc_queue里。<br>RPC的worker（RPC server）等待queue中的请求。当出现一个请求之后，他将会处理任务，并向replyTo队列中发送消息。<br>客户端会等待callback queue上的消息。当消息出现时，它将会检查correlationId属性是否能与之前发送请求时的属性一直，若一致的话，client将会处理回复的消息。</p>
+<h2 id="RocketMQ"><a href="#RocketMQ" class="headerlink" title="RocketMQ"></a>RocketMQ</h2><p>RocketMQ是一款分布式、队列模型的消息中间件，具有以下特点：</p>
+<ol>
+<li>支持严格的消息顺序；</li>
+<li>支持Topic与Queue两种模式；</li>
+<li>亿级消息堆积能力；</li>
+<li>比较友好的分布式特性；</li>
+<li>同时支持Push与Pull方式消费消息；</li>
+</ol>
+<h2 id="Kafka"><a href="#Kafka" class="headerlink" title="Kafka"></a>Kafka</h2><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a href="http://sswh.iteye.com/blog/1974131" target="_blank" rel="noopener">ActiveMQ学习笔记</a></li>
+<li><a href="http://m.oschina.net/blog/300354" target="_blank" rel="noopener">Kafka学习笔记01</a></li>
+<li><a href="http://m.oschina.net/blog/284859" target="_blank" rel="noopener">ActiveMQ学习笔记01 - 客户端与服务器之间的传输连接</a></li>
+<li><a href="http://www.tuicool.com/topics/11070022" target="_blank" rel="noopener">推库ActiveMQ</a></li>
+<li><a href="http://www.tuicool.com/articles/bAbMb2" target="_blank" rel="noopener">ActiveMQ In Action 学习笔记</a></li>
+<li><a href="http://stephansun.iteye.com/blog/1452853" target="_blank" rel="noopener">JMS、AMQP实例讲解</a></li>
+<li><a href="http://www.51cto.com/specbook/223/33335.htm" target="_blank" rel="noopener">用Spring JMS使异步消息变得简单</a></li>
+<li><a href="http://www.cnblogs.com/leocook/p/mq_rabbitmq_0.html" target="_blank" rel="noopener">RabbitMQ学习总结</a></li>
+<li><a href="http://www.cnblogs.com/shanyou/p/3902905.html" target="_blank" rel="noopener">CentOS 7 安装RabbitMQ 3.3</a></li>
+<li><a href="http://www.cnblogs.com/liping13599168/articles/1915245.html" target="_blank" rel="noopener">MQ双修之(ActiveMq &amp; RabbitMQ)</a></li>
+<li><a href="http://baike.baidu.com/link?url=MtuDJCO8XNLrgtVd6Db9xEAWwONwXLyz87997sTDtsmPFFgshzS-W0StdPY7s60UbJS-3H8fuMmiYMerkiTi3q" target="_blank" rel="noopener">百度rabbitmq</a></li>
+<li><a href="http://shmilyaw-hotmail-com.iteye.com/blog/1897635" target="_blank" rel="noopener">activemq的几种基本通信方式总结</a></li>
+<li><a href="http://my.oschina.net/xiaoxishan/blog/378743" target="_blank" rel="noopener">ActiveMQ学习笔记</a><br>-<a href="http://blog.yemou.net/article/query/info/tytfjhfascvhzxcyt127" target="_blank" rel="noopener">MQ、JMS以及ActiveMQ 关系的理解</a><br>-<a href="http://www.cnblogs.com/guthing/archive/2010/06/12/1757125.html" target="_blank" rel="noopener">深入掌握JMS</a><br>-<a href="http://www.csdn123.com/html/mycsdn20140110/8f/8f42bb0680685c547107a0079e557686.html" target="_blank" rel="noopener">消息队列之JMS和AMQP对比</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/09/04/11容器技术/docker入门/" class="pre-post btn btn-default" title="Docker简介和安装">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Docker简介和安装</span>
+        </a>
+    
+    
+        <a href="/2016/05/06/13基础技术/linux/Linux数字转换/" class="next-post btn btn-default" title="Linux中十进制和其他进制的互换">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Linux中十进制和其他进制的互换</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MQ"><span class="toc-text">MQ</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个重要概念"><span class="toc-text">几个重要概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#收发消息的对象创建过程"><span class="toc-text">收发消息的对象创建过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ActiveMQ"><span class="toc-text">ActiveMQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#主要特点"><span class="toc-text">主要特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ActiveMQ应用场景"><span class="toc-text">ActiveMQ应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RabbitMQ"><span class="toc-text">RabbitMQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#流程图"><span class="toc-text">流程图　</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#几个概念"><span class="toc-text">几个概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#exchange类型"><span class="toc-text">exchange类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RabbitMQ的消息持久化"><span class="toc-text">RabbitMQ的消息持久化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现——一个已经命名的队列里发送和接收消息"><span class="toc-text">实现——一个已经命名的队列里发送和接收消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现——工作队列"><span class="toc-text">实现——工作队列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#发布-订阅-Publish-Subscribe"><span class="toc-text">发布/订阅 Publish/Subscribe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#消费者端怎么才能拿到生产者发送消息中的部分消息"><span class="toc-text">消费者端怎么才能拿到生产者发送消息中的部分消息?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用RabbitMQ来构建一个RPC系统"><span class="toc-text">用RabbitMQ来构建一个RPC系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ"><span class="toc-text">RocketMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka"><span class="toc-text">Kafka</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文献"><span class="toc-text">参考文献</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+ tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+ TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+ messageStyle: "none"
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script charset="utf-8" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

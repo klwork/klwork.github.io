@@ -1,0 +1,525 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>systemtap学习总结 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="systemtap学习总结">
+            
+	            systemtap学习总结
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>833</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="systemtap简介"><a href="#systemtap简介" class="headerlink" title="systemtap简介"></a>systemtap简介</h1><h1 id="systemtap安装测试"><a href="#systemtap安装测试" class="headerlink" title="systemtap安装测试"></a>systemtap安装测试</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装elfutils，提供分析调试信息的库函数，及libcap-dev</p>
+<p><code>sudo apt-get install elfutils</code></p>
+<p><code>sudo apt-get install  libcap-dev</code></p>
+<p><code>sudo apt-get install systemtap</code></p>
+<p>测试</p>
+<p><code>stap-prep</code></p>
+<p>出现如下错误<br>You need package linux-image-4.4.0-47-generic-dbgsym but it does not seem to be available</p>
+<p>由于发行版的内核默认无内核调试信息，所以需要一个调试内核镜像</p>
+<p><code>wget http://ddebs.ubuntu.com/pool/main/l/linux/linux-image-4.4.0-47-generic-dbgsym_4.4.0-47.68_amd64.ddeb</code></p>
+<p><code>dpkg -i linux-image-4.4.0-47-generic-dbgsym_4.4.0-47.68_amd64.ddeb</code></p>
+<blockquote>
+<p>查询内核版本的方法<br><code>cat /proc/version_signature</code><br>或者<code>uname -r</code></p>
+</blockquote>
+<h2 id="执行测试"><a href="#执行测试" class="headerlink" title="执行测试"></a>执行测试</h2><p><code>stap -ve &#39;probe begin { log(&quot;hello world&quot;) exit() }&#39;</code></p>
+<p>没有出现错误，表示成功.<br>-v 打印编译阶段的详细信息</p>
+<h1 id="systemtap原理"><a href="#systemtap原理" class="headerlink" title="systemtap原理"></a>systemtap原理</h1><p>SystemTap采用其他的内核框架做源：静态指针使用tracepoints,动态指针使用Kprobe。用户级别的使用uprobes。</p>
+<p>Kprobes 从 2.6.9 版本开始就添加到主流的 Linux 内核中。它提供一些不同的服务，但最重要的两种服务是 Kprobe 和 Kretprobe。</p>
+<p>Kprobe 特定于架构，它在需要检查的指令的第一个字节中插入一个断点指令。当调用该指令时，将执行针对探针的特定处理函数。执行完成之后，接着执行原始的指令（从断点开始）。</p>
+<blockquote>
+<p>断点指令(breakpoint instruction)：__asm INT 3，机器码为CC。<br>断点中断(INT3)是一种软中断，当执行到INT 3指令时，CPU会把当时的程序指针(CS和EIP)压入堆栈保存起来，<br>然后通过中断向量表调用INT 3所对应的中断例程。<br>INT是软中断指令，中断向量表是中断号和中断处理函数地址的对应表。<br>INT 3即触发软中断3，相应的中断处理函数的地址为：中断向量表地址 + 4 * 3。</p>
+</blockquote>
+<p>Kretprobes 有所不同，它操作调用函数的返回结果。注意，因为一个函数可能有多个返回点，所以听起来事情有些复杂。不过，它实际使用一种称为 trampoline 的简单技术。您将向函数条目添加一小段代码，而不是检查函数中的每个返回点。这段代码使用 trampoline 地址替换堆栈上的返回地址 （Kretprobe 地址）。当该函数存在时，它没有返回到调用方，而是调用 Kretprobe（执行它的功能），然后从 Kretprobe 返回到实际的调用方。</p>
+<p>stap 实用程序将 stap 脚本转换成提供探针行为的内核模块。</p>
+<h1 id="SystemTap-脚本"><a href="#SystemTap-脚本" class="headerlink" title="SystemTap 脚本"></a>SystemTap 脚本</h1><p>查看一个脚本，nethist.stp</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">global histogram</span><br><span class="line"></span><br><span class="line">probe begin &#123;</span><br><span class="line">  printf(&quot;Capturing...\n&quot;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe netdev.receive &#123;</span><br><span class="line">  histogram &lt;&lt;&lt; length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe netdev.transmit &#123;</span><br><span class="line">  histogram &lt;&lt;&lt; length</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">probe end &#123;</span><br><span class="line">  printf( &quot;\n&quot; )</span><br><span class="line">  print( @hist_log(histogram) )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行<br><code>stap nethist.stp</code></p>
+<p>用probe指定一个探测点(probe-point)(探针)，以及在这个探测点处执行的处理函数</p>
+<h2 id="常用探针类型"><a href="#常用探针类型" class="headerlink" title="常用探针类型"></a>常用探针类型</h2><table>
+<thead>
+<tr>
+<th>探针类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>begin</td>
+<td>在脚本开始时触发</td>
+</tr>
+<tr>
+<td>end</td>
+<td>在脚本结束时触发</td>
+</tr>
+<tr>
+<td>kernel.function(“sys_sync”)</td>
+<td>调用 sys_sync 时触发</td>
+</tr>
+<tr>
+<td>kernel.function(“sys_sync”).call</td>
+<td>同上</td>
+</tr>
+<tr>
+<td>kernel.function(“sys_sync”).return</td>
+<td>返回 sys_sync 时触发</td>
+</tr>
+<tr>
+<td>kernel.syscall.*</td>
+<td>进行任何系统调用时触发</td>
+</tr>
+<tr>
+<td>kernel.function(“*@kernel/fork.c:934”)</td>
+<td>到达 fork.c 的第 934 行时触发</td>
+</tr>
+<tr>
+<td>module(“ext3”).function(“ext3_file_write”)</td>
+<td>调用 ext3 write 函数时触发</td>
+</tr>
+<tr>
+<td>timer.jiffies(1000)</td>
+<td>每隔 1000 个内核 jiffy 触发一次</td>
+</tr>
+<tr>
+<td>timer.ms(200).randomize(50)</td>
+<td>每隔 200 毫秒触发一次，带有线性分布的随机附加时间（-50 到 +50）</td>
+</tr>
+</tbody>
+</table>
+<p>探测点的一般语法形式<br>kernel.function(PATTERN)<br>kernel.function(PATTERN).call<br>kernel.function(PATTERN).return</p>
+<p>缺少后缀时意味着探测函数的进入点，默认为call。</p>
+<p>.function 使探针定位在命名函数的开始之处，因此探针可用上下文变量的方式来获取函数参数。<br>.return 让探针定位到命名函数返回的那一时刻<br>.call 调用时触发,默认。<br>.statement,使探针探测到确切的代码行<br>例如：<br><code>kernel.statement(&quot;bio_init@fs/bio.c+3&quot;)</code>//引用文件fs/bio.c 内bio_init+3 这一行语句</p>
+<p>PATTERN 是一个字符串字面值，它标识程序中的代码点。它由3 部分构成。</p>
+<ol>
+<li>第一部分是函数名字，可使用星号和问号通配符来匹配多个函数名字。</li>
+<li>第二部分是可选的，它以@ 字符开头，紧跟着此函数所在源文件的路径。默认为为从Linux 代码树顶层目录开始的<strong>相对路径</strong>。</li>
+<li>如果给定文件名，第三部仍是可选的。它以“: ”或“+ ”开头，用来标识源文件的行号。<blockquote>
+<p>”:” 后面跟的是绝对行号<br>”+” 后面跟的是函数入口的相对行号<br>”:*” 匹配函数的每一行<br>”:x-y” 可以从x 行匹配到y行</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="内置变量"><a href="#内置变量" class="headerlink" title="内置变量"></a>内置变量</h2><table>
+<thead>
+<tr>
+<th>column</th>
+<th>column</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>execname()</td>
+<td></td>
+</tr>
+<tr>
+<td>uid</td>
+</tr>
+</tbody>
+</table>
+<p>##内置函数</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpu()</td>
+<td>执行当前进程的CPU number</td>
+</tr>
+<tr>
+<td>execname()</td>
+<td>返回当前执行的进程名</td>
+</tr>
+<tr>
+<td>tid</td>
+<td></td>
+</tr>
+<tr>
+<td>pid()</td>
+<td>当前进程的ID</td>
+</tr>
+<tr>
+<td>uid()</td>
+<td>当前进程的user id</td>
+</tr>
+<tr>
+<td>stp_pid()</td>
+<td></td>
+</tr>
+<tr>
+<td>pp()</td>
+<td></td>
+</tr>
+<tr>
+<td>thread_indent()</td>
+<td></td>
+</tr>
+<tr>
+<td>probefunc()</td>
+<td>返回被探测的函数名</td>
+</tr>
+<tr>
+<td>probemod()</td>
+<td></td>
+</tr>
+<tr>
+<td>print_backtrace()</td>
+<td>打印进程堆栈回朔方法</td>
+</tr>
+<tr>
+<td>strlen()</td>
+<td></td>
+</tr>
+<tr>
+<td>substr()</td>
+<td></td>
+</tr>
+<tr>
+<td>isinstr()</td>
+<td></td>
+</tr>
+<tr>
+<td>strtol()</td>
+<td></td>
+</tr>
+<tr>
+<td>get_cycles()</td>
+<td></td>
+</tr>
+<tr>
+<td>gettimeofday_s()</td>
+<td></td>
+</tr>
+<tr>
+<td>gettimeofday_ns()</td>
+<td>当前时间，自启动以来的纳秒数</td>
+</tr>
+<tr>
+<td>target()</td>
+<td></td>
+</tr>
+<tr>
+<td>task_current()</td>
+<td>指向当前线程内核结构的指针</td>
+</tr>
+</tbody>
+</table>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><p>##基本格式</p>
+<p>变量属于弱数据类型，不用事先声明，不用指定数据类型。<br>probe-handler中定义的变量是局部的，不能在其它探测点处理函数中使用。<br>global符号用于定义全局变量。</p>
+<p>String连接符是“.”，比较符为“==”。<br>next语句：执行到next语句时，会马上从探测点处理函数中返回。</p>
+<h2 id="变量的引用"><a href="#变量的引用" class="headerlink" title="变量的引用"></a>变量的引用</h2><p>$varname // 引用变量varname<br>$var-&gt;field // 引用结构的成员变量<br>$var[N] // 引用数组的元素<br>&amp;$var // 变量的地址<br>另外的风格<br>@var(“varname”) // 引用变量varname<br>@var(“var@src/file.c”) // 引用src/file.c在被编译时的全局变量varname<br>@var(“<a href="mailto:varname@file.c" target="_blank" rel="noopener">varname@file.c</a>“)-&gt;field // 引用结构的成员变量<br>@var(“<a href="mailto:var@file.c" target="_blank" rel="noopener">var@file.c</a>“)[N] // 引用数组的元素<br>&amp;@var(“<a href="mailto:var@file.c" target="_blank" rel="noopener">var@file.c</a>“) // 变量的地址</p>
+<h2 id="关联数组"><a href="#关联数组" class="headerlink" title="关联数组"></a>关联数组</h2><p>关联数组是用哈希表实现的，最大大小在一开始就设定了。<br>关联数组必须是全局的，不能在探测点处理函数内部定义。<br>数组的索引最多可以有9个，用逗号隔开，可以是数字或字符串。<br>元素的数据类型有三种：数值、字符串、统计类型。<br>例如：<br>foo[4, “hello”]++</p>
+<h2 id="统计类型"><a href="#统计类型" class="headerlink" title="统计类型"></a>统计类型</h2><p>操作符“&lt;&lt;&lt;”<br>例如：g_value &lt;&lt;&lt; b # 相当于C语言的g_value += b</p>
+<p>@count(g_value)：所有统计操作的操作次数<br>@sum(g_value)：所有统计操作的操作数的总和<br>@min(g_value)：所有统计操作的操作数的最小值<br>@max(g_value)：所有统计操作的操作数的最大值<br>@avg(g_value)：所有统计操作的操作数的平均值</p>
+<h1 id="SystemTap其他用法"><a href="#SystemTap其他用法" class="headerlink" title="SystemTap其他用法"></a>SystemTap其他用法</h1><h2 id="获取stap命令行参数"><a href="#获取stap命令行参数" class="headerlink" title="获取stap命令行参数"></a>获取stap命令行参数</h2><p>假定该脚本的名字为example.stp<br>probe begin { printf(“%d, %s/n”, $1, @2) }<br>运行如下：<br><code>stap example.stp 10 mystring</code><br>那么，$1 会被替换成10 ，而@2 会被替换成”mystring” ，结果输出：<br>10, mystring</p>
+<blockquote>
+<p>$1 … $<nn> 将参数转换成整数<br>@1 … @<nn> 将参数转换成字符串</nn></nn></p>
+</blockquote>
+<h2 id="查找匹配的内核函数和变量"><a href="#查找匹配的内核函数和变量" class="headerlink" title="查找匹配的内核函数和变量"></a>查找匹配的内核函数和变量</h2><p>查找所有的系统调用<br><code>stap -l &#39;syscall.*&#39;</code><br><code>stap -L syscall.read.return</code></p>
+<p>open系统调用在内核的实现<br><code>stap -l &#39;kernel.function(&quot;sys_open&quot;)&#39;</code><br><code>kernel.function(&quot;SyS_open@/build/linux-xHzv4a/linux-4.4.0/fs/open.c:1038&quot;)</code></p>
+<p>查找名字中包含nit的内核函数：<br><code>stap -l &#39;kernel.function(&quot;*nit*&quot;)&#39;</code></p>
+<p>查看执行到这个探测点时，哪些上下文变量是可用的<br><code>stap -L &#39;kernel.function(&quot;vfs_write&quot;)&#39;</code><br><code>stap -L &#39;netdev.transmit&#39;</code></p>
+<p>官方提供的例子参考<br><a href="https://sourceware.org/systemtap/wiki/WarStories" target="_blank" rel="noopener">https://sourceware.org/systemtap/wiki/WarStories</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="https://sourceware.org/systemtap/SystemTap_Beginners_Guide/index.html" target="_blank" rel="noopener"> SystemTap_Beginners_Guide</a></li>
+<li><a href="http://blog.csdn.net/zhangskd/article/details/27320965" target="_blank" rel="noopener"> 内核调试神器SystemTap — 探测点与语法（二）</a></li>
+<li><a href="https://www.ibm.com/developerworks/cn/linux/l-systemtap/" target="_blank" rel="noopener"> Linux 自检和 SystemTap</a></li>
+<li><a href="http://blog.csdn.net/linyt/article/details/5204841/" target="_blank" rel="noopener">System语言详解——1.SystemTap概述</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/11/06/13基础技术/linux/常用Linux系统调用/" class="pre-post btn btn-default" title="常用Linux系统调用">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">常用Linux系统调用</span>
+        </a>
+    
+    
+        <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="next-post btn btn-default" title="awk＋sed学习笔记">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">awk＋sed学习笔记</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#systemtap简介"><span class="toc-text">systemtap简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemtap安装测试"><span class="toc-text">systemtap安装测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行测试"><span class="toc-text">执行测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemtap原理"><span class="toc-text">systemtap原理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SystemTap-脚本"><span class="toc-text">SystemTap 脚本</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用探针类型"><span class="toc-text">常用探针类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内置变量"><span class="toc-text">内置变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#变量的引用"><span class="toc-text">变量的引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关联数组"><span class="toc-text">关联数组</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计类型"><span class="toc-text">统计类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SystemTap其他用法"><span class="toc-text">SystemTap其他用法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#获取stap命令行参数"><span class="toc-text">获取stap命令行参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找匹配的内核函数和变量"><span class="toc-text">查找匹配的内核函数和变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

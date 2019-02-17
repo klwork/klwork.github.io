@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Ubuntu 17环境安装和配置 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ubuntu 17环境安装和配置">
+            
+	            Ubuntu 17环境安装和配置
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Ubuntu" title="Ubuntu">
+                        Ubuntu
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/02/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="常用安装"><a href="#常用安装" class="headerlink" title="常用安装"></a>常用安装</h1><h2 id="maven和Nexus"><a href="#maven和Nexus" class="headerlink" title="maven和Nexus"></a>maven和Nexus</h2><h3 id="安装maven"><a href="#安装maven" class="headerlink" title="安装maven"></a>安装maven</h3><p>安装</p>
+<pre><code>cd /mydate/temp
+
+wget https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
+
+tar zxvf apache-maven-3.3.9-bin.tar.gz
+
+mv apache-maven-3.3.9 /opt/
+</code></pre><p>修改环境变量</p>
+<pre><code>vi /etc/profile
+</code></pre><p>将下面的内容追加到下面</p>
+<pre><code>export M2_HOME=/opt/apache-maven-3.3.9
+export PATH=${M2_HOME}/bin:$PATH
+</code></pre><p>编译测试<br>    source /etc/profile<br>    mvn -v</p>
+<h3 id="安装Nexus"><a href="#安装Nexus" class="headerlink" title="安装Nexus"></a>安装Nexus</h3><p>wget <a href="http://download.sonatype.com/nexus/oss/nexus-2.12.0-01-bundle.tar.gz" target="_blank" rel="noopener">http://download.sonatype.com/nexus/oss/nexus-2.12.0-01-bundle.tar.gz</a><br>tar zxvf nexus-2.12.0-01-bundle.tar.gz -C /opt/</p>
+<p>cd /opt/nexus-2.12.0-01/bin<br>vi nexus<br>修改<br>RUN_AS_USER=root</p>
+<p>修改nexus的工作目录<br>/opt/nexus-2.12.0-01/conf<br>修改<code>nexus-work=/mydata/data/sonatype-work/nexus</code>，修改目录权限<br>sudo chmod -R 777 sonatype-work/nexus</p>
+<p>启动<br>./nexus start</p>
+<p>测试<br>访问地址：<a href="http://10.168.1.111:8081/nexus" target="_blank" rel="noopener">http://10.168.1.111:8081/nexus</a></p>
+<p>默认登录用户名密码：admin/admin123</p>
+<p>配置数据存储目录</p>
+<p><a href="http://blog.csdn.net/siyongkai/article/details/53783944" target="_blank" rel="noopener">http://blog.csdn.net/siyongkai/article/details/53783944</a></p>
+<h2 id="Gitlab"><a href="#Gitlab" class="headerlink" title="Gitlab"></a>Gitlab</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>获取<br><code>curl -LJO  https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/ubuntu/pool/xenial/main/g/gitlab-ce/gitlab-ce_10.0.6-ce.0_amd64.deb</code></p>
+<p>安装<br><code>sudo dpkg -i gitlab-ce_10.0.6-ce.0_amd64.deb</code></p>
+<p>修改配置文件<br>sudo vi /etc/gitlab/gitlab.rb</p>
+<blockquote>
+<p>修改gitlab配置文件指定服务器ip和自定义端口</p>
+</blockquote>
+<p>启动和重启GitLab<br><code>sudo gitlab-ctl reconfigure</code><br><code>sudo gitlab-ctl restart</code></p>
+<h3 id="汉化步骤"><a href="#汉化步骤" class="headerlink" title="汉化步骤"></a>汉化步骤</h3><pre><code>git clone https://gitlab.com/xhang/gitlab.git
+cd gitlab
+git diff v10.0.6 v10.0.6-zh &gt; ../10.0.6.diff
+cd ../
+gitlab-ctl stop
+patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 &lt; 10.0.6.diff 
+gitlab-ctl start
+gitlab-ctl reconfigure
+</code></pre><h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p><a href="https://www.cnblogs.com/gabin/p/6385908.html" target="_blank" rel="noopener">https://www.cnblogs.com/gabin/p/6385908.html</a><br>配置和汉化参考<br><a href="http://blog.csdn.net/love8753/article/details/75308652" target="_blank" rel="noopener">http://blog.csdn.net/love8753/article/details/75308652</a></p>
+<h2 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h2><h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p>添加Jenkins源</p>
+<p><code>wget -q -O - http://pkg.jenkins-ci.org/debian-stable/jenkins-ci.org.key | sudo apt-key add -</code></p>
+<p>创建源列表</p>
+<p><code>sh -c &#39;echo deb http://pkg.jenkins-ci.org/debian-stable binary/ &gt; /etc/apt/sources.list.d/jenkins.list&#39;</code></p>
+<p>安装</p>
+<p><code>sudo apt-get update</code><br><code>sudo apt-get install jenkins</code></p>
+<p>启动和安装</p>
+<p> service jenkins start</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>war /usr/share/jenkins/jenkins.war<br>日志文件， /var/log/jenkins/jenkins.log, 遇到问题可以在这里查看问题所在<br>配置参数，/etc/default/jenkins 为相关的各种配置参数，可以修改端口号，默认为8080</p>
+<p>进行访问<br><a href="http://10.168.1.111:8090" target="_blank" rel="noopener">http://10.168.1.111:8090</a></p>
+<p>第一次使用，需要解锁，/var/lib/jenkins/secrets/initialAdminPassword</p>
+<p>查看 Jenkins 的运行状态<br><code>sudo service jenkins status</code></p>
+<p>服务管理</p>
+<pre><code>sudo service jenkins start
+sudo service jenkins restart
+sudo service jenkins stop
+</code></pre><h3 id="参考-1"><a href="#参考-1" class="headerlink" title="参考"></a>参考</h3><p><a href="http://blog.csdn.net/dfhuang09/article/details/54730119" target="_blank" rel="noopener">http://blog.csdn.net/dfhuang09/article/details/54730119</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/02/27/11容器技术/docker常用操作/" class="pre-post btn btn-default" title="Docker常用操作">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Docker常用操作</span>
+        </a>
+    
+    
+        <a href="/2018/01/07/22programming/python/python基本语法/" class="next-post btn btn-default" title="Python3编程基础">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Python3编程基础</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用安装"><span class="toc-text">常用安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#maven和Nexus"><span class="toc-text">maven和Nexus</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装maven"><span class="toc-text">安装maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Nexus"><span class="toc-text">安装Nexus</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Gitlab"><span class="toc-text">Gitlab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#汉化步骤"><span class="toc-text">汉化步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jenkins"><span class="toc-text">Jenkins</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考-1"><span class="toc-text">参考</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

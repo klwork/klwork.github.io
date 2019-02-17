@@ -1,0 +1,428 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>查看发包的端口－netstat | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="查看发包的端口－netstat">
+            
+	            查看发包的端口－netstat
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>833</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#netstat</p>
+<p>可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p><code>netstat －an</code></p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<thead>
+<tr>
+<th>参数说明</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-a</td>
+<td>显示所有socket，包括正在监听的。</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>每隔1秒就重新显示一遍，直到用户中断它。</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示所有网络接口的信息，格式同“ifconfig</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>以网络IP地址代替名称，显示出网络连接情形。 -n 选项禁用域名解析功能</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>显示核心路由表，格式同“route</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>显示TCP协议的连接情况。</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>显示UDP协议的连接情况。</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示正在进行的工作。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字段描述"><a href="#字段描述" class="headerlink" title="字段描述"></a>字段描述</h2><h2 id="用法举例"><a href="#用法举例" class="headerlink" title="用法举例"></a>用法举例</h2><h2 id="列出所有连接"><a href="#列出所有连接" class="headerlink" title="列出所有连接"></a>列出所有连接</h2><p>列出所有当前的连接。使用 -a 选项即<br><code>netstat -a</code></p>
+<p><code>netstat -an | grep LISTEN</code><br><code>netstat -an | grep ESTABLISHED</code></p>
+<p>参数中state的含义如下所示</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LISTEN</td>
+<td>侦听来自远方的TCP端口的连接请求。</td>
+</tr>
+<tr>
+<td>SYN_SENT</td>
+<td>在发送连接请求后等待匹配的连接请求。</td>
+</tr>
+<tr>
+<td>SYN_RECEIVED</td>
+<td>在收到和发送一个连接请求后等待对方对连接请求的确认。</td>
+</tr>
+<tr>
+<td>ESTABLISHED</td>
+<td>代表一个打开的连接，我们常用此作并发连接数。</td>
+</tr>
+<tr>
+<td>FIN_WAIT1</td>
+<td>等待远程TCP连接中断请求，或先前的连接中断请求的确认。</td>
+</tr>
+<tr>
+<td>FIN_WAIT2</td>
+<td>从远程TCP等待连接中断请求。</td>
+</tr>
+<tr>
+<td>CLOSE_WAIT</td>
+<td>等待从本地用户发来的连接中断请求。</td>
+</tr>
+<tr>
+<td>CLOSING</td>
+<td>等待远程TCP对连接中断的确认。</td>
+</tr>
+<tr>
+<td>LAST_ACK</td>
+<td>等待原来发向远程TCP的连接中断请求的确认。</td>
+</tr>
+<tr>
+<td>TIME_WAIT</td>
+<td>等待足够的时间以确保远程TCP接收到连接中断请求的确认。</td>
+</tr>
+<tr>
+<td>CLOSED</td>
+<td>没有任何连接状态</td>
+</tr>
+</tbody>
+</table>
+<h2 id="只列出-TCP-或-UDP-协议的连接"><a href="#只列出-TCP-或-UDP-协议的连接" class="headerlink" title="只列出 TCP 或 UDP 协议的连接"></a>只列出 TCP 或 UDP 协议的连接</h2><p>使用 -t 选项列出 TCP 协议的连接<br><code>netstat -at</code></p>
+<p>使用 -u 选项列出 UDP 协议的连接<br><code>netstat -au</code></p>
+<h2 id="禁用反向域名解析，加快查询速度"><a href="#禁用反向域名解析，加快查询速度" class="headerlink" title="禁用反向域名解析，加快查询速度"></a>禁用反向域名解析，加快查询速度</h2><p> netstat 会通过反向域名解析技术查找每个 IP 地址对应的主机名。这会降低查找速度。如果你觉得 IP 地址已经足够，而没有必要知道主机名，就使用 <em>-n</em> 选项禁用域名解析功能</p>
+<p> <code>netstat -ant</code></p>
+<h2 id="只列出监听中的连接"><a href="#只列出监听中的连接" class="headerlink" title="只列出监听中的连接"></a>只列出监听中的连接</h2><p>任何网络服务的后台进程都会打开一个端口，用于监听接入的请求。这些正在监听的套接字也和连接的套接字一样，也能被 netstat 列出来。使用 -l 选项列出正在监听的套接字。<br><code>netstat -tnl</code></p>
+<blockquote>
+<p>不要使用a</p>
+</blockquote>
+<h2 id="获取进程名、进程号以及用户-ID"><a href="#获取进程名、进程号以及用户-ID" class="headerlink" title="获取进程名、进程号以及用户 ID"></a>获取进程名、进程号以及用户 ID</h2><p>使用 -p 选项查看进程信息<br><code>sudo netstat -nlpt</code></p>
+<blockquote>
+<p>使用 -p 选项时，netstat 必须运行在 root 权限之下，不然它就不能得到运行在 root 权限下的进程名</p>
+</blockquote>
+<p><code>sudo netstat -ltpe</code></p>
+<blockquote>
+<p>-ep 选项可以同时查看进程名和用户名<br>假如你将 -n 和 -e 选项一起使用，User 列的属性就是用户的 ID 号，而不是用户名</p>
+</blockquote>
+<h2 id="所有网络包的统计情况"><a href="#所有网络包的统计情况" class="headerlink" title="所有网络包的统计情况"></a>所有网络包的统计情况</h2><p><code>netstat -s</code><br>包含Icmp，ip,tcp等协议</p>
+<h2 id="显示多播组信息"><a href="#显示多播组信息" class="headerlink" title="显示多播组信息"></a>显示多播组信息</h2><p><code>netstat -g</code></p>
+<h2 id="找出运行在指定端口的进程"><a href="#找出运行在指定端口的进程" class="headerlink" title="找出运行在指定端口的进程"></a>找出运行在指定端口的进程</h2><p>root用户<br><code>netstat -anop | grep 3306</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://linux.cn/article-2434-1.html" target="_blank" rel="noopener">https://linux.cn/article-2434-1.html</a><br><a href="http://blog.csdn.net/u013281361/article/details/52021993" target="_blank" rel="noopener">http://blog.csdn.net/u013281361/article/details/52021993</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/11/06/13基础技术/linux/free/" class="pre-post btn btn-default" title="查看内存使用情况－free">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">查看内存使用情况－free</span>
+        </a>
+    
+    
+        <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/" class="next-post btn btn-default" title="ssh免秘密登录">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">ssh免秘密登录</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段描述"><span class="toc-text">字段描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法举例"><span class="toc-text">用法举例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列出所有连接"><span class="toc-text">列出所有连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#只列出-TCP-或-UDP-协议的连接"><span class="toc-text">只列出 TCP 或 UDP 协议的连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#禁用反向域名解析，加快查询速度"><span class="toc-text">禁用反向域名解析，加快查询速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#只列出监听中的连接"><span class="toc-text">只列出监听中的连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#获取进程名、进程号以及用户-ID"><span class="toc-text">获取进程名、进程号以及用户 ID</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#所有网络包的统计情况"><span class="toc-text">所有网络包的统计情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#显示多播组信息"><span class="toc-text">显示多播组信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#找出运行在指定端口的进程"><span class="toc-text">找出运行在指定端口的进程</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a>
+        
+    </li></div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

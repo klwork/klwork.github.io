@@ -1,0 +1,554 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Drools初步学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Drools初步学习">
+            
+	            Drools初步学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/基础技术">
+            基础技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Drools" title="Drools">
+                        Drools
+                    </a>
+                
+                    <a href="/tags/规则引擎" title="规则引擎">
+                        规则引擎
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2017/08/30</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>536</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="何为规则引擎"><a href="#何为规则引擎" class="headerlink" title="何为规则引擎"></a>何为规则引擎</h2><p>规则引擎（rule engine）是指将复杂的业务逻辑抽象成规则，然后使用特定的算法（比如Rete）对规则进行求值等操作。简单点说，规则引擎就是实现复杂业务逻辑的框架。</p>
+<p>规则引擎由推理引擎发展而来，是一种嵌入在应用程序中的组件，<strong>实现了将业务决策从应用程序代码中分离出来</strong>，并使用预定义的语义模块编写业务决策。接受数据输入，解释业务规则，并根据业务规则做出业务决策,从而给编程带来了极大的方便。</p>
+<h2 id="引入业务规则技术的目的"><a href="#引入业务规则技术的目的" class="headerlink" title="引入业务规则技术的目的"></a>引入业务规则技术的目的</h2><p><strong>对系统的使用人员</strong></p>
+<ul>
+<li>把业务策略（规则）的创建、修改和维护的权利交给业务经理</li>
+<li>提高业务灵活性</li>
+<li>加强业务处理的透明度，业务规则可以被管理</li>
+<li>减少对IT人员的依赖程度</li>
+<li>避免将来升级的风险</li>
+</ul>
+<p><strong>对IT开发人员</strong></p>
+<ul>
+<li>简化系统架构，优化应用</li>
+<li>提高系统的可维护性和维护成本</li>
+<li>方便系统的整合</li>
+<li>减少编写“硬代码”业务规则的成本和风险</li>
+</ul>
+<h2 id="Drools简介"><a href="#Drools简介" class="headerlink" title="Drools简介"></a>Drools简介</h2><p>Drools是一款基于Java的开源规则引擎，以将复杂多变的规则从硬编码中解放出来，以规则脚本的形式存放在文件中，使得规则的变更不需要修正代码重启机器就可以立即在线上环境生效。</p>
+<p>Drools推出了一套新的基于KIE（Knowledge Is Everything 知识就是一切）概念的API，其目的是将之前版本中对规则引擎繁琐的调用和加载过程加以简化。</p>
+<h2 id="Drools的基本工作过程"><a href="#Drools的基本工作过程" class="headerlink" title="Drools的基本工作过程"></a>Drools的基本工作过程</h2><p><img src="!--￼0--&gt;/image/rule/drools.png" alt="规则基本过程"><br>Drools执行时传递进去数据，用于规则的检查，调用外部接口，同时还可能需要获取到规则执行完毕后得到的结果。<br>在drools中，这个传递数据进去的对象，术语叫<strong>Fact对象</strong>。Fact对象是一个普通的java bean，规则中可以对当前对象进行任何的读写操作，调用该对象提供的方法。</p>
+<p><strong>规则</strong>：LHS（Left Hand Side）部分为条件分支逻辑。</p>
+<blockquote>
+<p>在 LHS 当中，可以包含 0~n 个条件，如果 LHS 部分没空的话，那么引擎会自动添加一个eval(true)的条件。</p>
+</blockquote>
+<p>RHS（Right Hand Side）为执行逻辑。<br>在RHS当中可以使用LHS 部分当中定义的绑定变量名、设置的全局变量、或者是直接编写Java代码。</p>
+<p><strong>结果对象</strong>：规则处理完毕后的结果。需要支持自定义类型或者简单类型（Integer、Long、Float、Double、Short、String、Boolean等）</p>
+<p>##第一个程序</p>
+<p>###建立一个maven工程，pom如下</p>
+<pre><code>&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+  xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;com.fir.drools&lt;/groupId&gt;
+  &lt;artifactId&gt;drools-moudles&lt;/artifactId&gt;
+  &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+  &lt;packaging&gt;jar&lt;/packaging&gt;
+
+  &lt;name&gt;drools-moudles&lt;/name&gt;
+  &lt;url&gt;http://maven.apache.org&lt;/url&gt;
+
+  &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;!-- drools 规则引擎 版本 --&gt;
+    &lt;drools.version&gt;6.4.0.Final&lt;/drools.version&gt;
+    &lt;spring.version&gt;4.2.6.RELEASE&lt;/spring.version&gt;
+    &lt;log4j2.version&gt;2.5&lt;/log4j2.version&gt;
+  &lt;/properties&gt;
+  &lt;!-- 依赖项定义 --&gt;
+  &lt;dependencies&gt;
+    &lt;!-- start drools --&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-core&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-compiler&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-decisiontables&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-workbench-models-guided-template&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-simulator&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.jbpm&lt;/groupId&gt;
+      &lt;artifactId&gt;jbpm-flow-builder&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;kie-spring&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;kie-ci&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;kie-internal&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.kie&lt;/groupId&gt;
+      &lt;artifactId&gt;kie-api&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-workbench-models-guided-dtable&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;org.drools&lt;/groupId&gt;
+      &lt;artifactId&gt;drools-templates&lt;/artifactId&gt;
+      &lt;version&gt;${drools.version}&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- end drools --&gt;
+  &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;testResources&gt;
+            &lt;testResource&gt;
+                &lt;directory&gt;
+                    ${project.basedir}/src/main/resources
+                &lt;/directory&gt;
+            &lt;/testResource&gt;
+        &lt;/testResources&gt;
+      &lt;plugins&gt;
+        &lt;plugin&gt;
+          &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+          &lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;
+          &lt;configuration&gt;
+            &lt;source&gt;1.7&lt;/source&gt;
+            &lt;target&gt;1.7&lt;/target&gt;
+          &lt;/configuration&gt;
+        &lt;/plugin&gt;
+      &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre><h3 id="编辑Kmodule-xml"><a href="#编辑Kmodule-xml" class="headerlink" title="编辑Kmodule.xml"></a>编辑Kmodule.xml</h3><p>新建kmodule.xml文件放到src/main/resources/META-INF/文件夹下</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;kmodule xmlns=&quot;http://www.drools.org/xsd/kmodule&quot;&gt;
+    &lt;kbase name=&quot;kbase1&quot; packages=&quot;rules.testwrod&quot;&gt;
+        &lt;ksession name=&quot;session&quot;/&gt;
+    &lt;/kbase&gt;
+&lt;/kmodule&gt;
+</code></pre><h3 id="编辑一个规则文件"><a href="#编辑一个规则文件" class="headerlink" title="编辑一个规则文件"></a>编辑一个规则文件</h3><p>在src/main/resources/rules/testwrod/下新建一个Person.drl文件如下：</p>
+<pre><code>package rules.testwrod
+
+import com.drools.test.Person
+rule test001
+    when
+        $p:Person(name==&quot;张三&quot;,age==30);
+    then
+      $p.setName(&quot;李四&quot;);
+      System.out.println(&quot;改完后的名字&quot;+$p.getName());
+end
+</code></pre><h3 id="创建一个java文件"><a href="#创建一个java文件" class="headerlink" title="创建一个java文件"></a>创建一个java文件</h3><pre><code>package com.drools.test; /**
+ * Created by ww on 17/8/29.
+ */
+import org.kie.api.KieServices;
+import org.kie.api.runtime.KieContainer;
+import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.FactHandle;
+
+public class TestWrod{
+    public static void main(String[] args) {
+        KieServices kss = KieServices.Factory.get();
+        //从classpath中读取kmodule，创建KieContainder容器
+        KieContainer kc = kss.getKieClasspathContainer();
+        //kieContainer根据kmodule.xml定义的ksession的名称找到KieSession的定义，然后创建一个KieSession的实例
+        KieSession ks =kc.newKieSession(&quot;session&quot;);
+
+        //Fact对象
+        Person person=new Person(&quot;张三&quot;,30);
+        FactHandle insert = ks.insert(person);
+
+        //KieSession就是一个到规则引擎的链接，通过它就可以跟规则引擎通讯，并且发起执行规则的操作
+        int count = ks.fireAllRules();
+        //最后将kiesession连接关闭
+        System.out.println(&quot;总执行了&quot;+count+&quot;条规则&quot;);
+        ks.dispose();
+    }
+}
+</code></pre><h3 id="运行java程序，查看结果"><a href="#运行java程序，查看结果" class="headerlink" title="运行java程序，查看结果"></a>运行java程序，查看结果</h3><pre><code>改完后的名字李四
+总执行了1条规则
+</code></pre><p>表示执行成功。</p>
+<h1 id="Drools语法学习"><a href="#Drools语法学习" class="headerlink" title="Drools语法学习"></a>Drools语法学习</h1><h2 id="复杂一点的语法"><a href="#复杂一点的语法" class="headerlink" title="复杂一点的语法"></a>复杂一点的语法</h2><pre><code>rule &quot;rule1&quot;
+     when
+     $customer:Customer(age&gt;20,gender==&apos;male&apos;)
+     Order(customer==$customer,price&gt;1000)
+    then
+        ....
+end
+</code></pre><p>第一个：pattern(模式) 有三个约束<br>1、 对象 类型必须是 Cutomer；<br>2、Cutomer 的 age 要大于 20<br>3、Cutomer 的 gender 要是 male<br>第二个:pattern(模式) 有三个约束<br>1、 对象类型必须是 Order;<br>2、 Order 对应的 Cutomer 必须是前面的那个 Customer<br>3、 当前这个 Order 的 price 要大于 1000</p>
+<blockquote>
+<p>这两个 pattern 没有符号连接，在 Drools 当中在 pattern 中没有连接符号，那么就用 and 来作为默认连接，所以在该规则的 LHS 部分 中两个pattern(模式)只有都满足了才会返回 true。<br>对于对象内部的多个约束可以采用<code>&amp;&amp;</code>（and）、<code>||</code>(or)和<code>,</code>(and)来连接。<code>&amp;&amp;</code>和<code>,</code>不能混用</p>
+</blockquote>
+<h2 id="规则的属性"><a href="#规则的属性" class="headerlink" title="规则的属性"></a>规则的属性</h2><h3 id="Salience优先级"><a href="#Salience优先级" class="headerlink" title="Salience优先级"></a>Salience优先级</h3><p>作用是用来设置规则执行的优先级， salience 属性的值是一个数字，数字越大执行优先级越高，同时它的值可以是一个负数。默认情况下，规则的 salience 默认值为 0</p>
+<pre><code>package rules.testwrod
+
+rule test001
+salience 2
+    when
+    then
+        System.out.println(&quot;执行test001&quot;);
+end
+
+rule test002
+salience 1
+    when
+    then
+        System.out.println(&quot;执行test002&quot;);
+end
+</code></pre><h3 id="no-loop防止死循环"><a href="#no-loop防止死循环" class="headerlink" title="no-loop防止死循环"></a>no-loop防止死循环</h3><h3 id="date-effective日期比较小于等于"><a href="#date-effective日期比较小于等于" class="headerlink" title="date-effective日期比较小于等于"></a>date-effective日期比较小于等于</h3><p>该属性是用来控制规则只有在到达后才会触发</p>
+<h3 id="date-expires日期比较大于"><a href="#date-expires日期比较大于" class="headerlink" title="date-expires日期比较大于"></a>date-expires日期比较大于</h3><p>date-expires 的作用是用来设置规则的有效期</p>
+<h3 id="Enabled是否可用"><a href="#Enabled是否可用" class="headerlink" title="Enabled是否可用"></a>Enabled是否可用</h3><h3 id="lock-on-active-规则只执行一次"><a href="#lock-on-active-规则只执行一次" class="headerlink" title="lock-on-active 规则只执行一次"></a>lock-on-active 规则只执行一次</h3><h3 id="activation-group分组"><a href="#activation-group分组" class="headerlink" title="activation-group分组"></a>activation-group分组</h3><p>具有相同 activation-group 属性的规则中只要有一个会被执行，其它的规则都将不再执行。</p>
+<h3 id="agenda-group议程分组"><a href="#agenda-group议程分组" class="headerlink" title="agenda-group议程分组"></a>agenda-group议程分组</h3><p>引擎在调用这些设置了 agenda-group 属性的规则的时候需要显示的指定某个 Agenda Group 得到 Focus（焦点），这样位于该 Agenda Group 当中的规则会才触发执行，否则将不执行。</p>
+<h3 id="auto-focus焦点分组"><a href="#auto-focus焦点分组" class="headerlink" title="auto-focus焦点分组"></a>auto-focus焦点分组</h3><p>实际应用当中 agenda-group 可以和 auto-focus属性一起使用，这样就不会在代码当中显示的为某个 Agenda Group 设置 setFocus 了。一旦将某个规则的 auto-focus 属性设置为 true，那么即使该规则设置了 agenda-group 属性，我们也不需要在代码当中显示的设置 Agenda Group 的setFocus了。</p>
+<h3 id="ruleflow-group规则流"><a href="#ruleflow-group规则流" class="headerlink" title="ruleflow-group规则流"></a>ruleflow-group规则流</h3><p> 在使用规则流的时候要用到 ruleflow-group属性，在规则流当中通过使用 ruleflow-group 属性的值，从而使用对应的规则，该属性会通过流程的走向确定要执行哪一条规则。</p>
+<p>##Drools函数的使用</p>
+<p>函数是在你的规则源文件中放置语义代码的一种方法，相对于在普通的 java 类中的方法。<br>在一条规则的推论（then）部分中调用动作，函数是最有用的，特别是如果反复使用的特殊动作。</p>
+<pre><code>package rule.testword
+function String hello(String name) {
+    return &quot;Hello &quot;+name+&quot;!&quot;;
+}
+
+rule &quot;using a static function&quot;
+when
+    eval( true )
+then
+    System.out.println( hello( &quot;Bob&quot; ) );
+end
+</code></pre><p>Drool支持函数导入的应用，<code>import function my.package.Foo.hello</code></p>
+<blockquote>
+<p>函数不能直接用在when条件里，正确的应该<code>eval(hello(&quot;张三functionTest&quot;));</code></p>
+</blockquote>
+<p>##元数据的定义</p>
+<p>##Drools宏函数</p>
+<p>Drools当中，在RHS里面，提供了一些对当前 Working Memory 实现快速操作的宏函数或对象，比如insert/insertLogical、update/modify 和 retract 就可以实现对当前 Working Memory 中的 Fact 对象进行新增、修改或者是删除；如果您觉得还要使用 Drools 当中提供的其它方法，那么您还可以使用另一外宏对象 drools，通过该对象可以使用更多的操作当前 Working Memory 的方法；同时Drools还提供了一个名为 kcontext 的宏对象，使我们可以通过该对象直接访问当前 Working Memory 的 KnowledgeRuntime。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><p><a href="http://blog.csdn.net/lifetragedy/article/details/51143914" target="_blank" rel="noopener"> jboss规则引擎KIE Drools 6.3.0 Final 教程(1)</a></p>
+<p><a href="http://blog.csdn.net/column/details/16183.html?&amp;page=2" target="_blank" rel="noopener">http://blog.csdn.net/column/details/16183.html?&amp;page=2</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2017/10/06/21系统设计/4+1视图/" class="pre-post btn btn-default" title="软件架构漫谈">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">软件架构漫谈</span>
+        </a>
+    
+    
+        <a href="/2017/03/26/13基础技术/linux/ubuntu/rsyslog使用/" class="next-post btn btn-default" title="rsyslog学习">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">rsyslog学习</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#何为规则引擎"><span class="toc-text">何为规则引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#引入业务规则技术的目的"><span class="toc-text">引入业务规则技术的目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Drools简介"><span class="toc-text">Drools简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Drools的基本工作过程"><span class="toc-text">Drools的基本工作过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑Kmodule-xml"><span class="toc-text">编辑Kmodule.xml</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#编辑一个规则文件"><span class="toc-text">编辑一个规则文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个java文件"><span class="toc-text">创建一个java文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#运行java程序，查看结果"><span class="toc-text">运行java程序，查看结果</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Drools语法学习"><span class="toc-text">Drools语法学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复杂一点的语法"><span class="toc-text">复杂一点的语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#规则的属性"><span class="toc-text">规则的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Salience优先级"><span class="toc-text">Salience优先级</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#no-loop防止死循环"><span class="toc-text">no-loop防止死循环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#date-effective日期比较小于等于"><span class="toc-text">date-effective日期比较小于等于</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#date-expires日期比较大于"><span class="toc-text">date-expires日期比较大于</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Enabled是否可用"><span class="toc-text">Enabled是否可用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lock-on-active-规则只执行一次"><span class="toc-text">lock-on-active 规则只执行一次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#activation-group分组"><span class="toc-text">activation-group分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#agenda-group议程分组"><span class="toc-text">agenda-group议程分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#auto-focus焦点分组"><span class="toc-text">auto-focus焦点分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ruleflow-group规则流"><span class="toc-text">ruleflow-group规则流</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

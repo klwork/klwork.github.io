@@ -1,0 +1,415 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>strace使用指南 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="strace使用指南">
+            
+	            strace使用指南
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/12/11</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>798</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><p><code>strace -c ls</code><br><code>strace cat /dev/null</code></p>
+<h1 id="参数详解"><a href="#参数详解" class="headerlink" title="参数详解"></a>参数详解</h1><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描叙</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-c</td>
+<td>统计每一系统调用的所执行的时间,次数和出错的次数等.</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>输出strace关于标准错误的调试信息.</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>跟踪由fork调用所产生的子进程.</td>
+</tr>
+<tr>
+<td>-ff</td>
+<td>如果提供-o</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>尝试跟踪vfork调用.在-f时,vfork不被跟踪.</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>输出简要的帮助信息.</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>输出系统调用的入口指针.</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>禁止输出关于脱离的消息.</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>打印出相对时间关于,每一个系统调用.</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>在输出中的每一行前加上时间信息.</td>
+</tr>
+<tr>
+<td>-tt</td>
+<td>在输出中的每一行前加上时间信息,微秒级.</td>
+</tr>
+<tr>
+<td>-ttt</td>
+<td>微秒级输出,以秒了表示时间.</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>显示每一调用所耗的时间.</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>输出所有的系统调用.一些调用关于环境变量,状态,输入输出等调用由于使用频繁,默认不输出.</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>输出strace的版本信息.</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>以十六进制形式输出非标准字符串</td>
+</tr>
+<tr>
+<td>-xx</td>
+<td>所有字符串以十六进制形式输出.</td>
+</tr>
+<tr>
+<td>-a column</td>
+<td>设置返回值的输出位置.默认为40</td>
+</tr>
+<tr>
+<td>-e expr</td>
+<td>指定一个表达式,用来控制如何跟踪</td>
+</tr>
+<tr>
+<td>-o filename</td>
+<td>将strace的输出写入文件filename</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>pid跟踪指定的进程pid.</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>strsize指定输出的字符串的最大长度.默认为32.文件名一直全部输出.</td>
+</tr>
+</tbody>
+</table>
+<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><p><code>strace -o output.txt -c -e trace=all -p 988</code><br>输出如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">% time     seconds  usecs/call     calls    errors syscall</span><br><span class="line">------ ----------- ----------- --------- --------- ----------------</span><br><span class="line">100.00    0.004000        4000         1           restart_syscall</span><br><span class="line">  0.00    0.000000           0         1           accept</span><br><span class="line">  0.00    0.000000           0         2           futex</span><br><span class="line">------ ----------- ----------- --------- --------- ----------------</span><br><span class="line">100.00    0.004000                     4           total</span><br></pre></td></tr></table></figure></p>
+<p>time:显示系统cpu花在哪里的百分比<br>usecs/call: 每次调用的次数平均系统cpu时间（毫秒）<br>calls:系统调用次数</p>
+<p>跟踪进程的所有系统调用（-e trace=all），-c 用于系统调用活动的统计总结。</p>
+<blockquote>
+<p>e用来控制展示特定的系统调用,可以使用一下参数<br>-e trace=open,close,rean,write表示只跟踪这四个系统调用<br>-e trace=file<br>只跟踪有关文件操作的系统调用.<br>-e trace=process<br>只跟踪有关进程控制的系统调用.<br>-e trace=network<br>跟踪与网络有关的所有系统调用.<br>-e strace=signal<br>跟踪所有与系统信号有关的 系统调用<br>-e trace=ipc<br>跟踪所有与进程通讯有关的系统调用<br>-e trace=all 所有系统调用</p>
+</blockquote>
+<blockquote>
+<p>关于系统调用的名称可以参考<a href="!--￼1--&gt;/2016/11/06/1linux/常用Linux系统调用/">常用系统调用</a></p>
+</blockquote>
+<p><code>strace -o output.txt -T -tt -e trace=all -p 988</code><br>跟踪进程的所有系统调用，并统计系统调用的花费时间，以及开始时间（并以可视化的时分秒格式显示），最后将记录结果存在output.txt文件里面</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/12/15/13基础技术/linux/快速检查Linux服务器性能/" class="pre-post btn btn-default" title="快速检查Linux服务器性能">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">快速检查Linux服务器性能</span>
+        </a>
+    
+    
+        <a href="/2016/12/11/13基础技术/linux/perf使用指南/" class="next-post btn btn-default" title="perf使用指南">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">perf使用指南</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参数详解"><span class="toc-text">参数详解</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#举例"><span class="toc-text">举例</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

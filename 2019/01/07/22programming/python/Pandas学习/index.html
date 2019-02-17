@@ -1,0 +1,393 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Pandas学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Pandas学习">
+            
+	            Pandas学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Pandas是在NumPy 基础上建立的新程序库，提供了一种高效的DataFrame 数据结构。DataFrame 本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。<br>pandas的数据结构主要分成三种：Series（一维数组）,DataFrame(二维数组)，和Panel（三维数组）</p>
+<p>开始<br>    import numpy as np<br>    import pandas as pd<br>    pd.<strong>version</strong></p>
+<h1 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h1><h2 id="Series"><a href="#Series" class="headerlink" title="Series"></a>Series</h2><h3 id="普通"><a href="#普通" class="headerlink" title="普通"></a>普通</h3><p>NumPy 数组通过隐式定义的整数索引获取数值，而Pandas的Series对象用一种显式定义的索引与数值关联。</p>
+<p> data = pd.Series([0.25, 0.5, 0.75, 1.0],    index=[‘a’, ‘b’, ‘c’, ‘d’]) </p>
+<p>产生的数据如下：</p>
+<pre><code>a    0.25
+b    0.50
+c    0.75
+d    1.00
+</code></pre><p>如果不指定index，会自动加入0-n的整数索引。</p>
+<h3 id="根据字典来进行创建"><a href="#根据字典来进行创建" class="headerlink" title="根据字典来进行创建"></a>根据字典来进行创建</h3><p>population_dict = {‘California’: 38332521,<br>                           ‘Texas’: 26448193,<br>                           ‘New York’: 19651127,<br>                           ‘Florida’: 19552860,<br>                           ‘Illinois’: 12882135}</p>
+<p>population = pd.Series(population_dict)</p>
+<p>结果：</p>
+<pre><code>California    38332521
+Texas         26448193
+New York      19651127
+Florida       19552860
+Illinois      12882135
+dtype: int64
+</code></pre><p>和字典不同，Series 对象还支持数组形式的操作，比如切片。</p>
+<h2 id="DataFrame"><a href="#DataFrame" class="headerlink" title="DataFrame"></a>DataFrame</h2><h3 id="通过Series-对象创建"><a href="#通过Series-对象创建" class="headerlink" title="通过Series 对象创建"></a>通过Series 对象创建</h3><p>DataFrame可以理解为Series的容器，多个Series共用一个索引。</p>
+<p>states=pd.DataFrame(population, columns=[‘population’])</p>
+<p>states = pd.DataFrame({‘population’: population,<br>‘area’: area})</p>
+<h3 id="通过数据字典来进行创建"><a href="#通过数据字典来进行创建" class="headerlink" title="通过数据字典来进行创建"></a>通过数据字典来进行创建</h3><p>d = {‘one’ : pd.Series([1., 2., 3.], index=[‘a’, ‘b’, ‘c’]),’two’ : pd.Series([1., 2., 3., 4.], index=[‘a’, ‘b’, ‘c’, ‘d’])}<br>df = pd.DataFrame(d)<br>df</p>
+<p>最外边的字典对应列</p>
+<pre><code>one    two
+a    1.0    1.0
+b    2.0    2.0
+c    3.0    3.0
+d    NaN    4.0
+</code></pre><h3 id="通过NumPy二维数组创建"><a href="#通过NumPy二维数组创建" class="headerlink" title="通过NumPy二维数组创建"></a>通过NumPy二维数组创建</h3><p>import numpy as np<br>sample = pd.DataFrame(np.random.randn(4, 5),<br>                     columns=[‘a’,’b’,’c’,’d’,’e’])<br>sample</p>
+<pre><code>    a    b    c    d    e
+0    -1.058367    -0.801376    -0.647295    -0.819267    0.024554
+1    0.621486    1.598847    -1.604502    0.552664    -0.430284
+2    -0.131764    0.234944    -0.390586    -0.653918    0.755551
+3    -1.905653    0.484355    0.203149    -1.740032    1.652118
+</code></pre><h3 id="根据已有的列创建新列"><a href="#根据已有的列创建新列" class="headerlink" title="根据已有的列创建新列"></a>根据已有的列创建新列</h3><pre><code>a=pd.read_csv(&apos;closeprice.csv&apos;,encoding=&apos;gbk&apos;)
+b={1:&apos;银行&apos;,2:&apos;房地产&apos;,4:&apos;医药生物&apos;,5:&apos;房地产&apos;,6:&apos;采掘&apos;,7:&apos;休闲服务&apos;,8:&apos;机械设备&apos;}
+a[&apos;ind&apos;]=a.ticker.map(b)
+a
+</code></pre><p>#其他操作</p>
+<h2 id="数据读取"><a href="#数据读取" class="headerlink" title="数据读取"></a>数据读取</h2><pre><code>sample=pd.read_csv(&apos;closeprice.csv&apos;,encoding=&apos;gbk&apos;,dtype={&apos;ticker&apos;: str})
+sample
+</code></pre><h2 id="切片和筛选"><a href="#切片和筛选" class="headerlink" title="切片和筛选"></a>切片和筛选</h2><p>DataFrame有三种切片方法，分别为loc,iloc和ix。</p>
+<p>iloc方法只能使用数值作为索引选择行、列，loc方法在选择列时只能使用字符索引，ix方法则可以使用两种索引。</p>
+<p>df.loc第一个参数是行标签，第二个参数为列标签。:,表示所有行。</p>
+<pre><code>sample.loc[:,[&apos;ticker&apos;,&apos;closePrice&apos;]]
+</code></pre><p>ix已经过期，如需要使用</p>
+<p>sample.loc[sample.index[[0, 1, 2]], [‘ticker’,’closePrice’]]</p>
+<blockquote>
+<p>ix或loc选择时，行索引是前后都包括的，而iloc为前包后不包。</p>
+</blockquote>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><p>a[(a.closePrice&gt;10) &amp; (a.secShortName==’万科A’)]</p>
+<h3 id="使用query"><a href="#使用query" class="headerlink" title="使用query"></a>使用query</h3><p>Pandas数据框提供了方法query，可以完成指定的条件查询</p>
+<p> a.query(‘closePrice&gt;20’)</p>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>a[a[‘closePrice’].between(0,9.12,inclusive=False)]</p>
+<blockquote>
+<p>不希望边界包含在内可以将inclusive参数设定为False</p>
+</blockquote>
+<p>使用isin方法进行查询，进行字符匹配</p>
+<p><code>a[a[&#39;secShortName&#39;].isin([&#39;世纪星源&#39;,&#39;万科A&#39;])]</code></p>
+<p>进行正则表达式匹配进行查询，可使用str.contains</p>
+<p> a[a[‘secShortName’].str.contains(‘[万]+’)]</p>
+<h2 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h2><p>   sample.sort_values(‘score’,ascending=False,na_position=’last’)</p>
+<blockquote>
+<p>ascending=False代表降序排列，设定为True时表示升序排列（默认）；na_position=’last’表示缺失值数据排列在数据的最后位置（默认值），设定为’first’表示缺失值排列在数据的最前面</p>
+</blockquote>
+<h2 id="重复行处理"><a href="#重复行处理" class="headerlink" title="重复行处理"></a>重复行处理</h2><p>Pandas提供查看、处理重复数据的方法duplicated和drop_duplicates</p>
+<pre><code>data = pd.DataFrame({&apos;k1&apos;: [&apos;one&apos;] * 3 + [&apos;two&apos;] * 4, &apos;k2&apos;: [3, 2, 1, 3, 3, 4, 4]})
+data[data.duplicated()]
+data.drop_duplicates()
+data.drop_duplicates(subset=[&apos;k1&apos;],keep=&apos;last&apos;)
+</code></pre><h2 id="删除列"><a href="#删除列" class="headerlink" title="删除列"></a>删除列</h2><pre><code>a.drop(&apos;Unnamed: 0&apos;, axis=&apos;columns&apos;)
+</code></pre><p> 或者<br>    a.drop(‘Unnamed: 0’, axis=1)</p>
+<h2 id="重命名列名"><a href="#重命名列名" class="headerlink" title="重命名列名"></a>重命名列名</h2><pre><code>a.rename(columns={&apos;Unnamed: 0&apos;:&apos;id&apos;})
+</code></pre><h2 id="替换"><a href="#替换" class="headerlink" title="替换"></a>替换</h2><p>在一些特定场合下，如错误值处理、异常值处理，可能会对原数据的某些值进行修改，此时会涉及类似SQL的insert或update操作。</p>
+<p>单个替换<br>    <code>a.replace(1,np.nan)</code></p>
+<p>遇到一次替换多个值时，使用字典形式，</p>
+<pre><code>`sample.replace({&apos;score&apos;:{999:np.nan},
+        &apos;name&apos;:{&apos;Bob&apos;:np.nan}})`
+</code></pre><p>score列所有取值为999的值替换为NaN，name列中取值为’Bob’替换为NaN</p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="https://www.cnblogs.com/prpl/p/5537417.html" target="_blank" rel="noopener">https://www.cnblogs.com/prpl/p/5537417.html</a><br><a href="https://apachecn.github.io/pandas-doc-zh/io.html#io-read-csv-table" target="_blank" rel="noopener">https://apachecn.github.io/pandas-doc-zh/io.html#io-read-csv-table</a></p>
+<ul>
+<li><a href="https://www.yiibai.com/numpy/" target="_blank" rel="noopener">NumPy教程</a></li>
+<li><a href="https://www.numpy.org.cn/article/basics/numpy_matrices_vectors.html" target="_blank" rel="noopener">参考手册</a></li>
+<li><a href="https://www.cnblogs.com/prpl/p/5537417.html" target="_blank" rel="noopener">NumPy教程</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/01/07/22programming/python/Pandas分组/" class="pre-post btn btn-default" title="Pandas分组技术">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Pandas分组技术</span>
+        </a>
+    
+    
+        <a href="/2019/01/07/22programming/python/Pandas的数据合并/" class="next-post btn btn-default" title="Pandas的数据合并">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Pandas的数据合并</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建"><span class="toc-text">创建</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Series"><span class="toc-text">Series</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#普通"><span class="toc-text">普通</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据字典来进行创建"><span class="toc-text">根据字典来进行创建</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DataFrame"><span class="toc-text">DataFrame</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#通过Series-对象创建"><span class="toc-text">通过Series 对象创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过数据字典来进行创建"><span class="toc-text">通过数据字典来进行创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过NumPy二维数组创建"><span class="toc-text">通过NumPy二维数组创建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据已有的列创建新列"><span class="toc-text">根据已有的列创建新列</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据读取"><span class="toc-text">数据读取</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#切片和筛选"><span class="toc-text">切片和筛选</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查询"><span class="toc-text">查询</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用query"><span class="toc-text">使用query</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排序"><span class="toc-text">排序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重复行处理"><span class="toc-text">重复行处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除列"><span class="toc-text">删除列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#重命名列名"><span class="toc-text">重命名列名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#替换"><span class="toc-text">替换</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

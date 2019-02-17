@@ -1,0 +1,563 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>btrace学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="btrace学习">
+            
+	            btrace学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/JVM" title="JVM">
+                        JVM
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>833</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#功能介绍？</p>
+<p>Btrace (Byte Trace)是sun推出的一款java 动态、安全追踪（监控）工具，可以不停机的情况下监控线上情况，并且做到最少的侵入，占用最少的系统资源。</p>
+<p>BTrace利用了java.lang.instrument包实现代码注入<br>通过VirtualMachine.attach(pid)连接远程JVM，然后通过VirtualMachine.loadAgent(“*.jar”)加载一个btrace的jar包<br>通过ASM动态生成字节码。</p>
+<h1 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h1><h2 id="运行一个Java程序"><a href="#运行一个Java程序" class="headerlink" title="运行一个Java程序"></a>运行一个Java程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">public class MockApp &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] argv) &#123;</span><br><span class="line">        new MockApp().run();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public void run() &#123;</span><br><span class="line">        for (int i = 0; i &lt; 100000; i++) &#123;</span><br><span class="line">            sleep(1000);</span><br><span class="line">            new MyObj().life(i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private static class MyObj &#123;</span><br><span class="line"></span><br><span class="line">        public void life(int n) &#123;</span><br><span class="line">            System.out.println(n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    private void sleep(int n) &#123;</span><br><span class="line">        try &#123;</span><br><span class="line">            Thread.sleep(n);</span><br><span class="line">        &#125; catch (InterruptedException e) &#123;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="jps命令查出需要监控的jvm-pid"><a href="#jps命令查出需要监控的jvm-pid" class="headerlink" title="jps命令查出需要监控的jvm pid"></a>jps命令查出需要监控的jvm pid</h2><p><code>jps</code></p>
+<p>4144 Jps<br>586<br><strong>4141 AppMain</strong><br>4142 Launcher</p>
+<p>可以看到pid为4142</p>
+<blockquote>
+<p>每次都找，很麻烦，可以使用：<code>jps | grep AppMain | awk &#39;{print $1}&#39; | xargs -I {} btrace {} sample/HelloBtrace.java</code></p>
+</blockquote>
+<h2 id="编写BTrace跟踪程序"><a href="#编写BTrace跟踪程序" class="headerlink" title="编写BTrace跟踪程序"></a>编写BTrace跟踪程序</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">package sample;</span><br><span class="line"></span><br><span class="line">import com.sun.btrace.annotations.BTrace;</span><br><span class="line">import com.sun.btrace.annotations.Kind;</span><br><span class="line">import com.sun.btrace.annotations.Location;</span><br><span class="line">import com.sun.btrace.annotations.OnMethod;</span><br><span class="line"></span><br><span class="line">import static com.sun.btrace.BTraceUtils.println;</span><br><span class="line"></span><br><span class="line">@BTrace</span><br><span class="line">public class HelloBtrace &#123;</span><br><span class="line">    // app.MockApp.sleep方法返回时，执行该方法</span><br><span class="line">    @OnMethod(clazz=&quot;app.MockApp&quot;,</span><br><span class="line">            method=&quot;sleep&quot;,</span><br><span class="line">            location=@Location(Kind.RETURN))</span><br><span class="line">    public static void onSleep() &#123;</span><br><span class="line">        println(&quot;Hello world&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="执行btrace-跟踪程序"><a href="#执行btrace-跟踪程序" class="headerlink" title="执行btrace 跟踪程序"></a>执行btrace 跟踪程序</h2><p><code>btrace 4141 sample/HelloBtrace.java</code></p>
+<h1 id="常用注解"><a href="#常用注解" class="headerlink" title="常用注解"></a>常用注解</h1><h2 id="类上的注解"><a href="#类上的注解" class="headerlink" title="类上的注解"></a>类上的注解</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用域</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@BTrace</td>
+<td>类</td>
+<td>用来指定该java类为一个btrace脚本文件</td>
+</tr>
+<tr>
+<td>@DTrace</td>
+<td>类</td>
+<td>指定btrace脚本与内置在其脚本中的D语言脚本关联</td>
+</tr>
+<tr>
+<td>@DTraceRef</td>
+<td>类</td>
+<td>指定btrace脚本与另一个D语言脚本文件关联</td>
+</tr>
+</tbody>
+</table>
+<h2 id="方法上的注解"><a href="#方法上的注解" class="headerlink" title="方法上的注解"></a>方法上的注解</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用域</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@OnMethod(clazz,method,location)</td>
+<td>方法</td>
+<td>当指定方法被调用时</td>
+</tr>
+<tr>
+<td>@OnMethod(method=”<init>“)</init></td>
+<td>方法</td>
+<td>当构造函数被调用时</td>
+</tr>
+<tr>
+<td>@OnMethod(clazz=”/java\.io\..*Input/“))</td>
+<td>方法</td>
+<td>方法名称正则匹配</td>
+</tr>
+<tr>
+<td>@Location(kind)</td>
+<td>@OnMethod</td>
+<td>指定监控方法调用前还是调用后</td>
+</tr>
+<tr>
+<td>@Location(value=Kind.NEWARRAY,clazz=”char”)</td>
+<td>@OnMethod</td>
+<td></td>
+</tr>
+<tr>
+<td>@OnTimer(interval)</td>
+<td>方法</td>
+<td>定时调用某个方法</td>
+</tr>
+<tr>
+<td>@OnLowMemory(pool,threshold)</td>
+<td>方法</td>
+<td>当内存不足时</td>
+</tr>
+<tr>
+<td>@OnExit</td>
+<td>方法</td>
+<td>当程序退出时</td>
+</tr>
+<tr>
+<td>@OnProbe(namespace=”java.net.socket”,name=”bind”)</td>
+<td>方法</td>
+<td>监控socket中的bind方法</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参数上的注解"><a href="#参数上的注解" class="headerlink" title="参数上的注解"></a>参数上的注解</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用域</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>@Self</td>
+<td>参数</td>
+<td>表示被监控的对象</td>
+</tr>
+<tr>
+<td>@Return</td>
+<td>参数</td>
+<td>用来指定被trace方法的返回值</td>
+</tr>
+<tr>
+<td>@ProbeMethodName</td>
+<td>参数</td>
+<td>被监控的方法名称</td>
+</tr>
+<tr>
+<td>@ProbeClassName</td>
+<td>参数</td>
+<td>被监控的类名</td>
+</tr>
+</tbody>
+</table>
+<h2 id="非注解的方法参数"><a href="#非注解的方法参数" class="headerlink" title="非注解的方法参数"></a>非注解的方法参数</h2><p>未使用注解的方法参数一般都是用来做方法签名匹配用的, 他们一般和被trace方法中参数出现的顺序一致. 不过他们也可以与注解方法交错使用, 如果一个参数类型声明为<em>AnyType[]</em>, 则表明它按顺序”通吃”方法所有参数. 未注解方法需要与<em>Location</em>结合使用:</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kind.ENTRY</td>
+<td>被trace方法参数</td>
+</tr>
+<tr>
+<td>Kind.RETURN</td>
+<td>被trace方法返回值</td>
+</tr>
+<tr>
+<td>Kind.THROW</td>
+<td>抛异常</td>
+</tr>
+<tr>
+<td>Kind.ARRAY_SET, Kind.ARRAY_GET</td>
+<td>数组索引</td>
+</tr>
+<tr>
+<td>Kind.CATCH</td>
+<td>捕获异常</td>
+</tr>
+<tr>
+<td>Kind.FIELD_SET</td>
+<td>属性值</td>
+</tr>
+<tr>
+<td>Kind.LINE</td>
+<td>行号</td>
+</tr>
+<tr>
+<td>Kind.NEW</td>
+<td>类名</td>
+</tr>
+<tr>
+<td>Kind.ERROR</td>
+<td>抛异常</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Kind.ENTRY 是和 Kind.RETURN 对应的，</p>
+<p>@OnMethod(location = @Location(Kind.RETURN)) 表示目标方法返回时触发；ENTRY表示进入时触发。</p>
+<p>Kind.CALL 和 Kind.LINE 作用类似<br>@OnMethod(location = @Location(value = Kind.CALL, clazz = “a”, method = “b”)) 指目标方法体如果调用了a.b()方法时触发；</p>
+<p>@OnMethod(location = @Location(value = Kind.LINE, line = 5)) 指目标方法体执行到第n行代码时触发</p>
+</blockquote>
+<h2 id="属性上的注解"><a href="#属性上的注解" class="headerlink" title="属性上的注解"></a>属性上的注解</h2><h1 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h1><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>println</td>
+<td>在本地控制台输出一行</td>
+</tr>
+<tr>
+<td>print</td>
+<td>在本地控制台输出</td>
+</tr>
+<tr>
+<td>printArray</td>
+<td>在本地控制台输出数组</td>
+</tr>
+<tr>
+<td>jstack</td>
+<td>打印远程方法的调用调用栈</td>
+</tr>
+<tr>
+<td>jstackAll</td>
+<td>输出所有线程的调用栈</td>
+</tr>
+<tr>
+<td>exit</td>
+<td>退出跟踪脚本</td>
+</tr>
+<tr>
+<td>Strings.strcat</td>
+<td>连接字符串</td>
+</tr>
+<tr>
+<td>Reflactive.name</td>
+<td>获取类名</td>
+</tr>
+<tr>
+<td>Threads.name</td>
+<td>线程名</td>
+</tr>
+<tr>
+<td>Threads.currentThread</td>
+<td>当前线程</td>
+</tr>
+<tr>
+<td>deadlocks</td>
+<td>打出死锁线程</td>
+</tr>
+<tr>
+<td>sizeof</td>
+<td>获取对象的大小，比如List对象就返回List.size()</td>
+</tr>
+<tr>
+<td>Sys.Env.property</td>
+<td>获取系统变量</td>
+</tr>
+</tbody>
+</table>
+<h1 id="参考例子"><a href="#参考例子" class="headerlink" title="参考例子"></a>参考例子</h1><h2 id="打印堆-非堆内存信息"><a href="#打印堆-非堆内存信息" class="headerlink" title="打印堆/非堆内存信息"></a>打印堆/非堆内存信息</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">package sample; /**</span><br><span class="line"> * Created by ww on 16/11/15.</span><br><span class="line"> */</span><br><span class="line">import com.sun.btrace.annotations.BTrace;</span><br><span class="line"></span><br><span class="line">import com.sun.btrace.annotations.OnTimer;</span><br><span class="line"></span><br><span class="line">import static com.sun.btrace.BTraceUtils.*;</span><br><span class="line"></span><br><span class="line">@BTrace</span><br><span class="line"></span><br><span class="line">public class TraceMemory &#123;</span><br><span class="line"></span><br><span class="line">    //heapUsage()/nonHeapUsage() – 打印堆/非堆内存信息，包括init、used、commit、max</span><br><span class="line"></span><br><span class="line">    //init = 134217728(131072K) used = 16793216(16399K) committed = 128974848(125952K) max = 1908932608(1864192K)</span><br><span class="line"></span><br><span class="line">    @OnTimer(4000)</span><br><span class="line"></span><br><span class="line">    public static void printM()&#123;</span><br><span class="line"></span><br><span class="line">        //打印内存信息</span><br><span class="line"></span><br><span class="line">        println(&quot;heap:&quot;);</span><br><span class="line"></span><br><span class="line">        println(heapUsage());</span><br><span class="line"></span><br><span class="line">        println(&quot;no-heap:&quot;);</span><br><span class="line"></span><br><span class="line">        println(nonHeapUsage());</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="打印参数"><a href="#打印参数" class="headerlink" title="打印参数"></a>打印参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package sample;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">import com.sun.btrace.AnyType;</span><br><span class="line">import com.sun.btrace.BTraceUtils;</span><br><span class="line">import com.sun.btrace.annotations.BTrace;</span><br><span class="line">import com.sun.btrace.annotations.Kind;</span><br><span class="line">import com.sun.btrace.annotations.Location;</span><br><span class="line">import com.sun.btrace.annotations.OnMethod;</span><br><span class="line">import com.sun.btrace.annotations.Return;</span><br><span class="line">import com.sun.btrace.annotations.Self;</span><br><span class="line"></span><br><span class="line">import java.lang.reflect.Field;</span><br><span class="line"></span><br><span class="line">import static com.sun.btrace.BTraceUtils.*;</span><br><span class="line">import static com.sun.btrace.BTraceUtils.Reflective.field;</span><br><span class="line">import static com.sun.btrace.BTraceUtils.println;</span><br><span class="line"></span><br><span class="line">@BTrace</span><br><span class="line">public class PrintParameterTest &#123;</span><br><span class="line">    @OnMethod(clazz=&quot;app.BTraceServer&quot;, method=&quot;sayHello&quot;,</span><br><span class="line">            location=@Location(Kind.RETURN))</span><br><span class="line">    public static void onSayHello(@Self Object s, AnyType parames, @Return String ret)&#123;</span><br><span class="line">        Field maxTotalField = field(&quot;app.User&quot;, &quot;name&quot;);</span><br><span class="line"></span><br><span class="line">        println(strcat(&quot;Ps Key: &quot;, str(get(maxTotalField, parames))));</span><br><span class="line">        println(&quot;sdfsdf&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，parames 是一个User对象。切记只能为<strong>AnyType</strong>对象，我开始时使用的是Object,输出就为空。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">public class BTraceServer &#123;</span><br><span class="line"></span><br><span class="line">    public String sayHello(User user) &#123;</span><br><span class="line">        return &quot; 结果:&quot; + user.getName();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) throws InterruptedException &#123;</span><br><span class="line">        BTraceServer bt = new BTraceServer();</span><br><span class="line">        int i = 0;</span><br><span class="line">        while (true) &#123;</span><br><span class="line">            System.err.println(bt.sayHello(new User(i++,&quot;name&quot; +i)));</span><br><span class="line">            Thread.sleep(1000);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://blog.csdn.net/wildandfly/article/details/21107661" target="_blank" rel="noopener">BTrace简介及使用</a></li>
+<li><a href="http://www.tuicool.com/articles/NNBvueR" target="_blank" rel="noopener">BTrace笔记</a></li>
+<li><a href="https://yq.aliyun.com/articles/14664" target="_blank" rel="noopener">btrace一些你不知道的事(源码入手)</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/11/06/22programming/java/thread/线程中断/" class="pre-post btn btn-default" title="线程中断">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">线程中断</span>
+        </a>
+    
+    
+        <a href="/2016/09/04/11容器技术/容器构微服务/" class="next-post btn btn-default" title="容器构建微服务">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">容器构建微服务</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#运行一个Java程序"><span class="toc-text">运行一个Java程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jps命令查出需要监控的jvm-pid"><span class="toc-text">jps命令查出需要监控的jvm pid</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写BTrace跟踪程序"><span class="toc-text">编写BTrace跟踪程序</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行btrace-跟踪程序"><span class="toc-text">执行btrace 跟踪程序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用注解"><span class="toc-text">常用注解</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#类上的注解"><span class="toc-text">类上的注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法上的注解"><span class="toc-text">方法上的注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数上的注解"><span class="toc-text">参数上的注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非注解的方法参数"><span class="toc-text">非注解的方法参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#属性上的注解"><span class="toc-text">属性上的注解</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用方法"><span class="toc-text">常用方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考例子"><span class="toc-text">参考例子</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#打印堆-非堆内存信息"><span class="toc-text">打印堆/非堆内存信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#打印参数"><span class="toc-text">打印参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

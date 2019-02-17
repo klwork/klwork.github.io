@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>MathJax中Latex基本语法 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>Home</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MathJax中Latex基本语法">
+            
+	            MathJax中Latex基本语法
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/杂七杂八">
+            杂七杂八
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Hexo" title="Hexo">
+                        Hexo
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/11/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="入门介绍"><a href="#入门介绍" class="headerlink" title="入门介绍"></a>入门介绍</h1><h2 id="公式标记"><a href="#公式标记" class="headerlink" title="公式标记"></a>公式标记</h2><h3 id="行内公式"><a href="#行内公式" class="headerlink" title="行内公式"></a>行内公式</h3><p><code>$\alpha+\beta=\gamma$</code>    :    $\alpha+\beta=\gamma$</p>
+<h3 id="跨行公式"><a href="#跨行公式" class="headerlink" title="跨行公式"></a>跨行公式</h3><p><code>$$\alpha+\beta=\gamma$$</code>    :    $$\alpha+\beta=\gamma$$</p>
+<h2 id="上标与下标"><a href="#上标与下标" class="headerlink" title="上标与下标"></a>上标与下标</h2><p>上标和下标分别使用^与_，例如<code>x_i^2</code>    :    $x_i^2$</p>
+<h2 id="一些常用函数"><a href="#一些常用函数" class="headerlink" title="一些常用函数"></a>一些常用函数</h2><p><code>\sum</code>用来表示求和符号，其下标表示求和下限，上标表示上限。如<code>\sum_1^n</code>: $\sum_1^n$。</p>
+<p><code>\int</code>用来表示积分符号，同样地，其上下标表示积分的上下限。如<code>\int_1^\infty</code> : $\int_1^\infty$。</p>
+<p><code>\lim_{x\to\infty}</code>：$\lim_{x\to\infty}$</p>
+<p>其他特殊函数,例如’sin’,’max’,’ln’。</p>
+<h2 id="括号"><a href="#括号" class="headerlink" title="括号"></a>括号</h2><ol>
+<li>小括号与方括号：使用原始的()，[]即可，如<code>(2+3)[4+4]</code>: $(2+3)[4+4]$</li>
+<li>大括号：由于大括号{}被用来分组，因此需要使用<code>\lbrace</code>和<code>\rbrace</code>来表示。如<code>\lbrace a*b \rbrace</code> : $\lbrace a*b \rbrace$</li>
+<li>尖括号：使用<code>\langle</code>和<code>\rangle</code>表示左尖括号和右尖括号。如<code>\langle x \rangle</code> : $\langle x \rangle$</li>
+<li>上取整：使用<code>\lceil</code>和<code>\rceil</code>表示。如<code>\lceil x \rceil</code>：$\lceil x \rceil$</li>
+<li>下取整：使用<code>\lfloor</code>和<code>\rfloor</code>表示。如<code>\lfloor x \rfloor</code>：$\lfloor x \rfloor$</li>
+<li>不可见括号：使用<code>.</code>表示</li>
+</ol>
+<h2 id="分号"><a href="#分号" class="headerlink" title="分号"></a>分号</h2><p>单个字母可以使用<code>\frac ab</code>，如果你的分子或分母不是单个字符，请使用分组 <code>\frac{(n^2+n)(2n+2)}{6}</code>：$ \frac{(n^2+n)(2n+2)}{6}$</p>
+<p>或者使用<code>\over</code>，来分隔一个组的前后两部分，如 <code>(n^2+n)(2n+2) \over 6</code>: $(n^2+n)(2n+2) \over 6$</p>
+<h2 id="根号"><a href="#根号" class="headerlink" title="根号"></a>根号</h2><p>根式使用<code>\sqrt</code>表示，如：<code>\sqrt[4]{\frac xy}</code>：$\sqrt[4]{\frac xy}$</p>
+<h2 id="希腊字母"><a href="#希腊字母" class="headerlink" title="希腊字母"></a>希腊字母</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Tex</th>
+<th>显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alpha</td>
+<td>\alpha</td>
+<td>$\alpha$</td>
+</tr>
+<tr>
+<td>beta</td>
+<td>\beta</td>
+<td>$\beta$</td>
+</tr>
+<tr>
+<td>delta</td>
+<td>\Delta</td>
+<td>$\Delta$</td>
+</tr>
+<tr>
+<td>theta</td>
+<td>\theta</td>
+<td>$\theta$</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一个综合示列"><a href="#一个综合示列" class="headerlink" title="一个综合示列"></a>一个综合示列</h2><p>原始符号并不会随着公式大小缩放，可以使用<code>\left(...\right)</code>来自适应地调整括号大小。<code>\left\lbrace\sum_{i=0}^0 i^2 = \frac{(n^2+n)(2n+2)}{6}\right\rbrace\tag{1.2}</code><br>$$\left\lbrace\sum_{i=0}^0 i^2 = \frac{(n^2+n)(2n+2)}{6}\right\rbrace\tag{1.2}$$</p>
+<h2 id="排列和组合"><a href="#排列和组合" class="headerlink" title="排列和组合"></a>排列和组合</h2><p>表示排列使用<code>\binom{n+1}{2k}</code>:$\binom{n+1}{2k}$ 或<code>{n+1 \choose 2k}</code>:${n+1 \choose 2k}$</p>
+<h2 id="集合关系与运算"><a href="#集合关系与运算" class="headerlink" title="集合关系与运算"></a>集合关系与运算</h2><p><code>\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing</code>:$\cup \cap \setminus \subset \subseteq \subsetneq \supset \in \notin \emptyset \varnothing$</p>
+<h2 id="其他特殊函数和符号"><a href="#其他特殊函数和符号" class="headerlink" title="其他特殊函数和符号"></a>其他特殊函数和符号</h2><ol>
+<li>比较运算符：<code>\lt \gt \le \ge \neq</code>:$\lt \gt \le \ge \neq$</li>
+<li>箭头：<code>\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto</code>: $\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto$</li>
+<li>省略号：<code>a_1 + a_2 + \cdots + a_n , a_1, a_2, \ldots , a_n</code>：$$a_1 + a_2 + \cdots + a_n , a_1, a_2, \ldots , a_n$$</li>
+</ol>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><code>https://www.cnblogs.com/linxd/p/4955530.html</code></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/12/05/01数据科学/0机器学习/混淆矩阵/" class="pre-post btn btn-default" title="混淆矩阵">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">混淆矩阵</span>
+        </a>
+    
+    
+        <a href="/2018/11/09/90杂七杂八/Latex高级用法/" class="next-post btn btn-default" title="Latex表示矩阵和其他用法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Latex表示矩阵和其他用法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-Hans'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#入门介绍"><span class="toc-text">入门介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#公式标记"><span class="toc-text">公式标记</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#行内公式"><span class="toc-text">行内公式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#跨行公式"><span class="toc-text">跨行公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#上标与下标"><span class="toc-text">上标与下标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一些常用函数"><span class="toc-text">一些常用函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#括号"><span class="toc-text">括号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分号"><span class="toc-text">分号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#根号"><span class="toc-text">根号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#希腊字母"><span class="toc-text">希腊字母</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一个综合示列"><span class="toc-text">一个综合示列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#排列和组合"><span class="toc-text">排列和组合</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#集合关系与运算"><span class="toc-text">集合关系与运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他特殊函数和符号"><span class="toc-text">其他特殊函数和符号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考资料"><span class="toc-text">参考资料</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+ tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+ TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+ messageStyle: "none"
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script charset="utf-8" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
