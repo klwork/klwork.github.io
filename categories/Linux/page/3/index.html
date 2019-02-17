@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                    <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,9 +141,10 @@
             </div>
             <p class="brief">
                 
-                    #free
-基本使用free –m
-123              total        used        free      shared  buff/cache   availableMem:        20443...
+                    Vi常用命令定位gg: 文章头部G:移至文章尾，行首:3 到第3行
+A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
+ctrl+F:下一屏文本，ctrl+B:上一屏文本
+删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
                 
             </p>
         </div>
@@ -154,7 +155,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
+                    <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -164,9 +165,8 @@
             </div>
             <p class="brief">
                 
-                    #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
+                    管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
+xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
                 
             </p>
         </div>
@@ -201,7 +201,7 @@ sar基本用法sar
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+                    <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -211,8 +211,35 @@ sar基本用法sar
             </div>
             <p class="brief">
                 
-                    #ssh免秘密登录
-公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
+                    systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
+sudo apt-get install elfutils
+sudo apt-get install  lib...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年05月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Linux数字转换有时需要快速查看二进制的数字为多少
+其他转为十进制((num=2#11011111))
+echo $num
+((num=0xff));
+echo $num
+十进制转为其它进制十进制转八进制echo “obase=8;...
                 
             </p>
         </div>
@@ -241,32 +268,6 @@ sudo netstat -anop | grep 3306
 
 netstat -tnlp
 可以查看监听的端口，其中l是l...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年05月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Linux数字转换有时需要快速查看二进制的数字为多少
-其他转为十进制((num=2#11011111))
-echo $num
-((num=0xff));
-echo $num
-十进制转为其它进制十进制转八进制echo “obase=8;...
                 
             </p>
         </div>
