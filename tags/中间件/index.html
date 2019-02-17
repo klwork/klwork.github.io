@@ -75,17 +75,12 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(/image/ban.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="wangwei">
-            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
         </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
-            
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
-            
-    	</div>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
     </div>
 </header>
     <nav class="main-navigation">
@@ -102,7 +97,7 @@
                     <ul class="menu">
                         
                             <li role="presentation" class="text-center">
-                                <a href="/"><i class="fa "></i>Home</a>
+                                <a href="/"><i class="fa "></i>主页</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -166,7 +161,7 @@ docker run –name cloudera –privileged=true –hostna...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
+                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -176,8 +171,29 @@ docker run –name cloudera –privileged=true –hostna...
             </div>
             <p class="brief">
                 
-                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
-docker run ...
+                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/05/17/02大数据/elasticsearch学习/">Elasticsearch入门学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年05月17日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    docker安装假设宿主机ip为10.168.1.111下载    docker pull elasticsearch:5.6.4    docker pull mobz/elasticsearch-head:5
+安装esmaster...
                 
             </p>
         </div>
@@ -215,7 +231,7 @@ vs传统行式数据库
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
+                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -225,7 +241,8 @@ vs传统行式数据库
             </div>
             <p class="brief">
                 
-                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
+                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
+docker run ...
                 
             </p>
         </div>
@@ -236,18 +253,17 @@ vs传统行式数据库
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/elasticsearch学习/">Elasticsearch入门学习</a>
+                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
-                        2018年05月17日
+                        2018年02月27日
                     </time>
                 </div>
             </div>
             <p class="brief">
                 
-                    docker安装假设宿主机ip为10.168.1.111下载    docker pull elasticsearch:5.6.4    docker pull mobz/elasticsearch-head:5
-安装esmaster...
+                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
                 
             </p>
         </div>
@@ -326,28 +342,7 @@ Docker初步使用 docker run -i -t --name m...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年02月27日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/09/04/11容器技术/docker入门/">Docker简介和安装</a>
+                    <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -357,18 +352,9 @@ Docker初步使用 docker run -i -t --name m...
             </div>
             <p class="brief">
                 
-                    Docker简介一个容器实质是运行在宿主机器上的一个进程，最小组成公式为：容器＝cgroups + namespace + rootfs + engine
-Docker历史
-
-
-column
-column
-
-
-
-
-2008 年
-Sol...
+                    docker概念编写dockerfile
+ docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
+ht...
                 
             </p>
         </div>

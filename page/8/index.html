@@ -75,17 +75,12 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(/image/ban.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="wangwei">
-            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
         </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
-            
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
-            
-    	</div>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
     </div>
 </header>
     <nav class="main-navigation">
@@ -102,7 +97,7 @@
                     <ul class="menu">
                         
                             <li role="presentation" class="text-center">
-                                <a href="/"><i class="fa "></i>Home</a>
+                                <a href="/"><i class="fa "></i>主页</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -445,7 +440,7 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
+                <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -455,73 +450,9 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
         </div>
         <p class="brief">
             
-                AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/多线程" title="多线程">
-                        多线程
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/AQS/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/linx-id/">Linux id 命令</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                id命令用来做什么？id 命令可以显示真实有效的用户 ID(UID) 和组 ID(GID)。UID 是对一个用户的单一身份标识。组 ID（GID）则对应多个UID。
-一些程序可能需要 UID/GID 来运行，我们想知道某个用户的 UI...
+                awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
+其中的$1..$n表示第几例。...
             
         </p>
     </div>
@@ -556,7 +487,7 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/linx-id/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -639,7 +570,7 @@ CASCompare and Swap，比较并设置。
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+                <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -649,10 +580,74 @@ CASCompare and Swap，比较并设置。
         </div>
         <p class="brief">
             
-                锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
+                #uptime
+这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
+命令的输出分别表示1分钟、5分...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/uptime/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
+            </a>
+        </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
             
         </p>
     </div>
@@ -695,7 +690,7 @@ CASCompare and Swap，比较并设置。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -704,16 +699,10 @@ CASCompare and Swap，比较并设置。
 
 <article class="post">
     
-        <div class="post-media">
-            <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.png" alt="参看线程堆栈－jstack">
-            </a>
-        </div>
-    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/">综合监控到线程－pidstat命令</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -723,8 +712,10 @@ CASCompare and Swap，比较并设置。
         </div>
         <p class="brief">
             
-                #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
+                #pidstat
+用pidstat工具可以获取每个进程使用cpu、内存和磁盘等系统资源的统计信息。
+pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而pidstat的输出则添加在之前的输出的后面。
+基本使用以1秒为...
             
         </p>
     </div>
@@ -736,8 +727,8 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
+        <a href="/categories/Linux">
+            Linux
         </a>
     </span>
     
@@ -747,14 +738,6 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/JVM" title="JVM">
-                        JVM
-                    </a>
                 
             
         </span>
@@ -767,7 +750,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

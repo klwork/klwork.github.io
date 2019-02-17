@@ -75,17 +75,12 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(/image/ban.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="wangwei">
-            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
         </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
-            
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
-            
-    	</div>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
     </div>
 </header>
     <nav class="main-navigation">
@@ -102,7 +97,7 @@
                     <ul class="menu">
                         
                             <li role="presentation" class="text-center">
-                                <a href="/"><i class="fa "></i>Home</a>
+                                <a href="/"><i class="fa "></i>主页</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -138,10 +133,16 @@
 
 <article class="post">
     
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.png" alt="参看线程堆栈－jstack">
+            </a>
+        </div>
+    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
+                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -151,8 +152,8 @@
         </div>
         <p class="brief">
             
-                #mpstat
-mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
+                #jstack介绍
+jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
             
         </p>
     </div>
@@ -164,8 +165,8 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/Programming">
+            Programming
         </a>
     </span>
     
@@ -175,6 +176,14 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/JVM" title="JVM">
+                        JVM
+                    </a>
                 
             
         </span>
@@ -187,7 +196,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -199,7 +208,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -209,76 +218,9 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
         </div>
         <p class="brief">
             
-                #netstat
-可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
-基本使用netstat －an
-参数
-
-
-参数说明
-说明
-
-
-
-
--a...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/netstat/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
+                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
             
         </p>
     </div>
@@ -325,7 +267,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -334,16 +276,10 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
 
 <article class="post">
     
-        <div class="post-media">
-            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
-            </a>
-        </div>
-    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -353,9 +289,10 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
         </div>
         <p class="brief">
             
-                线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+                锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
+临界区概念一个进程在进入临界区之间，必须得到锁。
+123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
+...
             
         </p>
     </div>
@@ -398,7 +335,77 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                共享锁代码分析参考代码ReentrantReadWriteLock
+ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/22programming/java/thread/共享锁/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -466,6 +473,77 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
 
             <div class="post-permalink">
                 <a href="/2016/09/04/13基础技术/消息队列/mq学习/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年09月04日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                docker概念编写dockerfile
+ docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
+ht...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/容器技术">
+            容器技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+                    <a href="/tags/Docker" title="Docker">
+                        Docker
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/09/04/11容器技术/容器构微服务/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -546,77 +624,6 @@ Sol...
 
             <div class="post-permalink">
                 <a href="/2016/09/04/11容器技术/docker入门/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年09月04日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                docker概念编写dockerfile
- docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
-ht...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/容器技术">
-            容器技术
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/中间件" title="中间件">
-                        中间件
-                    </a>
-                
-                    <a href="/tags/分布式" title="分布式">
-                        分布式
-                    </a>
-                
-                    <a href="/tags/Docker" title="Docker">
-                        Docker
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/09/04/11容器技术/容器构微服务/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

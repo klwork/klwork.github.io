@@ -75,17 +75,12 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(/image/ban.png)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="wangwei">
-            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
         </a>
-        <div class="branding">
-        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
-            
-                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
-            
-    	</div>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
     </div>
 </header>
     <nav class="main-navigation">
@@ -102,7 +97,7 @@
                     <ul class="menu">
                         
                             <li role="presentation" class="text-center">
-                                <a href="/"><i class="fa "></i>Home</a>
+                                <a href="/"><i class="fa "></i>主页</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
@@ -142,7 +137,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
+                    <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -152,7 +147,8 @@
             </div>
             <p class="brief">
                 
-                    多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
+                    共享锁代码分析参考代码ReentrantReadWriteLock
+ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
                 
             </p>
         </div>
@@ -186,7 +182,7 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
+                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -196,7 +192,9 @@ CASCompare and Swap，比较并设置。
             </div>
             <p class="brief">
                 
-                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
+                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
                 
             </p>
         </div>
@@ -333,6 +331,27 @@ Scala 完全支持面向对象编程（OOP）。...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/02/07/22programming/scala/Scala中的类型系统/">Scala中的类型系统</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -349,27 +368,6 @@ Scala 完全支持面向对象编程（OOP）。...
 直接用type关键字定义类型
 
 在Scala当中，标注类型的时候可以直接用类和特质的名字来引用其类型，要引用对...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
                 
             </p>
         </div>
