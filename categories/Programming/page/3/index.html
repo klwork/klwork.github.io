@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -182,7 +176,7 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
+                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -192,9 +186,7 @@ CASCompare and Swap，比较并设置。
             </div>
             <p class="brief">
                 
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
+                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
                 
             </p>
         </div>
@@ -226,30 +218,6 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Scala的命令行工具编写源码upper1.sc的文件内容
-class Upper {
-  def upper(strings: String*): Seq[String] = {
-    strings.map((s:String)...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -262,35 +230,6 @@ class Upper {
                 
                     惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
 隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    类的学习单例对象 object Timer {
-  var count = 0
-  def currentCount(): Long = {
-    count += 1
-    count
-  }
-}
-执行结果
-scala&amp;gt; ...
                 
             </p>
         </div>
@@ -331,7 +270,7 @@ Scala 完全支持面向对象编程（OOP）。...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
+                    <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -341,7 +280,39 @@ Scala 完全支持面向对象编程（OOP）。...
             </div>
             <p class="brief">
                 
-                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
+                    类的学习单例对象 object Timer {
+  var count = 0
+  def currentCount(): Long = {
+    count += 1
+    count
+  }
+}
+执行结果
+scala&amp;gt; ...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Scala的命令行工具编写源码upper1.sc的文件内容
+class Upper {
+  def upper(strings: String*): Seq[String] = {
+    strings.map((s:String)...
                 
             </p>
         </div>
@@ -368,6 +339,27 @@ Scala 完全支持面向对象编程（OOP）。...
 直接用type关键字定义类型
 
 在Scala当中，标注类型的时候可以直接用类和特质的名字来引用其类型，要引用对...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
                 
             </p>
         </div>

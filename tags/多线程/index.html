@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -160,6 +154,30 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
+临界区概念一个进程在进入临界区之间，必须得到锁。
+123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
+...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -204,7 +222,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -214,10 +232,7 @@
             </div>
             <p class="brief">
                 
-                    锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
+                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
                 
             </p>
         </div>
@@ -241,27 +256,6 @@
                     术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
 CASCompare and Swap，比较并设置。
 用于在硬件层面上提供原子性操作。在Intel 处...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
                 
             </p>
         </div>

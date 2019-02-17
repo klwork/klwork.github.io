@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -253,6 +247,71 @@
 
 <article class="post">
     
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2019/01/09/22programming/python/matplotlib入门/">matplotlib入门学习</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2019年01月09日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                简单绘图matplotlib.pyplot包中包含了简单绘图功能。
+import numpy as np
+import matplotlib.pyplot as plt
+
+func = np.poly1d(np.array([1, 2...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2019/01/09/22programming/python/matplotlib入门/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
         <div class="post-media">
             <a href="/2019/01/09/01数据科学/0机器学习/Scikit-Learn入门/">
                 <img class="img-ajax" src="/img/loading.gif" data-src="/image/output_24_1.png" alt="Scikit-Learn入门学习">
@@ -387,71 +446,6 @@
 
             <div class="post-permalink">
                 <a href="/2019/01/09/01数据科学/0机器学习/Scikit-Learn进阶/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2019/01/09/22programming/python/matplotlib入门/">matplotlib入门学习</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2019年01月09日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                简单绘图matplotlib.pyplot包中包含了简单绘图功能。
-import numpy as np
-import matplotlib.pyplot as plt
-
-func = np.poly1d(np.array([1, 2...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/Python" title="Python">
-                        Python
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2019/01/09/22programming/python/matplotlib入门/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -710,7 +704,7 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2018/12/05/01数据科学/0机器学习/逻辑回归/">逻辑回归</a>
+                <a href="/2018/12/05/01数据科学/0机器学习/代价函数和损失函数/">代价函数和损失函数</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -720,8 +714,11 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
         </div>
         <p class="brief">
             
-                概念逻辑回归模型如何确保输出值始终落在 0 和 1 之间。巧合的是，S 型函数生成的输出值正好具有这些特性。
-逻辑回归的损失函数逻辑回归中的正则化
+                概念基本概念：
+损失函数：计算的是一个样本的误差
+代价函数：是整个训练集上所有样本误差的平均
+目标函数：代价函数 + 正则化项
+https://blog.csdn.net/qq_28448117/article/details/791...
             
         </p>
     </div>
@@ -756,7 +753,7 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
             </div>
 
             <div class="post-permalink">
-                <a href="/2018/12/05/01数据科学/0机器学习/逻辑回归/" class="btn btn-default">Read</a>
+                <a href="/2018/12/05/01数据科学/0机器学习/代价函数和损失函数/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

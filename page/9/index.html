@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -133,16 +127,10 @@
 
 <article class="post">
     
-        <div class="post-media">
-            <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.png" alt="参看线程堆栈－jstack">
-            </a>
-        </div>
-    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
+                <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -152,8 +140,69 @@
         </div>
         <p class="brief">
             
-                #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
+                #sar
+sar基本用法sar
+
+如果出现错误Cannot open /var/log/sysstat/sa14: No such file or directory直接使用sar就会查找历史文件，因为刚装还没有文件14代表当天日期，...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/sar/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/配置管理/git入门/">git入门</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                git分支管理Git分支是轻量且高效的，为什么呢？答案是：传统的版本控制系统存储的数据是文件的变更，而Git则是存储一系列的文件快照（snapshot）。
+vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
+该指针指向r...
             
         </p>
     </div>
@@ -177,12 +226,8 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/JVM" title="JVM">
-                        JVM
+                    <a href="/tags/Git" title="Git">
+                        Git
                     </a>
                 
             
@@ -196,7 +241,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/配置管理/git入门/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -208,7 +253,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
+                <a href="/2016/11/06/22programming/配置管理/gradle入门/">gradle入门</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -218,9 +263,69 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
         </div>
         <p class="brief">
             
-                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
+                gradle入门gradle跟ivy/maven一样，是一种依赖管理/自动化构建工具。但是跟ivy/maven不一样，它并没有使用xml语言，而是采用了Groovy语言。更加强大的是，gradle完全兼容maven和ivy。
+grad...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/gradle" title="gradle">
+                        gradle
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/22programming/配置管理/gradle入门/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
             
         </p>
     </div>
@@ -267,145 +372,7 @@ CASCompare and Swap，比较并设置。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/多线程" title="多线程">
-                        多线程
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                共享锁代码分析参考代码ReentrantReadWriteLock
-ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/高并发" title="高并发">
-                        高并发
-                    </a>
-                
-                    <a href="/tags/多线程" title="多线程">
-                        多线程
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程池/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -416,7 +383,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     
         <div class="post-media">
             <a href="/2016/09/04/13基础技术/消息队列/mq学习/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java-base/work1.png" alt="MQ简单学习">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/mq/jms-mq.png" alt="MQ简单学习">
             </a>
         </div>
     
@@ -473,77 +440,6 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
 
             <div class="post-permalink">
                 <a href="/2016/09/04/13基础技术/消息队列/mq学习/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年09月04日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                docker概念编写dockerfile
- docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
-ht...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/容器技术">
-            容器技术
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/中间件" title="中间件">
-                        中间件
-                    </a>
-                
-                    <a href="/tags/分布式" title="分布式">
-                        分布式
-                    </a>
-                
-                    <a href="/tags/Docker" title="Docker">
-                        Docker
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/09/04/11容器技术/容器构微服务/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -635,22 +531,19 @@ Sol...
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
+                <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
-                    2016年05月06日
+                    2016年09月04日
                 </time>
             </div>
         </div>
         <p class="brief">
             
-                Linux数字转换有时需要快速查看二进制的数字为多少
-其他转为十进制((num=2#11011111))
-echo $num
-((num=0xff));
-echo $num
-十进制转为其它进制十进制转八进制echo “obase=8;...
+                docker概念编写dockerfile
+ docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
+ht...
             
         </p>
     </div>
@@ -662,8 +555,8 @@ echo $num
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/容器技术">
+            容器技术
         </a>
     </span>
     
@@ -673,6 +566,18 @@ echo $num
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+                    <a href="/tags/Docker" title="Docker">
+                        Docker
+                    </a>
                 
             
         </span>
@@ -685,7 +590,7 @@ echo $num
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/05/06/13基础技术/linux/Linux数字转换/" class="btn btn-default">Read</a>
+                <a href="/2016/09/04/11容器技术/容器构微服务/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -750,6 +655,68 @@ netstat -tnlp
 
             <div class="post-permalink">
                 <a href="/2016/05/06/13基础技术/linux/Linux常用命令/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年05月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Linux数字转换有时需要快速查看二进制的数字为多少
+其他转为十进制((num=2#11011111))
+echo $num
+((num=0xff));
+echo $num
+十进制转为其它进制十进制转八进制echo “obase=8;...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/05/06/13基础技术/linux/Linux数字转换/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

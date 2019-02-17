@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -137,56 +131,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    grep学习指南grep -［acinv］ ‘搜索内容串’ filename
-参数
--a：表示以文本文件方式搜索。
--c：表示计算找到符合行的次数。
--i：表示忽略字母大小写。
--n：表示顺便输出行号。
--v：表示反向选择，即找到没有...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -211,7 +155,7 @@ sar基本用法sar
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+                    <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -221,8 +165,9 @@ sar基本用法sar
             </div>
             <p class="brief">
                 
-                    #ssh免秘密登录
-公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
+                    systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
+sudo apt-get install elfutils
+sudo apt-get install  lib...
                 
             </p>
         </div>
@@ -233,22 +178,43 @@ sar基本用法sar
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
+                    <a href="/2016/11/06/13基础技术/linux/常用Linux系统调用/">常用Linux系统调用</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
-                        2016年05月06日
+                        2016年11月06日
                     </time>
                 </div>
             </div>
             <p class="brief">
                 
-                    Linux数字转换有时需要快速查看二进制的数字为多少
-其他转为十进制((num=2#11011111))
-echo $num
-((num=0xff));
-echo $num
-十进制转为其它进制十进制转八进制echo “obase=8;...
+                    #系统调用简介
+linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于核心态，而普通的函数调用由函数库或用户自己提供，运行于用户态。
+#系统调用汇总
+...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #free
+基本使用free –m
+123              total        used        free      shared  buff/cache   availableMem:        20443...
                 
             </p>
         </div>
@@ -277,6 +243,32 @@ sudo netstat -anop | grep 3306
 
 netstat -tnlp
 可以查看监听的端口，其中l是l...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/05/06/13基础技术/linux/Linux数字转换/">Linux中十进制和其他进制的互换</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年05月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Linux数字转换有时需要快速查看二进制的数字为多少
+其他转为十进制((num=2#11011111))
+echo $num
+((num=0xff));
+echo $num
+十进制转为其它进制十进制转八进制echo “obase=8;...
                 
             </p>
         </div>

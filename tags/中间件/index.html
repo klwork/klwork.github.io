@@ -49,12 +49,6 @@
 
 
     
-	<div class="hide">
-		<script type="text/javascript">
-			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
-		</script>
-	</div>
-
 
 
 
@@ -161,7 +155,7 @@ docker run –name cloudera –privileged=true –hostna...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
+                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -171,7 +165,8 @@ docker run –name cloudera –privileged=true –hostna...
             </div>
             <p class="brief">
                 
-                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
+                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
+docker run ...
                 
             </p>
         </div>
@@ -231,7 +226,7 @@ vs传统行式数据库
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
+                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -241,29 +236,7 @@ vs传统行式数据库
             </div>
             <p class="brief">
                 
-                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
-docker run ...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年02月27日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
+                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
                 
             </p>
         </div>
@@ -287,6 +260,27 @@ docker run ...
                     docker概念三个基本概念（镜像／容器／仓库）
 服务启用停用sudo service docker startsudo service docker stop
 Docker初步使用 docker run -i -t --name m...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年02月27日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
                 
             </p>
         </div>
