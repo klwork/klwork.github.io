@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
+                    <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,8 +141,8 @@
             </div>
             <p class="brief">
                 
-                    #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
+                    线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
+在这里，我们介绍线程中断。中断线程的使用场...
                 
             </p>
         </div>
@@ -153,7 +153,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
+                    <a href="/2016/11/06/22programming/java/Java-native/">Java Native Interface</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -163,9 +163,9 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
             </div>
             <p class="brief">
                 
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
+                    #什么是JNI？
+JNI是Java Native Interface的英文缩写, 中文翻译为本地调用, 自从Java 1.1开始就成为了Java标准的一部分.
+Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲一些对底层...
                 
             </p>
         </div>
@@ -176,7 +176,7 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
+                    <a href="/2016/11/06/22programming/java/jvm/btrace学习/">btrace学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -186,54 +186,9 @@ CASCompare and Swap，比较并设置。
             </div>
             <p class="brief">
                 
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
-隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #引言
-由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
-CommonJS主要...
+                    #功能介绍？
+Btrace (Byte Trace)是sun推出的一款java 动态、安全追踪（监控）工具，可以不停机的情况下监控线上情况，并且做到最少的侵入，占用最少的系统资源。
+BTrace利用了java.lang.instrum...
                 
             </p>
         </div>
@@ -274,6 +229,52 @@ Scala 完全支持面向对象编程（OOP）。...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #引言
+由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
+CommonJS主要...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/javascript/es6/">需要知道的ECMAScript 6语法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #ECMAScript 6常用语法
+let与const关键字let关键字可以由一个块作用域。由于var关键字的作用范围是一个函数，它有时候会导致一些意想不到的bug。为此，我们可以用let来代替var来避免此类bug。
+const 用...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -298,7 +299,7 @@ class Upper {
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
+                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -308,15 +309,29 @@ class Upper {
             </div>
             <p class="brief">
                 
-                    类的学习单例对象 object Timer {
-  var count = 0
-  def currentCount(): Long = {
-    count += 1
-    count
-  }
-}
-执行结果
-scala&amp;gt; ...
+                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
+隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
                 
             </p>
         </div>
@@ -338,32 +353,6 @@ scala&amp;gt; ...
             <p class="brief">
                 
                     super和extentsList&amp;lt;? extends E&amp;gt;表示该list集合中存放的都是E的子类型（包括E自身），由于E的子类型可能有很多，但是我们存放元素时实际上只能存放其中的一种子类型（这是为了泛型安全，因为其会在编...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/Scala中的类型系统/">Scala中的类型系统</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Scala中的类型系统学习Scala中定义类型的两种方式在Scala当中可以用以下两种方式定义类型:
-
-定义类、特质或对象
-直接用type关键字定义类型
-
-在Scala当中，标注类型的时候可以直接用类和特质的名字来引用其类型，要引用对...
                 
             </p>
         </div>

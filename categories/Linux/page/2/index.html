@@ -131,6 +131,29 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #iostat
+iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
+基本使用iostat[参数][时间][次数]...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -201,7 +224,7 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                    <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -211,9 +234,9 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
             </div>
             <p class="brief">
                 
-                    #free
-基本使用free –m
-123              total        used        free      shared  buff/cache   availableMem:        20443...
+                    systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
+sudo apt-get install elfutils
+sudo apt-get install  lib...
                 
             </p>
         </div>
@@ -224,7 +247,7 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/常用Linux系统调用/">常用Linux系统调用</a>
+                    <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -234,10 +257,19 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
             </div>
             <p class="brief">
                 
-                    #系统调用简介
-linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于核心态，而普通的函数调用由函数库或用户自己提供，运行于用户态。
-#系统调用汇总
-...
+                    #netstat
+可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
+基本使用netstat －an
+参数
+
+
+参数说明
+说明
+
+
+
+
+-a...
                 
             </p>
         </div>
@@ -248,7 +280,7 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
+                    <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -258,32 +290,8 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
             </div>
             <p class="brief">
                 
-                    awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
-输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
-其中的$1..$n表示第几例。...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #uptime
-这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
-命令的输出分别表示1分钟、5分...
+                    管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
+xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
                 
             </p>
         </div>
@@ -339,7 +347,7 @@ vmstat 1 3
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
+                    <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -349,13 +357,10 @@ vmstat 1 3
             </div>
             <p class="brief">
                 
-                    grep学习指南grep -［acinv］ ‘搜索内容串’ filename
-参数
--a：表示以文本文件方式搜索。
--c：表示计算找到符合行的次数。
--i：表示忽略字母大小写。
--n：表示顺便输出行号。
--v：表示反向选择，即找到没有...
+                    Vi常用命令定位gg: 文章头部G:移至文章尾，行首:3 到第3行
+A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
+ctrl+F:下一屏文本，ctrl+B:上一屏文本
+删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
                 
             </p>
         </div>

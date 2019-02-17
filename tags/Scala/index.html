@@ -158,7 +158,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
+                    <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -168,32 +168,15 @@
             </div>
             <p class="brief">
                 
-                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
-隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Scala的命令行工具编写源码upper1.sc的文件内容
-class Upper {
-  def upper(strings: String*): Seq[String] = {
-    strings.map((s:String)...
+                    类的学习单例对象 object Timer {
+  var count = 0
+  def currentCount(): Long = {
+    count += 1
+    count
+  }
+}
+执行结果
+scala&amp;gt; ...
                 
             </p>
         </div>
@@ -234,7 +217,7 @@ Scala 完全支持面向对象编程（OOP）。...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
+                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -244,15 +227,32 @@ Scala 完全支持面向对象编程（OOP）。...
             </div>
             <p class="brief">
                 
-                    类的学习单例对象 object Timer {
-  var count = 0
-  def currentCount(): Long = {
-    count += 1
-    count
-  }
-}
-执行结果
-scala&amp;gt; ...
+                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
+隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Scala的命令行工具编写源码upper1.sc的文件内容
+class Upper {
+  def upper(strings: String*): Seq[String] = {
+    strings.map((s:String)...
                 
             </p>
         </div>
