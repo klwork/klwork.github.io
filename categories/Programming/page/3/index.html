@@ -131,51 +131,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    共享锁代码分析参考代码ReentrantReadWriteLock
-ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -197,6 +152,49 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/配置管理/gradle入门/">gradle入门</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    gradle入门gradle跟ivy/maven一样，是一种依赖管理/自动化构建工具。但是跟ivy/maven不一样，它并没有使用xml语言，而是采用了Groovy语言。更加强大的是，gradle完全兼容maven和ivy。
+grad...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/02/07/22programming/scala/java范型介绍/">Java泛型介绍</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -208,28 +206,6 @@ CASCompare and Swap，比较并设置。
             <p class="brief">
                 
                     super和extentsList&amp;lt;? extends E&amp;gt;表示该list集合中存放的都是E的子类型（包括E自身），由于E的子类型可能有很多，但是我们存放元素时实际上只能存放其中的一种子类型（这是为了泛型安全，因为其会在编...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
-隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
                 
             </p>
         </div>
@@ -270,6 +246,30 @@ Scala 完全支持面向对象编程（OOP）。...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Scala的命令行工具编写源码upper1.sc的文件内容
+class Upper {
+  def upper(strings: String*): Seq[String] = {
+    strings.map((s:String)...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/02/07/22programming/scala/scala中类的学习/">Scala类的学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -299,7 +299,7 @@ scala&amp;gt; ...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/scala基本语法/">Scala基本语法</a>
+                    <a href="/2016/02/07/22programming/scala/scala中高级特性/">Scala的高级特性</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -309,10 +309,29 @@ scala&amp;gt; ...
             </div>
             <p class="brief">
                 
-                    Scala的命令行工具编写源码upper1.sc的文件内容
-class Upper {
-  def upper(strings: String*): Seq[String] = {
-    strings.map((s:String)...
+                    惰性求值for 推导式（for comprehension）隐式类(Implicit Classes)=&amp;gt;
+隐式转换使用隐式能够减少代码，能够向已有类型中注入新的方法，也能够创建领域特定语言（DSL）。implicit 可分为：...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
                 
             </p>
         </div>
@@ -339,27 +358,6 @@ class Upper {
 直接用type关键字定义类型
 
 在Scala当中，标注类型的时候可以直接用类和特质的名字来引用其类型，要引用对...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/python/使用NumPy/">NumPy学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    简介NumPy 数组与 Python 内置的列表类型非常相似。但是随着数组在维度上变大，NumPy 数组提供了更加高效的存储和数据操作。与Python 列表list相比，固定类型的 NumPy 式数组缺乏这种灵活性，但是能更有效地存储...
                 
             </p>
         </div>

@@ -130,7 +130,7 @@
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/分布式理论/tcp建立连接的状态说明/">tcp建立连接的状态说明</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/">综合监控到线程－pidstat命令</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -140,10 +140,10 @@
         </div>
         <p class="brief">
             
-                #tcp建立连接的状态说明
-TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次握手，下面举例说明各种状态存在的时刻：
-
-首先在服务器A上开启FTP服务，开始侦听来自远端TCP端口的连接请求，这个时候查看服务器A状态为：LI...
+                #pidstat
+用pidstat工具可以获取每个进程使用cpu、内存和磁盘等系统资源的统计信息。
+pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而pidstat的输出则添加在之前的输出的后面。
+基本使用以1秒为...
             
         </p>
     </div>
@@ -155,8 +155,8 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/基础技术">
-            基础技术
+        <a href="/categories/Linux">
+            Linux
         </a>
     </span>
     
@@ -166,10 +166,6 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-                
-                    <a href="/tags/TCP/IP" title="TCP/IP">
-                        TCP/IP
-                    </a>
                 
             
         </span>
@@ -182,7 +178,7 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/分布式理论/tcp建立连接的状态说明/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -252,7 +248,7 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/linx-id/">Linux id 命令</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -262,8 +258,7 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
         </div>
         <p class="brief">
             
-                id命令用来做什么？id 命令可以显示真实有效的用户 ID(UID) 和组 ID(GID)。UID 是对一个用户的单一身份标识。组 ID（GID）则对应多个UID。
-一些程序可能需要 UID/GID 来运行，我们想知道某个用户的 UI...
+                AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
             
         </p>
     </div>
@@ -275,8 +270,8 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/Programming">
+            Programming
         </a>
     </span>
     
@@ -286,6 +281,14 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
                 
             
         </span>
@@ -298,64 +301,7 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/linx-id/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/top/">系统的整体资源使用情况－top</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                top123456789top - 22:13:32 up 133 days,  1:38,  1 user,  load average: 0.46, 0.46, 0.45Tasks: 141 total,   1 running,...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/top/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -423,10 +369,16 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
 
 <article class="post">
     
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
+            </a>
+        </div>
+    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -436,8 +388,9 @@ TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次�
         </div>
         <p class="brief">
             
-                共享锁代码分析参考代码ReentrantReadWriteLock
-ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
+                线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
             
         </p>
     </div>
@@ -465,10 +418,6 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
                         Java
                     </a>
                 
-                    <a href="/tags/高并发" title="高并发">
-                        高并发
-                    </a>
-                
                     <a href="/tags/多线程" title="多线程">
                         多线程
                     </a>
@@ -484,7 +433,67 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                Vi常用命令定位gg: 文章头部G:移至文章尾，行首:3 到第3行
+A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
+ctrl+F:下一屏文本，ctrl+B:上一屏文本
+删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/vi总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -556,7 +565,7 @@ vmstat 1 3
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -566,9 +575,8 @@ vmstat 1 3
         </div>
         <p class="brief">
             
-                #free
-基本使用free –m
-123              total        used        free      shared  buff/cache   availableMem:        20443...
+                线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
+在这里，我们介绍线程中断。中断线程的使用场...
             
         </p>
     </div>
@@ -580,8 +588,8 @@ vmstat 1 3
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/Programming">
+            Programming
         </a>
     </span>
     
@@ -592,125 +600,16 @@ vmstat 1 3
         <span class="tags-meta">
             
                 
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/free/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
-输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
-其中的$1..$n表示第几例。...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
                 
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/redis/redis集群部署/">redis集群部署</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                redis集群部署cd /root/Downloadswget http://download.redis.io/releases/redis-3.2.8.tar.gzmkdir -p /opt/soft/
-tar -zxf zxf ...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/基础技术">
-            基础技术
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
                 
-                    <a href="/tags/Redis" title="Redis">
-                        Redis
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
                     </a>
                 
             
@@ -724,7 +623,139 @@ tar -zxf zxf ...
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/redis/redis集群部署/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程中断/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

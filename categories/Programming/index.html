@@ -156,7 +156,7 @@ func = np.poly1d(np.array([1, 2...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2019/01/07/22programming/python/Pandas学习/">Pandas学习</a>
+                    <a href="/2019/01/07/22programming/python/Pandas分组/">Pandas分组技术</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -166,7 +166,8 @@ func = np.poly1d(np.array([1, 2...
             </div>
             <p class="brief">
                 
-                    简介Pandas是在NumPy 基础上建立的新程序库，提供了一种高效的DataFrame 数据结构。DataFrame 本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。pandas的数据结构主要分成三种：Series...
+                    分组在数据处理中，需要先将数据进行拆分，然后在其对于的每个分组中进行运算。
+df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的分割 - 应用 - 组合操作。返回值不是一个 DataFr...
                 
             </p>
         </div>
@@ -199,7 +200,7 @@ func = np.poly1d(np.array([1, 2...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2019/01/07/22programming/python/Pandas分组/">Pandas分组技术</a>
+                    <a href="/2019/01/07/22programming/python/Pandas学习/">Pandas学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -209,8 +210,7 @@ func = np.poly1d(np.array([1, 2...
             </div>
             <p class="brief">
                 
-                    分组在数据处理中，需要先将数据进行拆分，然后在其对于的每个分组中进行运算。
-df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的分割 - 应用 - 组合操作。返回值不是一个 DataFr...
+                    简介Pandas是在NumPy 基础上建立的新程序库，提供了一种高效的DataFrame 数据结构。DataFrame 本质上是一种带行标签和列标签、支持相同类型数据和缺失值的多维数组。pandas的数据结构主要分成三种：Series...
                 
             </p>
         </div>
@@ -269,6 +269,27 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2017/02/01/22programming/java/thread/线程池的学习/">线程池的学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2017年02月01日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程池的学习Java提供了4钟线程池：newCachedThreadPoolnewFixedThreadPoolnewSingleThreadExecutornewScheduledThreadPool这四种线程池都直接或者间接获取的...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2017/02/01/22programming/java/thread/阻塞队列/">阻塞队列</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -281,27 +302,6 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
                 
                     概念介绍阻塞队列与普通队列的区别试图从空的阻塞队列中获取元素的线程将会被阻塞，直到其他的线程往空的队列插入新的元素。同样，试图往已满的阻塞队列中添加新元素的线程同样也会被阻塞，直到其他的线程使队列重新变得空闲起来。
 阻塞队列常用于生产...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2017/02/01/22programming/java/thread/线程池的学习/">线程池的学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2017年02月01日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程池的学习Java提供了4钟线程池：newCachedThreadPoolnewFixedThreadPoolnewSingleThreadExecutornewScheduledThreadPool这四种线程池都直接或者间接获取的...
                 
             </p>
         </div>
@@ -334,7 +334,7 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/配置管理/git入门/">git入门</a>
+                    <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -344,9 +344,8 @@ df.groupby(‘key’)DataFrame 的 groupby() 方法进行绝大多数常见的�
             </div>
             <p class="brief">
                 
-                    git分支管理Git分支是轻量且高效的，为什么呢？答案是：传统的版本控制系统存储的数据是文件的变更，而Git则是存储一系列的文件快照（snapshot）。
-vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
-该指针指向r...
+                    #jstack介绍
+jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
                 
             </p>
         </div>
