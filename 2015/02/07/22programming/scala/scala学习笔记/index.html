@@ -1,0 +1,316 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Scala | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Scala">
+            
+	            Scala
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Scala" title="Scala">
+                        Scala
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2015/02/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1472</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Scala的设计哲学"><a href="#Scala的设计哲学" class="headerlink" title="Scala的设计哲学"></a>Scala的设计哲学</h1><p>Scala试图将以下三组对立的思想融合到一种语言中。</p>
+<ul>
+<li><p>函数式编程和面向对象编程。</p>
+</li>
+<li><p>富有表达力的语法和静态类型。</p>
+</li>
+<li><p>高级的语言特性同时保持与Java 的高度集成。</p>
+</li>
+</ul>
+<p>Scala 完全支持面向对象编程（OOP）。Scala 引入特征（trait）改进了 Java 的对象模型。trait 能通过使用混合结构（mixin composition）简洁地实现新的类型。在 Scala 中，一切都是对象，即使是数值类型。</p>
+<h3 id="接口"><a href="#接口" class="headerlink" title="## 接口 ##"></a>## 接口 ##</h3><p>租借模式（loaner pattern）</p>
+<p>Scala 使用 trait 来替代接口</p>
+<h2 id="协变-和-逆变"><a href="#协变-和-逆变" class="headerlink" title="协变 和 逆变"></a>协变 和 逆变</h2><p>如果某类型可以强制转换为子孙类，我们称为协变（+T 或? extends T），如果某类型可以强制转换为祖先类，我们称为逆变（-T 或? super T）。<br>如果某类型完全不能被强制转换，就称为不变（Invariance）</p>
+<h2 id="静态类型和表达力"><a href="#静态类型和表达力" class="headerlink" title="静态类型和表达力"></a>静态类型和表达力</h2><p>Scala做了以下几个简单的设计决策，以提高代码表达力。</p>
+<ul>
+<li>把类型标注（type annotation）换到变量右边。</li>
+<li>类型推断。</li>
+<li>可扩展的语法。</li>
+<li>用户自定义的隐式转换</li>
+</ul>
+<p>scala的简化规则</p>
+<ul>
+<li>无参数的方法可以用作后缀操作符（postfix operator）</li>
+<li>只有一个参数的方法可以当作中缀操作符（infix operator）。</li>
+<li>还有一些对特殊字符的专门规定，比如方法名的最后一个字符如果是“:”，则方法的调用方向反转</li>
+<li>在定义匿名函数时（又称 lambda），Scala 提供了占位符语法。可以使用“_”关键字作为函数参数的占位符。如果使用多个占位符，每个相应位置的占位符对应于相应位置的参数。</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>Scala会自动地加载scala.Predef对象，使它的成员方法对所有程序可用。</p>
+<p>implicit关键字在Scala里有两种不同用法。第一种用法是给方法声明一种特殊参数<br>如果编译器在作用域里找到了合适的值就会自动传递给方法。</p>
+<p>implicit 关键字的另一种用法是把一种类型转换为另一种。有两种场景会发生隐式转换，第一种场景是当你给一个函数传递参数的时候，如果Scala发现函数需要的参数类型（跟传给它的）不一样，Scala 会首先检查类型继承关系，如果没找到，就会去查找有没有合适的隐式转换方法。</p>
+<p>隐式转换方法只是普通的方法，用implicit 关键字做了标注。</p>
+<p>第二种场景是当调用某类型的某方法时，如果编译器发现该类型没有这个方法，Scala 会对该查找适用于该类型的隐式转换，直到找到一个转换后具有该方法的结果。</p>
+<p>Scala 鼓励使用作为对象的函数（function as object），或称一等函数</p>
+<p>领域特定语言时（DSL）</p>
+<p>用可变对象的代码一般倾向于用命令式（imperative）的风格编码</p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><ul>
+<li><a href="http://www.tuicool.com/articles/2YjeIne" target="_blank" rel="noopener">Hadoop学习笔记—10.Shuffle过程那点事儿</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2015/05/07/22programming/scala/Scala中的类型系统/" class="pre-post btn btn-default" title="Scala中的类型系统">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Scala中的类型系统</span>
+        </a>
+    
+    
+        <a href="/2015/02/07/22programming/scala/scala中高级特性/" class="next-post btn btn-default" title="Scala的高级特性">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Scala的高级特性</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala的设计哲学"><span class="toc-text">Scala的设计哲学</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#接口"><span class="toc-text">## 接口 ##</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#协变-和-逆变"><span class="toc-text">协变 和 逆变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态类型和表达力"><span class="toc-text">静态类型和表达力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

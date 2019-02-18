@@ -99,15 +99,15 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
-                                <a href="/categories/程序员的FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
-                            </li>
-                        
-                            <li role="presentation" class="text-center">
-                                <a href="/about"><i class="fa "></i>关于</a>
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
                             </li>
                         
                             <li role="presentation" class="text-center">
                                 <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
                             </li>
                         
                     </ul>
@@ -132,6 +132,27 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2017/02/01/22programming/java/thread/线程池的学习/">线程池的学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2017年02月01日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程池的学习Java提供了4钟线程池：newCachedThreadPoolnewFixedThreadPoolnewSingleThreadExecutornewScheduledThreadPool这四种线程池都直接或者间接获取的...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2017/02/01/22programming/java/thread/异步学习/">异步理论学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -144,27 +165,6 @@
                 
                     概念介绍阻塞/非阻塞阻塞调用是指调用结果返回之前，当前线程会被挂起。vs同步，对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。
 非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，不会阻塞当前线程，而会...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2017/02/01/22programming/java/thread/线程池的学习/">线程池的学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2017年02月01日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程池的学习Java提供了4钟线程池：newCachedThreadPoolnewFixedThreadPoolnewSingleThreadExecutornewScheduledThreadPool这四种线程池都直接或者间接获取的...
                 
             </p>
         </div>
@@ -197,29 +197,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -242,6 +219,52 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/jvm/btrace学习/">btrace学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #功能介绍？
+Btrace (Byte Trace)是sun推出的一款java 动态、安全追踪（监控）工具，可以不停机的情况下监控线上情况，并且做到最少的侵入，占用最少的系统资源。
+BTrace利用了java.lang.instrum...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -254,49 +277,6 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
                 
                     线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
 在这里，我们介绍线程中断。中断线程的使用场...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    共享锁代码分析参考代码ReentrantReadWriteLock
-ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
                 
             </p>
         </div>
@@ -330,7 +310,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -340,10 +320,30 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
             </div>
             <p class="brief">
                 
-                    锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
+                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
                 
             </p>
         </div>
@@ -399,7 +399,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
         
     <div class="widget">
         <h3 class="title">Categories</h3>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/"><i class="fa" aria-hidden="true">Linux</i></a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/"><i class="fa" aria-hidden="true">Programming</i></a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/他山之石/"><i class="fa" aria-hidden="true">他山之石</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/初窥数据科学/"><i class="fa" aria-hidden="true">初窥数据科学</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础技术/"><i class="fa" aria-hidden="true">基础技术</i></a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/容器技术/"><i class="fa" aria-hidden="true">容器技术</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/"><i class="fa" aria-hidden="true">机器学习</i></a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂七杂八/"><i class="fa" aria-hidden="true">杂七杂八</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/玩转大数据/"><i class="fa" aria-hidden="true">玩转大数据</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/程序员的FRM学习之路/"><i class="fa" aria-hidden="true">程序员的FRM学习之路</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/系统设计YY/"><i class="fa" aria-hidden="true">系统设计YY</i></a><span class="category-list-count">6</span></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/FRM学习之路/"><i class="fa" aria-hidden="true">FRM学习之路</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/"><i class="fa" aria-hidden="true">Linux</i></a><span class="category-list-count">28</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Programming/"><i class="fa" aria-hidden="true">Programming</i></a><span class="category-list-count">38</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/他山之石/"><i class="fa" aria-hidden="true">他山之石</i></a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础技术/"><i class="fa" aria-hidden="true">基础技术</i></a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据学习/"><i class="fa" aria-hidden="true">大数据学习</i></a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/容器技术/"><i class="fa" aria-hidden="true">容器技术</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数学基础/"><i class="fa" aria-hidden="true">数学基础</i></a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/机器学习/"><i class="fa" aria-hidden="true">机器学习</i></a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/杂七杂八/"><i class="fa" aria-hidden="true">杂七杂八</i></a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/系统设计YY/"><i class="fa" aria-hidden="true">系统设计YY</i></a><span class="category-list-count">7</span></li></ul>
     </div>
 
 
@@ -409,7 +409,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
     <h3 class="title">Tag Cloud</h3>
     <div class="content tag-cloud">
         
-            <a href="/tags/Docker/" style="font-size: 15.56px;">Docker</a> <a href="/tags/Drools/" style="font-size: 10px;">Drools</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/Hadoop/" style="font-size: 11.11px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Hexo/" style="font-size: 13.33px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 14.44px;">JVM</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 11.11px;">JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 16.67px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 11.11px;">Redis</a> <a href="/tags/Scala/" style="font-size: 14.44px;">Scala</a> <a href="/tags/Scikit-Learn/" style="font-size: 11.11px;">Scikit-Learn</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Ubuntu/" style="font-size: 13.33px;">Ubuntu</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/世界观/" style="font-size: 10px;">世界观</a> <a href="/tags/中间件/" style="font-size: 17.78px;">中间件</a> <a href="/tags/互联网/" style="font-size: 12.22px;">互联网</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/分布式/" style="font-size: 18.89px;">分布式</a> <a href="/tags/多线程/" style="font-size: 16.67px;">多线程</a> <a href="/tags/工作流/" style="font-size: 11.11px;">工作流</a> <a href="/tags/德鲁克/" style="font-size: 10px;">德鲁克</a> <a href="/tags/数学/" style="font-size: 11.11px;">数学</a> <a href="/tags/数据库/" style="font-size: 11.11px;">数据库</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/流计算/" style="font-size: 10px;">流计算</a> <a href="/tags/消息队列/" style="font-size: 10px;">消息队列</a> <a href="/tags/源码阅读/" style="font-size: 11.11px;">源码阅读</a> <a href="/tags/统计学/" style="font-size: 11.11px;">统计学</a> <a href="/tags/网站开发/" style="font-size: 10px;">网站开发</a> <a href="/tags/规则引擎/" style="font-size: 10px;">规则引擎</a> <a href="/tags/读书/" style="font-size: 12.22px;">读书</a> <a href="/tags/高并发/" style="font-size: 15.56px;">高并发</a>
+            <a href="/tags/Docker/" style="font-size: 15px;">Docker</a> <a href="/tags/Drools/" style="font-size: 10px;">Drools</a> <a href="/tags/Elasticsearch/" style="font-size: 10px;">Elasticsearch</a> <a href="/tags/Git/" style="font-size: 10px;">Git</a> <a href="/tags/HTML-CSS/" style="font-size: 10px;">HTML&CSS</a> <a href="/tags/Hadoop/" style="font-size: 11px;">Hadoop</a> <a href="/tags/Hbase/" style="font-size: 10px;">Hbase</a> <a href="/tags/Hexo/" style="font-size: 13px;">Hexo</a> <a href="/tags/JVM/" style="font-size: 14px;">JVM</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaScript/" style="font-size: 11px;">JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PostgreSQL/" style="font-size: 10px;">PostgreSQL</a> <a href="/tags/Python/" style="font-size: 16px;">Python</a> <a href="/tags/R/" style="font-size: 10px;">R</a> <a href="/tags/Redis/" style="font-size: 11px;">Redis</a> <a href="/tags/Scala/" style="font-size: 14px;">Scala</a> <a href="/tags/Scikit-Learn/" style="font-size: 10px;">Scikit-Learn</a> <a href="/tags/TCP-IP/" style="font-size: 10px;">TCP/IP</a> <a href="/tags/Ubuntu/" style="font-size: 13px;">Ubuntu</a> <a href="/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/tags/世界观/" style="font-size: 10px;">世界观</a> <a href="/tags/中间件/" style="font-size: 18px;">中间件</a> <a href="/tags/互联网/" style="font-size: 12px;">互联网</a> <a href="/tags/函数式编程/" style="font-size: 10px;">函数式编程</a> <a href="/tags/分布式/" style="font-size: 19px;">分布式</a> <a href="/tags/多线程/" style="font-size: 17px;">多线程</a> <a href="/tags/工作流/" style="font-size: 11px;">工作流</a> <a href="/tags/德鲁克/" style="font-size: 10px;">德鲁克</a> <a href="/tags/数学/" style="font-size: 10px;">数学</a> <a href="/tags/数据库/" style="font-size: 11px;">数据库</a> <a href="/tags/数据科学/" style="font-size: 11px;">数据科学</a> <a href="/tags/架构/" style="font-size: 10px;">架构</a> <a href="/tags/概率论/" style="font-size: 10px;">概率论</a> <a href="/tags/武侠/" style="font-size: 10px;">武侠</a> <a href="/tags/流计算/" style="font-size: 10px;">流计算</a> <a href="/tags/消息队列/" style="font-size: 10px;">消息队列</a> <a href="/tags/源码阅读/" style="font-size: 11px;">源码阅读</a> <a href="/tags/统计学/" style="font-size: 10px;">统计学</a> <a href="/tags/网站开发/" style="font-size: 10px;">网站开发</a> <a href="/tags/规则引擎/" style="font-size: 10px;">规则引擎</a> <a href="/tags/规则系统/" style="font-size: 10px;">规则系统</a> <a href="/tags/读书/" style="font-size: 12px;">读书</a> <a href="/tags/风险管理/" style="font-size: 14px;">风险管理</a> <a href="/tags/高并发/" style="font-size: 15px;">高并发</a>
         
     </div>
   </div>
