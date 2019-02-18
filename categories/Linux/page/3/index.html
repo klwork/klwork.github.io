@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/linx-id/">Linux id 命令</a>
+                    <a href="/2016/11/06/13基础技术/linux/vmstat/">监控cpu和内存－vmstat命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,8 +141,10 @@
             </div>
             <p class="brief">
                 
-                    id命令用来做什么？id 命令可以显示真实有效的用户 ID(UID) 和组 ID(GID)。UID 是对一个用户的单一身份标识。组 ID（GID）则对应多个UID。
-一些程序可能需要 UID/GID 来运行，我们想知道某个用户的 UI...
+                    #vmstat
+基本使用每秒采集一次，共计3次
+vmstat 1 3
+12345procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu--...
                 
             </p>
         </div>
@@ -153,7 +155,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
+                    <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -163,9 +165,8 @@
             </div>
             <p class="brief">
                 
-                    #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
+                    管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
+xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
                 
             </p>
         </div>
@@ -176,7 +177,7 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
+                    <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -186,10 +187,33 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
             </div>
             <p class="brief">
                 
-                    #sar
-sar基本用法sar
-
-如果出现错误Cannot open /var/log/sysstat/sa14: No such file or directory直接使用sar就会查找历史文件，因为刚装还没有文件14代表当天日期，...
+                    #Shell脚本的基本规则
+start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
+双引号中包含的变量可以用其值来替换，而如果是单引号，则依然保持变量名。
+当需要将变量名和其他字符串连接在一起时，请用如下的 {} ...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
+sudo apt-get install elfutils
+sudo apt-get install  lib...
                 
             </p>
         </div>
@@ -224,19 +248,24 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
+                    <a href="/2016/05/06/13基础技术/linux/Linux常用命令/">Linux常用命令和技巧</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
-                        2016年11月06日
+                        2016年05月06日
                     </time>
                 </div>
             </div>
             <p class="brief">
                 
-                    systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
-sudo apt-get install elfutils
-sudo apt-get install  lib...
+                    Linux常用命令使用lsof查看占用端口的进程lsof -i :3306
+或者使用
+sudo netstat -anop | grep 3306
+
+-p 选项查看进程信息
+
+netstat -tnlp
+可以查看监听的端口，其中l是l...
                 
             </p>
         </div>
@@ -263,34 +292,6 @@ echo $num
 ((num=0xff));
 echo $num
 十进制转为其它进制十进制转八进制echo “obase=8;...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/05/06/13基础技术/linux/Linux常用命令/">Linux常用命令和技巧</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年05月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Linux常用命令使用lsof查看占用端口的进程lsof -i :3306
-或者使用
-sudo netstat -anop | grep 3306
-
--p 选项查看进程信息
-
-netstat -tnlp
-可以查看监听的端口，其中l是l...
                 
             </p>
         </div>

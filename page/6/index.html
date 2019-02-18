@@ -382,7 +382,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -392,124 +392,9 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         </div>
         <p class="brief">
             
-                #ssh免秘密登录
-公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
-xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/linuxshell总结/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                共享锁代码分析参考代码ReentrantReadWriteLock
-ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
+                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
             
         </p>
     </div>
@@ -556,7 +441,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/共享锁/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -568,7 +453,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
+                <a href="/2016/11/06/22programming/配置管理/git入门/">git入门</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -578,7 +463,143 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
         </div>
         <p class="brief">
             
-                线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
+                git分支管理Git分支是轻量且高效的，为什么呢？答案是：传统的版本控制系统存储的数据是文件的变更，而Git则是存储一系列的文件快照（snapshot）。
+vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
+该指针指向r...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Git" title="Git">
+                        Git
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/22programming/配置管理/git入门/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
+            </a>
+        </div>
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
             
         </p>
     </div>
@@ -625,7 +646,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/线程池/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/多线的常用使用/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -637,7 +658,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
+                <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -647,9 +668,9 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
         </div>
         <p class="brief">
             
-                #uptime
-这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
-命令的输出分别表示1分钟、5分...
+                awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
+其中的$1..$n表示第几例。...
             
         </p>
     </div>
@@ -684,7 +705,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/uptime/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -696,7 +717,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
+                <a href="/2016/11/06/22programming/配置管理/gradle入门/">gradle入门</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -706,10 +727,8 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
         </div>
         <p class="brief">
             
-                Vi常用命令定位gg: 文章头部G:移至文章尾，行首:3 到第3行
-A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
-ctrl+F:下一屏文本，ctrl+B:上一屏文本
-删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
+                gradle入门gradle跟ivy/maven一样，是一种依赖管理/自动化构建工具。但是跟ivy/maven不一样，它并没有使用xml语言，而是采用了Groovy语言。更加强大的是，gradle完全兼容maven和ivy。
+grad...
             
         </p>
     </div>
@@ -721,8 +740,8 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/Programming">
+            Programming
         </a>
     </span>
     
@@ -732,6 +751,10 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/gradle" title="gradle">
+                        gradle
+                    </a>
                 
             
         </span>
@@ -744,7 +767,7 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/vi总结/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/配置管理/gradle入门/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

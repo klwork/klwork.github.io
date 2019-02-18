@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
+                    <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,7 +141,31 @@
             </div>
             <p class="brief">
                 
-                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
+                    锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
+临界区概念一个进程在进入临界区之间，必须得到锁。
+123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
+...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/多线的常用使用/">多线程并发控制方法</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    多线程并发控制方法等待多线程完成场景：我们需要解析一个Excel里多个sheet的数据，此时可以考虑使用多线程，每个线程解析一个sheet里的数据，等到所有的sheet都解析完之后，程序需要提示解析完成。在这个需求中，要实现主线程等待...
                 
             </p>
         </div>
@@ -175,7 +199,7 @@ BTrace利用了java.lang.instrum...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
+                    <a href="/2016/11/06/22programming/配置管理/gradle入门/">gradle入门</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -185,9 +209,8 @@ BTrace利用了java.lang.instrum...
             </div>
             <p class="brief">
                 
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
+                    gradle入门gradle跟ivy/maven一样，是一种依赖管理/自动化构建工具。但是跟ivy/maven不一样，它并没有使用xml语言，而是采用了Groovy语言。更加强大的是，gradle完全兼容maven和ivy。
+grad...
                 
             </p>
         </div>
@@ -198,29 +221,7 @@ CASCompare and Swap，比较并设置。
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
+                    <a href="/2016/02/07/22programming/scala/java范型介绍/">Java泛型介绍</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -230,9 +231,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
             </div>
             <p class="brief">
                 
-                    #引言
-由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
-CommonJS主要...
+                    super和extentsList&amp;lt;? extends E&amp;gt;表示该list集合中存放的都是E的子类型（包括E自身），由于E的子类型可能有很多，但是我们存放元素时实际上只能存放其中的一种子类型（这是为了泛型安全，因为其会在编...
                 
             </p>
         </div>
@@ -266,7 +265,7 @@ const 用...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/scala/java范型介绍/">Java泛型介绍</a>
+                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -276,7 +275,9 @@ const 用...
             </div>
             <p class="brief">
                 
-                    super和extentsList&amp;lt;? extends E&amp;gt;表示该list集合中存放的都是E的子类型（包括E自身），由于E的子类型可能有很多，但是我们存放元素时实际上只能存放其中的一种子类型（这是为了泛型安全，因为其会在编...
+                    #引言
+由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
+CommonJS主要...
                 
             </p>
         </div>

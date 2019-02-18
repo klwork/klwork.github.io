@@ -226,6 +226,32 @@ Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在rin
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年12月11日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    基本使用安装
+apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
+测试
+perf list显示可采样的事件。如果能够显示，表示安装成功。
+
+pe...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/12/11/13基础技术/linux/strace使用指南/">strace使用指南</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -266,32 +292,6 @@ Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在rin
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年12月11日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    基本使用安装
-apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
-测试
-perf list显示可采样的事件。如果能够显示，表示安装成功。
-
-pe...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/12/06/13基础技术/linux/常用网络命令汇总/">linux中与网络相关的命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -314,7 +314,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
+                    <a href="/2016/11/06/13基础技术/linux/linx-id/">Linux id 命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -324,10 +324,8 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
             </div>
             <p class="brief">
                 
-                    Vi常用命令定位gg: 文章头部G:移至文章尾，行首:3 到第3行
-A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
-ctrl+F:下一屏文本，ctrl+B:上一屏文本
-删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
+                    id命令用来做什么？id 命令可以显示真实有效的用户 ID(UID) 和组 ID(GID)。UID 是对一个用户的单一身份标识。组 ID（GID）则对应多个UID。
+一些程序可能需要 UID/GID 来运行，我们想知道某个用户的 UI...
                 
             </p>
         </div>
@@ -338,7 +336,7 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
+                    <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -348,8 +346,19 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
             </div>
             <p class="brief">
                 
-                    #mpstat
-mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
+                    #netstat
+可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
+基本使用netstat －an
+参数
+
+
+参数说明
+说明
+
+
+
+
+-a...
                 
             </p>
         </div>
@@ -360,7 +369,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
+                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -370,9 +379,9 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
             <p class="brief">
                 
-                    awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
-输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
-其中的$1..$n表示第几例。...
+                    #iostat
+iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
+基本使用iostat[参数][时间][次数]...
                 
             </p>
         </div>

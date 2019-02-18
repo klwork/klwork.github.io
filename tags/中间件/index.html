@@ -198,28 +198,6 @@ docker run –name cloudera –privileged=true –hostna...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年05月17日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
-docker run ...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2018/05/17/02大数据/hbase学习/">Hbase学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -237,6 +215,28 @@ vs传统行式数据库
 数据是按行存储的
 没有索引的查询使用大量I/O
 建立索引和物化视图需要花费大量的时间和资...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年05月17日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
+docker run ...
                 
             </p>
         </div>
@@ -270,7 +270,7 @@ Docker初步使用 docker run -i -t --name m...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/使用容器构建dubbo服务/">使用容器构建dubbo服务</a>
+                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -280,8 +280,7 @@ Docker初步使用 docker run -i -t --name m...
             </div>
             <p class="brief">
                 
-                    背景安装步骤假设运行docker的机器为10.168.1.111
-创建Tomcat容器docker pull chaimm/tomcat:1.1docker run --name gaoxi-user-1 -p 8082:8080 -...
+                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
                 
             </p>
         </div>
@@ -315,7 +314,7 @@ Docker初步使用 docker run -i -t --name m...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/k8s安装/">k8s入门</a>
+                    <a href="/2018/02/27/11容器技术/使用容器构建dubbo服务/">使用容器构建dubbo服务</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -325,7 +324,8 @@ Docker初步使用 docker run -i -t --name m...
             </div>
             <p class="brief">
                 
-                    背景安装步骤安装docker包$ sudo apt-get install \    apt-transport-https \    ca-certificates \    curl \    software-propertie...
+                    背景安装步骤假设运行docker的机器为10.168.1.111
+创建Tomcat容器docker pull chaimm/tomcat:1.1docker run --name gaoxi-user-1 -p 8082:8080 -...
                 
             </p>
         </div>
@@ -336,7 +336,7 @@ Docker初步使用 docker run -i -t --name m...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/09/04/11容器技术/docker入门/">Docker简介和安装</a>
+                    <a href="/2016/09/04/11容器技术/容器构微服务/">容器构建微服务</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -346,18 +346,9 @@ Docker初步使用 docker run -i -t --name m...
             </div>
             <p class="brief">
                 
-                    Docker简介一个容器实质是运行在宿主机器上的一个进程，最小组成公式为：容器＝cgroups + namespace + rootfs + engine
-Docker历史
-
-
-column
-column
-
-
-
-
-2008 年
-Sol...
+                    docker概念编写dockerfile
+ docker build -t spring-boot-first . docker run -i -t –name maventest  maven:latest /bin/bash
+ht...
                 
             </p>
         </div>
