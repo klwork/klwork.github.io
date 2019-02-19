@@ -167,7 +167,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>1107</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>1108</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -247,15 +247,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2016/02/07/22programming/javascript/es6/" class="pre-post btn btn-default" title="需要知道的ECMAScript 6语法">
+        <a href="/2016/02/07/22programming/scala/java范型介绍/" class="pre-post btn btn-default" title="Java泛型介绍">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">需要知道的ECMAScript 6语法</span>
+            <span class="hidden-xs">Java泛型介绍</span>
         </a>
     
     
-        <a href="/2016/02/07/80它山之玉/架构师的能力和职责/" class="next-post btn btn-default" title="架构师的能力和职责">
+        <a href="/2016/02/07/13基础技术/分布式理论/流式计算/" class="next-post btn btn-default" title="什么是流计算？">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">架构师的能力和职责</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">什么是流计算？</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -268,8 +268,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -330,6 +358,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

@@ -189,15 +189,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2016/11/06/13基础技术/linux/linuxshell总结/" class="pre-post btn btn-default" title="Linux shell 总结">
+        <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/" class="pre-post btn btn-default" title="java并发机制和内存模型总结">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Linux shell 总结</span>
+            <span class="hidden-xs">java并发机制和内存模型总结</span>
         </a>
     
     
-        <a href="/2016/11/06/13基础技术/linux/linx-id/" class="next-post btn btn-default" title="Linux id 命令">
+        <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/" class="next-post btn btn-default" title="grep＋find学习笔记">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Linux id 命令</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">grep＋find学习笔记</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -210,8 +210,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -272,6 +300,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

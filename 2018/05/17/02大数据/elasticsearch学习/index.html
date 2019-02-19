@@ -310,15 +310,15 @@ docker run -p 5601:5601 -e &quot;ELASTICSEARCH_URL=http://10.168.1.111:9200&quot
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/05/17/02大数据/hbase学习/" class="pre-post btn btn-default" title="Hbase学习">
+        <a href="/2018/05/23/02大数据/CDH学习/" class="pre-post btn btn-default" title="CDH学习和安装">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Hbase学习</span>
+            <span class="hidden-xs">CDH学习和安装</span>
         </a>
     
     
-        <a href="/2018/02/27/11容器技术/k8s安装/" class="next-post btn btn-default" title="k8s入门">
+        <a href="/2018/05/17/02大数据/Hadoop常用组件操作/" class="next-post btn btn-default" title="Hadoop常用组件操作">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">k8s入门</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Hadoop常用组件操作</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -331,8 +331,36 @@ docker run -p 5601:5601 -e &quot;ELASTICSEARCH_URL=http://10.168.1.111:9200&quot
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -393,6 +421,7 @@ docker run -p 5601:5601 -e &quot;ELASTICSEARCH_URL=http://10.168.1.111:9200&quot
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

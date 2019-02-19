@@ -279,9 +279,9 @@ data.drop_duplicates(subset=[&apos;k1&apos;],keep=&apos;last&apos;)
         </a>
     
     
-        <a href="/2018/11/09/90杂七杂八/Latex高级用法/" class="next-post btn btn-default" title="Latex表示矩阵和其他用法">
+        <a href="/2018/11/09/90杂七杂八/Latex基本用法/" class="next-post btn btn-default" title="MathJax中Latex基本语法">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Latex表示矩阵和其他用法</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">MathJax中Latex基本语法</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -294,8 +294,36 @@ data.drop_duplicates(subset=[&apos;k1&apos;],keep=&apos;last&apos;)
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -356,6 +384,7 @@ data.drop_duplicates(subset=[&apos;k1&apos;],keep=&apos;last&apos;)
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

@@ -132,28 +132,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2017/02/01/22programming/java/thread/异步学习/">异步理论学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2017年02月01日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    概念介绍阻塞/非阻塞阻塞调用是指调用结果返回之前，当前线程会被挂起。vs同步，对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。
-非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，不会阻塞当前线程，而会...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2017/02/01/22programming/java/thread/阻塞队列/">阻塞队列</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -166,6 +144,28 @@
                 
                     概念介绍阻塞队列与普通队列的区别试图从空的阻塞队列中获取元素的线程将会被阻塞，直到其他的线程往空的队列插入新的元素。同样，试图往已满的阻塞队列中添加新元素的线程同样也会被阻塞，直到其他的线程使队列重新变得空闲起来。
 阻塞队列常用于生产...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2017/02/01/22programming/java/thread/异步学习/">异步理论学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2017年02月01日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    概念介绍阻塞/非阻塞阻塞调用是指调用结果返回之前，当前线程会被挂起。vs同步，对于同步调用来说，很多时候当前线程还是激活的，只是从逻辑上当前函数没有返回而已。
+非阻塞和阻塞的概念相对应，指在不能立刻得到结果之前，不会阻塞当前线程，而会...
                 
             </p>
         </div>
@@ -197,29 +197,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/jvm/btrace学习/">btrace学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -233,50 +210,6 @@ CASCompare and Swap，比较并设置。
                     #功能介绍？
 Btrace (Byte Trace)是sun推出的一款java 动态、安全追踪（监控）工具，可以不停机的情况下监控线上情况，并且做到最少的侵入，占用最少的系统资源。
 BTrace利用了java.lang.instrum...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
                 
             </p>
         </div>
@@ -311,6 +244,72 @@ BTrace利用了java.lang.instrum...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
+在这里，我们介绍线程中断。中断线程的使用场...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/11/06/22programming/java/Java-native/">Java Native Interface</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -334,7 +333,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
+                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -344,8 +343,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
             </div>
             <p class="brief">
                 
-                    #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
+                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
                 
             </p>
         </div>
@@ -492,6 +490,7 @@ jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当�
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

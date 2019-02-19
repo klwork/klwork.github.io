@@ -149,12 +149,12 @@
                         中间件
                     </a>
                 
-                    <a href="/tags/Docker" title="Docker">
-                        Docker
-                    </a>
-                
                     <a href="/tags/分布式" title="分布式">
                         分布式
+                    </a>
+                
+                    <a href="/tags/Docker" title="Docker">
+                        Docker
                     </a>
                 
             
@@ -209,9 +209,9 @@
         </a>
     
     
-        <a href="/2018/02/27/11容器技术/docker常用操作/" class="next-post btn btn-default" title="Docker常用操作">
+        <a href="/2017/10/06/21系统设计/4+1视图/" class="next-post btn btn-default" title="软件架构漫谈">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Docker常用操作</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">软件架构漫谈</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -224,8 +224,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -286,6 +314,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

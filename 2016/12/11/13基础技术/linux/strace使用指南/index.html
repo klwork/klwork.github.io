@@ -291,15 +291,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2016/12/11/13基础技术/linux/perf使用指南/" class="pre-post btn btn-default" title="perf使用指南">
+        <a href="/2016/12/15/13基础技术/linux/快速检查Linux服务器性能/" class="pre-post btn btn-default" title="快速检查Linux服务器性能">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">perf使用指南</span>
+            <span class="hidden-xs">快速检查Linux服务器性能</span>
         </a>
     
     
-        <a href="/2016/12/06/13基础技术/linux/常用网络命令汇总/" class="next-post btn btn-default" title="linux中与网络相关的命令">
+        <a href="/2016/12/11/13基础技术/linux/perf使用指南/" class="next-post btn btn-default" title="perf使用指南">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">linux中与网络相关的命令</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">perf使用指南</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -312,8 +312,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -374,6 +402,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

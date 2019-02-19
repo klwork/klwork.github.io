@@ -130,7 +130,7 @@
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/12/11/13基础技术/linux/strace使用指南/">strace使用指南</a>
+                <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -140,26 +140,12 @@
         </div>
         <p class="brief">
             
-                基本使用strace -c lsstrace cat /dev/null
-参数详解
+                基本使用安装
+apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
+测试
+perf list显示可采样的事件。如果能够显示，表示安装成功。
 
-
-参数
-描叙
-
-
-
-
--c
-统计每一系统调用的所执行的时间,次数和出错的次数等.
-
-
--d
-输出strace关于标准错误的调试信息.
-
-
--f
-跟踪...
+pe...
             
         </p>
     </div>
@@ -194,7 +180,7 @@
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/12/11/13基础技术/linux/strace使用指南/" class="btn btn-default">Read</a>
+                <a href="/2016/12/11/13基础技术/linux/perf使用指南/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -382,7 +368,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/">综合监控到线程－pidstat命令</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -392,9 +378,10 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         </div>
         <p class="brief">
             
-                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
-CASCompare and Swap，比较并设置。
-用于在硬件层面上提供原子性操作。在Intel 处...
+                #pidstat
+用pidstat工具可以获取每个进程使用cpu、内存和磁盘等系统资源的统计信息。
+pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而pidstat的输出则添加在之前的输出的后面。
+基本使用以1秒为...
             
         </p>
     </div>
@@ -406,8 +393,8 @@ CASCompare and Swap，比较并设置。
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
+        <a href="/categories/Linux">
+            Linux
         </a>
     </span>
     
@@ -417,18 +404,6 @@ CASCompare and Swap，比较并设置。
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/高并发" title="高并发">
-                        高并发
-                    </a>
-                
-                    <a href="/tags/多线程" title="多线程">
-                        多线程
-                    </a>
                 
             
         </span>
@@ -441,7 +416,7 @@ CASCompare and Swap，比较并设置。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/pidstat/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -453,7 +428,7 @@ CASCompare and Swap，比较并设置。
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/配置管理/git入门/">git入门</a>
+                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -463,9 +438,8 @@ CASCompare and Swap，比较并设置。
         </div>
         <p class="brief">
             
-                git分支管理Git分支是轻量且高效的，为什么呢？答案是：传统的版本控制系统存储的数据是文件的变更，而Git则是存储一系列的文件快照（snapshot）。
-vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
-该指针指向r...
+                #ssh免秘密登录
+公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
             
         </p>
     </div>
@@ -477,8 +451,8 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
+        <a href="/categories/Linux">
+            Linux
         </a>
     </span>
     
@@ -488,10 +462,6 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-                
-                    <a href="/tags/Git" title="Git">
-                        Git
-                    </a>
                 
             
         </span>
@@ -504,7 +474,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/配置管理/git入门/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -513,16 +483,10 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
 
 <article class="post">
     
-        <div class="post-media">
-            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
-            </a>
-        </div>
-    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -532,9 +496,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
         </div>
         <p class="brief">
             
-                线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+                AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
             
         </p>
     </div>
@@ -577,7 +539,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -658,7 +620,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
+                <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -668,9 +630,9 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
         </div>
         <p class="brief">
             
-                awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
-输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
-其中的$1..$n表示第几例。...
+                #uptime
+这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
+命令的输出分别表示1分钟、5分...
             
         </p>
     </div>
@@ -705,7 +667,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/uptime/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -717,7 +679,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/配置管理/gradle入门/">gradle入门</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -727,8 +689,9 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
         </div>
         <p class="brief">
             
-                gradle入门gradle跟ivy/maven一样，是一种依赖管理/自动化构建工具。但是跟ivy/maven不一样，它并没有使用xml语言，而是采用了Groovy语言。更加强大的是，gradle完全兼容maven和ivy。
-grad...
+                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
             
         </p>
     </div>
@@ -752,8 +715,16 @@ grad...
         <span class="tags-meta">
             
                 
-                    <a href="/tags/gradle" title="gradle">
-                        gradle
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
                     </a>
                 
             
@@ -767,7 +738,7 @@ grad...
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/配置管理/gradle入门/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发知识总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -912,6 +883,7 @@ grad...
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

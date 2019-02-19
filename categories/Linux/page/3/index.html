@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/vmstat/">监控cpu和内存－vmstat命令</a>
+                    <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,10 +141,9 @@
             </div>
             <p class="brief">
                 
-                    #vmstat
-基本使用每秒采集一次，共计3次
-vmstat 1 3
-12345procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu--...
+                    awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
+其中的$1..$n表示第几例。...
                 
             </p>
         </div>
@@ -155,7 +154,7 @@ vmstat 1 3
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
+                    <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -165,8 +164,13 @@ vmstat 1 3
             </div>
             <p class="brief">
                 
-                    管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
-xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
+                    grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
                 
             </p>
         </div>
@@ -177,7 +181,7 @@ xargs是一个很有用的命令，它擅长将标准输入数据转换成命令
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
+                    <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -187,10 +191,10 @@ xargs是一个很有用的命令，它擅长将标准输入数据转换成命令
             </div>
             <p class="brief">
                 
-                    #Shell脚本的基本规则
-start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
-双引号中包含的变量可以用其值来替换，而如果是单引号，则依然保持变量名。
-当需要将变量名和其他字符串连接在一起时，请用如下的 {} ...
+                    #sar
+sar基本用法sar
+
+如果出现错误Cannot open /var/log/sysstat/sa14: No such file or directory直接使用sar就会查找历史文件，因为刚装还没有文件14代表当天日期，...
                 
             </p>
         </div>
@@ -462,6 +466,7 @@ echo $num
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

@@ -350,9 +350,9 @@ export PATH=$PATH:/usr/rabbitmq_server-3.3.5/sbin
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2016/11/06/13基础技术/分布式理论/tcp建立连接的状态说明/" class="pre-post btn btn-default" title="tcp建立连接的状态说明">
+        <a href="/2016/11/06/22programming/java/Java-native/" class="pre-post btn btn-default" title="Java Native Interface">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">tcp建立连接的状态说明</span>
+            <span class="hidden-xs">Java Native Interface</span>
         </a>
     
     
@@ -371,8 +371,36 @@ export PATH=$PATH:/usr/rabbitmq_server-3.3.5/sbin
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -458,6 +486,7 @@ export PATH=$PATH:/usr/rabbitmq_server-3.3.5/sbin
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

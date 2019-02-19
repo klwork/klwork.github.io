@@ -226,32 +226,6 @@ Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在rin
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年12月11日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    基本使用安装
-apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
-测试
-perf list显示可采样的事件。如果能够显示，表示安装成功。
-
-pe...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/12/11/13基础技术/linux/strace使用指南/">strace使用指南</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -292,6 +266,32 @@ pe...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年12月11日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    基本使用安装
+apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
+测试
+perf list显示可采样的事件。如果能够显示，表示安装成功。
+
+pe...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/12/06/13基础技术/linux/常用网络命令汇总/">linux中与网络相关的命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -304,6 +304,28 @@ pe...
                 
                     #linux网络命令汇总
 ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项。可以快捷地查看IP地址和其它网络接口的信息。键入ifconfig查看所有启用的网络接口的状态，包括它们的名字。可以指定网络接口...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
+xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
                 
             </p>
         </div>
@@ -336,7 +358,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
+                    <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -346,42 +368,8 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
             </div>
             <p class="brief">
                 
-                    #netstat
-可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
-基本使用netstat －an
-参数
-
-
-参数说明
-说明
-
-
-
-
--a...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
+                    #mpstat
+mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
                 
             </p>
         </div>
@@ -530,6 +518,7 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

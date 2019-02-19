@@ -315,15 +315,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2016/11/06/13基础技术/linux/uptime/" class="pre-post btn btn-default" title="系统的负载－uptime">
+        <a href="/2016/11/06/13基础技术/linux/mpstat/" class="pre-post btn btn-default" title="多CPU监控-mpstat">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">系统的负载－uptime</span>
+            <span class="hidden-xs">多CPU监控-mpstat</span>
         </a>
     
     
-        <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/" class="next-post btn btn-default" title="参看线程堆栈－jstack">
+        <a href="/2016/11/06/13基础技术/linux/netstat/" class="next-post btn btn-default" title="查看发包的端口－netstat">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">参看线程堆栈－jstack</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">查看发包的端口－netstat</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -336,8 +336,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -398,6 +426,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>

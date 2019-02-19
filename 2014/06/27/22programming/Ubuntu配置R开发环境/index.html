@@ -167,7 +167,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>1697</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>1698</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -212,9 +212,9 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2015/02/07/22programming/scala/scala学习笔记/" class="pre-post btn btn-default" title="Scala">
+        <a href="/2015/02/07/22programming/scala/scala基本语法/" class="pre-post btn btn-default" title="Scala基本语法">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Scala</span>
+            <span class="hidden-xs">Scala基本语法</span>
         </a>
     
     
@@ -233,8 +233,36 @@
     </div>
 
 
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
 
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
 
+</script>
 
                 </main>
                 
@@ -295,6 +323,7 @@
 
 
 <script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
 
 </body>
 </html>
