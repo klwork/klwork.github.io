@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+                    <a href="/2016/11/06/22programming/java/thread/共享锁/">共享锁分析</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,10 +141,8 @@
             </div>
             <p class="brief">
                 
-                    锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
+                    共享锁代码分析参考代码ReentrantReadWriteLock
+ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一个锁。ReentrantReadWriteLock中也有一个Sync对象，而且...
                 
             </p>
         </div>
@@ -155,7 +153,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
+                    <a href="/2016/11/06/22programming/java/thread/java并发知识总结/">java并发机制和内存模型总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -165,9 +163,9 @@
             </div>
             <p class="brief">
                 
-                    线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
                 
             </p>
         </div>
@@ -178,7 +176,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
+                    <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -188,8 +186,9 @@
             </div>
             <p class="brief">
                 
-                    线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
-在这里，我们介绍线程中断。中断线程的使用场...
+                    术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
                 
             </p>
         </div>
@@ -200,7 +199,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
+                    <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -210,30 +209,7 @@
             </div>
             <p class="brief">
                 
-                    线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年02月07日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #引言
-由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
-CommonJS主要...
+                    AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
                 
             </p>
         </div>
@@ -278,6 +254,29 @@ CommonJS主要...
                     #ECMAScript 6常用语法
 let与const关键字let关键字可以由一个块作用域。由于var关键字的作用范围是一个函数，它有时候会导致一些意想不到的bug。为此，我们可以用let来代替var来避免此类bug。
 const 用...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/02/07/22programming/javascript/AMD和CommonJS相比，UMD/">JavaScript模块系统简介</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年02月07日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #引言
+由于Javascript的标准没有对模块的规范进行定义，人们又定义了一系列不同的模块定义： CommonJS 、 AMD 、 CMD 、 UMD。所幸的是ES6 Module的出现可能中止这种分裂的状态。
+CommonJS主要...
                 
             </p>
         </div>

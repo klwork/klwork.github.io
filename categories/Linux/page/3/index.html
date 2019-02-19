@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
+                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,9 +141,9 @@
             </div>
             <p class="brief">
                 
-                    awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
-输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
-其中的$1..$n表示第几例。...
+                    #iostat
+iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
+基本使用iostat[参数][时间][次数]...
                 
             </p>
         </div>
@@ -154,7 +154,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
+                    <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -164,13 +164,10 @@
             </div>
             <p class="brief">
                 
-                    grep学习指南grep -［acinv］ ‘搜索内容串’ filename
-参数
--a：表示以文本文件方式搜索。
--c：表示计算找到符合行的次数。
--i：表示忽略字母大小写。
--n：表示顺便输出行号。
--v：表示反向选择，即找到没有...
+                    #Shell脚本的基本规则
+start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
+双引号中包含的变量可以用其值来替换，而如果是单引号，则依然保持变量名。
+当需要将变量名和其他字符串连接在一起时，请用如下的 {} ...
                 
             </p>
         </div>
@@ -228,7 +225,7 @@ sudo apt-get install  lib...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/常用Linux系统调用/">常用Linux系统调用</a>
+                    <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -238,10 +235,8 @@ sudo apt-get install  lib...
             </div>
             <p class="brief">
                 
-                    #系统调用简介
-linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于核心态，而普通的函数调用由函数库或用户自己提供，运行于用户态。
-#系统调用汇总
-...
+                    #ssh免秘密登录
+公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
                 
             </p>
         </div>

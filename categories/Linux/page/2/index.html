@@ -131,7 +131,7 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/iostat/">监控IO使用－iostat命令</a>
+                    <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -141,9 +141,8 @@
             </div>
             <p class="brief">
                 
-                    #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
+                    #mpstat
+mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
                 
             </p>
         </div>
@@ -187,6 +186,29 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #free
+基本使用free –m
+123              total        used        free      shared  buff/cache   availableMem:        20443...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/11/06/13基础技术/linux/pidstat/">综合监控到线程－pidstat命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -211,7 +233,7 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+                    <a href="/2016/11/06/13基础技术/linux/常用Linux系统调用/">常用Linux系统调用</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -221,8 +243,10 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
             </div>
             <p class="brief">
                 
-                    #ssh免秘密登录
-公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
+                    #系统调用简介
+linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于核心态，而普通的函数调用由函数库或用户自己提供，运行于用户态。
+#系统调用汇总
+...
                 
             </p>
         </div>
@@ -233,7 +257,7 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+                    <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -243,9 +267,13 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
             </div>
             <p class="brief">
                 
-                    #free
-基本使用free –m
-123              total        used        free      shared  buff/cache   availableMem:        20443...
+                    grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
                 
             </p>
         </div>
@@ -277,53 +305,6 @@ pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而p
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #uptime
-这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
-命令的输出分别表示1分钟、5分...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #Shell脚本的基本规则
-start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
-双引号中包含的变量可以用其值来替换，而如果是单引号，则依然保持变量名。
-当需要将变量名和其他字符串连接在一起时，请用如下的 {} ...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -338,6 +319,29 @@ start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
 A: 进入行末，并进入编辑$光标移至行尾数字0，移至行首
 ctrl+F:下一屏文本，ctrl+B:上一屏文本
 删除相关d$删除至行末尾，d＋ shiftdG删除到文章...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #uptime
+这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
+命令的输出分别表示1分钟、5分...
                 
             </p>
         </div>

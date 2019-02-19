@@ -192,7 +192,7 @@ grad...
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
+                <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -202,8 +202,10 @@ grad...
         </div>
         <p class="brief">
             
-                #mpstat
-mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
+                #sar
+sar基本用法sar
+
+如果出现错误Cannot open /var/log/sysstat/sa14: No such file or directory直接使用sar就会查找历史文件，因为刚装还没有文件14代表当天日期，...
             
         </p>
     </div>
@@ -238,7 +240,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/sar/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -250,7 +252,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/top/">系统的整体资源使用情况－top</a>
+                <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -260,7 +262,9 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
         </div>
         <p class="brief">
             
-                top123456789top - 22:13:32 up 133 days,  1:38,  1 user,  load average: 0.46, 0.46, 0.45Tasks: 141 total,   1 running,...
+                systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
+sudo apt-get install elfutils
+sudo apt-get install  lib...
             
         </p>
     </div>
@@ -295,76 +299,7 @@ mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/top/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                #netstat
-可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
-基本使用netstat －an
-参数
-
-
-参数说明
-说明
-
-
-
-
--a...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/netstat/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/systemtap/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -436,7 +371,7 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/systemtap/">systemtap学习总结</a>
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -446,9 +381,13 @@ linux内核中设置了一组用于实现系统功能的子程序，称为系统
         </div>
         <p class="brief">
             
-                systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
-sudo apt-get install elfutils
-sudo apt-get install  lib...
+                grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
             
         </p>
     </div>
@@ -483,7 +422,7 @@ sudo apt-get install  lib...
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/systemtap/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -492,10 +431,16 @@ sudo apt-get install  lib...
 
 <article class="post">
     
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
+            </a>
+        </div>
+    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/sar/">网络命令-sar</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -505,69 +450,9 @@ sudo apt-get install  lib...
         </div>
         <p class="brief">
             
-                #sar
-sar基本用法sar
-
-如果出现错误Cannot open /var/log/sysstat/sa14: No such file or directory直接使用sar就会查找历史文件，因为刚装还没有文件14代表当天日期，...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/sar/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/Java-native/">Java Native Interface</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                #什么是JNI？
-JNI是Java Native Interface的英文缩写, 中文翻译为本地调用, 自从Java 1.1开始就成为了Java标准的一部分.
-Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲一些对底层...
+                线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
             
         </p>
     </div>
@@ -595,6 +480,10 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
                         Java
                     </a>
                 
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
+                
             
         </span>
     </span>
@@ -606,7 +495,126 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/Java-native/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/pidstat/">综合监控到线程－pidstat命令</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                #pidstat
+用pidstat工具可以获取每个进程使用cpu、内存和磁盘等系统资源的统计信息。
+pidstat看上去就像top，不过top的输出会覆盖掉之前的输出，而pidstat的输出则添加在之前的输出的后面。
+基本使用以1秒为...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/pidstat/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                #free
+基本使用free –m
+123              total        used        free      shared  buff/cache   availableMem:        20443...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/free/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -617,7 +625,7 @@ Java不是万能的，java是跨平台的语言，所付出的代价就是牺牲
     
         <div class="post-media">
             <a href="/2016/09/04/13基础技术/消息队列/mq学习/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java-base/work1.png" alt="MQ简单学习">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java-base/rabb.png" alt="MQ简单学习">
             </a>
         </div>
     

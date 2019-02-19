@@ -226,6 +226,32 @@ Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在rin
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
+                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年12月11日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    基本使用安装
+apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
+测试
+perf list显示可采样的事件。如果能够显示，表示安装成功。
+
+pe...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
                     <a href="/2016/12/11/13基础技术/linux/strace使用指南/">strace使用指南</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -256,32 +282,6 @@ Linux dmesg命令用于显示开机信息。kernel会将开机信息存储在rin
 
 -f
 跟踪...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/2016/12/11/13基础技术/linux/perf使用指南/">perf使用指南</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年12月11日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    基本使用安装
-apt install linux-tools-commonapt install linux-tools-4.4.0-47-generic
-测试
-perf list显示可采样的事件。如果能够显示，表示安装成功。
-
-pe...
                 
             </p>
         </div>
@@ -358,7 +358,7 @@ xargs是一个很有用的命令，它擅长将标准输入数据转换成命令
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
+                    <a href="/2016/11/06/13基础技术/linux/Awk+sed/">awk＋sed学习笔记</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -368,8 +368,9 @@ xargs是一个很有用的命令，它擅长将标准输入数据转换成命令
             </div>
             <p class="brief">
                 
-                    #mpstat
-mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
+                    awk学习指南awk就是把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行各种分析处理。
+输出第1列和第4例awk &amp;#39;{print $1, $4}&amp;#39; netstat.txt
+其中的$1..$n表示第几例。...
                 
             </p>
         </div>

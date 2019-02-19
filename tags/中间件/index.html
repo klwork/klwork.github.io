@@ -177,27 +177,6 @@ docker run –name cloudera –privileged=true –hostna...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2018年05月17日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/2018/05/17/02大数据/mongod学习/">Docker下MongoDB复制集</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -210,6 +189,27 @@ docker run –name cloudera –privileged=true –hostna...
                 
                     安装过程安装docker run -p27018:27017--name mongo0 -d mongo:3.6.2-jessie --replSet &amp;quot;rs0&amp;quot; --bind_ip_all
 docker run ...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/2018/05/17/02大数据/Hadoop常用组件操作/">Hadoop常用组件操作</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2018年05月17日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    测试环境安装QuickStart VM是一个包含了分布式数据处理平台的虚拟镜像，方便用户试运行CDH，并了解CDH的新功能、新组件。Docker也可以作为快速启动项来部署启动Apache Hadoop和Cloudera，而且速度要比其...
                 
             </p>
         </div>
@@ -268,7 +268,7 @@ vs传统行式数据库
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/使用容器构建dubbo服务/">使用容器构建dubbo服务</a>
+                    <a href="/2018/02/27/11容器技术/docker常用操作/">Docker常用操作</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -278,8 +278,9 @@ vs传统行式数据库
             </div>
             <p class="brief">
                 
-                    背景安装步骤假设运行docker的机器为10.168.1.111
-创建Tomcat容器docker pull chaimm/tomcat:1.1docker run --name gaoxi-user-1 -p 8082:8080 -...
+                    docker概念三个基本概念（镜像／容器／仓库）
+服务启用停用sudo service docker startsudo service docker stop
+Docker初步使用 docker run -i -t --name m...
                 
             </p>
         </div>
@@ -313,7 +314,7 @@ vs传统行式数据库
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/2018/02/27/11容器技术/docker常用操作/">Docker常用操作</a>
+                    <a href="/2018/02/27/11容器技术/使用容器构建dubbo服务/">使用容器构建dubbo服务</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -323,9 +324,8 @@ vs传统行式数据库
             </div>
             <p class="brief">
                 
-                    docker概念三个基本概念（镜像／容器／仓库）
-服务启用停用sudo service docker startsudo service docker stop
-Docker初步使用 docker run -i -t --name m...
+                    背景安装步骤假设运行docker的机器为10.168.1.111
+创建Tomcat容器docker pull chaimm/tomcat:1.1docker run --name gaoxi-user-1 -p 8082:8080 -...
                 
             </p>
         </div>
