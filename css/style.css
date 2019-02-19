@@ -1599,7 +1599,6 @@ pre .javascript .function {
   }
 }
 
-
 .zhao-cover-img-container{
   position: fixed;
   top: 0;
@@ -1614,7 +1613,6 @@ pre .javascript .function {
 
 .zhao-cover-img{
   width: 100%;
-  position: absolute;
   top: 0;
   bottom: 0;
 }

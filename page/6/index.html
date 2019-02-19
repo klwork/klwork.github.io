@@ -368,7 +368,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+                <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -378,8 +378,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         </div>
         <p class="brief">
             
-                #ssh免秘密登录
-公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
+                线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
             
         </p>
     </div>
@@ -391,8 +390,8 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/Programming">
+            Programming
         </a>
     </span>
     
@@ -402,6 +401,18 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
                 
             
         </span>
@@ -414,7 +425,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程池/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -426,7 +437,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/linux-shell/">linux shell编程基础</a>
+                <a href="/2016/11/06/13基础技术/linux/linuxshell总结/">Linux shell 总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -436,10 +447,8 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         </div>
         <p class="brief">
             
-                #Shell脚本的基本规则
-start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
-双引号中包含的变量可以用其值来替换，而如果是单引号，则依然保持变量名。
-当需要将变量名和其他字符串连接在一起时，请用如下的 {} ...
+                管道 与 xargs管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)有些命令只能接受参数，就需要使用xargs。
+xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处...
             
         </p>
     </div>
@@ -474,7 +483,7 @@ start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/linux-shell/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/linuxshell总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -543,6 +552,65 @@ start在 Shell 脚本的第 1 行开始处指定“#!/bin/sh”
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                #uptime
+这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
+命令的输出分别表示1分钟、5分...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/uptime/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
                 <a href="/2016/11/06/13基础技术/linux/vi总结/">我的Vi常用操作</a>
             </h1>
             <div class="post-meta">  &bull;
@@ -592,65 +660,6 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
 
             <div class="post-permalink">
                 <a href="/2016/11/06/13基础技术/linux/vi总结/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/uptime/">系统的负载－uptime</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                #uptime
-这个命令可以快速查看机器的负载情况。在Linux系统中，这些数据表示等待CPU资源的进程和阻塞在不可中断IO进程（进程状态为D）的数量。这些数据可以让我们对系统资源使用有一个宏观的了解。
-命令的输出分别表示1分钟、5分...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/uptime/" class="btn btn-default">Read</a>
             </div>
         </footer>
     

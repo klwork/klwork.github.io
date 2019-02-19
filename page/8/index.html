@@ -127,10 +127,16 @@
 
 <article class="post">
     
+        <div class="post-media">
+            <a href="/2016/11/06/22programming/java/thread/线程的状态/">
+                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
+            </a>
+        </div>
+    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/线程中断/">线程中断</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/">java线程状态总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -140,8 +146,9 @@
         </div>
         <p class="brief">
             
-                线程中断总结背景有些时候，需要一个线程死掉, 或者让它结束某种等待的状态，该怎么办呢?比较安全的做法是：安全的做法是：1.使用等待/通知机制2.给那个线程一个中断信号, 让它自己决定该怎么办
-在这里，我们介绍线程中断。中断线程的使用场...
+                线程的各种状态线程的状态跃迁
+锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
+锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
             
         </p>
     </div>
@@ -167,10 +174,6 @@
                 
                     <a href="/tags/Java" title="Java">
                         Java
-                    </a>
-                
-                    <a href="/tags/高并发" title="高并发">
-                        高并发
                     </a>
                 
                     <a href="/tags/多线程" title="多线程">
@@ -188,7 +191,7 @@
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/线程中断/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/线程的状态/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -200,7 +203,7 @@
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/jvm/btrace学习/">btrace学习</a>
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/">grep＋find学习笔记</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -210,9 +213,13 @@
         </div>
         <p class="brief">
             
-                #功能介绍？
-Btrace (Byte Trace)是sun推出的一款java 动态、安全追踪（监控）工具，可以不停机的情况下监控线上情况，并且做到最少的侵入，占用最少的系统资源。
-BTrace利用了java.lang.instrum...
+                grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
             
         </p>
     </div>
@@ -224,8 +231,8 @@ BTrace利用了java.lang.instrum...
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
+        <a href="/categories/Linux">
+            Linux
         </a>
     </span>
     
@@ -235,14 +242,6 @@ BTrace利用了java.lang.instrum...
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/JVM" title="JVM">
-                        JVM
-                    </a>
                 
             
         </span>
@@ -255,7 +254,7 @@ BTrace利用了java.lang.instrum...
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/jvm/btrace学习/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/13基础技术/linux/grep＋find学习笔记/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -267,7 +266,7 @@ BTrace利用了java.lang.instrum...
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/线程池/">线程池学习</a>
+                <a href="/2016/11/06/13基础技术/linux/free/">查看内存使用情况－free</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -277,7 +276,69 @@ BTrace利用了java.lang.instrum...
         </div>
         <p class="brief">
             
-                线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
+                #free
+基本使用free –m
+123              total        used        free      shared  buff/cache   availableMem:        20443...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/free/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
+临界区概念一个进程在进入临界区之间，必须得到锁。
+123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
+...
             
         </p>
     </div>
@@ -303,10 +364,6 @@ BTrace利用了java.lang.instrum...
                 
                     <a href="/tags/Java" title="Java">
                         Java
-                    </a>
-                
-                    <a href="/tags/高并发" title="高并发">
-                        高并发
                     </a>
                 
                     <a href="/tags/多线程" title="多线程">
@@ -324,7 +381,134 @@ BTrace利用了java.lang.instrum...
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/线程池/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                #netstat
+可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
+基本使用netstat －an
+参数
+
+
+参数说明
+说明
+
+
+
+
+-a...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/netstat/" class="btn btn-default">Read</a>
+            </div>
+        </footer>
+    
+</article>
+
+
+<article class="post">
+    
+    <div class="post-content">
+        <div class="post-head home-post-head">
+            <h1 class="post-title">
+                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/">ssh免秘密登录</a>
+            </h1>
+            <div class="post-meta">  &bull;
+                <time class="post-date" datetime="" title="">
+                    2016年11月06日
+                </time>
+            </div>
+        </div>
+        <p class="brief">
+            
+                #ssh免秘密登录
+公钥登录过程使用密码登录，每次都必须输入密码，非常麻烦。SSH还提供了公钥登录，过程如下：用户将自己的公钥储存在远程主机上。登录的时候，远程主机会向用户发送一段随机字符串，用户用自己的私钥加密后，再发回来。远程主机...
+            
+        </p>
+    </div>
+    
+        <footer class="post-footer clearfix">
+            <div class="pull-left tag-list">
+                <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+</div>
+
+            </div>
+
+            <div class="post-permalink">
+                <a href="/2016/11/06/13基础技术/linux/ssh免秘密登录/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -384,136 +568,6 @@ BTrace利用了java.lang.instrum...
 
             <div class="post-permalink">
                 <a href="/2016/11/06/13基础技术/linux/Awk+sed/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-        <div class="post-media">
-            <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.png" alt="参看线程堆栈－jstack">
-            </a>
-        </div>
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/">参看线程堆栈－jstack</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                #jstack介绍
-jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Programming">
-            Programming
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-                    <a href="/tags/Java" title="Java">
-                        Java
-                    </a>
-                
-                    <a href="/tags/JVM" title="JVM">
-                        JVM
-                    </a>
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/jvm/参看线程堆栈－jstack/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/">多CPU监控-mpstat</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                #mpstat
-mpstat是MultiProcessor Statistics的缩写，是实时系统监控工具。其报告与CPU的一些统计信息，这些信息存放在/proc/stat文件中。在多CPUs系统里，不但能查看所有CPU的平均状况信息...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/mpstat/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -595,7 +649,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/13基础技术/linux/netstat/">查看发包的端口－netstat</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/">AbstractQueuedSynchronizer学习</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -605,79 +659,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
         </div>
         <p class="brief">
             
-                #netstat
-可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
-基本使用netstat －an
-参数
-
-
-参数说明
-说明
-
-
-
-
--a...
-            
-        </p>
-    </div>
-    
-        <footer class="post-footer clearfix">
-            <div class="pull-left tag-list">
-                <div class="post-meta">
-    
-    
-    <span class="categories-meta fa-wrap">
-        <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
-        </a>
-    </span>
-    
-
-    
-    <span class="fa-wrap">
-        <i class="fa fa-tags"></i>
-        <span class="tags-meta">
-            
-                
-            
-        </span>
-    </span>
-    
-
-    
-</div>
-
-            </div>
-
-            <div class="post-permalink">
-                <a href="/2016/11/06/13基础技术/linux/netstat/" class="btn btn-default">Read</a>
-            </div>
-        </footer>
-    
-</article>
-
-
-<article class="post">
-    
-    <div class="post-content">
-        <div class="post-head home-post-head">
-            <h1 class="post-title">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/">锁的基本概念</a>
-            </h1>
-            <div class="post-meta">  &bull;
-                <time class="post-date" datetime="" title="">
-                    2016年11月06日
-                </time>
-            </div>
-        </div>
-        <p class="brief">
-            
-                锁的学习锁的出现最早出现在操作系统中，用于进程和线程间的同步
-临界区概念一个进程在进入临界区之间，必须得到锁。
-123456789While(true) &amp;#123;		    	请求锁   	临界区  	释放锁	剩余区&amp;#125;
-...
+                AQS简介AbstractQueuedSynchronizer（简称AQS）AQS是Java并发框架的一个基础组件，java.util.concurrent并发包下很多类都是基于它实现的，如：ReentrantLock、Reentra...
             
         </p>
     </div>
@@ -720,7 +702,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/java/thread/锁的基本概念/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/AQS/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -732,7 +714,7 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/2016/11/06/22programming/配置管理/git入门/">git入门</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/">java并发机制和内存模型总结</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -742,9 +724,9 @@ ReadLock中的sync是一个Sync对象，Sync继承于AQS类，即Sync就是一�
         </div>
         <p class="brief">
             
-                git分支管理Git分支是轻量且高效的，为什么呢？答案是：传统的版本控制系统存储的数据是文件的变更，而Git则是存储一系列的文件快照（snapshot）。
-vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
-该指针指向r...
+                术语临界区临界区表示一种公共资源或者共享数据。每一刻只能被一个线程使用，如果临界区资源被占用，其他线程想使用这个资源，就必须等待。
+CASCompare and Swap，比较并设置。
+用于在硬件层面上提供原子性操作。在Intel 处...
             
         </p>
     </div>
@@ -768,8 +750,16 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Git" title="Git">
-                        Git
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
                     </a>
                 
             
@@ -783,7 +773,7 @@ vi .git/HEAD,其内保存了指向当前分支最新提交的指针。
             </div>
 
             <div class="post-permalink">
-                <a href="/2016/11/06/22programming/配置管理/git入门/" class="btn btn-default">Read</a>
+                <a href="/2016/11/06/22programming/java/thread/java并发机制和内存模型总结/" class="btn btn-default">Read</a>
             </div>
         </footer>
     
