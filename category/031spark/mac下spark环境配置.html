@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>mac下配置pyspark环境 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="mac下配置pyspark环境">
+            
+	            mac下配置pyspark环境
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/大数据学习">
+            大数据学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Spark" title="Spark">
+                        Spark
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/02/11</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="安装过程"><a href="#安装过程" class="headerlink" title="安装过程"></a>安装过程</h1><p>以前用的spark版本有点老了，来个新的。</p>
+<p>安装包下载地址: <a href="https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz" target="_blank" rel="noopener">https://archive.apache.org/dist/spark/spark-2.4.0/spark-2.4.0-bin-hadoop2.7.tgz</a></p>
+<p>解压缩到<code>/soft/spark-2.4.0-bin-hadoop2.7</code></p>
+<p>配置环境变量（Mac是 <code>~/.bash_profile</code>）</p>
+<pre><code>export SPARK_HOME=/soft/spark-2.4.0-bin-hadoop2.7
+export PATH=${PATH}:${SPARK_HOME}/bin
+</code></pre><p>进入spark安装目录下sbin，执行<code>./spark-shell</code></p>
+<p>访问spark页面：<code>http://localhost:8080/</code><br>出现画面，表示安装成功。</p>
+<h1 id="pyspark-测试"><a href="#pyspark-测试" class="headerlink" title="pyspark 测试"></a>pyspark 测试</h1><p>启动<code>pyspark</code> 通过<code>http://localhost:4040</code>可以访问。<br>查看后台</p>
+<pre><code>Picked up JAVA_TOOL_OPTIONS: -Dfile.encoding=UTF-8
+Python 2.7.15 (default, May  1 2018, 16:44:08) 
+</code></pre><p>我需要的是python3。</p>
+<p>继续修改<code>~/.bash_profile</code>，修改如下</p>
+<pre><code>export SPARK_HOME=/soft/spark-2.4.0-bin-hadoop2.7
+export PYSPARK_DRIVER_PYTHON=&quot;jupyter&quot;
+export PYSPARK_DRIVER_PYTHON_OPTS=&quot;notebook&quot;
+export PYSPARK_PYTHON=python3
+alias snotebook=&apos;$SPARK_HOME/bin/pyspark --master local[2]&apos;
+</code></pre><p>执行<code>source ~/.bash_profile</code>让其生效。</p>
+<p>PYSPARK_DRIVER_PYTHON这里指定pyspark的启动形式是jupyter notebook，执行快捷方式<code>snotebook</code></p>
+<p>弹出久违的notebook窗口可以进行开工了。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.jianshu.com/p/d0f57e937e8f" target="_blank" rel="noopener">https://www.jianshu.com/p/d0f57e937e8f</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+    
+        <a href="/category/001机器学习/敏捷数据科学流程.html" class="next-post btn btn-default" title="敏捷数据科学流程">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">敏捷数据科学流程</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装过程"><span class="toc-text">安装过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pyspark-测试"><span class="toc-text">pyspark 测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

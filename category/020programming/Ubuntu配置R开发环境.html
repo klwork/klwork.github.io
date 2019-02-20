@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Ubuntu配置R开发环境 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ubuntu配置R开发环境">
+            
+	            Ubuntu配置R开发环境
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/R" title="R">
+                        R
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2014/06/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1699</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>每个环境安装R估计都不一样，uname -a，显示的是3.13.0-24-generic<br>使用cat /etc/issue，我的机器显示的为Ubuntu 14.04 LTS。下面的步骤展示安装RStudio Server的步骤</p>
+<h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><p>wget <a href="http://cran.r-project.org/src/base/R-3/R-3.1.0.tar.gz" target="_blank" rel="noopener">http://cran.r-project.org/src/base/R-3/R-3.1.0.tar.gz</a></p>
+<p>tar -zxvf R-3.1.0.tar.gz</p>
+<p>cd R-3.1.0</p>
+<p>报错：configure: error: No F77 compiler found<br>这是因为Ubuntu现在默认没有fortran编译器，需要手工装一个，比如gfortran：<br>sudo apt-get install gfortran</p>
+<p>为了防止出现其他错误<br>sudo apt-get install readline-common libxt-dev</p>
+<p>执行<br>./configure –enable-R-shlib –with-readline=no –with-x=no</p>
+<p>#安装 rStdio<br>wget <a href="http://download2.rstudio.org/rstudio-server-pro-0.98.945-i386.deb" target="_blank" rel="noopener">http://download2.rstudio.org/rstudio-server-pro-0.98.945-i386.deb</a><br>sudo gdebi rstudio-server-0.97.551-amd64.deb</p>
+<h2 id="如果出现没有安装python-dev"><a href="#如果出现没有安装python-dev" class="headerlink" title="如果出现没有安装python-dev"></a>如果出现没有安装python-dev</h2><p>我的因为以前安装过python,直接安装出现python-dev : 依赖: python (= 2.7.4-0ubuntu1) 但是 2.7.5-5ubuntu3 正要被安装<br>用aptitude 工具进行降级处理。</p>
+<p>执行 sudo aptitude install python-dev<br>第一次选no，第二次yes。</p>
+<p>然后：<br>sudo aptitude install python-dev</p>
+<p>再次：<br>sudo gdebi rstudio-server-0.97.551-amd64.deb</p>
+<p>出现<br>rstudio-server start/running, process 13342</p>
+<p>执行ps -aux|grep rstudio-server，发现已经启动。</p>
+<p>访问<a href="http://127.0.0.1:8787/，使用你的linux的用户名/密码进行登陆。可以成功的看到如下界面" target="_blank" rel="noopener">http://127.0.0.1:8787/，使用你的linux的用户名/密码进行登陆。可以成功的看到如下界面</a></p>
+<p>成功，尽情的享受吧！</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><blockquote>
+<p><a href="http://timex1441.blog.163.com/blog/static/4726719720125410303262/" target="_blank" rel="noopener">http://timex1441.blog.163.com/blog/static/4726719720125410303262/</a><br><a href="http://www.ningoo.net/page/2" target="_blank" rel="noopener">http://www.ningoo.net/page/2</a></p>
+</blockquote>
+<p><a href="http://jianshu.io/p/2c739a25d20b" target="_blank" rel="noopener">http://jianshu.io/p/2c739a25d20b</a></p>
+<p><a href="http://bbs.csdn.net/topics/390462321" target="_blank" rel="noopener">http://bbs.csdn.net/topics/390462321</a></p>
+<p>后来又发现了一片文章<br>多人在线协作R开发RStudio Server <a href="http://blog.fens.me/r-rstudio-server/" target="_blank" rel="noopener">http://blog.fens.me/r-rstudio-server/</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/020programming/scala/scala学习笔记.html" class="pre-post btn btn-default" title="Scala">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Scala</span>
+        </a>
+    
+    
+        <a href="/category/059杂七杂八/使命 .html" class="next-post btn btn-default" title="中国圣贤的使命">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">中国圣贤的使命</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#如果出现没有安装python-dev"><span class="toc-text">如果出现没有安装python-dev</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考文章"><span class="toc-text">参考文章</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

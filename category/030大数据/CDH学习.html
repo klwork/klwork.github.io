@@ -1,0 +1,578 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>CDH学习和安装 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="CDH学习和安装">
+            
+	            CDH学习和安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/大数据学习">
+            大数据学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+                    <a href="/tags/Hadoop" title="Hadoop">
+                        Hadoop
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/05/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="测试环境安装"><a href="#测试环境安装" class="headerlink" title="测试环境安装"></a>测试环境安装</h1><p>docker pull cloudera/quickstart:latest</p>
+<p>docker rm cloudera -f</p>
+<p>docker run –name cloudera –privileged=true –hostname=quickstart.cloudera -p 8020:8020 -p 7180:7180 -p 8888:8888 -p 21000:21000 -p 21050:21050 -p 50070:50070 -p 50075:50075 -p 50010:50010 -p 50020:50020 -p 60010:60010 -p 4040:4040 -p 18088:18088 -p 60020:60020 -t -i -d -v /etc/localtime:/etc/localtime:ro cloudera/quickstart /usr/bin/docker-quickstart</p>
+<p>docker run –name cloudera –privileged=true –hostname=quickstart.cloudera -p 8020:8020 -p 7180:7180 -p 8888:8888 -p 21000:21000 -p 21050:21050 -p 50070:50070 -p 50075:50075 -p 50010:50010 -p 50020:50020 -p 60010:60010 -p 2181:2181 -p 60020:60020 -p 60000:60000 -p 18088:18088 -t -i -d -v /etc/localtime:/etc/localtime:ro cloudera/quickstart /usr/bin/docker-quickstart</p>
+<p>docker start cloudera</p>
+<p>可以通过<code>/usr/bin/docker-quickstart start</code>来启动所有的CDH服务。</p>
+<p>如果需要单独启动可单独运行/usr/bin下的命令。</p>
+<h1 id="集群测试"><a href="#集群测试" class="headerlink" title="集群测试"></a>集群测试</h1><p>cloudera-manager为分布式集群设计的，默认没有启动，如果需要进入该容器，并执行<br><code>/home/cloudera/cloudera-manager --force --express</code>来启动cloudera-manager，有些服务可能被停掉。</p>
+<p><code>http://10.168.1.111:7180</code><br>cloudera/cloudera进入系统</p>
+<p>进入容器<code>docker exec -ti cloudera /bin/bash</code></p>
+<h1 id="常用的管理地址"><a href="#常用的管理地址" class="headerlink" title="常用的管理地址"></a>常用的管理地址</h1><p>默认用户：cloudera/cloudera</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>web</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hue</td>
+<td><a href="http://10.168.1.111:8888" target="_blank" rel="noopener">http://10.168.1.111:8888</a></td>
+</tr>
+<tr>
+<td>hbase</td>
+<td><a href="http://10.168.1.111:60010" target="_blank" rel="noopener">http://10.168.1.111:60010</a> 或者 <a href="http://10.168.1.111:8888/hbase/#Cluster" target="_blank" rel="noopener">http://10.168.1.111:8888/hbase/#Cluster</a></td>
+</tr>
+<tr>
+<td>hdfs</td>
+<td><a href="http://10.168.1.111:50070" target="_blank" rel="noopener">http://10.168.1.111:50070</a></td>
+</tr>
+</tbody>
+</table>
+<h1 id="数据库密码"><a href="#数据库密码" class="headerlink" title="数据库密码"></a>数据库密码</h1><p>scm数据库的用户名，密码，可以通过下面获得</p>
+<pre><code>more /etc/cloudera-scm-server/db.properties
+</code></pre><p>mysql -ucm -pcloudera</p>
+<h1 id="常用进程和web端口"><a href="#常用进程和web端口" class="headerlink" title="常用进程和web端口"></a>常用进程和web端口</h1><table>
+<thead>
+<tr>
+<th>组件</th>
+<th>节点</th>
+<th>默认端口</th>
+<th>配置</th>
+<th>用途说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HDFS</td>
+<td>NameNode</td>
+<td>50070</td>
+<td>dfs.namenode.http-address</td>
+<td>http服务的端口</td>
+</tr>
+<tr>
+<td>HDFS</td>
+<td>DataNode</td>
+<td>50010</td>
+<td>dfs.datanode.address</td>
+<td>datanode服务端口，用于数据传输</td>
+</tr>
+<tr>
+<td>HDFS</td>
+<td>DataNode</td>
+<td>50075</td>
+<td>dfs.datanode.http.address</td>
+<td>http服务的端口</td>
+</tr>
+<tr>
+<td>HDFS</td>
+<td>DataNode</td>
+<td>50020</td>
+<td>dfs.datanode.ipc.address</td>
+<td>ipc服务的端口</td>
+</tr>
+<tr>
+<td>HDFS</td>
+<td>SecondaryNameNode</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HDFS</td>
+<td></td>
+<td>8020</td>
+<td>高可用的HDFS RPC端口</td>
+</tr>
+<tr>
+<td>YARN</td>
+<td>Resourcemanager</td>
+<td>8088</td>
+<td>yarn.resourcemanager.webapp.address</td>
+<td>http，Yarn 的WEB UI接口</td>
+</tr>
+<tr>
+<td>YARN</td>
+<td>NodeManager</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hbase</td>
+<td>HMaster</td>
+<td>60000</td>
+<td></td>
+<td>HBase Master管理端口</td>
+</tr>
+<tr>
+<td>Hbase</td>
+<td>HMaster</td>
+<td>60010</td>
+<td></td>
+<td>HBase Master Web UI管理端口</td>
+</tr>
+<tr>
+<td>Hbase</td>
+<td>HRegionServer</td>
+<td>60020</td>
+<td></td>
+<td>HRegionServer向HMaster定期汇报节点的负载状况</td>
+</tr>
+<tr>
+<td>Hbase</td>
+<td>HRegionServer</td>
+<td>60030</td>
+<td></td>
+<td>HBase Region Server Web UI 端口</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td></td>
+<td>9083</td>
+<td></td>
+<td>metastore服务默认监听端口</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td></td>
+<td>10000</td>
+<td></td>
+<td>Hive 的JDBC端口</td>
+</tr>
+<tr>
+<td>HUE</td>
+<td></td>
+<td>8888</td>
+<td></td>
+<td>Hue WebUI 端口</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>7077</td>
+<td></td>
+<td>spark 的master与worker进行通讯的端口  standalone集群提交Application的端口</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>8080</td>
+<td></td>
+<td>master的WEB UI端口  资源调度</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>8081</td>
+<td></td>
+<td>worker的WEB UI 端口  资源调度</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>4040</td>
+<td></td>
+<td>Driver的WEB UI 端口  任务调度</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>18088</td>
+<td></td>
+<td>spark.history.ui.port</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td></td>
+<td>19888</td>
+<td></td>
+<td>mapreduce.jobhistory.webapp.address</td>
+</tr>
+<tr>
+<td>CDH</td>
+<td></td>
+<td>7180</td>
+<td></td>
+<td>Cloudera Manager WebUI端口</td>
+</tr>
+<tr>
+<td>CDH</td>
+<td></td>
+<td>7182</td>
+<td></td>
+<td>Cloudera Manager Server 与 Agent 通讯端口</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>Zookeeper Client</td>
+<td>2181</td>
+<td></td>
+<td>Zookeeper Client</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td></td>
+<td>2888</td>
+<td></td>
+<td>zookeeper集群内通讯使用，Leader监听此端口</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td></td>
+<td>3888</td>
+<td></td>
+<td>zookeeper端口 用于选举leader</td>
+</tr>
+<tr>
+<td>ZooKeeper</td>
+<td>QuorumPeerMain</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Kafka</td>
+<td></td>
+<td>9092</td>
+<td></td>
+<td>Kafka集群节点之间通信的RPC端口</td>
+</tr>
+<tr>
+<td>Redis</td>
+<td></td>
+<td>6379</td>
+<td></td>
+<td>Redis服务端口</td>
+</tr>
+</tbody>
+</table>
+<p>例如：通过访问<a href="http://10.168.1.111:50070来打开界面进行访问NameNode" target="_blank" rel="noopener">http://10.168.1.111:50070来打开界面进行访问NameNode</a></p>
+<h1 id="hadoop集群中主要进程"><a href="#hadoop集群中主要进程" class="headerlink" title="hadoop集群中主要进程"></a>hadoop集群中主要进程</h1><p>master:   NameNode, ResourceManager,<br>slaves:   DataNode, NodeManager,  RunJar, MRAppMaster,YarnChild</p>
+<p>其中 RunJar, MRAppMaster,YarnChild与随着某个job的创建而创建，随着job的完成而终止。它们的作用分别是：<br>RunJar：完成job的初始化，包括获取jobID，将jar包上传至hdfs等。<br>MRAppMaster：每个job一个进程，主要跟踪job的运行情况，向RM申请资源等。<br>YarnChild：运行具体的map/reduce task。</p>
+<p>job启动过程：<br>ResourceManage，NodeManager-&gt;RunJar-&gt;MRAppMaster-&gt;YarnChild</p>
+<p>job退出过程：<br>YarnChild-&gt;MRAppMaster-&gt;RunJar<br>即所有的map/reduce均完成后，MRAppMaster才退出，最后RunJar退出，job完成</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hub.docker.com/r/cloudera/clusterdock/" target="_blank" rel="noopener">https://hub.docker.com/r/cloudera/clusterdock/</a></p>
+<p><a href="https://wenku.baidu.com/view/1c2ad6ee43323968001c92be.html" target="_blank" rel="noopener">https://wenku.baidu.com/view/1c2ad6ee43323968001c92be.html</a></p>
+<p><a href="http://www.aboutyun.com/thread-7513-1-1.html" target="_blank" rel="noopener">http://www.aboutyun.com/thread-7513-1-1.html</a></p>
+<p>cds搭建<a href="https://blog.csdn.net/u010476994/article/details/79257565" target="_blank" rel="noopener">https://blog.csdn.net/u010476994/article/details/79257565</a><br><a href="https://blog.csdn.net/u010936936/article/details/73650417" target="_blank" rel="noopener">https://blog.csdn.net/u010936936/article/details/73650417</a></p>
+<p><a href="https://www.cloudera.com/documentation/enterprise/5-6-x/topics/cdh_ig_spark_configure.html" target="_blank" rel="noopener">https://www.cloudera.com/documentation/enterprise/5-6-x/topics/cdh_ig_spark_configure.html</a></p>
+<p>CDH5 快速入门手册v1.0<br><a href="http://blog.itpub.net/31439905/viewspace-2134540/" target="_blank" rel="noopener">http://blog.itpub.net/31439905/viewspace-2134540/</a></p>
+<p>错误<br><a href="https://www.2cto.com/net/201609/544957.html" target="_blank" rel="noopener">https://www.2cto.com/net/201609/544957.html</a></p>
+<p>修改密码参考<br><a href="https://blog.csdn.net/yujin2010good/article/details/72482007" target="_blank" rel="noopener">https://blog.csdn.net/yujin2010good/article/details/72482007</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/002数学相关/概率论学习.html" class="pre-post btn btn-default" title="概率学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">概率学习</span>
+        </a>
+    
+    
+        <a href="/category/030大数据/Hadoop常用组件操作.html" class="next-post btn btn-default" title="Hadoop常用组件操作">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Hadoop常用组件操作</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#测试环境安装"><span class="toc-text">测试环境安装</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集群测试"><span class="toc-text">集群测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用的管理地址"><span class="toc-text">常用的管理地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#数据库密码"><span class="toc-text">数据库密码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用进程和web端口"><span class="toc-text">常用进程和web端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hadoop集群中主要进程"><span class="toc-text">hadoop集群中主要进程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

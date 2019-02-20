@@ -1,0 +1,1146 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>评分卡模型 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="评分卡模型">
+            
+	            评分卡模型
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/机器学习">
+            机器学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/05</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> datetime</span><br><span class="line"><span class="keyword">import</span> collections</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> numbers</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br><span class="line"><span class="keyword">from</span> sklearn.ensemble <span class="keyword">import</span> RandomForestClassifier</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> statsmodels.api <span class="keyword">as</span> sm</span><br><span class="line"><span class="keyword">from</span> importlib <span class="keyword">import</span> reload</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LogisticRegressionCV</span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br></pre></td></tr></table></figure>
+<h2 id="初始工作"><a href="#初始工作" class="headerlink" title="初始工作"></a>初始工作</h2><p>读取数据文件</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">folderOfData = <span class="string">'./datasets/score/'</span></span><br><span class="line">data1 = pd.read_csv(folderOfData+<span class="string">'PPD_LogInfo_3_1_Training_Set.csv'</span>, header = <span class="number">0</span>)</span><br><span class="line">data2 = pd.read_csv(folderOfData+<span class="string">'PPD_Training_Master_GBK_3_1_Training_Set.csv'</span>, header = <span class="number">0</span>,encoding = <span class="string">'gbk'</span>)</span><br><span class="line">data3 = pd.read_csv(folderOfData+<span class="string">'PPD_Userupdate_Info_3_1_Training_Set.csv'</span>, header = <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data1.head()</span><br></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Idx</th><br>      <th>Listinginfo1</th><br>      <th>LogInfo1</th><br>      <th>LogInfo2</th><br>      <th>LogInfo3</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>10001</td><br>      <td>2014-03-05</td><br>      <td>107</td><br>      <td>6</td><br>      <td>2014-02-20</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>10001</td><br>      <td>2014-03-05</td><br>      <td>107</td><br>      <td>6</td><br>      <td>2014-02-23</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>10001</td><br>      <td>2014-03-05</td><br>      <td>107</td><br>      <td>6</td><br>      <td>2014-02-24</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>10001</td><br>      <td>2014-03-05</td><br>      <td>107</td><br>      <td>6</td><br>      <td>2014-02-25</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>10001</td><br>      <td>2014-03-05</td><br>      <td>107</td><br>      <td>6</td><br>      <td>2014-02-27</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+<p>信贷客户的登彔信息，字段描叙如下：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idx</td>
+<td>用户的唯一标识</td>
+</tr>
+<tr>
+<td>LogInfo3</td>
+<td>登录日期</td>
+</tr>
+<tr>
+<td>LogInfo2</td>
+<td>登录事件代码</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data2.head().T</span><br></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>0</th><br>      <th>1</th><br>      <th>2</th><br>      <th>3</th><br>      <th>4</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>Idx</th><br>      <td>10001</td><br>      <td>10002</td><br>      <td>10003</td><br>      <td>10006</td><br>      <td>10007</td><br>    </tr><br>    <tr><br>      <th>UserInfo_1</th><br>      <td>1</td><br>      <td>1</td><br>      <td>1</td><br>      <td>4</td><br>      <td>5</td><br>    </tr><br>    <tr><br>      <th>UserInfo_2</th><br>      <td>深圳</td><br>      <td>温州</td><br>      <td>宜昌</td><br>      <td>南平</td><br>      <td>辽阳</td><br>    </tr><br>    <tr><br>      <th>UserInfo_3</th><br>      <td>4</td><br>      <td>4</td><br>      <td>3</td><br>      <td>1</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>UserInfo_4</th><br>      <td>深圳</td><br>      <td>温州</td><br>      <td>宜昌</td><br>      <td>南平</td><br>      <td>辽阳</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_1</th><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_2</th><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>NaN</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_3</th><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>      <td>NaN</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_4</th><br>      <td>1</td><br>      <td>1</td><br>      <td>2</td><br>      <td>NaN</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_5</th><br>      <td>1</td><br>      <td>1</td><br>      <td>2</td><br>      <td>NaN</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_6</th><br>      <td>1</td><br>      <td>1</td><br>      <td>2</td><br>      <td>NaN</td><br>      <td>1</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_7</th><br>      <td>14</td><br>      <td>14</td><br>      <td>9</td><br>      <td>2</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_8</th><br>      <td>0</td><br>      <td>0</td><br>      <td>3</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_9</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_10</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_11</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_12</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_13</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_14</th><br>      <td>6</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_15</th><br>      <td>6</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_16</th><br>      <td>0</td><br>      <td>7</td><br>      <td>3</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_17</th><br>      <td>6</td><br>      <td>7</td><br>      <td>4</td><br>      <td>2</td><br>      <td>3</td><br>    </tr><br>    <tr><br>      <th>WeblogInfo_18</th><br>      <td>2</td><br>      <td>0</td><br>      <td>2</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>UserInfo_5</th><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>    </tr><br>    <tr><br>      <th>UserInfo_6</th><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>      <td>2</td><br>    </tr><br>    <tr><br>      <th>UserInfo_7</th><br>      <td>广东</td><br>      <td>浙江</td><br>      <td>湖北</td><br>      <td>福建</td><br>      <td>辽宁</td><br>    </tr><br>    <tr><br>      <th>UserInfo_8</th><br>      <td>深圳</td><br>      <td>温州</td><br>      <td>宜昌</td><br>      <td>南平</td><br>      <td>辽阳</td><br>    </tr><br>    <tr><br>      <th>UserInfo_9</th><br>      <td>中国移动</td><br>      <td>中国移动</td><br>      <td>中国电信</td><br>      <td>中国移动</td><br>      <td>中国移动</td><br>    </tr><br>    <tr><br>      <th>UserInfo_10</th><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>UserInfo_11</th><br>      <td>NaN</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>NaN</td><br>    </tr><br>    <tr><br>      <th>…</th><br>      <td>…</td><br>      <td>…</td><br>      <td>…</td><br>      <td>…</td><br>      <td>…</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_7</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_8</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_9</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_10</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_11</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_12</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_13</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_14</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_15</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_16</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>ThirdParty_Info_Period7_17</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_1</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_2</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_3</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_4</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_5</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_6</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_7</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_8</th><br>      <td>126</td><br>      <td>33</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_9</th><br>      <td>234</td><br>      <td>110</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_10</th><br>      <td>222</td><br>      <td>1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_11</th><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_12</th><br>      <td>0</td><br>      <td>0</td><br>      <td>-1</td><br>      <td>-1</td><br>      <td>-1</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_13</th><br>      <td>0</td><br>      <td>0</td><br>      <td>1</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_14</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_15</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_16</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>SocialNetwork_17</th><br>      <td>1</td><br>      <td>2</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>target</th><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>      <td>0</td><br>    </tr><br>    <tr><br>      <th>ListingInfo</th><br>      <td>2014/3/5</td><br>      <td>2014/2/26</td><br>      <td>2014/2/28</td><br>      <td>2014/2/25</td><br>      <td>2014/2/27</td><br>    </tr><br>  </tbody><br></table><br><p>228 rows × 5 columns</p><br></div>
+
+
+
+<p>信贷客户在平台上的申报信息和部分三方数据信息，以及需要预测的目标变量。</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Idx</td>
+<td>用户的唯一标识</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>目标变量，以1、0表示违约与非违约</td>
+</tr>
+<tr>
+<td>ThirdParty_Info_Period*</td>
+<td>第三方数据信息，除-1外，其他都是非负整数。-1可能是特殊值</td>
+</tr>
+<tr>
+<td>ListingInfo</td>
+<td>贷款发放日期</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">data3.head()</span><br></pre></td></tr></table></figure>
+<div><br><style scoped><br>    .dataframe tbody tr th:only-of-type {<br>        vertical-align: middle;<br>    }<br><br>    .dataframe tbody tr th {<br>        vertical-align: top;<br>    }<br><br>    .dataframe thead th {<br>        text-align: right;<br>    }<br></style><br><table border="1" class="dataframe"><br>  <thead><br>    <tr style="text-align: right;"><br>      <th></th><br>      <th>Idx</th><br>      <th>ListingInfo1</th><br>      <th>UserupdateInfo1</th><br>      <th>UserupdateInfo2</th><br>    </tr><br>  </thead><br>  <tbody><br>    <tr><br>      <th>0</th><br>      <td>10001</td><br>      <td>2014/03/05</td><br>      <td>_EducationId</td><br>      <td>2014/02/20</td><br>    </tr><br>    <tr><br>      <th>1</th><br>      <td>10001</td><br>      <td>2014/03/05</td><br>      <td>_HasBuyCar</td><br>      <td>2014/02/20</td><br>    </tr><br>    <tr><br>      <th>2</th><br>      <td>10001</td><br>      <td>2014/03/05</td><br>      <td>_LastUpdateDate</td><br>      <td>2014/02/20</td><br>    </tr><br>    <tr><br>      <th>3</th><br>      <td>10001</td><br>      <td>2014/03/05</td><br>      <td>_MarriageStatusId</td><br>      <td>2014/02/20</td><br>    </tr><br>    <tr><br>      <th>4</th><br>      <td>10001</td><br>      <td>2014/03/05</td><br>      <td>_MobilePhone</td><br>      <td>2014/02/20</td><br>    </tr><br>  </tbody><br></table><br></div>
+
+
+
+<p>部分客户的信息修改行为<br>|字段|含义|<br>|::|::|<br>|Idx|用户的唯一标识|<br>|UserupdateInfo1|更改信息的所属字段|<br>|UserupdateInfo2|更改日期|</p>
+<h2 id="特征构造-数据中衍生特征"><a href="#特征构造-数据中衍生特征" class="headerlink" title="特征构造-数据中衍生特征"></a>特征构造-数据中衍生特征</h2><p>归属地是否一致，放在city_match字段</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">data2[<span class="string">'city_match'</span>] = data2.apply(<span class="keyword">lambda</span> x: int(x.UserInfo_2 == x.UserInfo_4 == x.UserInfo_8 == x.UserInfo_20),axis = <span class="number">1</span>)</span><br><span class="line"><span class="keyword">del</span> data2[<span class="string">'UserInfo_2'</span>]</span><br><span class="line"><span class="keyword">del</span> data2[<span class="string">'UserInfo_4'</span>]</span><br><span class="line"><span class="keyword">del</span> data2[<span class="string">'UserInfo_8'</span>]</span><br><span class="line"><span class="keyword">del</span> data2[<span class="string">'UserInfo_20'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#data2['city_match']</span></span><br></pre></td></tr></table></figure>
+<p>提取申请日期，计算日期差，放在ListingGap字段中，并查看日期差的分布。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 登录日期</span></span><br><span class="line">data1[<span class="string">'logInfo'</span>] = data1[<span class="string">'LogInfo3'</span>].map(<span class="keyword">lambda</span> x: datetime.datetime.strptime(x,<span class="string">'%Y-%m-%d'</span>)) </span><br><span class="line"><span class="comment">## 贷款发放日期</span></span><br><span class="line">data1[<span class="string">'Listinginfo'</span>] = data1[<span class="string">'Listinginfo1'</span>].map(<span class="keyword">lambda</span> x: datetime.datetime.strptime(x,<span class="string">'%Y-%m-%d'</span>))</span><br><span class="line">data1[<span class="string">'ListingGap'</span>] = data1[[<span class="string">'logInfo'</span>,<span class="string">'Listinginfo'</span>]].apply(<span class="keyword">lambda</span> x: (x[<span class="number">1</span>]-x[<span class="number">0</span>]).days,axis = <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.hist(data1[<span class="string">'ListingGap'</span>],bins=<span class="number">200</span>)</span><br><span class="line">plt.title(<span class="string">'Days between login date and listing date'</span>)</span><br><span class="line">ListingGap2 = data1[<span class="string">'ListingGap'</span>].map(<span class="keyword">lambda</span> x: min(x,<span class="number">365</span>))</span><br><span class="line">plt.hist(ListingGap2,bins=<span class="number">200</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>(array([9.0180e+04, 9.2185e+04, 8.4625e+04, 6.5690e+04, 4.6703e+04,
+        2.0999e+04, 3.1156e+04, 2.3292e+04, 1.1277e+04, 6.6520e+03,
+        5.9060e+03, 2.8950e+03, 5.5110e+03, 4.0640e+03, 3.6030e+03,
+        2.9530e+03, 2.8020e+03, 1.2120e+03, 2.5110e+03, 2.2570e+03,
+        2.0350e+03, 1.6930e+03, 9.8200e+02, 1.7250e+03, 1.5240e+03,
+        1.4620e+03, 1.5680e+03, 1.4340e+03, 6.2800e+02, 1.0770e+03,
+        1.2250e+03, 1.2550e+03, 1.0920e+03, 1.0690e+03, 6.5100e+02,
+        8.8700e+02, 8.1400e+02, 7.6600e+02, 8.7400e+02, 3.3800e+02,
+        6.6000e+02, 9.5600e+02, 6.2700e+02, 5.6000e+02, 5.2800e+02,
+        2.5100e+02, 5.5800e+02, 5.6200e+02, 6.1400e+02, 6.8600e+02,
+        5.6300e+02, 3.0500e+02, 5.7700e+02, 6.6400e+02, 5.2200e+02,
+        4.5700e+02, 5.6000e+02, 2.4000e+02, 3.9600e+02, 5.3800e+02,
+        4.4900e+02, 4.6300e+02, 1.8200e+02, 4.3400e+02, 3.0500e+02,
+        4.5400e+02, 3.7100e+02, 4.3400e+02, 2.3300e+02, 3.3700e+02,
+        3.3100e+02, 3.2700e+02, 4.2000e+02, 4.2500e+02, 2.0900e+02,
+        2.5500e+02, 3.9000e+02, 3.2700e+02, 3.8700e+02, 1.7900e+02,
+        2.5100e+02, 3.3100e+02, 2.9000e+02, 2.7800e+02, 2.3100e+02,
+        1.3200e+02, 2.5300e+02, 3.8300e+02, 2.9800e+02, 3.1200e+02,
+        3.4400e+02, 9.4000e+01, 2.2200e+02, 2.7400e+02, 2.0300e+02,
+        2.1300e+02, 2.9000e+02, 9.6000e+01, 2.0600e+02, 1.7700e+02,
+        1.3900e+02, 2.0100e+02, 1.1800e+02, 2.4700e+02, 2.6200e+02,
+        1.9200e+02, 1.5900e+02, 2.0900e+02, 9.2000e+01, 2.3300e+02,
+        1.6800e+02, 1.7300e+02, 1.5900e+02, 2.6700e+02, 9.9000e+01,
+        2.1000e+02, 1.9400e+02, 1.2300e+02, 1.8800e+02, 9.6000e+01,
+        2.1400e+02, 1.9200e+02, 1.7300e+02, 1.4000e+02, 1.5300e+02,
+        5.6000e+01, 1.2200e+02, 1.8000e+02, 1.2700e+02, 1.4800e+02,
+        1.0600e+02, 6.7000e+01, 1.5900e+02, 6.4000e+01, 1.5200e+02,
+        1.1900e+02, 1.6000e+02, 9.6000e+01, 1.2400e+02, 1.1200e+02,
+        1.6300e+02, 1.7300e+02, 5.2000e+01, 6.1000e+01, 1.3400e+02,
+        9.9000e+01, 9.7000e+01, 1.0100e+02, 3.3000e+01, 1.0800e+02,
+        1.2100e+02, 8.1000e+01, 7.8000e+01, 9.2000e+01, 7.9000e+01,
+        1.1400e+02, 1.0100e+02, 9.7000e+01, 9.1000e+01, 4.9000e+01,
+        1.1800e+02, 1.0700e+02, 1.1800e+02, 1.2900e+02, 1.2700e+02,
+        7.3000e+01, 1.4600e+02, 9.9000e+01, 1.3000e+02, 9.2000e+01,
+        8.9000e+01, 4.6000e+01, 1.1000e+02, 9.2000e+01, 9.1000e+01,
+        1.0800e+02, 1.2600e+02, 8.5000e+01, 9.7000e+01, 1.0700e+02,
+        6.5000e+01, 8.1000e+01, 8.0000e+01, 1.2200e+02, 1.2700e+02,
+        9.5000e+01, 1.7100e+02, 7.2000e+01, 2.6000e+01, 8.3000e+01,
+        1.0400e+02, 1.1200e+02, 6.7000e+01, 1.1900e+02, 7.3000e+01,
+        6.4000e+01, 7.6000e+01, 1.0000e+02, 1.0600e+02, 1.6415e+04]),
+ array([  0.   ,   1.825,   3.65 ,   5.475,   7.3  ,   9.125,  10.95 ,
+         12.775,  14.6  ,  16.425,  18.25 ,  20.075,  21.9  ,  23.725,
+         25.55 ,  27.375,  29.2  ,  31.025,  32.85 ,  34.675,  36.5  ,
+         38.325,  40.15 ,  41.975,  43.8  ,  45.625,  47.45 ,  49.275,
+         51.1  ,  52.925,  54.75 ,  56.575,  58.4  ,  60.225,  62.05 ,
+         63.875,  65.7  ,  67.525,  69.35 ,  71.175,  73.   ,  74.825,
+         76.65 ,  78.475,  80.3  ,  82.125,  83.95 ,  85.775,  87.6  ,
+         89.425,  91.25 ,  93.075,  94.9  ,  96.725,  98.55 , 100.375,
+        102.2  , 104.025, 105.85 , 107.675, 109.5  , 111.325, 113.15 ,
+        114.975, 116.8  , 118.625, 120.45 , 122.275, 124.1  , 125.925,
+        127.75 , 129.575, 131.4  , 133.225, 135.05 , 136.875, 138.7  ,
+        140.525, 142.35 , 144.175, 146.   , 147.825, 149.65 , 151.475,
+        153.3  , 155.125, 156.95 , 158.775, 160.6  , 162.425, 164.25 ,
+        166.075, 167.9  , 169.725, 171.55 , 173.375, 175.2  , 177.025,
+        178.85 , 180.675, 182.5  , 184.325, 186.15 , 187.975, 189.8  ,
+        191.625, 193.45 , 195.275, 197.1  , 198.925, 200.75 , 202.575,
+        204.4  , 206.225, 208.05 , 209.875, 211.7  , 213.525, 215.35 ,
+        217.175, 219.   , 220.825, 222.65 , 224.475, 226.3  , 228.125,
+        229.95 , 231.775, 233.6  , 235.425, 237.25 , 239.075, 240.9  ,
+        242.725, 244.55 , 246.375, 248.2  , 250.025, 251.85 , 253.675,
+        255.5  , 257.325, 259.15 , 260.975, 262.8  , 264.625, 266.45 ,
+        268.275, 270.1  , 271.925, 273.75 , 275.575, 277.4  , 279.225,
+        281.05 , 282.875, 284.7  , 286.525, 288.35 , 290.175, 292.   ,
+        293.825, 295.65 , 297.475, 299.3  , 301.125, 302.95 , 304.775,
+        306.6  , 308.425, 310.25 , 312.075, 313.9  , 315.725, 317.55 ,
+        319.375, 321.2  , 323.025, 324.85 , 326.675, 328.5  , 330.325,
+        332.15 , 333.975, 335.8  , 337.625, 339.45 , 341.275, 343.1  ,
+        344.925, 346.75 , 348.575, 350.4  , 352.225, 354.05 , 355.875,
+        357.7  , 359.525, 361.35 , 363.175, 365.   ]),
+ &lt;a list of 200 Patch objects&gt;)
+</code></pre><p><img src="/image/%E8%AF%84%E5%88%86%E5%8D%A1%E5%BC%80%E5%8F%91_files/image/%E8%AF%84%E5%88%86%E5%8D%A1%E5%BC%80%E5%8F%91_15_1.png" alt="png"></p>
+<p>计算登录日期与放款日期时间的间隔天数，从上面的图中，可以看到绝大部分的天数在180天以内，使用180天作为最大的时间窗口计算新特征。</p>
+<p>所有可以使用的时间窗口可以有7 days, 30 days, 60 days, 90 days, 120 days, 150 days and 180 days.在每个时间窗口内，计算总的登录次数，不同的登录方式，以及每种登录方式的平均次数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">TimeWindowSelection</span><span class="params">(df, daysCol, time_windows)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    :param df: the dataset containg variabel of days</span></span><br><span class="line"><span class="string">    :param daysCol: the column of days</span></span><br><span class="line"><span class="string">    :param time_windows: the list of time window</span></span><br><span class="line"><span class="string">    :return:</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    freq_tw = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> tw <span class="keyword">in</span> time_windows:</span><br><span class="line">        freq = sum(df[daysCol].apply(<span class="keyword">lambda</span> x: int(x&lt;=tw)))</span><br><span class="line">        freq_tw[tw] = freq</span><br><span class="line">    <span class="keyword">return</span> freq_tw</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">DeivdedByZero</span><span class="params">(nominator, denominator)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    当分母为0时，返回0；否则返回正常值</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="keyword">if</span> denominator == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> nominator*<span class="number">1.0</span>/denominator</span><br><span class="line">    </span><br><span class="line">timeWindows = TimeWindowSelection(data1, <span class="string">'ListingGap'</span>, range(<span class="number">30</span>,<span class="number">361</span>,<span class="number">30</span>))</span><br><span class="line"></span><br><span class="line">time_window = [<span class="number">7</span>, <span class="number">30</span>, <span class="number">60</span>, <span class="number">90</span>, <span class="number">120</span>, <span class="number">150</span>, <span class="number">180</span>]</span><br><span class="line">var_list = [<span class="string">'LogInfo1'</span>,<span class="string">'LogInfo2'</span>]</span><br><span class="line">data1GroupbyIdx = pd.DataFrame(&#123;<span class="string">'Idx'</span>:data1[<span class="string">'Idx'</span>].drop_duplicates()&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> tw <span class="keyword">in</span> time_window:</span><br><span class="line">    data1[<span class="string">'TruncatedLogInfo'</span>] = data1[<span class="string">'Listinginfo'</span>].map(<span class="keyword">lambda</span> x: x + datetime.timedelta(-tw))</span><br><span class="line">    temp = data1.loc[data1[<span class="string">'logInfo'</span>] &gt;= data1[<span class="string">'TruncatedLogInfo'</span>]]</span><br><span class="line">    <span class="keyword">for</span> var <span class="keyword">in</span> var_list:</span><br><span class="line">        <span class="comment">#count the frequences of LogInfo1 and LogInfo2</span></span><br><span class="line">        count_stats = temp.groupby([<span class="string">'Idx'</span>])[var].count().to_dict()</span><br><span class="line">        data1GroupbyIdx[str(var)+<span class="string">'_'</span>+str(tw)+<span class="string">'_count'</span>] = data1GroupbyIdx[<span class="string">'Idx'</span>].map(<span class="keyword">lambda</span> x: count_stats.get(x,<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># count the distinct value of LogInfo1 and LogInfo2</span></span><br><span class="line">        Idx_UserupdateInfo1 = temp[[<span class="string">'Idx'</span>, var]].drop_duplicates()</span><br><span class="line">        uniq_stats = Idx_UserupdateInfo1.groupby([<span class="string">'Idx'</span>])[var].count().to_dict()</span><br><span class="line">        data1GroupbyIdx[str(var) + <span class="string">'_'</span> + str(tw) + <span class="string">'_unique'</span>] = data1GroupbyIdx[<span class="string">'Idx'</span>].map(<span class="keyword">lambda</span> x: uniq_stats.get(x,<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># calculate the average count of each value in LogInfo1 and LogInfo2</span></span><br><span class="line">        data1GroupbyIdx[str(var) + <span class="string">'_'</span> + str(tw) + <span class="string">'_avg_count'</span>] = data1GroupbyIdx[[str(var)+<span class="string">'_'</span>+str(tw)+<span class="string">'_count'</span>,str(var) + <span class="string">'_'</span> + str(tw) + <span class="string">'_unique'</span>]].\</span><br><span class="line">            apply(<span class="keyword">lambda</span> x: DeivdedByZero(x[<span class="number">0</span>],x[<span class="number">1</span>]), axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">data3[<span class="string">'ListingInfo'</span>] = data3[<span class="string">'ListingInfo1'</span>].map(<span class="keyword">lambda</span> x: datetime.datetime.strptime(x,<span class="string">'%Y/%m/%d'</span>))</span><br><span class="line">data3[<span class="string">'UserupdateInfo'</span>] = data3[<span class="string">'UserupdateInfo2'</span>].map(<span class="keyword">lambda</span> x: datetime.datetime.strptime(x,<span class="string">'%Y/%m/%d'</span>))</span><br><span class="line">data3[<span class="string">'ListingGap'</span>] = data3[[<span class="string">'UserupdateInfo'</span>,<span class="string">'ListingInfo'</span>]].apply(<span class="keyword">lambda</span> x: (x[<span class="number">1</span>]-x[<span class="number">0</span>]).days,axis = <span class="number">1</span>)</span><br><span class="line">collections.Counter(data3[<span class="string">'ListingGap'</span>])</span><br><span class="line">hist_ListingGap = np.histogram(data3[<span class="string">'ListingGap'</span>])</span><br><span class="line">hist_ListingGap = pd.DataFrame(&#123;<span class="string">'Freq'</span>:hist_ListingGap[<span class="number">0</span>],<span class="string">'gap'</span>:hist_ListingGap[<span class="number">1</span>][<span class="number">1</span>:]&#125;)</span><br><span class="line">hist_ListingGap[<span class="string">'CumFreq'</span>] = hist_ListingGap[<span class="string">'Freq'</span>].cumsum()</span><br><span class="line">hist_ListingGap[<span class="string">'CumPercent'</span>] = hist_ListingGap[<span class="string">'CumFreq'</span>].map(<span class="keyword">lambda</span> x: x*<span class="number">1.0</span>/hist_ListingGap.iloc[<span class="number">-1</span>][<span class="string">'CumFreq'</span>])</span><br></pre></td></tr></table></figure>
+<p>对某些统一的字段进行统一</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">ChangeContent</span><span class="params">(x)</span>:</span></span><br><span class="line">    y = x.upper()</span><br><span class="line">    <span class="keyword">if</span> y == <span class="string">'_MOBILEPHONE'</span>:</span><br><span class="line">        y = <span class="string">'_PHONE'</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line"></span><br><span class="line">data3[<span class="string">'UserupdateInfo1'</span>] = data3[<span class="string">'UserupdateInfo1'</span>].map(ChangeContent)</span><br><span class="line">data3GroupbyIdx = pd.DataFrame(&#123;<span class="string">'Idx'</span>:data3[<span class="string">'Idx'</span>].drop_duplicates()&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="数据一致性处理"><a href="#数据一致性处理" class="headerlink" title="数据一致性处理"></a>数据一致性处理</h2><p>数据含义一致性，一般采取手工解决的方式。<br>对 QQ和qQ, Idnumber和idNumber,MOBILEPHONE和PHONE 进行统一。<br>在时间切片内，计算<br> (1) 更新的频率<br> (2) 每种更新对象的种类个数<br> (3) 对重要信息如IDNUMBER,HASBUYCAR, MARRIAGESTATUSID, PHONE的更新</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">time_window = [<span class="number">7</span>, <span class="number">30</span>, <span class="number">60</span>, <span class="number">90</span>, <span class="number">120</span>, <span class="number">150</span>, <span class="number">180</span>]</span><br><span class="line"><span class="keyword">for</span> tw <span class="keyword">in</span> time_window:</span><br><span class="line">    data3[<span class="string">'TruncatedLogInfo'</span>] = data3[<span class="string">'ListingInfo'</span>].map(<span class="keyword">lambda</span> x: x + datetime.timedelta(-tw))</span><br><span class="line">    temp = data3.loc[data3[<span class="string">'UserupdateInfo'</span>] &gt;= data3[<span class="string">'TruncatedLogInfo'</span>]]</span><br><span class="line"></span><br><span class="line">    <span class="comment">#frequency of updating</span></span><br><span class="line">    freq_stats = temp.groupby([<span class="string">'Idx'</span>])[<span class="string">'UserupdateInfo1'</span>].count().to_dict()</span><br><span class="line">    data3GroupbyIdx[<span class="string">'UserupdateInfo_'</span>+str(tw)+<span class="string">'_freq'</span>] = data3GroupbyIdx[<span class="string">'Idx'</span>].map(<span class="keyword">lambda</span> x: freq_stats.get(x,<span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># number of updated types</span></span><br><span class="line">    Idx_UserupdateInfo1 = temp[[<span class="string">'Idx'</span>,<span class="string">'UserupdateInfo1'</span>]].drop_duplicates()</span><br><span class="line">    uniq_stats = Idx_UserupdateInfo1.groupby([<span class="string">'Idx'</span>])[<span class="string">'UserupdateInfo1'</span>].count().to_dict()</span><br><span class="line">    data3GroupbyIdx[<span class="string">'UserupdateInfo_'</span> + str(tw) + <span class="string">'_unique'</span>] = data3GroupbyIdx[<span class="string">'Idx'</span>].map(<span class="keyword">lambda</span> x: uniq_stats.get(x, x))</span><br><span class="line"></span><br><span class="line">    <span class="comment">#average count of each type</span></span><br><span class="line">    data3GroupbyIdx[<span class="string">'UserupdateInfo_'</span> + str(tw) + <span class="string">'_avg_count'</span>] = data3GroupbyIdx[[<span class="string">'UserupdateInfo_'</span>+str(tw)+<span class="string">'_freq'</span>, <span class="string">'UserupdateInfo_'</span> + str(tw) + <span class="string">'_unique'</span>]]. \</span><br><span class="line">        apply(<span class="keyword">lambda</span> x: x[<span class="number">0</span>] * <span class="number">1.0</span> / x[<span class="number">1</span>], axis=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">#whether the applicant changed items like IDNUMBER,HASBUYCAR, MARRIAGESTATUSID, PHONE</span></span><br><span class="line">    Idx_UserupdateInfo1[<span class="string">'UserupdateInfo1'</span>] = Idx_UserupdateInfo1[<span class="string">'UserupdateInfo1'</span>].map(<span class="keyword">lambda</span> x: [x])</span><br><span class="line">    Idx_UserupdateInfo1_V2 = Idx_UserupdateInfo1.groupby([<span class="string">'Idx'</span>])[<span class="string">'UserupdateInfo1'</span>].sum()</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> [<span class="string">'_IDNUMBER'</span>,<span class="string">'_HASBUYCAR'</span>,<span class="string">'_MARRIAGESTATUSID'</span>,<span class="string">'_PHONE'</span>]:</span><br><span class="line">        item_dict = Idx_UserupdateInfo1_V2.map(<span class="keyword">lambda</span> x: int(item <span class="keyword">in</span> x)).to_dict()</span><br><span class="line">        data3GroupbyIdx[<span class="string">'UserupdateInfo_'</span> + str(tw) + str(item)] = data3GroupbyIdx[<span class="string">'Idx'</span>].map(<span class="keyword">lambda</span> x: item_dict.get(x, x))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行表的链接</span></span><br><span class="line">allData = pd.concat([data2.set_index(<span class="string">'Idx'</span>), data3GroupbyIdx.set_index(<span class="string">'Idx'</span>), data1GroupbyIdx.set_index(<span class="string">'Idx'</span>)],axis= <span class="number">1</span>)</span><br><span class="line">allData.to_csv(folderOfData+<span class="string">'allData_0.csv'</span>,encoding = <span class="string">'gbk'</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h2><p>缺失占比太高，舍弃该字段或者该条记录，<br>缺失占比不高，可以采取补缺或者作为特殊值。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">allData = pd.read_csv(folderOfData+<span class="string">'allData_0.csv'</span>,header = <span class="number">0</span>,encoding = <span class="string">'gbk'</span>)</span><br><span class="line">allFeatures = list(allData.columns)</span><br><span class="line">allFeatures</span><br></pre></td></tr></table></figure>
+<pre><code>[&apos;Idx&apos;,
+ &apos;UserInfo_1&apos;,
+ &apos;UserInfo_3&apos;,
+ &apos;WeblogInfo_1&apos;,
+ &apos;WeblogInfo_2&apos;,
+ &apos;WeblogInfo_3&apos;,
+ &apos;WeblogInfo_4&apos;,
+ &apos;WeblogInfo_5&apos;,
+ &apos;WeblogInfo_6&apos;,
+ &apos;WeblogInfo_7&apos;,
+ &apos;WeblogInfo_8&apos;,
+ &apos;WeblogInfo_9&apos;,
+ &apos;WeblogInfo_10&apos;,
+ &apos;WeblogInfo_11&apos;,
+ &apos;WeblogInfo_12&apos;,
+ &apos;WeblogInfo_13&apos;,
+ &apos;WeblogInfo_14&apos;,
+ &apos;WeblogInfo_15&apos;,
+ &apos;WeblogInfo_16&apos;,
+ &apos;WeblogInfo_17&apos;,
+ &apos;WeblogInfo_18&apos;,
+ &apos;UserInfo_5&apos;,
+ &apos;UserInfo_6&apos;,
+ &apos;UserInfo_7&apos;,
+ &apos;UserInfo_9&apos;,
+ &apos;UserInfo_10&apos;,
+ &apos;UserInfo_11&apos;,
+ &apos;UserInfo_12&apos;,
+ &apos;UserInfo_13&apos;,
+ &apos;UserInfo_14&apos;,
+ &apos;UserInfo_15&apos;,
+ &apos;UserInfo_16&apos;,
+ &apos;UserInfo_17&apos;,
+ &apos;UserInfo_18&apos;,
+ &apos;UserInfo_19&apos;,
+ &apos;UserInfo_21&apos;,
+ &apos;UserInfo_22&apos;,
+ &apos;UserInfo_23&apos;,
+ &apos;UserInfo_24&apos;,
+ &apos;Education_Info1&apos;,
+ &apos;Education_Info2&apos;,
+ &apos;Education_Info3&apos;,
+ &apos;Education_Info4&apos;,
+ &apos;Education_Info5&apos;,
+ &apos;Education_Info6&apos;,
+ &apos;Education_Info7&apos;,
+ &apos;Education_Info8&apos;,
+ &apos;WeblogInfo_19&apos;,
+ &apos;WeblogInfo_20&apos;,
+ &apos;WeblogInfo_21&apos;,
+ &apos;WeblogInfo_23&apos;,
+ &apos;WeblogInfo_24&apos;,
+ &apos;WeblogInfo_25&apos;,
+ &apos;WeblogInfo_26&apos;,
+ &apos;WeblogInfo_27&apos;,
+ &apos;WeblogInfo_28&apos;,
+ &apos;WeblogInfo_29&apos;,
+ &apos;WeblogInfo_30&apos;,
+ &apos;WeblogInfo_31&apos;,
+ &apos;WeblogInfo_32&apos;,
+ &apos;WeblogInfo_33&apos;,
+ &apos;WeblogInfo_34&apos;,
+ &apos;WeblogInfo_35&apos;,
+ &apos;WeblogInfo_36&apos;,
+ &apos;WeblogInfo_37&apos;,
+ &apos;WeblogInfo_38&apos;,
+ &apos;WeblogInfo_39&apos;,
+ &apos;WeblogInfo_40&apos;,
+ &apos;WeblogInfo_41&apos;,
+ &apos;WeblogInfo_42&apos;,
+ &apos;WeblogInfo_43&apos;,
+ &apos;WeblogInfo_44&apos;,
+ &apos;WeblogInfo_45&apos;,
+ &apos;WeblogInfo_46&apos;,
+ &apos;WeblogInfo_47&apos;,
+ &apos;WeblogInfo_48&apos;,
+ &apos;WeblogInfo_49&apos;,
+ &apos;WeblogInfo_50&apos;,
+ &apos;WeblogInfo_51&apos;,
+ &apos;WeblogInfo_52&apos;,
+ &apos;WeblogInfo_53&apos;,
+ &apos;WeblogInfo_54&apos;,
+ &apos;WeblogInfo_55&apos;,
+ &apos;WeblogInfo_56&apos;,
+ &apos;WeblogInfo_57&apos;,
+ &apos;WeblogInfo_58&apos;,
+ &apos;ThirdParty_Info_Period1_1&apos;,
+ &apos;ThirdParty_Info_Period1_2&apos;,
+ &apos;ThirdParty_Info_Period1_3&apos;,
+ &apos;ThirdParty_Info_Period1_4&apos;,
+ &apos;ThirdParty_Info_Period1_5&apos;,
+ &apos;ThirdParty_Info_Period1_6&apos;,
+ &apos;ThirdParty_Info_Period1_7&apos;,
+ &apos;ThirdParty_Info_Period1_8&apos;,
+ &apos;ThirdParty_Info_Period1_9&apos;,
+ &apos;ThirdParty_Info_Period1_10&apos;,
+ &apos;ThirdParty_Info_Period1_11&apos;,
+ &apos;ThirdParty_Info_Period1_12&apos;,
+ &apos;ThirdParty_Info_Period1_13&apos;,
+ &apos;ThirdParty_Info_Period1_14&apos;,
+ &apos;ThirdParty_Info_Period1_15&apos;,
+ &apos;ThirdParty_Info_Period1_16&apos;,
+ &apos;ThirdParty_Info_Period1_17&apos;,
+ &apos;ThirdParty_Info_Period2_1&apos;,
+ &apos;ThirdParty_Info_Period2_2&apos;,
+ &apos;ThirdParty_Info_Period2_3&apos;,
+ &apos;ThirdParty_Info_Period2_4&apos;,
+ &apos;ThirdParty_Info_Period2_5&apos;,
+ &apos;ThirdParty_Info_Period2_6&apos;,
+ &apos;ThirdParty_Info_Period2_7&apos;,
+ &apos;ThirdParty_Info_Period2_8&apos;,
+ &apos;ThirdParty_Info_Period2_9&apos;,
+ &apos;ThirdParty_Info_Period2_10&apos;,
+ &apos;ThirdParty_Info_Period2_11&apos;,
+ &apos;ThirdParty_Info_Period2_12&apos;,
+ &apos;ThirdParty_Info_Period2_13&apos;,
+ &apos;ThirdParty_Info_Period2_14&apos;,
+ &apos;ThirdParty_Info_Period2_15&apos;,
+ &apos;ThirdParty_Info_Period2_16&apos;,
+ &apos;ThirdParty_Info_Period2_17&apos;,
+ &apos;ThirdParty_Info_Period3_1&apos;,
+ &apos;ThirdParty_Info_Period3_2&apos;,
+ &apos;ThirdParty_Info_Period3_3&apos;,
+ &apos;ThirdParty_Info_Period3_4&apos;,
+ &apos;ThirdParty_Info_Period3_5&apos;,
+ &apos;ThirdParty_Info_Period3_6&apos;,
+ &apos;ThirdParty_Info_Period3_7&apos;,
+ &apos;ThirdParty_Info_Period3_8&apos;,
+ &apos;ThirdParty_Info_Period3_9&apos;,
+ &apos;ThirdParty_Info_Period3_10&apos;,
+ &apos;ThirdParty_Info_Period3_11&apos;,
+ &apos;ThirdParty_Info_Period3_12&apos;,
+ &apos;ThirdParty_Info_Period3_13&apos;,
+ &apos;ThirdParty_Info_Period3_14&apos;,
+ &apos;ThirdParty_Info_Period3_15&apos;,
+ &apos;ThirdParty_Info_Period3_16&apos;,
+ &apos;ThirdParty_Info_Period3_17&apos;,
+ &apos;ThirdParty_Info_Period4_1&apos;,
+ &apos;ThirdParty_Info_Period4_2&apos;,
+ &apos;ThirdParty_Info_Period4_3&apos;,
+ &apos;ThirdParty_Info_Period4_4&apos;,
+ &apos;ThirdParty_Info_Period4_5&apos;,
+ &apos;ThirdParty_Info_Period4_6&apos;,
+ &apos;ThirdParty_Info_Period4_7&apos;,
+ &apos;ThirdParty_Info_Period4_8&apos;,
+ &apos;ThirdParty_Info_Period4_9&apos;,
+ &apos;ThirdParty_Info_Period4_10&apos;,
+ &apos;ThirdParty_Info_Period4_11&apos;,
+ &apos;ThirdParty_Info_Period4_12&apos;,
+ &apos;ThirdParty_Info_Period4_13&apos;,
+ &apos;ThirdParty_Info_Period4_14&apos;,
+ &apos;ThirdParty_Info_Period4_15&apos;,
+ &apos;ThirdParty_Info_Period4_16&apos;,
+ &apos;ThirdParty_Info_Period4_17&apos;,
+ &apos;ThirdParty_Info_Period5_1&apos;,
+ &apos;ThirdParty_Info_Period5_2&apos;,
+ &apos;ThirdParty_Info_Period5_3&apos;,
+ &apos;ThirdParty_Info_Period5_4&apos;,
+ &apos;ThirdParty_Info_Period5_5&apos;,
+ &apos;ThirdParty_Info_Period5_6&apos;,
+ &apos;ThirdParty_Info_Period5_7&apos;,
+ &apos;ThirdParty_Info_Period5_8&apos;,
+ &apos;ThirdParty_Info_Period5_9&apos;,
+ &apos;ThirdParty_Info_Period5_10&apos;,
+ &apos;ThirdParty_Info_Period5_11&apos;,
+ &apos;ThirdParty_Info_Period5_12&apos;,
+ &apos;ThirdParty_Info_Period5_13&apos;,
+ &apos;ThirdParty_Info_Period5_14&apos;,
+ &apos;ThirdParty_Info_Period5_15&apos;,
+ &apos;ThirdParty_Info_Period5_16&apos;,
+ &apos;ThirdParty_Info_Period5_17&apos;,
+ &apos;ThirdParty_Info_Period6_1&apos;,
+ &apos;ThirdParty_Info_Period6_2&apos;,
+ &apos;ThirdParty_Info_Period6_3&apos;,
+ &apos;ThirdParty_Info_Period6_4&apos;,
+ &apos;ThirdParty_Info_Period6_5&apos;,
+ &apos;ThirdParty_Info_Period6_6&apos;,
+ &apos;ThirdParty_Info_Period6_7&apos;,
+ &apos;ThirdParty_Info_Period6_8&apos;,
+ &apos;ThirdParty_Info_Period6_9&apos;,
+ &apos;ThirdParty_Info_Period6_10&apos;,
+ &apos;ThirdParty_Info_Period6_11&apos;,
+ &apos;ThirdParty_Info_Period6_12&apos;,
+ &apos;ThirdParty_Info_Period6_13&apos;,
+ &apos;ThirdParty_Info_Period6_14&apos;,
+ &apos;ThirdParty_Info_Period6_15&apos;,
+ &apos;ThirdParty_Info_Period6_16&apos;,
+ &apos;ThirdParty_Info_Period6_17&apos;,
+ &apos;ThirdParty_Info_Period7_1&apos;,
+ &apos;ThirdParty_Info_Period7_2&apos;,
+ &apos;ThirdParty_Info_Period7_3&apos;,
+ &apos;ThirdParty_Info_Period7_4&apos;,
+ &apos;ThirdParty_Info_Period7_5&apos;,
+ &apos;ThirdParty_Info_Period7_6&apos;,
+ &apos;ThirdParty_Info_Period7_7&apos;,
+ &apos;ThirdParty_Info_Period7_8&apos;,
+ &apos;ThirdParty_Info_Period7_9&apos;,
+ &apos;ThirdParty_Info_Period7_10&apos;,
+ &apos;ThirdParty_Info_Period7_11&apos;,
+ &apos;ThirdParty_Info_Period7_12&apos;,
+ &apos;ThirdParty_Info_Period7_13&apos;,
+ &apos;ThirdParty_Info_Period7_14&apos;,
+ &apos;ThirdParty_Info_Period7_15&apos;,
+ &apos;ThirdParty_Info_Period7_16&apos;,
+ &apos;ThirdParty_Info_Period7_17&apos;,
+ &apos;SocialNetwork_1&apos;,
+ &apos;SocialNetwork_2&apos;,
+ &apos;SocialNetwork_3&apos;,
+ &apos;SocialNetwork_4&apos;,
+ &apos;SocialNetwork_5&apos;,
+ &apos;SocialNetwork_6&apos;,
+ &apos;SocialNetwork_7&apos;,
+ &apos;SocialNetwork_8&apos;,
+ &apos;SocialNetwork_9&apos;,
+ &apos;SocialNetwork_10&apos;,
+ &apos;SocialNetwork_11&apos;,
+ &apos;SocialNetwork_12&apos;,
+ &apos;SocialNetwork_13&apos;,
+ &apos;SocialNetwork_14&apos;,
+ &apos;SocialNetwork_15&apos;,
+ &apos;SocialNetwork_16&apos;,
+ &apos;SocialNetwork_17&apos;,
+ &apos;target&apos;,
+ &apos;ListingInfo&apos;,
+ &apos;city_match&apos;,
+ &apos;UserupdateInfo_7_freq&apos;,
+ &apos;UserupdateInfo_7_unique&apos;,
+ &apos;UserupdateInfo_7_avg_count&apos;,
+ &apos;UserupdateInfo_7_IDNUMBER&apos;,
+ &apos;UserupdateInfo_7_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_7_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_7_PHONE&apos;,
+ &apos;UserupdateInfo_30_freq&apos;,
+ &apos;UserupdateInfo_30_unique&apos;,
+ &apos;UserupdateInfo_30_avg_count&apos;,
+ &apos;UserupdateInfo_30_IDNUMBER&apos;,
+ &apos;UserupdateInfo_30_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_30_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_30_PHONE&apos;,
+ &apos;UserupdateInfo_60_freq&apos;,
+ &apos;UserupdateInfo_60_unique&apos;,
+ &apos;UserupdateInfo_60_avg_count&apos;,
+ &apos;UserupdateInfo_60_IDNUMBER&apos;,
+ &apos;UserupdateInfo_60_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_60_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_60_PHONE&apos;,
+ &apos;UserupdateInfo_90_freq&apos;,
+ &apos;UserupdateInfo_90_unique&apos;,
+ &apos;UserupdateInfo_90_avg_count&apos;,
+ &apos;UserupdateInfo_90_IDNUMBER&apos;,
+ &apos;UserupdateInfo_90_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_90_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_90_PHONE&apos;,
+ &apos;UserupdateInfo_120_freq&apos;,
+ &apos;UserupdateInfo_120_unique&apos;,
+ &apos;UserupdateInfo_120_avg_count&apos;,
+ &apos;UserupdateInfo_120_IDNUMBER&apos;,
+ &apos;UserupdateInfo_120_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_120_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_120_PHONE&apos;,
+ &apos;UserupdateInfo_150_freq&apos;,
+ &apos;UserupdateInfo_150_unique&apos;,
+ &apos;UserupdateInfo_150_avg_count&apos;,
+ &apos;UserupdateInfo_150_IDNUMBER&apos;,
+ &apos;UserupdateInfo_150_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_150_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_150_PHONE&apos;,
+ &apos;UserupdateInfo_180_freq&apos;,
+ &apos;UserupdateInfo_180_unique&apos;,
+ &apos;UserupdateInfo_180_avg_count&apos;,
+ &apos;UserupdateInfo_180_IDNUMBER&apos;,
+ &apos;UserupdateInfo_180_HASBUYCAR&apos;,
+ &apos;UserupdateInfo_180_MARRIAGESTATUSID&apos;,
+ &apos;UserupdateInfo_180_PHONE&apos;,
+ &apos;LogInfo1_7_count&apos;,
+ &apos;LogInfo1_7_unique&apos;,
+ &apos;LogInfo1_7_avg_count&apos;,
+ &apos;LogInfo2_7_count&apos;,
+ &apos;LogInfo2_7_unique&apos;,
+ &apos;LogInfo2_7_avg_count&apos;,
+ &apos;LogInfo1_30_count&apos;,
+ &apos;LogInfo1_30_unique&apos;,
+ &apos;LogInfo1_30_avg_count&apos;,
+ &apos;LogInfo2_30_count&apos;,
+ &apos;LogInfo2_30_unique&apos;,
+ &apos;LogInfo2_30_avg_count&apos;,
+ &apos;LogInfo1_60_count&apos;,
+ &apos;LogInfo1_60_unique&apos;,
+ &apos;LogInfo1_60_avg_count&apos;,
+ &apos;LogInfo2_60_count&apos;,
+ &apos;LogInfo2_60_unique&apos;,
+ &apos;LogInfo2_60_avg_count&apos;,
+ &apos;LogInfo1_90_count&apos;,
+ &apos;LogInfo1_90_unique&apos;,
+ &apos;LogInfo1_90_avg_count&apos;,
+ &apos;LogInfo2_90_count&apos;,
+ &apos;LogInfo2_90_unique&apos;,
+ &apos;LogInfo2_90_avg_count&apos;,
+ &apos;LogInfo1_120_count&apos;,
+ &apos;LogInfo1_120_unique&apos;,
+ &apos;LogInfo1_120_avg_count&apos;,
+ &apos;LogInfo2_120_count&apos;,
+ &apos;LogInfo2_120_unique&apos;,
+ &apos;LogInfo2_120_avg_count&apos;,
+ &apos;LogInfo1_150_count&apos;,
+ &apos;LogInfo1_150_unique&apos;,
+ &apos;LogInfo1_150_avg_count&apos;,
+ &apos;LogInfo2_150_count&apos;,
+ &apos;LogInfo2_150_unique&apos;,
+ &apos;LogInfo2_150_avg_count&apos;,
+ &apos;LogInfo1_180_count&apos;,
+ &apos;LogInfo1_180_unique&apos;,
+ &apos;LogInfo1_180_avg_count&apos;,
+ &apos;LogInfo2_180_count&apos;,
+ &apos;LogInfo2_180_unique&apos;,
+ &apos;LogInfo2_180_avg_count&apos;]
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">allFeatures.remove(<span class="string">'target'</span>)</span><br><span class="line"><span class="keyword">if</span> <span class="string">'Idx'</span> <span class="keyword">in</span> allFeatures:</span><br><span class="line">    allFeatures.remove(<span class="string">'Idx'</span>)</span><br><span class="line">allFeatures.remove(<span class="string">'ListingInfo'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#检查是否有常数型变量，并且检查是类别型还是数值型变量</span></span><br><span class="line">numerical_var = []</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> allFeatures:</span><br><span class="line">    <span class="keyword">if</span> len(set(allData[col])) == <span class="number">1</span>:</span><br><span class="line">        print(<span class="string">'delete &#123;&#125; from the dataset because it is a constant'</span>.format(col))</span><br><span class="line">        <span class="keyword">del</span> allData[col]</span><br><span class="line">        allFeatures.remove(col)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#uniq_vals = list(set(allData[col]))</span></span><br><span class="line">        <span class="comment">#if np.nan in uniq_vals:</span></span><br><span class="line">            <span class="comment">#uniq_vals.remove(np.nan)</span></span><br><span class="line">        uniq_valid_vals = [i <span class="keyword">for</span> i <span class="keyword">in</span> allData[col] <span class="keyword">if</span> i == i]</span><br><span class="line">        uniq_valid_vals = list(set(uniq_valid_vals))</span><br><span class="line">        <span class="keyword">if</span> len(uniq_valid_vals) &gt;= <span class="number">10</span> <span class="keyword">and</span> isinstance(uniq_valid_vals[<span class="number">0</span>], numbers.Real):</span><br><span class="line">            numerical_var.append(col)</span><br><span class="line"></span><br><span class="line">categorical_var = [i <span class="keyword">for</span> i <span class="keyword">in</span> allFeatures <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> numerical_var]</span><br></pre></td></tr></table></figure>
+<pre><code>delete WeblogInfo_10 from the dataset because it is a constant
+</code></pre><h2 id="数据集中度处理"><a href="#数据集中度处理" class="headerlink" title="数据集中度处理"></a>数据集中度处理</h2><p>在信用风控模型的开发中，数据集中度是常见的问题。 即在变量中，某单一数值的占比就占了全部样本值的 绝大多数。例如，在一批训练样本中，学历为本科的 样本占了全部样本的90%。具有极高的集中度的字段或者变量，需要按照风险程度迚行区分:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#检查变量的最多值的占比情况,以及每个变量中占比最大的值</span></span><br><span class="line">records_count = allData.shape[<span class="number">0</span>]</span><br><span class="line">col_most_values,col_large_value = &#123;&#125;,&#123;&#125;</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> allFeatures:</span><br><span class="line">    value_count = allData[col].groupby(allData[col]).count()</span><br><span class="line">    col_most_values[col] = max(value_count)/records_count</span><br><span class="line">    large_value = value_count[value_count== max(value_count)].index[<span class="number">0</span>]</span><br><span class="line">    col_large_value[col] = large_value</span><br><span class="line">col_most_values_df = pd.DataFrame.from_dict(col_most_values, orient = <span class="string">'index'</span>)</span><br><span class="line">col_most_values_df.columns = [<span class="string">'max percent'</span>]</span><br><span class="line">col_most_values_df = col_most_values_df.sort_values(by = <span class="string">'max percent'</span>, ascending = <span class="keyword">False</span>)</span><br><span class="line">pcnt = list(col_most_values_df[:<span class="number">500</span>][<span class="string">'max percent'</span>])</span><br><span class="line">vars = list(col_most_values_df[:<span class="number">500</span>].index)</span><br><span class="line">plt.bar(range(len(pcnt)), height = pcnt)</span><br><span class="line">plt.title(<span class="string">'Largest Percentage of Single Value in Each Variable'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#计算多数值产比超过90%的字段中，少数值的坏样本率是否会显著高于多数值</span></span><br><span class="line">large_percent_cols = list(col_most_values_df[col_most_values_df[<span class="string">'max percent'</span>]&gt;=<span class="number">0.9</span>].index)</span><br><span class="line">bad_rate_diff = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> large_percent_cols:</span><br><span class="line">    large_value = col_large_value[col]</span><br><span class="line">    temp = allData[[col,<span class="string">'target'</span>]]</span><br><span class="line">    temp[col] = temp.apply(<span class="keyword">lambda</span> x: int(x[col]==large_value),axis=<span class="number">1</span>)</span><br><span class="line">    bad_rate = temp.groupby(col).mean()</span><br><span class="line">    <span class="keyword">if</span> bad_rate.iloc[<span class="number">0</span>][<span class="string">'target'</span>] == <span class="number">0</span>:</span><br><span class="line">        bad_rate_diff[col] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    bad_rate_diff[col] = np.log(bad_rate.iloc[<span class="number">0</span>][<span class="string">'target'</span>]/bad_rate.iloc[<span class="number">1</span>][<span class="string">'target'</span>])</span><br><span class="line">bad_rate_diff_sorted = sorted(bad_rate_diff.items(),key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)</span><br><span class="line">bad_rate_diff_sorted_values = [x[<span class="number">1</span>] <span class="keyword">for</span> x <span class="keyword">in</span> bad_rate_diff_sorted]</span><br><span class="line">plt.bar(x = range(len(bad_rate_diff_sorted_values)), height = bad_rate_diff_sorted_values)</span><br><span class="line"></span><br><span class="line"><span class="comment">#由于所有的少数值的坏样本率并没有显著高于多数值，意味着这些变量可以直接剔除</span></span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> large_percent_cols:</span><br><span class="line">    <span class="keyword">if</span> col <span class="keyword">in</span> numerical_var:</span><br><span class="line">        numerical_var.remove(col)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        categorical_var.remove(col)</span><br><span class="line">    <span class="keyword">del</span> allData[col]</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">对类别型变量，如果缺失超过80%, 就删除，否则当成特殊的状态</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MissingCategorial</span><span class="params">(df,x)</span>:</span></span><br><span class="line">    missing_vals = df[x].map(<span class="keyword">lambda</span> x: int(x!=x))</span><br><span class="line">    <span class="keyword">return</span> sum(missing_vals)*<span class="number">1.0</span>/df.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">missing_pcnt_threshould_1 = <span class="number">0.8</span></span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> categorical_var:</span><br><span class="line">    missingRate = MissingCategorial(allData,col)</span><br><span class="line">    print(<span class="string">'&#123;0&#125; has missing rate as &#123;1&#125;'</span>.format(col,missingRate))</span><br><span class="line">    <span class="keyword">if</span> missingRate &gt; missing_pcnt_threshould_1:</span><br><span class="line">        categorical_var.remove(col)</span><br><span class="line">        <span class="keyword">del</span> allData[col]</span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> &lt; missingRate &lt; missing_pcnt_threshould_1:</span><br><span class="line">        <span class="comment"># In this way we convert NaN to NAN, which is a string instead of np.nan</span></span><br><span class="line">        allData[col] = allData[col].map(<span class="keyword">lambda</span> x: str(x).upper())</span><br><span class="line"></span><br><span class="line">allData_bk = allData.copy()</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">检查数值型变量</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MissingContinuous</span><span class="params">(df,x)</span>:</span></span><br><span class="line">    missing_vals = df[x].map(<span class="keyword">lambda</span> x: int(np.isnan(x)))</span><br><span class="line">    <span class="keyword">return</span> sum(missing_vals) * <span class="number">1.0</span> / df.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">MakeupRandom</span><span class="params">(x, sampledList)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> x==x:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        randIndex = random.randint(<span class="number">0</span>, len(sampledList)<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> sampledList[randIndex]</span><br><span class="line">    </span><br><span class="line">missing_pcnt_threshould_2 = <span class="number">0.8</span></span><br><span class="line">deleted_var = []</span><br><span class="line"><span class="keyword">for</span> col <span class="keyword">in</span> numerical_var:</span><br><span class="line">    missingRate = MissingContinuous(allData, col)</span><br><span class="line">    print(<span class="string">'&#123;0&#125; has missing rate as &#123;1&#125;'</span>.format(col, missingRate))</span><br><span class="line">    <span class="keyword">if</span> missingRate &gt; missing_pcnt_threshould_2:</span><br><span class="line">        deleted_var.append(col)</span><br><span class="line">        print(<span class="string">'we delete variable &#123;&#125; because of its high missing rate'</span>.format(col))</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> missingRate &gt; <span class="number">0</span>:</span><br><span class="line">            not_missing = allData.loc[allData[col] == allData[col]][col]</span><br><span class="line">            <span class="comment">#makeuped = allData[col].map(lambda x: MakeupRandom(x, list(not_missing)))</span></span><br><span class="line">            missing_position = allData.loc[allData[col] != allData[col]][col].index</span><br><span class="line">            not_missing_sample = random.sample(list(not_missing), len(missing_position))</span><br><span class="line">            allData.loc[missing_position,col] = not_missing_sample</span><br><span class="line">            <span class="comment">#del allData[col]</span></span><br><span class="line">            <span class="comment">#allData[col] = makeuped</span></span><br><span class="line">            missingRate2 = MissingContinuous(allData, col)</span><br><span class="line">            print(<span class="string">'missing rate after making up is:&#123;&#125;'</span>.format(str(missingRate2)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> deleted_var != []:</span><br><span class="line">    <span class="keyword">for</span> col <span class="keyword">in</span> deleted_var:</span><br><span class="line">        numerical_var.remove(col)</span><br><span class="line">        <span class="keyword">del</span> allData[col]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">allData.to_csv(folderOfData+<span class="string">'allData_1.csv'</span>, header=<span class="keyword">True</span>,encoding=<span class="string">'gbk'</span>, columns = allData.columns, index=<span class="keyword">False</span>)</span><br></pre></td></tr></table></figure>
+<pre><code>/usr/local/Cellar/python3/3.6.0/Frameworks/Python.framework/Versions/3.6/lib/python3.6/site-packages/ipykernel_launcher.py:23: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+
+
+UserInfo_1 has missing rate as 0.0002
+UserInfo_3 has missing rate as 0.00023333333333333333
+WeblogInfo_2 has missing rate as 0.055266666666666665
+UserInfo_5 has missing rate as 0.0
+UserInfo_6 has missing rate as 0.0
+UserInfo_7 has missing rate as 0.0
+UserInfo_9 has missing rate as 0.0
+UserInfo_10 has missing rate as 0.0
+UserInfo_11 has missing rate as 0.6303
+UserInfo_12 has missing rate as 0.6303
+UserInfo_13 has missing rate as 0.6303
+UserInfo_14 has missing rate as 0.0
+UserInfo_15 has missing rate as 0.0
+UserInfo_16 has missing rate as 0.0
+UserInfo_17 has missing rate as 0.0
+UserInfo_19 has missing rate as 0.0
+WeblogInfo_19 has missing rate as 0.09876666666666667
+WeblogInfo_20 has missing rate as 0.2683333333333333
+WeblogInfo_21 has missing rate as 0.10246666666666666
+WeblogInfo_30 has missing rate as 0.008433333333333333
+SocialNetwork_12 has missing rate as 0.0
+SocialNetwork_13 has missing rate as 0.0
+SocialNetwork_17 has missing rate as 0.0
+WeblogInfo_1 has missing rate as 0.9676666666666667
+we delete variable WeblogInfo_1 because of its high missing rate
+WeblogInfo_3 has missing rate as 0.9676666666666667
+we delete variable WeblogInfo_3 because of its high missing rate
+WeblogInfo_4 has missing rate as 0.05503333333333333
+missing rate after making up is:0.0
+WeblogInfo_5 has missing rate as 0.05503333333333333
+missing rate after making up is:0.0
+WeblogInfo_6 has missing rate as 0.05503333333333333
+missing rate after making up is:0.0
+WeblogInfo_7 has missing rate as 0.0
+WeblogInfo_8 has missing rate as 0.0
+WeblogInfo_15 has missing rate as 0.0
+WeblogInfo_16 has missing rate as 0.0
+WeblogInfo_17 has missing rate as 0.0
+WeblogInfo_18 has missing rate as 0.0
+UserInfo_18 has missing rate as 0.0
+WeblogInfo_24 has missing rate as 0.008433333333333333
+missing rate after making up is:0.0
+WeblogInfo_27 has missing rate as 0.008433333333333333
+missing rate after making up is:0.0
+WeblogInfo_33 has missing rate as 0.008433333333333333
+missing rate after making up is:0.0
+WeblogInfo_36 has missing rate as 0.008433333333333333
+missing rate after making up is:0.0
+ThirdParty_Info_Period1_1 has missing rate as 0.0
+ThirdParty_Info_Period1_2 has missing rate as 0.0
+ThirdParty_Info_Period1_3 has missing rate as 0.0
+ThirdParty_Info_Period1_4 has missing rate as 0.0
+ThirdParty_Info_Period1_5 has missing rate as 0.0
+ThirdParty_Info_Period1_6 has missing rate as 0.0
+ThirdParty_Info_Period1_7 has missing rate as 0.0
+ThirdParty_Info_Period1_8 has missing rate as 0.0
+ThirdParty_Info_Period1_9 has missing rate as 0.0
+ThirdParty_Info_Period1_10 has missing rate as 0.0
+ThirdParty_Info_Period1_11 has missing rate as 0.0
+ThirdParty_Info_Period1_12 has missing rate as 0.0
+ThirdParty_Info_Period1_13 has missing rate as 0.0
+ThirdParty_Info_Period1_14 has missing rate as 0.0
+ThirdParty_Info_Period1_15 has missing rate as 0.0
+ThirdParty_Info_Period1_16 has missing rate as 0.0
+ThirdParty_Info_Period1_17 has missing rate as 0.0
+ThirdParty_Info_Period2_1 has missing rate as 0.0
+ThirdParty_Info_Period2_2 has missing rate as 0.0
+ThirdParty_Info_Period2_3 has missing rate as 0.0
+ThirdParty_Info_Period2_4 has missing rate as 0.0
+ThirdParty_Info_Period2_5 has missing rate as 0.0
+ThirdParty_Info_Period2_6 has missing rate as 0.0
+ThirdParty_Info_Period2_7 has missing rate as 0.0
+ThirdParty_Info_Period2_8 has missing rate as 0.0
+ThirdParty_Info_Period2_9 has missing rate as 0.0
+ThirdParty_Info_Period2_10 has missing rate as 0.0
+ThirdParty_Info_Period2_11 has missing rate as 0.0
+ThirdParty_Info_Period2_12 has missing rate as 0.0
+ThirdParty_Info_Period2_13 has missing rate as 0.0
+ThirdParty_Info_Period2_14 has missing rate as 0.0
+ThirdParty_Info_Period2_15 has missing rate as 0.0
+ThirdParty_Info_Period2_16 has missing rate as 0.0
+ThirdParty_Info_Period2_17 has missing rate as 0.0
+ThirdParty_Info_Period3_1 has missing rate as 0.0
+ThirdParty_Info_Period3_2 has missing rate as 0.0
+ThirdParty_Info_Period3_3 has missing rate as 0.0
+ThirdParty_Info_Period3_4 has missing rate as 0.0
+ThirdParty_Info_Period3_5 has missing rate as 0.0
+ThirdParty_Info_Period3_6 has missing rate as 0.0
+ThirdParty_Info_Period3_7 has missing rate as 0.0
+ThirdParty_Info_Period3_8 has missing rate as 0.0
+ThirdParty_Info_Period3_9 has missing rate as 0.0
+ThirdParty_Info_Period3_10 has missing rate as 0.0
+ThirdParty_Info_Period3_11 has missing rate as 0.0
+ThirdParty_Info_Period3_12 has missing rate as 0.0
+ThirdParty_Info_Period3_13 has missing rate as 0.0
+ThirdParty_Info_Period3_14 has missing rate as 0.0
+ThirdParty_Info_Period3_15 has missing rate as 0.0
+ThirdParty_Info_Period3_16 has missing rate as 0.0
+ThirdParty_Info_Period3_17 has missing rate as 0.0
+ThirdParty_Info_Period4_1 has missing rate as 0.0
+ThirdParty_Info_Period4_2 has missing rate as 0.0
+ThirdParty_Info_Period4_3 has missing rate as 0.0
+ThirdParty_Info_Period4_4 has missing rate as 0.0
+ThirdParty_Info_Period4_5 has missing rate as 0.0
+ThirdParty_Info_Period4_6 has missing rate as 0.0
+ThirdParty_Info_Period4_7 has missing rate as 0.0
+ThirdParty_Info_Period4_8 has missing rate as 0.0
+ThirdParty_Info_Period4_9 has missing rate as 0.0
+ThirdParty_Info_Period4_10 has missing rate as 0.0
+ThirdParty_Info_Period4_11 has missing rate as 0.0
+ThirdParty_Info_Period4_12 has missing rate as 0.0
+ThirdParty_Info_Period4_13 has missing rate as 0.0
+ThirdParty_Info_Period4_14 has missing rate as 0.0
+ThirdParty_Info_Period4_15 has missing rate as 0.0
+ThirdParty_Info_Period4_16 has missing rate as 0.0
+ThirdParty_Info_Period4_17 has missing rate as 0.0
+ThirdParty_Info_Period5_1 has missing rate as 0.0
+ThirdParty_Info_Period5_2 has missing rate as 0.0
+ThirdParty_Info_Period5_3 has missing rate as 0.0
+ThirdParty_Info_Period5_4 has missing rate as 0.0
+ThirdParty_Info_Period5_5 has missing rate as 0.0
+ThirdParty_Info_Period5_6 has missing rate as 0.0
+ThirdParty_Info_Period5_7 has missing rate as 0.0
+ThirdParty_Info_Period5_8 has missing rate as 0.0
+ThirdParty_Info_Period5_9 has missing rate as 0.0
+ThirdParty_Info_Period5_10 has missing rate as 0.0
+ThirdParty_Info_Period5_11 has missing rate as 0.0
+ThirdParty_Info_Period5_12 has missing rate as 0.0
+ThirdParty_Info_Period5_13 has missing rate as 0.0
+ThirdParty_Info_Period5_14 has missing rate as 0.0
+ThirdParty_Info_Period5_15 has missing rate as 0.0
+ThirdParty_Info_Period5_16 has missing rate as 0.0
+ThirdParty_Info_Period5_17 has missing rate as 0.0
+ThirdParty_Info_Period6_1 has missing rate as 0.0
+ThirdParty_Info_Period6_2 has missing rate as 0.0
+ThirdParty_Info_Period6_3 has missing rate as 0.0
+ThirdParty_Info_Period6_4 has missing rate as 0.0
+ThirdParty_Info_Period6_5 has missing rate as 0.0
+ThirdParty_Info_Period6_6 has missing rate as 0.0
+ThirdParty_Info_Period6_7 has missing rate as 0.0
+ThirdParty_Info_Period6_8 has missing rate as 0.0
+ThirdParty_Info_Period6_9 has missing rate as 0.0
+ThirdParty_Info_Period6_10 has missing rate as 0.0
+ThirdParty_Info_Period6_11 has missing rate as 0.0
+ThirdParty_Info_Period6_12 has missing rate as 0.0
+ThirdParty_Info_Period6_13 has missing rate as 0.0
+ThirdParty_Info_Period6_14 has missing rate as 0.0
+ThirdParty_Info_Period6_15 has missing rate as 0.0
+ThirdParty_Info_Period6_16 has missing rate as 0.0
+ThirdParty_Info_Period6_17 has missing rate as 0.0
+SocialNetwork_8 has missing rate as 0.0
+SocialNetwork_9 has missing rate as 0.0
+SocialNetwork_10 has missing rate as 0.0
+UserupdateInfo_7_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_7_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_30_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_60_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_90_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_120_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_150_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_freq has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_unique has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_avg_count has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_IDNUMBER has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_HASBUYCAR has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_MARRIAGESTATUSID has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+UserupdateInfo_180_PHONE has missing rate as 0.00016666666666666666
+missing rate after making up is:0.0
+LogInfo1_7_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_7_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_7_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_7_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_7_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_7_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_30_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_30_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_30_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_30_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_30_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_30_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_60_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_60_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_60_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_60_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_60_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_60_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_90_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_90_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_90_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_90_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_90_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_90_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_120_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_120_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_120_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_120_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_120_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_120_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_150_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_150_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_150_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_150_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_150_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_150_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_180_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_180_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo1_180_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_180_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_180_unique has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+LogInfo2_180_avg_count has missing rate as 0.03376666666666667
+missing rate after making up is:0.0
+</code></pre><p><img src="/image/%E8%AF%84%E5%88%86%E5%8D%A1%E5%BC%80%E5%8F%91_files/image/%E8%AF%84%E5%88%86%E5%8D%A1%E5%BC%80%E5%8F%91_26_2.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/021python/Notebook和Markdown互相转换.html" class="pre-post btn btn-default" title="Notebook和Markdown互相转换">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Notebook和Markdown互相转换</span>
+        </a>
+    
+    
+        <a href="/category/001机器学习/机器学习概论.html" class="next-post btn btn-default" title="机器学习概论">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">机器学习概论</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#初始工作"><span class="toc-text">初始工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#特征构造-数据中衍生特征"><span class="toc-text">特征构造-数据中衍生特征</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据一致性处理"><span class="toc-text">数据一致性处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值处理"><span class="toc-text">缺失值处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据集中度处理"><span class="toc-text">数据集中度处理</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+ tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+ TeX: { noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+ messageStyle: "none"
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script type="text/x-mathjax-config">
+ MathJax.Hub.Queue(function() {
+ var all = MathJax.Hub.getAllJax(), i;
+ for(i=0; i < all.length; i += 1) {
+ all[i].SourceElement().parentNode.className += ' has-jax';
+ }
+ });
+</script>
+<script charset="utf-8" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

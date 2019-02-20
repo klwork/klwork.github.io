@@ -1,0 +1,533 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>网络命令-sar | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="网络命令-sar">
+            
+	            网络命令-sar
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#sar</p>
+<h2 id="sar基本用法"><a href="#sar基本用法" class="headerlink" title="sar基本用法"></a>sar基本用法</h2><p><code>sar</code></p>
+<blockquote>
+<p>如果出现错误<br>Cannot open /var/log/sysstat/sa14: No such file or directory<br>直接使用sar就会查找历史文件，因为刚装还没有文件<br>14代表当天日期，使用参数-o 让其生成该文件<br><code>sar -o 14</code></p>
+</blockquote>
+<p>查看某天的系统状态</p>
+<p><code>sar -f /var/log/sysstat/sa14</code></p>
+<blockquote>
+<p>默认情况是对过去时间段进行数据统计，一般从最近的0：00开始显示。如果想继续查看一天前的报告，可以用-f选项指定保存在/var/log/sysstat目录下的日志文件中。如果想周期性的查看当前数据可以命令后面加上数字参数，如sar 1 3 ，表示：1秒1次，共3次。</p>
+</blockquote>
+<p><code>sar 1 3</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Linux 4.4.0-47-generic (ubuntu) 	12/14/2016 	_x86_64_	(3 CPU)</span><br><span class="line"></span><br><span class="line">11:31:33 PM     CPU     %user     %nice   %system   %iowait    %steal     %idle</span><br><span class="line">11:31:34 PM     all      0.33      0.00      0.00      0.00      0.00     99.67</span><br><span class="line">11:31:35 PM     all      0.00      0.00      0.33      0.00      0.00     99.67</span><br><span class="line">11:31:36 PM     all      0.00      0.00      0.00      0.00      0.00    100.00</span><br><span class="line">Average:        all      0.11      0.00      0.11      0.00      0.00     99.78</span><br></pre></td></tr></table></figure>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-A</td>
+<td>等价于 -bBcdqrRuvwWy -I SUM -I XALL -n ALL -P ALL</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>显示I/O和传送速率的统计信息</td>
+</tr>
+<tr>
+<td>-B</td>
+<td>输出内存页面的统计信息</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>输出进程统计信息，每秒创建的进程数</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>输出每一个块设备的活动信息</td>
+</tr>
+<tr>
+<td>-i interval</td>
+<td>指定间隔时长，单位为秒</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示友好设备名字，以方便查看，也可以和-d 和-n 参数结合使用，比如 -dp 或-np</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>输出进程队列长度和平均负载状态统计信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>输出内存和交换空间的统计信息</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>输出内存页面的统计信息</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>读取 /var/log/sa/saDD 的数据时显示其中记录的原始时间，如果没有这个参数使用用户的本地时间</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>输出CPU使用情况的统计信息</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>输出inode、文件和其他内核表的统计信息</td>
+</tr>
+<tr>
+<td>-V</td>
+<td>输出版本号信息</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>输出系统交换活动信息</td>
+</tr>
+<tr>
+<td>-W</td>
+<td>输出系统交换的统计信息</td>
+</tr>
+<tr>
+<td>-y</td>
+<td>输出TTY设备的活动信息</td>
+</tr>
+<tr>
+<td>-n {DEV EDEV NFS NFSD SOCK ALL}</td>
+<td>分析输出网络设备状态统计信息。</td>
+</tr>
+<tr>
+<td>DEV</td>
+<td>报告网络设备的统计信息</td>
+</tr>
+<tr>
+<td>EDEV</td>
+<td>报告网络设备的错误统计信息</td>
+</tr>
+<tr>
+<td>NFS</td>
+<td>报告 NFS 客户端的活动统计信息</td>
+</tr>
+<tr>
+<td>NFSD</td>
+<td>报告 NFS 服务器的活动统计信息</td>
+</tr>
+<tr>
+<td>SOCK</td>
+<td>报告网络套接字（sockets）的使用统计信息</td>
+</tr>
+<tr>
+<td>ALL</td>
+<td>报告所有类型的网络活动统计信息</td>
+</tr>
+<tr>
+<td>-x {pid or SELF or ALL}</td>
+<td>输出指定进程的统计信息。</td>
+</tr>
+<tr>
+<td>-X {pid or SELF or ALL}</td>
+<td>输出指定进程的子进程的统计信息</td>
+</tr>
+<tr>
+<td>-I {irq or SUM or ALL orXALL}</td>
+<td>输出指定中断的统计信息。</td>
+</tr>
+<tr>
+<td>-P {cpu or ALL}</td>
+<td>输出指定 CPU 的统计信息</td>
+</tr>
+<tr>
+<td>-o filename</td>
+<td>将输出信息保存到文件 filename</td>
+</tr>
+<tr>
+<td>-f filename</td>
+<td>从文件 filename 读取数据信息。filename 是使用-o 选项时生成的文件。</td>
+</tr>
+<tr>
+<td>-s hh:mm:ss</td>
+<td>指定输出统计数据的起始时间</td>
+</tr>
+<tr>
+<td>-e hh:mm:ss</td>
+<td>指定输出统计数据的截至时间，默认为18:00:00</td>
+</tr>
+</tbody>
+</table>
+<h2 id="用法汇总"><a href="#用法汇总" class="headerlink" title="用法汇总"></a>用法汇总</h2><h3 id="sar-–u-查看CPU使用率"><a href="#sar-–u-查看CPU使用率" class="headerlink" title="sar –u  查看CPU使用率"></a>sar –u  查看CPU使用率</h3><p><code>sar -u</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">09时39分42秒       LINUX RESTART</span><br><span class="line"></span><br><span class="line">09时40分01秒       CPU     %user     %nice   %system   %iowait    %steal     %idle </span><br><span class="line">09时50分01秒       all         0.14      0.00          0.58          0.12         0.00       99.15 </span><br><span class="line">10时00分01秒       all         0.06      0.00          0.50          0.16         0.00       99.27 </span><br><span class="line">10时10分01秒       all         0.11      0.06          0.95          2.58         0.00       96.30 </span><br><span class="line">10时20分01秒       all         0.12      0.19          0.82          1.41         0.00       97.46 </span><br><span class="line">10时30分01秒       all         0.14      0.00          0.54          0.12         0.00       99.20 </span><br><span class="line">10时40分01秒       all         0.15      0.00          0.54          0.16         0.00       99.15 </span><br><span class="line">Average:              all         0.12      0.04          0.65          0.76         0.00       98.43</span><br></pre></td></tr></table></figure>
+<p>这里：</p>
+<p>%user ： 用户模式下消耗的CPU时间的比例；</p>
+<p>%nice：通过nice改变了进程调度优先级的进程，在用户模式下消耗的CPU时间的比例；</p>
+<p>%system：系统模式下消耗的CPU时间的比例；</p>
+<p>%iowait：CPU等待磁盘I/O而导致空闲状态消耗时间的比例；</p>
+<p>%steal：利用Xen等操作系统虚拟化技术时，等待其他虚拟CPU计算占用的时间比例；</p>
+<p>%idle：CPU没有等待磁盘I/O等的空闲状态消耗的时间比例；</p>
+<p>注：</p>
+<p>如果 %iowait 的值过高，表示硬盘存在I/O瓶颈<br>如果 %idle 的值高但系统响应慢时，有可能是 CPU 等待分配内存，此时应加大内存容量<br>如果 %idle 的值持续低于 10，则系统的 CPU 处理能力相对较低，表明系统中最需要解决的资源是 CPU。</p>
+<h3 id="sar-–q-查看平均负荷"><a href="#sar-–q-查看平均负荷" class="headerlink" title="sar –q 查看平均负荷"></a>sar –q 查看平均负荷</h3><p><code>sar -q</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">09时39分42秒       LINUX RESTART</span><br><span class="line"></span><br><span class="line">09时40分01秒   runq-sz  plist-sz   ldavg-1   ldavg-5  ldavg-15 </span><br><span class="line">09时50分01秒         0       152          0.00      0.02      0.05 </span><br><span class="line">10时00分01秒         0       152          0.00      0.00      0.00 </span><br><span class="line">10时10分01秒         0       156          0.39      0.09      0.03 </span><br><span class="line">10时20分01秒         0       151          0.00      0.03      0.01 </span><br><span class="line">10时30分01秒         0       151          0.00      0.00      0.00 </span><br><span class="line">10时40分01秒         0       151          0.00      0.00      0.00 </span><br><span class="line">10时50分01秒         0       151          0.00      0.00      0.00 </span><br><span class="line">Average:                0       152          0.06      0.02      0.01</span><br></pre></td></tr></table></figure>
+<p>runq-sz：   运行队列的长度（等待运行的进程数）<br>plist-sz：   进程列表中进程（processes）和线程（threads）的数量<br>ldavg-1：   最后1分钟的系统平均负载（System load average）<br>ldavg-5：   过去5分钟的系统平均负载<br>ldavg-15： 过去15分钟的系统平均负载</p>
+<h3 id="sar-–r-查看内存使用情况"><a href="#sar-–r-查看内存使用情况" class="headerlink" title="sar –r 查看内存使用情况"></a>sar –r 查看内存使用情况</h3><p><code>sar -r</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">09时39分42秒       LINUX RESTART</span><br><span class="line"></span><br><span class="line">09时40分01秒 kbmemfree kbmemused  %memused kbbuffers  kbcached kbswpfree kbswpused  %swpused  kbswpcad </span><br><span class="line">09时50分01秒    481572       553492           53.47     35592         384508   2097144         0                 0.00           0 </span><br><span class="line">10时00分01秒    480960       554104           53.53     36032         384512   2097144         0                 0.00           0 </span><br><span class="line">10时10分01秒    404952       630112           60.88     77764         399432   2097144         0                 0.00           0 </span><br><span class="line">10时20分01秒    375824       659240           63.69     87356         410892   2097144         0                 0.00           0 </span><br><span class="line">10时30分01秒    371860       663204           64.07     87756         411064   2097144         0                 0.00           0 </span><br><span class="line">…</span><br></pre></td></tr></table></figure>
+<p>kbmemfree：空闲物理内存量；</p>
+<p>kbmemused：使用中的物理内存量；</p>
+<p>%memused：物理内存量使用率；</p>
+<p>kbbuffers：内核中作为缓冲区使用的物理内存容量；</p>
+<p>kbcacheed：内核中作为缓存使用的物理内存容量；</p>
+<p>kbswpfree：交换区的空闲容量；</p>
+<p>kbswpused：使用中的交换区容量；</p>
+<h3 id="sar-–W-查看页面交换发生状况"><a href="#sar-–W-查看页面交换发生状况" class="headerlink" title="sar –W 查看页面交换发生状况"></a>sar –W 查看页面交换发生状况</h3><p>[root@localhost ~]# sar -W</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">14时30分01秒  pswpin/s pswpout/s</span><br><span class="line">14时40分01秒      0.00      0.00</span><br><span class="line">14时50分01秒      0.00      0.00</span><br><span class="line">15时00分01秒      0.00      0.00</span><br><span class="line">Average:         0.00      0.00</span><br><span class="line"></span><br><span class="line">…</span><br></pre></td></tr></table></figure>
+<h3 id="sar-–b-查看I-O和传送速率的统计信息"><a href="#sar-–b-查看I-O和传送速率的统计信息" class="headerlink" title="sar –b 查看I/O和传送速率的统计信息"></a>sar –b 查看I/O和传送速率的统计信息</h3><p>[root@localhost ~]# sar -b 1 5 </p>
+<p>15时08分18秒       tps      rtps      wtps   bread/s   bwrtn/s<br>15时08分19秒      0.00      0.00      0.00      0.00      0.00<br>15时08分20秒      0.00      0.00      0.00      0.00      0.00<br>15时08分21秒      0.00      0.00      0.00      0.00      0.00<br>15时08分22秒     13.27      0.00     13.27      0.00    220.41<br>15时08分23秒      0.00      0.00      0.00      0.00      0.00<br>Average:         2.66      0.00      2.66      0.00     44.17</p>
+<p>tps：     每秒钟物理设备的 I/O 传输总量<br>rtps:    每秒钟从物理设备读入的数据总量<br>wtps:    每秒钟向物理设备写入的数据总量<br>bread/s: 每秒钟从物理设备读入的数据量，单位为 块/s<br>bwrtn/s: 每秒钟向物理设备写入的数据量，单位为 块/s</p>
+<h3 id="sar-n-DEV查看当前网卡流量状态"><a href="#sar-n-DEV查看当前网卡流量状态" class="headerlink" title="sar -n DEV查看当前网卡流量状态"></a>sar -n DEV查看当前网卡流量状态</h3><p><code>sar -n DEV 1 10</code>  //每1秒显示1次，一共显示10次</p>
+<blockquote>
+<p>-n 的其他参数<br>DEV    报告网络设备的统计信息<br>EDEV    报告网络设备的错误统计信息<br>NFS    报告 NFS 客户端的活动统计信息<br>NFSD    报告 NFS 服务器的活动统计信息<br>SOCK    报告网络套接字（sockets）的使用统计信息<br>ALL    报告所有类型的网络活动统计信息</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Average:        IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil</span><br><span class="line">Average:           lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00</span><br><span class="line">Average:       enp0s5      0.66      0.66      0.04      0.19      0.00      0.00      0.00      0.00</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IFACE</td>
+<td>网络设备名</td>
+</tr>
+<tr>
+<td>rxpck/s</td>
+<td>每秒接收的包总数</td>
+</tr>
+<tr>
+<td>txpck/s</td>
+<td>每秒传输的包总数</td>
+</tr>
+<tr>
+<td>rxbyt/s</td>
+<td>每秒接收的字节（byte）总数</td>
+</tr>
+<tr>
+<td>txbyt/s</td>
+<td>每秒传输的字节（byte）总数</td>
+</tr>
+<tr>
+<td>rxcmp/s</td>
+<td>每秒接收压缩包的总数</td>
+</tr>
+<tr>
+<td>txcmp/s</td>
+<td>每秒传输压缩包的总数</td>
+</tr>
+<tr>
+<td>rxmcst/s</td>
+<td>每秒接收的多播（multicast）包的总数</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sar-n-TCP-ETCP-1"><a href="#sar-n-TCP-ETCP-1" class="headerlink" title="sar -n TCP,ETCP 1"></a>sar -n TCP,ETCP 1</h3><p><code>sar -n TCP,ETCP 1</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">12:17:19 AM  active/s passive/s    iseg/s    oseg/s</span><br><span class="line">12:17:20 AM      1.00      0.00  10233.00  18846.00</span><br><span class="line"> </span><br><span class="line">12:17:19 AM  atmptf/s  estres/s retrans/s isegerr/s   orsts/s</span><br><span class="line">12:17:20 AM      0.00      0.00      0.00      0.00      0.00</span><br></pre></td></tr></table></figure></p>
+<p>命令显示一些关键TCP指标的汇总。其中包括：<br>active/s：本地每秒创建的TCP连接数（比如concept()创建的）<br>passive/s：远程每秒创建的TCP连接数（比如accept()创建的）<br>retrans/s：每秒TCP重传次数。</p>
+<p>主动连接数（active）和被动连接数（passive）通常可以用来粗略地描述系统负载。可以认为主动连接是对外的，而被动连接是对内的。</p>
+<p>重传是网络或系统问题的一个信号；它可能是不可靠的网络（比如公网）所造成的，也有可能是服务器已经过载并开始丢包。</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.chinaunix.net/uid-25266990-id-2950467.html" target="_blank" rel="noopener">http://blog.chinaunix.net/uid-25266990-id-2950467.html</a><br><a href="http://blog.sina.com.cn/s/blog_3d5b39820101n6rk.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_3d5b39820101n6rk.html</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/018linux/mpstat.html" class="pre-post btn btn-default" title="多CPU监控-mpstat">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">多CPU监控-mpstat</span>
+        </a>
+    
+    
+        <a href="/category/018linux/uptime.html" class="next-post btn btn-default" title="系统的负载－uptime">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">系统的负载－uptime</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sar基本用法"><span class="toc-text">sar基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用法汇总"><span class="toc-text">用法汇总</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-–u-查看CPU使用率"><span class="toc-text">sar –u  查看CPU使用率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-–q-查看平均负荷"><span class="toc-text">sar –q 查看平均负荷</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-–r-查看内存使用情况"><span class="toc-text">sar –r 查看内存使用情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-–W-查看页面交换发生状况"><span class="toc-text">sar –W 查看页面交换发生状况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-–b-查看I-O和传送速率的统计信息"><span class="toc-text">sar –b 查看I/O和传送速率的统计信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-n-DEV查看当前网卡流量状态"><span class="toc-text">sar -n DEV查看当前网卡流量状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sar-n-TCP-ETCP-1"><span class="toc-text">sar -n TCP,ETCP 1</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a>
+        
+    </li></div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

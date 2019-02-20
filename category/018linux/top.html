@@ -1,0 +1,436 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>系统的整体资源使用情况－top | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="系统的整体资源使用情况－top">
+            
+	            系统的整体资源使用情况－top
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="top"><a href="#top" class="headerlink" title="top"></a>top</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">top - 22:13:32 up 133 days,  1:38,  1 user,  load average: 0.46, 0.46, 0.45</span><br><span class="line">Tasks: 141 total,   1 running, 140 sleeping,   0 stopped,   0 zombie</span><br><span class="line">Cpu(s): 23.9%us,  2.8%sy,  0.0%ni, 72.6%id,  0.7%wa,  0.0%hi,  0.0%si,  0.0%st	</span><br><span class="line">Mem:   3921472k total,  2955224k used,   966248k free,   295112k buffers</span><br><span class="line">Swap:  2097144k total,    82756k used,  2014388k free,   542824k cached</span><br><span class="line"></span><br><span class="line">  PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND           </span><br><span class="line">25477 root      20   0 21556  728  208 S 51.9  0.0  10579:38 leczbhrtmj         </span><br><span class="line">    9 root      20   0     0    0    0 S  2.3  0.0   1497:44 ksoftirqd/1</span><br></pre></td></tr></table></figure>
+<p>load average周期为1分钟，5分钟，15分钟<br>zombie表示僵尸进程数<br>第三行cpu统计数据</p>
+<h2 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h2><p>也可以<em>使用</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">top | grep Cpu</span><br><span class="line">Cpu(s):  7.4%us,  2.7%sy,  4.6%ni, 84.9%id,  0.3%wa,  0.0%hi,  0.0%si,  0.0%st</span><br></pre></td></tr></table></figure>
+<h2 id="字段描述"><a href="#字段描述" class="headerlink" title="字段描述"></a>字段描述</h2><h3 id="cpu统计数据"><a href="#cpu统计数据" class="headerlink" title="cpu统计数据"></a>cpu统计数据</h3><table>
+<thead>
+<tr>
+<th>Cpu(s)</th>
+<th>CPU的整体负载信息（其显示为从现在的时间到上一次刷新期间的百分比）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.0%us</td>
+<td>CPU运行用户的进程所花的时间百分比（不包含改变过nice值的进程），<em>通常情况下希望us占比越高越好。</em></td>
+</tr>
+<tr>
+<td>0.7%sy</td>
+<td>CPU运行内核态所花的时间百分比，sy占比较高，通常意味着系统的某些方面设计的不合理。</td>
+</tr>
+<tr>
+<td>0.0%ni</td>
+<td>CPU调整进程优先级所花的时间百分比</td>
+</tr>
+<tr>
+<td>98.3%id</td>
+<td>CPU空闲时间百分比</td>
+</tr>
+<tr>
+<td>0.0%wa</td>
+<td>CPU用在IO等待的时间百分比，不用花费大量的时间进行等待，否则表示有可能某些地方设计不合理。</td>
+</tr>
+<tr>
+<td>0.0%hi</td>
+<td>CPU硬中断时间百分比</td>
+</tr>
+<tr>
+<td>0.0%si</td>
+<td>CPU软中断时间百分比</td>
+</tr>
+<tr>
+<td>0.0%st</td>
+<td>CPU为了其他任务从虚拟机管理程序窃取的时间，st越高表示与其他虚拟机cpu争用比较频繁。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="内存使用情况"><a href="#内存使用情况" class="headerlink" title="内存使用情况"></a>内存使用情况</h3><table>
+<thead>
+<tr>
+<th>Mem:</th>
+<th>物理内存使用情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>total</td>
+<td>物理内存总量</td>
+</tr>
+<tr>
+<td>used</td>
+<td>使用的物理内存总量</td>
+</tr>
+<tr>
+<td>free</td>
+<td>空闲的内存量</td>
+</tr>
+<tr>
+<td>buffers</td>
+<td>用作缓存内存量</td>
+</tr>
+</tbody>
+</table>
+<h3 id="每个process使用的资源情況"><a href="#每个process使用的资源情況" class="headerlink" title="每个process使用的资源情況"></a>每个process使用的资源情況</h3><table>
+<thead>
+<tr>
+<th>PID</th>
+<th>进程号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>USER</td>
+<td>进程所有者</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>进程的优先级，值越小越优先被执行</td>
+</tr>
+<tr>
+<td>NI</td>
+<td>进程的nice值</td>
+</tr>
+<tr>
+<td>VIRT</td>
+<td>进程占用的虚拟内存</td>
+</tr>
+<tr>
+<td>RES</td>
+<td>进程占用的物理内存</td>
+</tr>
+<tr>
+<td>SHR</td>
+<td>进程使用的共享内存</td>
+</tr>
+<tr>
+<td>S</td>
+<td>进程的状态。S表示休眠，R表示正在运行，Z表示僵死状态等</td>
+</tr>
+<tr>
+<td>%CPU</td>
+<td>进程占用CPU的使用率</td>
+</tr>
+<tr>
+<td>%MEM</td>
+<td>进程使用的物理内存的百分比</td>
+</tr>
+<tr>
+<td>TIME+</td>
+<td>该进程启动后占用的总的CPU时间，即占用CPU使用时间的累加值。</td>
+</tr>
+<tr>
+<td>COMMAND</td>
+<td>进程启动命令名称</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="指定监测某个进程"><a href="#指定监测某个进程" class="headerlink" title="指定监测某个进程"></a>指定监测某个进程</h3><p>-p                    #后面加PID号，指定监测某个进程</p>
+<h2 id="按键指令"><a href="#按键指令" class="headerlink" title="按键指令"></a>按键指令</h2><p>按照线程来显示cpu的消耗情况<br>shift + H</p>
+<p>排序<br>以PID排序显示 N<br>以cpu的使用率排序显示 P<br>以Memory的使用资源排序显示 M<br>以TIME+为准进行排序显示 T</p>
+<p>指定显示用户进程 u</p>
+<p>#uptime</p>
+<p>uptime其分别显示1,5,15分钟的cpu的平均负载 通过比较这三个数字，可以判断负载是上升还是下降，或平稳。<br>如果负载值大于CPU数，这可能意味着CPU饱和了，或线程遭受调度延迟，也可能有磁盘IO的因素，使用其他工具进一步调查。</p>
+<p>只要cpu的当前活动线程不大于3，我们认为它的负载时正常的。如果大于5，负载就非常高了</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/022java/thread/线程的状态.html" class="pre-post btn btn-default" title="java线程状态总结">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">java线程状态总结</span>
+        </a>
+    
+    
+        <a href="/category/018linux/pidstat.html" class="next-post btn btn-default" title="综合监控到线程－pidstat命令">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">综合监控到线程－pidstat命令</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#top"><span class="toc-text">top</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字段描述"><span class="toc-text">字段描述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cpu统计数据"><span class="toc-text">cpu统计数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存使用情况"><span class="toc-text">内存使用情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#每个process使用的资源情況"><span class="toc-text">每个process使用的资源情況</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#参数"><span class="toc-text">参数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#指定监测某个进程"><span class="toc-text">指定监测某个进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#按键指令"><span class="toc-text">按键指令</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

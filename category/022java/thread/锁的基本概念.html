@@ -1,0 +1,327 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>锁的基本概念 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="锁的基本概念">
+            
+	            锁的基本概念
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Java">
+            Java
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/多线程" title="多线程">
+                        多线程
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="锁的学习"><a href="#锁的学习" class="headerlink" title="锁的学习"></a>锁的学习</h1><h2 id="锁的出现"><a href="#锁的出现" class="headerlink" title="锁的出现"></a>锁的出现</h2><p>最早出现在操作系统中，用于进程和线程间的同步</p>
+<p>临界区概念<br>一个进程在进入临界区之间，必须得到锁。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">While(true) &#123;</span><br><span class="line">		</span><br><span class="line">    	请求锁</span><br><span class="line">   	临界区</span><br><span class="line"></span><br><span class="line">  	释放锁</span><br><span class="line">	剩余区</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>信号量作为同步工具<br>锁是同步的一种，2值信号量就是一个互斥锁</p>
+<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><h3 id="互斥锁（排它锁、独占锁、写锁、X锁）"><a href="#互斥锁（排它锁、独占锁、写锁、X锁）" class="headerlink" title="互斥锁（排它锁、独占锁、写锁、X锁）"></a>互斥锁（排它锁、独占锁、写锁、X锁）</h3><p>如果事务T对数据A加上排他锁后，则其他事务不能再对A加任任何类型的锁，直到在事务的末尾将资源上的锁释放为止<br>java的内置锁（ synchronized）为互斥锁</p>
+<blockquote>
+<p>锁在一个时间点只能被一个线程锁占有。根据锁的获取机制，它又划分为“<strong>公平锁</strong>”和“<strong>非公平锁</strong>”。</p>
+</blockquote>
+<h3 id="共享锁（读锁、S锁）"><a href="#共享锁（读锁、S锁）" class="headerlink" title="共享锁（读锁、S锁）"></a>共享锁（读锁、S锁）</h3><p>如果事务T对数据A加上共享锁后，则其他事务只能对A再加共享锁，不能加排他锁，直到已释放所有共享锁。获准共享锁的事务只能读数据，不能修改数据</p>
+<blockquote>
+<p>能被多个线程同时拥有，能被共享的锁。</p>
+</blockquote>
+<h2 id="其他纬度的分类"><a href="#其他纬度的分类" class="headerlink" title="其他纬度的分类"></a>其他纬度的分类</h2><h3 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h3><p>如果锁具备可重入性，则称作为可重入锁。也就是说，锁可以被单个线程多次获取。<br>当一个线程执行到某个synchronized方法时，比如说method1，而在method1中会调用另外一个synchronized方法method2，此时线程不必重新去申请锁，而是可以直接执行方法method2，synchronized和ReentrantLock都是可重入锁。</p>
+<h3 id="可中断锁"><a href="#可中断锁" class="headerlink" title="可中断锁"></a>可中断锁</h3><p>如果某一线程A正在执行锁中的代码，另一线程B正在等待获取该锁，可能由于等待时间过长，线程B不想等待了，想先处理其他事情，我们可以让它中断自己或者在别的线程中中断它，这种就是可中断锁</p>
+<h3 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a>公平锁</h3><p>公平锁即尽量以请求锁的顺序来获取锁。比如同是有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该所，这种就是公平锁。</p>
+<p>在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序, ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。</p>
+<h2 id="不同视角"><a href="#不同视角" class="headerlink" title="不同视角"></a>不同视角</h2><h3 id="数据库系统的角度"><a href="#数据库系统的角度" class="headerlink" title="数据库系统的角度"></a>数据库系统的角度</h3><p>锁分为以下三种类型。独占锁,共享锁,更新锁</p>
+<h3 id="从程序员的角度看"><a href="#从程序员的角度看" class="headerlink" title="从程序员的角度看"></a>从程序员的角度看</h3><p>乐观锁（Optimistic Lock）<br>乐观锁的概念，他的核心思路就是，每次不加锁而是假设没有冲突而去完成某项操作，如果因为冲突失败就重试，直到成功为止。常见的乐观锁技术（CAS），乐观锁，是一种无锁方案。</p>
+<p>悲观锁（Pessimistic Lock）<br>需要程序员直接管理数据或对象上的加锁处理，并负责获取、共享和放弃正在使用的数据上的任何锁。</p>
+<p>悲观锁，也是基于数据库的锁机制实现</p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/022java/thread/java并发机制和内存模型总结.html" class="pre-post btn btn-default" title="java并发机制和内存模型总结">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">java并发机制和内存模型总结</span>
+        </a>
+    
+    
+        <a href="/category/018linux/vmstat.html" class="next-post btn btn-default" title="监控cpu和内存－vmstat命令">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">监控cpu和内存－vmstat命令</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#锁的学习"><span class="toc-text">锁的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的出现"><span class="toc-text">锁的出现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的分类"><span class="toc-text">锁的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#互斥锁（排它锁、独占锁、写锁、X锁）"><span class="toc-text">互斥锁（排它锁、独占锁、写锁、X锁）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共享锁（读锁、S锁）"><span class="toc-text">共享锁（读锁、S锁）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他纬度的分类"><span class="toc-text">其他纬度的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁"><span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可中断锁"><span class="toc-text">可中断锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公平锁"><span class="toc-text">公平锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同视角"><span class="toc-text">不同视角</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库系统的角度"><span class="toc-text">数据库系统的角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从程序员的角度看"><span class="toc-text">从程序员的角度看</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

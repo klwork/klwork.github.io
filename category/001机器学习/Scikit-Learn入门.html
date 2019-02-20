@@ -1,0 +1,443 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Scikit-Learn入门学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Scikit-Learn入门学习">
+            
+	            Scikit-Learn入门学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/机器学习">
+            机器学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+                    <a href="/tags/Scikit-Learn" title="Scikit-Learn">
+                        Scikit-Learn
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/01/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Scikit-Learn基本学习"><a href="#Scikit-Learn基本学习" class="headerlink" title="Scikit-Learn基本学习"></a>Scikit-Learn基本学习</h1><h2 id="Scikit-Learn-接口设计"><a href="#Scikit-Learn-接口设计" class="headerlink" title="Scikit-Learn 接口设计"></a>Scikit-Learn 接口设计</h2><p>Scikit-Learn 设计的 API 设计的非常好。它的主要设计原则是：</p>
+<ul>
+<li><p>一致性：所有对象的接口一致且简单</p>
+</li>
+<li><p>可检验。所有估计器的超参数都可以通过实例的public变量直接访问（比如，<code>imputer.strategy</code>），并且所有估计器学习到的参数也可以通过在实例变量名后加下划线来访问（比如，<code>imputer.statistics_</code>）。</p>
+</li>
+<li><p>类不可扩散。只有算法可以用 Python 类表示。数据集都用标准数据类型（NumPy 数组、Pandas DataFrame 、SciPy 稀疏矩阵）表示，参数名称用标准的 Python 字符串。</p>
+</li>
+<li><p>可组合。尽可能使用现存的模块。例如，用任意的转换器序列加上一个估计器，就可以做成一个流水线，后面会看到例子。</p>
+</li>
+<li><p>合理的默认值。Scikit-Learn 给大多数参数提供了合理的默认值，很容易就能创建一个系统。</p>
+</li>
+</ul>
+<h2 id="Scikit-Learn中对象"><a href="#Scikit-Learn中对象" class="headerlink" title="Scikit-Learn中对象"></a>Scikit-Learn中对象</h2><ul>
+<li>估计器（estimator）。任何可以基于数据集对一些参数进行估计的对象都被称为估计器（比如，<code>imputer</code>就是个估计器）。估计本身是通过<code>fit()</code>方法，只需要一个数据集作为参数（对于监督学习算法，需要两个数据集；第二个数据集包含标签）。</li>
+<li>转换器（transformer）。一些估计器（比如<code>imputer</code>）也可以转换数据集，这些估计器被称为转换器。API也是相当简单：转换是通过<code>transform()</code>方法，被转换的数据集作为参数。返回的是经过转换的数据集。所有的转换都有一个便捷的方法<code>fit_transform()</code>，等同于调用<code>fit()</code>再<code>transform()</code>。</li>
+<li>预测器（predictor）。最后，一些估计器可以根据给出的数据集做预测，这些估计器称为预测器。例如，<code>LinearRegression</code>模型就是一个预测器：预测器有一个<code>predict()</code>方法，可以用新实例的数据集做出相应的预测。预测器还有一个<code>score()</code>方法。</li>
+</ul>
+<h2 id="Scikit-Learn的评估器API"><a href="#Scikit-Learn的评估器API" class="headerlink" title="Scikit-Learn的评估器API"></a>Scikit-Learn的评估器API</h2><p>Scikit-Learn 评估器 API 的常用步骤如下所示：</p>
+<p>(1) 通过从 Scikit-Learn 中导入适当的评估器类，选择模型类。</p>
+<p>(2) 用合适的数值对模型类进行实例化，配置模型超参数（hyperparameter）。</p>
+<p>(3) 整理数据，通过前面介绍的方法获取特征矩阵和目标数组。</p>
+<p>(4) 调用模型实例的 fit() 方法对数据进行拟合。</p>
+<p>(5) 对新数据应用模型：</p>
+<ul>
+<li>在有监督学习模型中，通常使用 predict() 方法预测新数据的标签；</li>
+<li>在无监督学习模型中，通常使用 transform() 或 predict() 方法转换或推断数据的性质</li>
+</ul>
+<h2 id="例子：简单线性回归"><a href="#例子：简单线性回归" class="headerlink" title="例子：简单线性回归"></a>例子：简单线性回归</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rng = np.random.RandomState(<span class="number">42</span>)</span><br><span class="line">x = <span class="number">10</span> * rng.rand(<span class="number">50</span>)</span><br><span class="line">y = <span class="number">2</span> * x - <span class="number">1</span> + rng.randn(<span class="number">50</span>)</span><br><span class="line">plt.scatter(x, y);</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="/image/output_5_0.png" alt="png"></p>
+<p>(1) 选择模型类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> LinearRegression</span><br></pre></td></tr></table></figure>
+<p>(2) 选择模型超参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">model = LinearRegression(fit_intercept=<span class="keyword">True</span>)</span><br><span class="line">model</span><br></pre></td></tr></table></figure>
+<pre><code>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False)
+</code></pre><p>(3) 将数据整理成特征矩阵和目标数组</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">X = x[:, np.newaxis]</span><br><span class="line">X.shape</span><br></pre></td></tr></table></figure>
+<pre><code>(50, 1)
+</code></pre><p>(4) 用模型拟合数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.fit(X, y)</span><br></pre></td></tr></table></figure>
+<pre><code>LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None,
+         normalize=False)
+</code></pre><p>fit() 命令会在模型内部进行大量运算，运算结果将存储在模型属性中，供用户使用。<br>在 Scikit-Learn 中，所有通过 fit() 方法获得的模型参数都带一条下划线。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.coef_</span><br></pre></td></tr></table></figure>
+<pre><code>array([1.9776566])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.intercept_</span><br></pre></td></tr></table></figure>
+<pre><code>-0.9033107255311146
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">上面的输出，分别表示对样本数据拟合直线的斜率和截距。</span><br></pre></td></tr></table></figure>
+<p>(5) 预测新数据的标签</p>
+<p>模型训练出来之后，有监督机器学习的主要任务就变成了对不属于训练集的新数据进行预测。在 Scikit-Learn 中，我们用 predict() 方法进行预测。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xfit = np.linspace(<span class="number">-1</span>, <span class="number">11</span>)</span><br><span class="line">xfit</span><br></pre></td></tr></table></figure>
+<pre><code>array([-1.        , -0.75510204, -0.51020408, -0.26530612, -0.02040816,
+        0.2244898 ,  0.46938776,  0.71428571,  0.95918367,  1.20408163,
+        1.44897959,  1.69387755,  1.93877551,  2.18367347,  2.42857143,
+        2.67346939,  2.91836735,  3.16326531,  3.40816327,  3.65306122,
+        3.89795918,  4.14285714,  4.3877551 ,  4.63265306,  4.87755102,
+        5.12244898,  5.36734694,  5.6122449 ,  5.85714286,  6.10204082,
+        6.34693878,  6.59183673,  6.83673469,  7.08163265,  7.32653061,
+        7.57142857,  7.81632653,  8.06122449,  8.30612245,  8.55102041,
+        8.79591837,  9.04081633,  9.28571429,  9.53061224,  9.7755102 ,
+       10.02040816, 10.26530612, 10.51020408, 10.75510204, 11.        ])
+</code></pre><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Xfit = xfit[:, np.newaxis]</span><br><span class="line">Xfit</span><br></pre></td></tr></table></figure>
+<pre><code>array([[-1.        ],
+       [-0.75510204],
+       [-0.51020408],
+       [-0.26530612],
+       [-0.02040816],
+       [ 0.2244898 ],
+       [ 0.46938776],
+       [ 0.71428571],
+       [ 0.95918367],
+       [ 1.20408163],
+       [ 1.44897959],
+       [ 1.69387755],
+       [ 1.93877551],
+       [ 2.18367347],
+       [ 2.42857143],
+       [ 2.67346939],
+       [ 2.91836735],
+       [ 3.16326531],
+       [ 3.40816327],
+       [ 3.65306122],
+       [ 3.89795918],
+       [ 4.14285714],
+       [ 4.3877551 ],
+       [ 4.63265306],
+       [ 4.87755102],
+       [ 5.12244898],
+       [ 5.36734694],
+       [ 5.6122449 ],
+       [ 5.85714286],
+       [ 6.10204082],
+       [ 6.34693878],
+       [ 6.59183673],
+       [ 6.83673469],
+       [ 7.08163265],
+       [ 7.32653061],
+       [ 7.57142857],
+       [ 7.81632653],
+       [ 8.06122449],
+       [ 8.30612245],
+       [ 8.55102041],
+       [ 8.79591837],
+       [ 9.04081633],
+       [ 9.28571429],
+       [ 9.53061224],
+       [ 9.7755102 ],
+       [10.02040816],
+       [10.26530612],
+       [10.51020408],
+       [10.75510204],
+       [11.        ]])
+</code></pre><p>将这些x值转换成[n_samples, n_features]的特征矩阵形式，之后将其输入到<br>模型中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yfit = model.predict(Xfit)</span><br><span class="line">yfit</span><br></pre></td></tr></table></figure>
+<pre><code>array([-2.88096733, -2.39664326, -1.9123192 , -1.42799513, -0.94367106,
+       -0.459347  ,  0.02497707,  0.50930113,  0.9936252 ,  1.47794926,
+        1.96227333,  2.44659739,  2.93092146,  3.41524552,  3.89956959,
+        4.38389366,  4.86821772,  5.35254179,  5.83686585,  6.32118992,
+        6.80551398,  7.28983805,  7.77416211,  8.25848618,  8.74281024,
+        9.22713431,  9.71145837, 10.19578244, 10.68010651, 11.16443057,
+       11.64875464, 12.1330787 , 12.61740277, 13.10172683, 13.5860509 ,
+       14.07037496, 14.55469903, 15.03902309, 15.52334716, 16.00767122,
+       16.49199529, 16.97631936, 17.46064342, 17.94496749, 18.42929155,
+       18.91361562, 19.39793968, 19.88226375, 20.36658781, 20.85091188])
+</code></pre><p>把原始数据和拟合结果都可视化出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(x, y)</span><br><span class="line">plt.plot(xfit, yfit)</span><br></pre></td></tr></table></figure>
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x117ed9c50&gt;]
+</code></pre><p><img src="/image/output_24_1.png" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="http://baijiahao.baidu.com/s?id=1600375182495419726&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">http://baijiahao.baidu.com/s?id=1600375182495419726&amp;wfr=spider&amp;for=pc</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/003风控/风险模型与计量.html" class="pre-post btn btn-default" title="风险模型与计量基础">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">风险模型与计量基础</span>
+        </a>
+    
+    
+        <a href="/category/001机器学习/机器学习43条军规.html" class="next-post btn btn-default" title="机器学习43条军规">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">机器学习43条军规</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scikit-Learn基本学习"><span class="toc-text">Scikit-Learn基本学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-Learn-接口设计"><span class="toc-text">Scikit-Learn 接口设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-Learn中对象"><span class="toc-text">Scikit-Learn中对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scikit-Learn的评估器API"><span class="toc-text">Scikit-Learn的评估器API</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#例子：简单线性回归"><span class="toc-text">例子：简单线性回归</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

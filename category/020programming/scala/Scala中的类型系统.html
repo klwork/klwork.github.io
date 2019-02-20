@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Scala中的类型系统 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Scala中的类型系统">
+            
+	            Scala中的类型系统
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Scala" title="Scala">
+                        Scala
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2015/05/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1385</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="Scala中的类型系统学习"><a href="#Scala中的类型系统学习" class="headerlink" title="Scala中的类型系统学习"></a>Scala中的类型系统学习</h1><h2 id="Scala中定义类型的两种方式"><a href="#Scala中定义类型的两种方式" class="headerlink" title="Scala中定义类型的两种方式"></a>Scala中定义类型的两种方式</h2><p>在Scala当中可以用以下两种方式定义类型:</p>
+<ol>
+<li>定义类、特质或对象</li>
+<li>直接用type关键字定义类型</li>
+</ol>
+<p>在Scala当中，标注类型的时候可以直接用类和特质的名字来引用其类型，<br>要引用对象的类型，需要用对象的type成员来引用其类型。</p>
+<h2 id="Scala中的路径依赖"><a href="#Scala中的路径依赖" class="headerlink" title="Scala中的路径依赖"></a>Scala中的路径依赖</h2><h2 id="Scala中的自身类型以及自身类型的限定"><a href="#Scala中的自身类型以及自身类型的限定" class="headerlink" title="Scala中的自身类型以及自身类型的限定"></a>Scala中的自身类型以及自身类型的限定</h2><h2 id="Scala中的依赖注入"><a href="#Scala中的依赖注入" class="headerlink" title="Scala中的依赖注入"></a>Scala中的依赖注入</h2><h2 id="Scala中的链式风格调用—-Type机制的用法"><a href="#Scala中的链式风格调用—-Type机制的用法" class="headerlink" title="Scala中的链式风格调用—-Type机制的用法"></a>Scala中的链式风格调用—-Type机制的用法</h2><h2 id="Scala中的复合数据类型"><a href="#Scala中的复合数据类型" class="headerlink" title="Scala中的复合数据类型"></a>Scala中的复合数据类型</h2><h2 id="Scala中的抽象类型"><a href="#Scala中的抽象类型" class="headerlink" title="Scala中的抽象类型"></a>Scala中的抽象类型</h2><h2 id="Scala中的类型参数"><a href="#Scala中的类型参数" class="headerlink" title="Scala中的类型参数"></a>Scala中的类型参数</h2><h2 id="Scala中的类型约束"><a href="#Scala中的类型约束" class="headerlink" title="Scala中的类型约束"></a>Scala中的类型约束</h2><h2 id="Scala中的型变、逆变、协变"><a href="#Scala中的型变、逆变、协变" class="headerlink" title="Scala中的型变、逆变、协变"></a>Scala中的型变、逆变、协变</h2><h2 id="Scala中的结构类型"><a href="#Scala中的结构类型" class="headerlink" title="Scala中的结构类型"></a>Scala中的结构类型</h2><h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="http://blog.csdn.net/u013063153/article/details/53066333" target="_blank" rel="noopener">http://blog.csdn.net/u013063153/article/details/53066333</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/020programming/scala/scala中类的学习.html" class="pre-post btn btn-default" title="Scala类的学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Scala类的学习</span>
+        </a>
+    
+    
+        <a href="/category/020programming/scala/scala基本语法.html" class="next-post btn btn-default" title="Scala基本语法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Scala基本语法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Scala中的类型系统学习"><span class="toc-text">Scala中的类型系统学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中定义类型的两种方式"><span class="toc-text">Scala中定义类型的两种方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的路径依赖"><span class="toc-text">Scala中的路径依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的自身类型以及自身类型的限定"><span class="toc-text">Scala中的自身类型以及自身类型的限定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的依赖注入"><span class="toc-text">Scala中的依赖注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的链式风格调用—-Type机制的用法"><span class="toc-text">Scala中的链式风格调用—-Type机制的用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的复合数据类型"><span class="toc-text">Scala中的复合数据类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的抽象类型"><span class="toc-text">Scala中的抽象类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的类型参数"><span class="toc-text">Scala中的类型参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的类型约束"><span class="toc-text">Scala中的类型约束</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的型变、逆变、协变"><span class="toc-text">Scala中的型变、逆变、协变</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Scala中的结构类型"><span class="toc-text">Scala中的结构类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

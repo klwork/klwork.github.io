@@ -1,0 +1,647 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Python3编程基础 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Python3编程基础">
+            
+	            Python3编程基础
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Python">
+            Python
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/10/11</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="准备环境"><a href="#准备环境" class="headerlink" title="准备环境"></a>准备环境</h1><p>Mac下安装</p>
+<p> <code>sudo pip3 install ipython</code><br> <code>ipython</code></p>
+<h1 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h1><h2 id="基本运算"><a href="#基本运算" class="headerlink" title="基本运算"></a>基本运算</h2><pre><code>7/3
+7//3 #取整
+100/(1+0.1)**2 #**用来计算幂函数 pow((1+0.1),2)
+17%4 #计算余数
+</code></pre><h2 id="条件分支与循环控制"><a href="#条件分支与循环控制" class="headerlink" title="条件分支与循环控制"></a>条件分支与循环控制</h2><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><pre><code>if 表达式 :
+    ...
+else :
+    ...
+
+if 表达式 :
+    ...
+elif 表达式 :
+    ...
+else :
+    ...
+</code></pre><p>if-else条件分支语句，系统会判断if后边的表达式是否成立，如果值为True则执行冒号下边的代码片，否则判断随后elseif的表达式。</p>
+<h3 id="三元运算符"><a href="#三元运算符" class="headerlink" title="三元运算符"></a>三元运算符</h3><pre><code>result = x if x&lt;5 else 5
+</code></pre><h3 id="while"><a href="#while" class="headerlink" title="while"></a>while</h3><pre><code>while i&lt;=x :
+  print(i)
+  i += 1
+</code></pre><h3 id="for"><a href="#for" class="headerlink" title="for"></a>for</h3><p>   for循环的作用是可以循环输出集合/数组中的每一个元素，类似于Java中的ForEach语句.<br>    arr = [1, 2, 3, 4, 5]<br>    for j in arr :<br>        print(j)</p>
+<p>注意不是arr[j]</p>
+<h3 id="使用range循环"><a href="#使用range循环" class="headerlink" title="使用range循环"></a>使用range循环</h3><p>内置range函数的作用是记录范围，通常和for循环结合使用</p>
+<pre><code>result = range(0, 10 ,1) #range函数获得一个0-10的范围集合，以1为步进数（即每次+1）
+for item in result: #循环输出每一个元素
+    print(item)
+</code></pre><p>模拟Java的标准for循环</p>
+<pre><code>arr = [1, 2, 3, 4, 5]
+for i in range(0, len(arr), 1) :
+   print(arr[i])
+</code></pre><h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="基本语法-1"><a href="#基本语法-1" class="headerlink" title="基本语法"></a>基本语法</h2><pre><code>def hello(): #函数的声明
+    &apos;这是我的第一个函数&apos; #定义函数文档
+    print(&quot;hello world&quot;)
+
+print(hello.__doc__) #打印函数文档，双下划线
+help(hello) #可以通过help函数打印函数文档
+</code></pre><h2 id="有参函数"><a href="#有参函数" class="headerlink" title="有参函数"></a>有参函数</h2><pre><code>def info(name, age): #定义有参函数
+    return &quot;这是有参函数：I&apos;m %s %s years old&quot; %(name, age) #返回字符串
+
+def info1(name=&quot;HanMeimei&quot;, age=36):  #参数可以设置默认值
+    print(&quot;这是默认值参数函数：I&apos;m %s %s years old&quot; %(name, age))
+</code></pre><h2 id="可变参数函数"><a href="#可变参数函数" class="headerlink" title="可变参数函数"></a>可变参数函数</h2><pre><code>def myFunction1(*params): #定义可变参数的函数
+    print(&quot;参数的长度是：%s&quot; %len(params))
+    for item in params:
+        print(item)
+myFunction1(&quot;hello&quot;, &quot;world&quot;) #函数的调用
+</code></pre><h2 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h2><p>使用lambda表达式</p>
+<pre><code>g = lambda x, y: x + y
+</code></pre><p>等同下面的</p>
+<pre><code>def f(a, b):
+    return a + b
+</code></pre><h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h2><pre><code>str1 = &quot;hello world&quot;
+str2 = str1[3:5] #从str1的第4位截取到底6位，不包含底6位
+print(str1[6:]) #截取第七个字符到结尾
+print(str1[:-3]) #截取从头开始到倒数第三个字符之前
+print(str1[2]) #截取第三个字符
+
+result1 = str1.lower(); #将str1转换成小写
+result2 = str1.upper(); #将str1转换成大写
+
+str1 = &quot;hello world&quot;
+str1=str1.capitalize(); #首字母大写
+print(str1)
+Hello world
+
+str1 = &quot;  HelloWorld  &quot;
+result1 = str1.lstrip(); #去str1的左侧空格
+result2 = str1.rstrip(); #去str1的右侧空格
+result3 = str1.strip(); #去str1的左右侧空格
+
+str1 = &quot;HelloWorld&quot;
+len(s1) #求字符串长度
+result = str1.count(&apos;o&apos;) #获取次数的函数
+
+str1 = &quot;HelloWorld&quot;
+result1 = str1.startswith(&apos;ld&apos;) #判断str1是否是以字符串ld开头，返回值是布尔型
+result2 = str1.endswith(&apos;ld&apos;) #判断str1是否是以字符串ld结尾，返回值是布尔型
+
+str1 = &quot;HelloWorld&quot;
+result1 = str1.find(&apos;o&apos;) #从str1左侧查找o，如果找到返回位置索引，找不到返回-1
+result1 = s1.find(&apos;o&apos;,7,10)
+result2 = str1.rfind(&apos;o&apos;) #从str1右侧查找o，如果找到返回位置索引，找不到返回-1
+
+str1 = &quot;aaa,bbb,ccc&quot;
+result = str1.replace(&quot;,&quot;, &quot;#&quot;) #将str1中所有的逗号替换成井号
+print(&quot;替换后的字符串是：%s&quot; %result)
+
+str1 = &quot;aaa,bbb,ccc&quot;
+result = str1.split(&quot;,&quot;) #将字符串按指定字符转换成字符串数组
+print(result)
+
+
+list = [&apos;hello&apos;,&apos;world&apos;]
+str = &apos;-&apos;
+str.join(list) #list转换为str
+&apos;hello-world&apos;
+
+str1 = &quot;{a} love {b}&quot;.format(a=&quot;LiLei&quot;, b=&quot;HanMeimei&quot;)
+str2 = &quot;%s love %s&quot; %(&quot;LiLei&quot;, &quot;HanMeimei&quot;)
+
+s1 = &apos;hello&apos;
+s2 = &apos;world&apos;
+s3 = s1 + s2  #字符串连接
+
+
+s1 = &apos;hello&apos;
+max(s1) #求字符串s1中最大字符
+
+s1 = &apos;hello&apos;
+s1[::-1] #字符串翻转
+&apos;olleh&apos;
+
+l = list(s1)#字符串转列表
+l.reverse()  #列表反转（reverse直接对列表进行了修改）
+result = &quot;&quot;.join(l)#使用列表的reverse方法
+
+
+s1  = &apos;hello&apos;
+s1.isdigit()//检测字符串时候只由数字组成
+s1.isalpha() ———— 检测字符串是否只由字母组成
+
+str_test = &quot;{&apos;a&apos;: 1, &apos;b&apos;: 2}&quot;
+dict_test = eval(str_test) #字符串转换为字典
+str_test2 = str(dict_test)
+</code></pre><h1 id="常用数据结构"><a href="#常用数据结构" class="headerlink" title="常用数据结构"></a>常用数据结构</h1><h2 id="元组tuple"><a href="#元组tuple" class="headerlink" title="元组tuple"></a>元组tuple</h2><p>小括号，元组中的元素的值不可以修改，因此比列表安全。</p>
+<pre><code>z = (&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;e&quot;)
+z?
+Type:        tuple
+print(z)
+(&apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos;, &apos;e&apos;)
+</code></pre><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p>读取z中的元素，与list类似<br>print(z[0])</p>
+<h2 id="列表list"><a href="#列表list" class="headerlink" title="列表list"></a>列表list</h2><p>中括号,有点像java中的list,list中可以放不同类型的元素，在python中数组也是用list进行表达。<br>    y = [“A”, “B”, “C”, “a”, “b”, “c”]<br>    intArr = [1, 4, 2, 5, 3, 7, 9, 0] #整型数组<br>    strArr = [“北京”, “上海”, “杭州”, “深圳”] #字符串数组<br>    mixArr = [1, 3.44, “hello”, [1, 2, 3]] #混合数组<br>    emptyArr = [] #空数组</p>
+<h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><h4 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h4><p>y[-1]<br>y[0]<br>y[0: 3]</p>
+<h4 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h4><p>y.index(“a”)</p>
+<h4 id="插入"><a href="#插入" class="headerlink" title="插入"></a>插入</h4><p>最后面插入新元素</p>
+<p>y.append(5)<br>y.append([“d”, “e”])</p>
+<p>在指定位置插入新元素<br>y.insert(3, “new”)</p>
+<h4 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h4><p>x = [“A”, “B”, “C”]<br>y =  [“A”, “B”, “D”]<br>print(x+y)<br>[‘A’, ‘B’, ‘C’, ‘A’, ‘B’, ‘D’]</p>
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>y.remove(“B”)</p>
+<h4 id="分片"><a href="#分片" class="headerlink" title="分片"></a>分片</h4><p>截取数组中的一个片段，并生成一个新的数组</p>
+<pre><code>x=[0,1,2,3,4,5,6,7,8,9]
+</code></pre><p>从开始位置到结束位置获取数组中的元素集合</p>
+<pre><code>x2 = x[1 : 3]
+print(x2)
+[1, 2]
+</code></pre><h4 id="是否存在某元素"><a href="#是否存在某元素" class="headerlink" title="是否存在某元素"></a>是否存在某元素</h4><pre><code>result = &quot;上海&quot; in strArr
+print(result);
+True
+result = &quot;ShangHai&quot; not in strArr
+print(result);
+</code></pre><h4 id="获取指定元素的个数"><a href="#获取指定元素的个数" class="headerlink" title="获取指定元素的个数"></a>获取指定元素的个数</h4><pre><code>strArr.append(&quot;上海&quot;)
+strArr.append(&quot;上海&quot;)
+result = strArr.count(&quot;上海&quot;);
+print(result);
+3
+</code></pre><h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><pre><code>intArr.sort()
+print(result)
+intArr.reverse()
+print(intArr)
+</code></pre><h4 id="获取最大值-最小值"><a href="#获取最大值-最小值" class="headerlink" title="获取最大值/最小值"></a>获取最大值/最小值</h4><pre><code>result = max(intArr)
+print(result)
+result = min(temp)
+result = sum(temp)
+</code></pre><h4 id="综合示列"><a href="#综合示列" class="headerlink" title="综合示列"></a>综合示列</h4><pre><code>arr = [4, 2, 5, 3, 45, 232, 98, 1, 0, 6, 89, 43] #创建一个整型数组
+
+for i in range(0, len(arr), 1): #for循环初始值是0，范围是数组的长度
+    if arr[i] % 2 == 0: #找到偶数的元素
+        arr[i] += 1 #让元素+1
+arr.sort() #元素从小到大排序
+cnt = arr.count(1) #获取指定元素的个数
+
+print(&quot;值=1的元素个数：%s&quot; %cnt)
+print(arr)
+</code></pre><h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>大括号,如果需要去掉重复，这时需要Set</p>
+<pre><code>y = {&apos;x&apos;, &apos;z&apos;, &apos;y&apos;}
+y?
+Type:        set
+</code></pre><p>使用列表进行构建</p>
+<pre><code>a=[&quot;x&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;]
+b=set(a)
+print(b)
+</code></pre><h3 id="集合操作"><a href="#集合操作" class="headerlink" title="集合操作"></a>集合操作</h3><p>x1 = set([“A”, “B”, “C”])<br>y1 =  set([“A”, “B”, “D”])</p>
+<h4 id="交集"><a href="#交集" class="headerlink" title="交集"></a>交集</h4><p>print(x1&amp;y1)<br>{‘A’, ‘B’}</p>
+<h4 id="并集"><a href="#并集" class="headerlink" title="并集"></a>并集</h4><p>print(x1|y1)<br>{‘C’, ‘A’, ‘B’, ‘D’}</p>
+<h4 id="差集"><a href="#差集" class="headerlink" title="差集"></a>差集</h4><p>print(x1-y1)<br>{‘C’}</p>
+<h2 id="字典dict"><a href="#字典dict" class="headerlink" title="字典dict"></a>字典dict</h2><p>使用大括号{}表示</p>
+<pre><code>x = {&quot;name&quot;: &quot;zhangshang&quot;, &quot;age&quot;: 33, &quot;address&quot;: &quot;xxxx&quot;}
+print(x[&quot;name&quot;])
+</code></pre><h3 id="获取"><a href="#获取" class="headerlink" title="获取"></a>获取</h3><p>print(x[‘name’])</p>
+<p>如果取一个不在的如果使用x[‘g],会出现异常，可以使用下面的get方法，返回None<br>print(x.get(‘g’))<br>print(x.get(‘g’,’没有这个值’))</p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>print(x.keys())<br>dict_keys([‘name’, ‘age’, ‘address’])</p>
+<p>print(len(x))</p>
+<h1 id="几个常用的内置函数"><a href="#几个常用的内置函数" class="headerlink" title="几个常用的内置函数"></a>几个常用的内置函数</h1><h2 id="range"><a href="#range" class="headerlink" title="range"></a>range</h2><p> range() 函数返回的是一个可迭代对象（类型是对象），而不是列表类型<br> l = range(6)<br> list() 函数是对象迭代器，可以把range()返回的可迭代对象转为一个列表<br>list(range(10))</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>range(stop)<br>range(start, stop[, step])</p>
+<p>举例：</p>
+<pre><code>&gt;&gt;&gt;range(5)
+range(0, 5)
+&gt;&gt;&gt; for i in range(5):
+...     print(i)
+... 
+0
+1
+2
+3
+4
+&gt;&gt;&gt; list(range(5))
+[0, 1, 2, 3, 4]
+&gt;&gt;&gt; list(range(0))
+[]
+&gt;&gt;&gt;
+</code></pre><h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><p>map()是 Python 内置的高阶函数，它接收一个函数 f 和一个 list，并通过把函数 f 依次作用在 list 的每个元素上，得到一个新的 list 并返回。</p>
+<p><code>map(lambda x: x + 1, l)</code></p>
+<p>内置的map函数有两个参数，第一个是一个函数；第二个是一个可遍历的对象</p>
+<pre><code>def f1(x):
+    return x*x
+
+list(map(f1,[1,2,3,4]))
+</code></pre><h2 id="filter"><a href="#filter" class="headerlink" title="filter"></a>filter</h2><p>filter函数会对指定序列执行过滤操作。接受一个参数，返回布尔值True或False。</p>
+<pre><code>list(filter(lambda x: x % 2 == 0,  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]))
+</code></pre><h2 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a>reduce</h2><p>reduce函数，reduce函数会对参数序列中元素进行累积。<br>reduce函数的定义：<code>reduce(function, sequence[, initial]) -&gt; value</code></p>
+<p>在Python 3里,reduce()函数已经被从全局名字空间里移除了,它现在被放置在fucntools模块里用的话要先引入</p>
+<pre><code>from functools import reduce
+l = range(6)
+f = lambda accumValue, newValue: accumValue + newValue
+reduce(f, l, 0)
+</code></pre><p>第1个参数是相加函数，第2个参数是需要求和的列表“l”，第3个（可选）参数为初始值0。</p>
+<blockquote>
+<p>第一次调用function时，如果提供initial参数，会以sequence中的第一个元素和initial作为参数调用function，否则会以序列sequence中的前两个元素做参数调用function</p>
+</blockquote>
+<h1 id="面向对象和模块化"><a href="#面向对象和模块化" class="headerlink" title="面向对象和模块化"></a>面向对象和模块化</h1><h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>模块是一个包含所有你定义的函数和变量的<strong>文件</strong>，其后缀名是.py。模块可以被别的程序引入，以使用该模块中的函数等功能。</p>
+<p>模块让你能够有逻辑地组织你的python代码段；把相关的代码分配到一个模块里能让你的代码更好用，更易懂。模块能定义函数，类和变量，模块里也能包含可执行的代码。</p>
+<h3 id="import语法"><a href="#import语法" class="headerlink" title="import语法"></a>import语法</h3><p><strong>通过import导入整个模块</strong></p>
+<p>语法：</p>
+<p>import module1[, module2[,… moduleN]</p>
+<p>例如</p>
+<pre><code>import pandas  as pd  #pd为别名
+</code></pre><p><strong>From…import导入指定模块的部分属性或者模糊导入</strong></p>
+<p>语法：</p>
+<p>from modname import name1</p>
+<p>例如<br>    <code>from mini_project.components.Person import sayHello</code><br>这样就可以直接使用<code>sayHello</code></p>
+<p>导入模块的所有功能<br>    <code>from pandas import *</code></p>
+<h2 id="搜索路径"><a href="#搜索路径" class="headerlink" title="搜索路径"></a>搜索路径</h2><p>当导入一个模块后，python解析器对模块文件的搜索顺序是：<br>当前目录—-shell变量PYTHONPATH下的每个目录———-python模块路径目录<br>模块的搜索路径存储在system模块的sys.path变量中，包括当前目录，pythonpath和安装过程决定的默认目录。</p>
+<p>通过下面可以参看系统搜索路径</p>
+<pre><code>import sys
+print(sys.path)     #默认搜索路径
+</code></pre><p>如果程序动态添加可以使用</p>
+<pre><code>sys.path.append(&quot;/media&quot;)   #添加模块路径到搜索路径中
+</code></pre><h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>包是一个分层次的文件目录结构，它定义了一个由模块及子包，和子包下的子包等组成的 Python 的应用环境。使用包可以很好的组织Python的工程结构，一个包就是一个模块。</p>
+<p>简单来说，Python的库其实就是一个包含<strong>init</strong>.py文件夹，但该文件夹下必须存在 <strong>init</strong>.py 文件用来指明这是一个包，其用来定义库属性和方法，该文件的内容可以为空。</p>
+<p>一个简单工程参考目录如下：</p>
+<pre><code>├── __init__.py
+├── __pycache__
+│   └── __init__.cpython-36.pyc
+├── components
+│   ├── Person.py
+│   ├── __init__.py
+│   └── __pycache__
+│       ├── Person.cpython-36.pyc
+│       └── __init__.cpython-36.pyc
+└── tests
+    ├── __init__.py
+    └── test_person.py    
+</code></pre><h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><p><strong>创建Person.py</strong></p>
+<pre><code># -*- coding: UTF-8 -*-
+#-------------------------------------
+# file:Person.py
+
+
+class Person:
+    #属性--变量
+    __sex = &quot;男&quot;  #私有变量，只需要在变量前加两个下划线
+    name = None
+    age = None
+
+    #方法--函数
+    def sayHello(self, friendName):
+        print(
+            &quot;Hello %s I&apos;m %s %s years old&quot; % (friendName, self.name, self.age))
+
+    #构造函数
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+</code></pre><blockquote>
+<p>通过class关键字定义类名，要求类名的首字母大写，定义成员方法时，要求传递self参数（相当于Java中的this关键字）；<br>Python中定义构造函数，要求构造函数的名称是<strong>init</strong><br> Python 没有严格区分公共 / 外部属性和私有 / 内部属性，但是按照惯例，前面带有下划线表示私有属性或方法。</p>
+</blockquote>
+<p><strong>创建测试文件test_person.py</strong></p>
+<pre><code># -*- coding: UTF-8 -*-
+&quot;&quot;&quot;
+test_person.py此脚本用于测试person
+&quot;&quot;&quot;
+
+from os import sys, path
+
+
+if __name__ == &quot;__main__&quot;:
+    # 得到mini_project所在的绝对路径
+    packagePath = path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
+    # 将mini_project所在路径，加到系统路径里。这样就可以将mini_project作为库使用了
+    sys.path.append(packagePath)
+    import mini_project.components.Person as p
+    #import 面向对象.类对象.Person as p
+    person = p.Person(&quot;张三&quot;, 28)
+    person.sayHello(&quot;xxxxx&quot;)
+
+    # print(p.__sex) #无法访问，因为__sex变量是私有的
+    print(person._Person__sex) #python是伪私有，如果想访问私有变量可以通过    p._Person__sex，即：对象名._类名__变量名
+</code></pre><blockquote>
+<p>如果一个模块中的<strong>name</strong>的属性值为<strong>main</strong>,那么这个模块就是主模块。</p>
+</blockquote>
+<p>直接运行<code>python3 test_person.py</code></p>
+<h1 id="ipython使用技巧"><a href="#ipython使用技巧" class="headerlink" title="ipython使用技巧"></a>ipython使用技巧</h1><h2 id="一些技巧"><a href="#一些技巧" class="headerlink" title="一些技巧"></a>一些技巧</h2><p>使用通配符</p>
+<pre><code>In [10]: *Warning?
+In [10]: str.*find*?
+</code></pre><p>标准的 Python shell 仅仅包括一个用于获取以前的输出的简单快捷键。</p>
+<p>  <code>In [9]: print(_)</code></p>
+<p>如果想一次性获取此前所有的输入历史，%history 魔法命令会非常有用</p>
+<p><code>In [16]: %history -n 1-4</code></p>
+<p>! 符号作为前缀在 IPython 中执行任何命令行命令</p>
+<p><code>In [1]: !ls</code></p>
+<h2 id="IPython-shell中的快捷键"><a href="#IPython-shell中的快捷键" class="headerlink" title="IPython shell中的快捷键"></a>IPython shell中的快捷键</h2><p>Ctrl + a</p>
+<p>将光标移到本行的开始处</p>
+<p>Ctrl + e</p>
+<p>将光标移到本行的结尾处</p>
+<p>Ctrl + b（或左箭头键）</p>
+<p>将光标回退一个字符</p>
+<p>Ctrl + f（或右箭头键）</p>
+<p>将光标前进一个字符</p>
+<p>Ctrl + p（或向上箭头）</p>
+<p>获取前一个历史命令</p>
+<p>Ctrl + n（或向下箭头）</p>
+<p>获取后一个历史命令</p>
+<p>Ctrl + l</p>
+<p>清除终端屏幕的内容</p>
+<p>Ctrl + c</p>
+<p>中断当前的 Python 命令</p>
+<p>Ctrl + d</p>
+<p>退出 IPython 会话</p>
+<h2 id="IPython增强命令"><a href="#IPython增强命令" class="headerlink" title="IPython增强命令"></a>IPython增强命令</h2><h3 id="粘贴代码块：-paste和-cpaste"><a href="#粘贴代码块：-paste和-cpaste" class="headerlink" title="粘贴代码块：%paste和%cpaste"></a>粘贴代码块：%paste和%cpaste</h3><h3 id="执行外部代码：-run"><a href="#执行外部代码：-run" class="headerlink" title="执行外部代码：%run"></a>执行外部代码：%run</h3><h3 id="计算代码运行时间：-timeit"><a href="#计算代码运行时间：-timeit" class="headerlink" title="计算代码运行时间：%timeit"></a>计算代码运行时间：%timeit</h3><h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><ul>
+<li><a href="https://blog.csdn.net/qzc70919700/article/details/73281066" target="_blank" rel="noopener">Python语法</a></li>
+<li><a href="https://www.cnblogs.com/zhangxinqi/p/7905103.html" target="_blank" rel="noopener">python3之模块</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/059杂七杂八/Latex高级用法.html" class="pre-post btn btn-default" title="Latex表示矩阵和其他用法">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Latex表示矩阵和其他用法</span>
+        </a>
+    
+    
+        <a href="/category/002数学相关/概率论学习.html" class="next-post btn btn-default" title="概率学习">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">概率学习</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#准备环境"><span class="toc-text">准备环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本语法"><span class="toc-text">基本语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本运算"><span class="toc-text">基本运算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#条件分支与循环控制"><span class="toc-text">条件分支与循环控制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#if"><span class="toc-text">if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三元运算符"><span class="toc-text">三元运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#while"><span class="toc-text">while</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#for"><span class="toc-text">for</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用range循环"><span class="toc-text">使用range循环</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数"><span class="toc-text">函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本语法-1"><span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有参函数"><span class="toc-text">有参函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#可变参数函数"><span class="toc-text">可变参数函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#匿名函数"><span class="toc-text">匿名函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字符串"><span class="toc-text">字符串</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用操作"><span class="toc-text">常用操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用数据结构"><span class="toc-text">常用数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#元组tuple"><span class="toc-text">元组tuple</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表list"><span class="toc-text">列表list</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本操作-1"><span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读取"><span class="toc-text">读取</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#查找"><span class="toc-text">查找</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#插入"><span class="toc-text">插入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#合并"><span class="toc-text">合并</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#删除"><span class="toc-text">删除</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#分片"><span class="toc-text">分片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#是否存在某元素"><span class="toc-text">是否存在某元素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取指定元素的个数"><span class="toc-text">获取指定元素的个数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#排序"><span class="toc-text">排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取最大值-最小值"><span class="toc-text">获取最大值/最小值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#综合示列"><span class="toc-text">综合示列</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Set"><span class="toc-text">Set</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#集合操作"><span class="toc-text">集合操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#交集"><span class="toc-text">交集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#并集"><span class="toc-text">并集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#差集"><span class="toc-text">差集</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#字典dict"><span class="toc-text">字典dict</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取"><span class="toc-text">获取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法"><span class="toc-text">方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#几个常用的内置函数"><span class="toc-text">几个常用的内置函数</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#range"><span class="toc-text">range</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#语法"><span class="toc-text">语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-text">map</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#filter"><span class="toc-text">filter</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#reduce"><span class="toc-text">reduce</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#面向对象和模块化"><span class="toc-text">面向对象和模块化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#模块"><span class="toc-text">模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#import语法"><span class="toc-text">import语法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索路径"><span class="toc-text">搜索路径</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包"><span class="toc-text">包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#类"><span class="toc-text">类</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ipython使用技巧"><span class="toc-text">ipython使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一些技巧"><span class="toc-text">一些技巧</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPython-shell中的快捷键"><span class="toc-text">IPython shell中的快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IPython增强命令"><span class="toc-text">IPython增强命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#粘贴代码块：-paste和-cpaste"><span class="toc-text">粘贴代码块：%paste和%cpaste</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#执行外部代码：-run"><span class="toc-text">执行外部代码：%run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#计算代码运行时间：-timeit"><span class="toc-text">计算代码运行时间：%timeit</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Java泛型介绍 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Java泛型介绍">
+            
+	            Java泛型介绍
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Java" title="Java">
+                        Java
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/02/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1109</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="super和extents"><a href="#super和extents" class="headerlink" title="super和extents"></a>super和extents</h1><p>List&lt;? extends E&gt;表示该list集合中存放的都是E的子类型（包括E自身），由于E的子类型可能有很多，但是我们存放元素时实际上只能存放其中的一种子类型（这是为了泛型安全，因为其会在编译期间生成桥接方法<bridge methods="">该方法中会出现强制转换，若出现多种子类型，则会强制转换失败），例子如下：</bridge></p>
+<pre><code>List&lt;? extends Number&gt; list=new ArrayList&lt;Number&gt;();
+        list.add(4.0);//编译错误
+        list.add(3);//编译错误
+</code></pre><p>上例中添加的元素类型不止一种，这样编译器强制转换会失败，为了安全，Java只能将其设计成不能添加元素。</p>
+<p>虽然List&lt;? extends E&gt;不能添加元素，但是由于其中的元素都有一个共性–有共同的父类，因此我们在获取元素时可以将他们统一强制转换为E类型，我们称之为get原则。</p>
+<p>对于List&lt;? super E&gt;其list中存放的都是E的父类型元素（包括E），我们在向其添加元素时，只能向其添加E的子类型元素（包括E类型），这样在编译期间将其强制转换为E类型时是类型安全的，因此可以添加元素，例子如下：<br> List&lt;? super Number&gt; list=new ArrayList<number>();<br>        list.add(2.0);<br>        list.add(3.0);<br>但是，由于该集合中的元素都是E的父类型（包括E），其中的元素类型众多，在获取元素时我们无法判断是哪一种类型，故设计成不能获取元素，我们称之为put原则。</number></p>
+<p>实际上，我们采用extends，super来扩展泛型的目的是为了弥补例如List<e>只能存放一种特定类型数据的不足，将其扩展为List&lt;? extends E&gt; 使其可以接收E的子类型中的任何一种类型元素，这样使它的使用范围更广。</e></p>
+<p>Java 和 Scala 均支持协变，逆变和非转化类型。然而，在 Scala 中，转化行为的定义是类型声明的一部分，称为转化标记（variance annotation）。</p>
+<p>而Java 中参数化的类型在定义时并未声明继承转化行为，而是在使用该类型时，也就是在声明变量时，才指定参数化类型的转化行为。</p>
+<p>WoodDuck 》 Duck 》Animal</p>
+<p>定义一个zoo对象，可以新增动物。</p>
+<pre><code>public class Zoo&lt;T&gt; {
+    List&lt;Object&gt; list = new ArrayList();
+
+    public void add(T animal) {
+        list.add(animal);
+    }
+}
+
+
+public class ZoosTest {
+    public static void main(String[] args) {
+        Zoo&lt;Animal&gt; zoo = new Zoo&lt;Animal&gt;();
+        zoo.add(new Duck());
+
+       // Zoo&lt;Animal&gt; zoo1 = new Zoo&lt;Duck&gt;(); //编译错误
+    }
+}
+</code></pre><p>Zoo<animal> zoo1 = new Zoo<duck>()出现编译错误？</duck></animal></p>
+<p>如何解决？ &lt;? extends T&gt;和&lt;? super T&gt;就是为此出现的。</p>
+<p>super表示下界，而extends表示上界</p>
+<p>super的使用举例， </p>
+<pre><code> public static void main(String[] args) {
+    List&lt;? super Duck&gt; list3 = new ArrayList&lt;Duck&gt;();
+    list3.add(new Duck());
+    list3.add(new WoodDuck());
+   // list3.add(new Animal());
+    List&lt;? super Duck&gt; list4 = new ArrayList&lt;Animal&gt;();
+    list4.add(new Duck());
+    list4.add(new WoodDuck());
+    //list4.add(new Animal());
+
+    //List&lt;? super Duck&gt; list5 = new ArrayList&lt;WoodDuck&gt;(); //不是父类,不能编译
+}
+</code></pre><p>List&lt;? super Duck&gt; list3 表示元素父类至少为Duck</p>
+<p>extends举例</p>
+<pre><code>List&lt;? extends Duck&gt; list3 = new ArrayList&lt;Duck&gt;();
+       list3.add(new WoodDuck());
+</code></pre><p>会出现编译错误</p>
+<p>下面的是正确的</p>
+<pre><code>List&lt; Duck&gt; list3 = new ArrayList&lt;Duck&gt;();
+    list3.add(new WoodDuck());
+</code></pre><h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><ul>
+<li><a href="http://blog.csdn.net/huzhigenlaohu/article/details/51579058" target="_blank" rel="noopener">文档</a></li>
+<li><a href="http://hongjiang.info/message/" target="_blank" rel="noopener">http://hongjiang.info/message/</a><br><a href="http://zhuanlan.51cto.com/art/201703/534053.htm" target="_blank" rel="noopener">http://zhuanlan.51cto.com/art/201703/534053.htm</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/020programming/javascript/AMD和CommonJS相比，UMD.html" class="pre-post btn btn-default" title="JavaScript模块系统简介">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">JavaScript模块系统简介</span>
+        </a>
+    
+    
+        <a href="/category/020programming/javascript/es6.html" class="next-post btn btn-default" title="需要知道的ECMAScript 6语法">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">需要知道的ECMAScript 6语法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#super和extents"><span class="toc-text">super和extents</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

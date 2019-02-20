@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>分布式基础 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="分布式基础">
+            
+	            分布式基础
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/基础技术">
+            基础技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/02/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>1109</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#分布式架构风格#</p>
+<p>常见的分布式应用架构风格有三种：</p>
+<ul>
+<li><p>分布式对象（Distributed Objects，简称DO）</p>
+</li>
+<li><p>远程过程调用（Remote Procedure Call，简称RPC） </p>
+</li>
+<li><p>表述性状态转移（Representational State Transfer，简称REST</p>
+</li>
+</ul>
+<p>DO架构实例有CORBA/RMI/EJB/DCOM/.NET Remoting等等,DO风格的架构通常都是与某种编程语言绑定的。</p>
+<p>RPC架构实例有SOAP/XML-RPC/Hessian/Flash AMF/DWR等等，RPC中没有使用超文本，响应的内容中只包含消息本身。</p>
+<p>rest架构实例有HTTP/WebDAV,REST中的资源，则完全中立于开发平台和编程语言，可以使用任何编程语言来实现。REST使用了超文本，可以实现更大粒度的交互，交互的效率比RPC更高。</p>
+<p>#架构模型#</p>
+<p>采取SOA的架构模型<br>采取EDA的架构模型</p>
+<p>##SOA</p>
+<p>###Web services与SOA</p>
+<p>根据2003年4月的Gartner报道，Yefim V. Natis就这个问题是这样解释的：<code>“Web服务是技术规范，而SOA是设计原则。</code>特别是Web服务中的WSDL，是一个SOA配套的接口定义标准：这是Web服务和SOA的根本联系。<code>从本质上来说，SOA是一种架构模式，而Web服务是利用一组标准实现的服务,Web服务是实现SOA的方式之一。</code></p>
+<p>###Web services使用的技术</p>
+<p>XML：XML是在web上传送结构化数据的伟大方式，Web services要以一种可靠的自动的方式操作数据 。</p>
+<p>SOAP：SOAP使用XML消息调用远程方法，这样web services可以通过HTTP协议的post和get方法与远程机器交互，而且，SOAP更加健壮和灵活易用；SOAP基于HTTP的，在http协议下传输xml文件。</p>
+<p>其他 :<br> 像UDDI和WSDL技术,与XML和SOAP技术紧密结合用于服务发现</p>
+<p>###Web services调用过程</p>
+<p>Web Service客户端调用Web Service的基本过程：</p>
+<ol>
+<li>构造SOAP请求消息（将本地数据对象转换为SOAP消息）</li>
+<li>发送SOAP消息到Web Service服务器的指定端口</li>
+<li>接收SOAP响应消息</li>
+<li>将SOAP响应消息转换为本地数据对象</li>
+</ol>
+<p>webService效率较慢,传输的是文本, 而EJB和CORBA传输的是二进制,效率较好<br>可以近视的理解SOAP=RPC+HTTP+XML：采用HTTP作为底层通讯协议；RPC作为一致性的调用途径，XML作为数据传送的格式，允许服务提供者和服务客户经过防火墙在INTERNET进行通讯交互。</p>
+<p>但这个过程，由JAX-WS规范来处理，JAX-WS是一组XML web services的JAVA API，在JAX-WS中，一个远程调用可以转换为一个基于XML的协议例如SOAP，在使用JAX-WS过程中，开发者不需要编写任何生成和处理SOAP消息的代码。JAX-WS的运行时实现会将这些API的调用转换成为对应的SOAP消息。<br>java中最流行的是cxf,提供了对 JAX-WS 全面的支持。</p>
+<p>###SOAP性能考虑</p>
+<p>SOAP 使用 HTTP 传送 XML，尽管HTTP 不是有效率的通讯协议，而且 XML 还需要额外的文件解析（parse），两者使得交易的速度大大低于其它方案。但是XML 是一个开放、健全、有语义的讯息机制，而 HTTP 是一个广泛又能避免许多关于防火墙的问题，从而使SOAP得到了广泛的应用。但是如果效率对你来说很重要，那么你应该多考虑其它的方式，而不要用 SOAP。</p>
+<p>XML-RPC和SOAP都是基于XML格式的消息交换.<br>而JSON-RPC是基于JSON格式的消息交换，JSON比XML更加轻巧，并且非常容易在页面JS中使用</p>
+<p>###Webservice vs RPC</p>
+<p>rpc本身没有规范，只要是实现了远程调用的，都是rpc，实现方式有RMI,webservice. webservice只是一种实现方式<br>rpc有一个通用的结构，就是serialization/deserialization+stub+skeleton<br>rpc是一种远程调用设计思维，强调的是透明的调用远程的方法，看起来就跟本地调用一样。</p>
+<p>##EDA的架构模型</p>
+<p>#架构选型要素</p>
+<p>##通信协议的选择##</p>
+<p>Http/Https,　例如webserivce<br>tcp 例如HSF，Dubbo，Facebook　thrift</p>
+<p>Reactor模型统一调度长连接和短连接协议栈，<br>无论在性能/可靠性/还是可维护性，都可以“秒杀”基于传统的BIO开发的应用服务器和各种协议栈。
+　　</p>
+<p>##数据交换格式##</p>
+<p>采用JSON协议格式进行数据交换<br>xml协议格式进行数据交换<br>二进制</p>
+<p>##数据传输安全##</p>
+<p>　　为了保证数据传输过程中的数据真实性和完整性，我们需要对数据进行加密签名，在接收签名数据之后进行签名校验。<br>　　目前支持签名算法：RSA、MD5，默认RSA。
+　　</p>
+<p>##常用业务组件##</p>
+<p>　　工作流<br>　　规则引擎<br>　　消息队列<br>　　缓存<br>　　统一存储<br>　　统一加密<br>　　消息队列
+　　</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.ibm.com/developerworks/cn/xml/x-sisoap/" target="_blank" rel="noopener"></a></li>
+<li><a href="http://www.cnblogs.com/itech/archive/2010/06/30/1768327.html" target="_blank" rel="noopener">WebService与使用风格RPC/SOA/REST</a></li>
+<li><a href="http://www.blogjava.net/diggbag/articles/361703.html" target="_blank" rel="noopener">RESTful Webservice 和 SOAP Webserivce 对比及区别</a></li>
+<li><a href="http://blog.csdn.net/harvic880925/article/details/40660137" target="_blank" rel="noopener">EventBus使用详解(一)——初步使用EventBus</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/018linux/0mac操作技巧.html" class="pre-post btn btn-default" title="Mac常用操作技巧">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Mac常用操作技巧</span>
+        </a>
+    
+    
+        <a href="/category/010基础技术/分布式理论/流式计算.html" class="next-post btn btn-default" title="什么是流计算？">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">什么是流计算？</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

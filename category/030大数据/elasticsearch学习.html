@@ -1,0 +1,431 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Elasticsearch入门学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Elasticsearch入门学习">
+            
+	            Elasticsearch入门学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/大数据学习">
+            大数据学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+                    <a href="/tags/Elasticsearch" title="Elasticsearch">
+                        Elasticsearch
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/05/17</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="docker安装"><a href="#docker安装" class="headerlink" title="docker安装"></a>docker安装</h1><p>假设宿主机ip为10.168.1.111<br>下载<br>    docker pull elasticsearch:5.6.4<br>    docker pull mobz/elasticsearch-head:5</p>
+<h2 id="安装es"><a href="#安装es" class="headerlink" title="安装es"></a>安装es</h2><h3 id="master配置"><a href="#master配置" class="headerlink" title="master配置"></a>master配置</h3><p>mkdir -p ~/mydocker/esdata1/nodes</p>
+<p>vi ~/mydocker/es1.yml</p>
+<pre><code>cluster.name: &quot;dali&quot;
+node.name: node1
+node.master: true
+node.data: true
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+xpack.security.enabled: false
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 1
+</code></pre><p>docker run -u 1000 -d –name es1 -p 9200:9200 -p 9300:9300 -v ~/mydocker/es1.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v ~/mydocker/esdata1:/usr/share/elasticsearch/data docker.elastic.co/elasticsearch/elasticsearch:5.6.4</p>
+<p>docker run -u 1000 -d –name es1 -p 9200:9200 -p 9300:9300 -v ~/mydocker/es1.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v ~/mydocker/esdata1:/usr/share/elasticsearch/data elasticsearch:5.6.4</p>
+<blockquote>
+<p>如果启动出现docker max virtual memory areas vm.max_map_count<br><code>sudo sysctl -w vm.max_map_count=655360</code></p>
+</blockquote>
+<h3 id="node配置"><a href="#node配置" class="headerlink" title="node配置"></a>node配置</h3><p>mkdir -p ~/mydocker/esdata2/nodes</p>
+<p>vi ~/mydocker/es2.yml</p>
+<pre><code>cluster.name: &quot;dali&quot;
+node.name: node2
+node.master: false
+node.data: true
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+xpack.security.enabled: false
+network.host: 0.0.0.0
+discovery.zen.minimum_master_nodes: 1
+discovery.zen.ping.unicast.hosts: es1
+</code></pre><p>docker run -d –name es2 –link es1:es1 -p 9201:9200 -p 9301:9300 -v ~/mydocker/es2.yml:/usr/share/elasticsearch/config/elasticsearch.yml -v ~/mydocker/esdata2:/usr/share/elasticsearch/data docker.elastic.co/elasticsearch/elasticsearch:5.6.4</p>
+<h2 id="安装head"><a href="#安装head" class="headerlink" title="安装head"></a>安装head</h2><p>elasticsearch  head是集群管理工具、数据可视化、增删改查工具， Elasticsearch 语句可视化</p>
+<p>安装过程如下：</p>
+<p>docker run -d –name head -p 9100:9100 docker.io/mobz/elasticsearch-head:5</p>
+<p>通过访问<br><a href="http://10.168.1.111:9100，打开head界面，" target="_blank" rel="noopener">http://10.168.1.111:9100，打开head界面，</a><br>修改集群地址<a href="http://10.168.1.111:9200/" target="_blank" rel="noopener">http://10.168.1.111:9200/</a></p>
+<h2 id="安装中文分词"><a href="#安装中文分词" class="headerlink" title="安装中文分词"></a>安装中文分词</h2><p>进入容器</p>
+<p><code>docker exec -it es1 /bin/bash</code></p>
+<p>执行如下:</p>
+<pre><code>./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.6.4/elasticsearch-analysis-ik-5.6.4.zip
+</code></pre><p>重新启动<code>docker restart es1</code></p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><h2 id="Node-与-Cluster"><a href="#Node-与-Cluster" class="headerlink" title="Node 与 Cluster"></a>Node 与 Cluster</h2><p>节点（Node），一个运行的Elasticearch实例，一般是一台机器上的一个进程。<br>一组节点构成一个集群（cluster）</p>
+<h2 id="索引（index）-文档（document）"><a href="#索引（index）-文档（document）" class="headerlink" title="索引（index）/文档（document）"></a>索引（index）/文档（document）</h2><p>索引看成关系型数据库的表。<br>Index里面单条的记录称为 Document（文档）。许多条 Document 构成了一个 Index。一个文档相当于数据库表中的一行记录。</p>
+<p>文档的json表示如下:</p>
+<pre><code>{
+  &quot;user&quot;: &quot;张三&quot;,
+  &quot;title&quot;: &quot;工程师&quot;,
+  &quot;desc&quot;: &quot;数据库管理&quot;
+}
+</code></pre><h2 id="分片-副本"><a href="#分片-副本" class="headerlink" title="分片 副本"></a>分片 副本</h2><p>为了支持更大量的数据，索引一般会按某个维度分成多个部分，每个部分就是一个分片，分片被节点(Node)管理。</p>
+<p>同一个分片(Shard)的备份数据，一个分片可能会有0个或多个副本，这些副本中的数据保证强一致或最终一致。</p>
+<h1 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h1><h2 id="索引操作"><a href="#索引操作" class="headerlink" title="索引操作"></a>索引操作</h2><h3 id="新建和删除Index"><a href="#新建和删除Index" class="headerlink" title="新建和删除Index"></a>新建和删除Index</h3><pre><code>curl -X PUT &apos;localhost:9200/weather&apos;
+curl -X DELETE &apos;localhost:9200/weather&apos;
+</code></pre><blockquote>
+<p>索引库名称必须要全部小写，不能以下划线开头，也不能包含逗号</p>
+</blockquote>
+<h3 id="查询所有的索引"><a href="#查询所有的索引" class="headerlink" title="查询所有的索引"></a>查询所有的索引</h3><pre><code>curl -X GET &apos;http://localhost:9200/_cat/indices?v&apos;
+</code></pre><h3 id="创建文档"><a href="#创建文档" class="headerlink" title="创建文档"></a>创建文档</h3><p>格式<code>http://localhost:9200/&lt;index&gt;/&lt;type&gt;/[&lt;id&gt;]</code><br>分别为：索引名称/类型名称/ID</p>
+<pre><code>curl -XPUT &apos;http://10.168.1.111:9200/blog/article/1&apos; -d&apos;{&quot;title&quot;: &quot;New version of Elasticsearch released!&quot;,&quot;content&quot;:&quot;Version 1.0 released today!&quot;}&apos;
+</code></pre><blockquote>
+<p>索引和类型是必需的，而id部分是可选的<br>如果不指定ID，ElasticSearch会为我们生成一个ID。应该使用HTTP的POST而不是PUT请求<br>如果使用put,出现<code>No handler found for uri</code>错误</p>
+</blockquote>
+<p>以下为<strong>不指定id</strong>的使用示例</p>
+<pre><code>curl -XPOST &apos;http://10.168.1.111:9200/blog/article/&apos; -d&apos;{&quot;title&quot;: &quot;New version of Elasticsearch released!&quot;,&quot;content&quot;:&quot;Version 2.0 released today!&quot;}&apos;
+</code></pre><h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><pre><code>curl -XPOST http://localhost:9200/blog/article/1/_update -d &apos;{&quot;script&quot;: &quot;ctx._source.content = \&quot;new content\&quot;&quot;}&apos;
+</code></pre><h3 id="检索文档"><a href="#检索文档" class="headerlink" title="检索文档"></a>检索文档</h3><pre><code>curl -XGET http://localhost:9200/blog/article/1
+</code></pre><p>##中文索引设置</p>
+<p>凡是需要搜索的中文字段，都要单独设置一下</p>
+<p>curl -X PUT ‘localhost:9200/accounts’ -d ‘<br>{<br>  “mappings”: {<br>    “person”: {<br>      “properties”: {<br>        “user”: {<br>          “type”: “text”,<br>          “analyzer”: “ik_max_word”,<br>          “search_analyzer”: “ik_max_word”<br>        },<br>        “title”: {<br>          “type”: “text”,<br>          “analyzer”: “ik_max_word”,<br>          “search_analyzer”: “ik_max_word”<br>        },<br>        “desc”: {<br>          “type”: “text”,<br>          “analyzer”: “ik_max_word”,<br>          “search_analyzer”: “ik_max_word”<br>        }<br>      }<br>    }<br>  }<br>}’</p>
+<h2 id="数据查询"><a href="#数据查询" class="headerlink" title="数据查询"></a>数据查询</h2><h2 id="返回所有记录"><a href="#返回所有记录" class="headerlink" title="返回所有记录"></a>返回所有记录</h2><pre><code>curl &apos;localhost:9200/accounts/person/_search&apos;
+</code></pre><h2 id="全文搜索"><a href="#全文搜索" class="headerlink" title="全文搜索"></a>全文搜索</h2><pre><code>curl &apos;localhost:9200/accounts/person/_search&apos;  -d &apos;
+{
+  &quot;query&quot; : { &quot;match&quot; : { &quot;desc&quot; : &quot;软件&quot; }}
+}&apos;
+</code></pre><p>如果搜索单个</p>
+<pre><code>curl &apos;localhost:9200/accounts/person/_search&apos; -d &apos;
+{
+&quot;query&quot;: {
+&quot;bool&quot;: {
+&quot;must&quot;: [
+{
+&quot;query_string&quot;: {
+&quot;default_field&quot;: &quot;_all&quot;,
+&quot;query&quot;: &quot;张&quot;
+}
+}
+],
+&quot;must_not&quot;: [ ],
+&quot;should&quot;: [ ]
+}
+},
+&quot;from&quot;: 0,
+&quot;size&quot;: 10,
+&quot;sort&quot;: [ ],
+&quot;aggs&quot;: { }
+}&apos;
+</code></pre><h3 id="or"><a href="#or" class="headerlink" title="or"></a>or</h3><pre><code>curl &apos;localhost:9200/accounts/person/_search&apos;  -d &apos;
+{
+  &quot;query&quot; : { &quot;match&quot; : { &quot;desc&quot; : &quot;软件 系统&quot; }}
+}&apos;
+</code></pre><p>执行多个关键词的and搜索，必须使用布尔查询</p>
+<pre><code>curl &apos;localhost:9200/accounts/person/_search&apos;  -d &apos;
+{
+  &quot;query&quot;: {
+    &quot;bool&quot;: {
+      &quot;must&quot;: [
+        { &quot;match&quot;: { &quot;desc&quot;: &quot;软件&quot; } },
+        { &quot;match&quot;: { &quot;desc&quot;: &quot;系统&quot; } }
+      ]
+    }
+  }
+}&apos;
+</code></pre><h1 id="安装kibana"><a href="#安装kibana" class="headerlink" title="安装kibana"></a>安装kibana</h1><pre><code>docker pull docker.elastic.co/kibana/kibana:5.6.2
+
+docker run -p 5601:5601 -e &quot;ELASTICSEARCH_URL=http://10.168.1.111:9200&quot; --name my-kibana \
+--network host -d docker.elastic.co/kibana/kibana:5.6.2
+</code></pre><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p>社区<br><a href="https://elasticsearch.cn" target="_blank" rel="noopener">https://elasticsearch.cn</a></p>
+<p><a href="https://www.elastic.co/guide/cn/elasticsearch/guide" title="Elasticsearch: 权威指南" target="_blank" rel="noopener">Elasticsearch: 权威指南</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/030大数据/hbase学习.html" class="pre-post btn btn-default" title="Hbase学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Hbase学习</span>
+        </a>
+    
+    
+        <a href="/category/011容器技术/kubernetes安装.html" class="next-post btn btn-default" title="kubernetes安装">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">kubernetes安装</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker安装"><span class="toc-text">docker安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装es"><span class="toc-text">安装es</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#master配置"><span class="toc-text">master配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#node配置"><span class="toc-text">node配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装head"><span class="toc-text">安装head</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装中文分词"><span class="toc-text">安装中文分词</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node-与-Cluster"><span class="toc-text">Node 与 Cluster</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引（index）-文档（document）"><span class="toc-text">索引（index）/文档（document）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分片-副本"><span class="toc-text">分片 副本</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#基本操作"><span class="toc-text">基本操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#索引操作"><span class="toc-text">索引操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#新建和删除Index"><span class="toc-text">新建和删除Index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询所有的索引"><span class="toc-text">查询所有的索引</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建文档"><span class="toc-text">创建文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新文档"><span class="toc-text">更新文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检索文档"><span class="toc-text">检索文档</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据查询"><span class="toc-text">数据查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#返回所有记录"><span class="toc-text">返回所有记录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#全文搜索"><span class="toc-text">全文搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#or"><span class="toc-text">or</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装kibana"><span class="toc-text">安装kibana</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

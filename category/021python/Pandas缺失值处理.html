@@ -1,0 +1,329 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Pandas缺失值/异常值处理 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Pandas缺失值/异常值处理">
+            
+	            Pandas缺失值/异常值处理
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Python">
+            Python
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/11/11</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="缺失值处理"><a href="#缺失值处理" class="headerlink" title="缺失值处理"></a>缺失值处理</h1><pre><code>sample = pd.DataFrame({&apos;name&apos;:[&apos;Bob&apos;,&apos;Lindy&apos;,&apos;Mark&apos;,
+         &apos;Miki&apos;,&apos;Sully&apos;,&apos;Rose&apos;],
+        &apos;score&apos;:[99,78,999,77,77,np.nan],
+        &apos;group&apos;:[1,1,1,2,1,2],})
+</code></pre><h2 id="查看缺失情况"><a href="#查看缺失情况" class="headerlink" title="查看缺失情况"></a>查看缺失情况</h2><p>在进行数据分析前，一般需要了解数据的缺失情况，在Python中可以构造一个lambda函数来查看缺失值。</p>
+<pre><code>sample.apply(lambda col:sum(col.isnull())/col.size)
+</code></pre><h2 id="以指定值填补"><a href="#以指定值填补" class="headerlink" title="以指定值填补"></a>以指定值填补</h2><p>Pandas数据框提供了fillna方法完成对缺失值的填补，例如对sample表的列score填补缺失值，填补方法为均值。</p>
+<pre><code>sample.score.fillna(sample.score.mean())
+</code></pre><h2 id="缺失值指示变量"><a href="#缺失值指示变量" class="headerlink" title="缺失值指示变量"></a>缺失值指示变量</h2><p>每个有缺失值的变量可以生成一个指示哑变量，参与后续的建模。<br>sample.score.isnull().apply(int)</p>
+<h1 id="离散化和分箱"><a href="#离散化和分箱" class="headerlink" title="离散化和分箱"></a>离散化和分箱</h1><p>连续值经常需要离散化，假设你有某项研究中一组人群的数据，你想将他们进行分组，放入离散的年龄框中。<br>我们将这些年龄分为18～25、26～35、36～60以及61及以上等若干组。</p>
+<pre><code>ages = [20, 22, 25, 27, 21, 23, 37, 31, 61, 45, 41, 32]
+bins = [18, 25, 35, 60, 100]
+cats = pd.cut(ages, bins)
+</code></pre><p>cut返回的对象是一个特殊的Categorical对象。<br>使用<code>cats.codes</code>和<code>cats.categories</code>可以分别查看所属分箱的编号和分箱。</p>
+<pre><code>cats.codes
+array([0, 0, 0, 1, 0, 0, 2, 1, 3, 2, 2, 1], dtype=int8)
+
+cats.categories
+IntervalIndex([(18, 25], (25, 35], (35, 60], (60, 100]]
+              closed=&apos;right&apos;,
+              dtype=&apos;interval[int64]&apos;)
+</code></pre><p> 平均进行分箱，pandas将根据数据中的最小值和最大值计算出等长的箱<br> 例如数据被切成四份，代码如下：</p>
+<pre><code>pd.cut(data, 4, precision=2)
+</code></pre><p> 基于样本分位数进行分箱</p>
+<p>  cats = pd.qcut(data, 4)  # 切成四份<br>  pd.qcut(data, [0, 0.1, 0.5, 0.9, 1.]) #自定义分位数</p>
+<h1 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h1><p>噪声值是指数据中有一个或几个数值与其他数值相比差异较大的值，又称为异常值、离群值（outlier）。<br>对于大部分的模型而言，噪声值会严重干扰模型的结果，并且使结论不真实或偏颇，<br>需要在数据预处理的时候清除所有噪声值。噪声值的处理方法有很多，对于单变量，常见的方法有盖帽法、分箱法；多变量的处理方法为聚类法。</p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1>
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/021python/matplotlib入门.html" class="pre-post btn btn-default" title="matplotlib入门学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">matplotlib入门学习</span>
+        </a>
+    
+    
+        <a href="/category/021python/Pandas的数据合并.html" class="next-post btn btn-default" title="Pandas的数据合并">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Pandas的数据合并</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#缺失值处理"><span class="toc-text">缺失值处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看缺失情况"><span class="toc-text">查看缺失情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#以指定值填补"><span class="toc-text">以指定值填补</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#缺失值指示变量"><span class="toc-text">缺失值指示变量</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离散化和分箱"><span class="toc-text">离散化和分箱</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#异常值处理"><span class="toc-text">异常值处理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

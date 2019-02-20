@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>kubernetes安装 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="kubernetes安装">
+            
+	            kubernetes安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/容器技术">
+            容器技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/Docker" title="Docker">
+                        Docker
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/02/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="基本部署步骤"><a href="#基本部署步骤" class="headerlink" title="基本部署步骤"></a>基本部署步骤</h2><p>1）minion节点安装docker</p>
+<p>2）minion节点配置跨主机容器通信</p>
+<p>3）master节点部署并启动etcd、kube-apiserver、kube-controller-manager和kube-scheduler组件</p>
+<p>4）minion节点部署并启动kubelet、kube-proxy组件</p>
+<h2 id="minion节点配置跨主机容器通信"><a href="#minion节点配置跨主机容器通信" class="headerlink" title="minion节点配置跨主机容器通信"></a>minion节点配置跨主机容器通信</h2><p>由于docker自身还未支持跨主机容器通信，需要借助docker网络开源解决方案实现。这里利用OpenVSwich即开放式<strong>虚拟交换机</strong>实现容器跨主机通信。</p>
+<p>什么是OpenVSwich？</p>
+<p>OpenVSwich是一种开源软件，通过软件的方式实现二层交换机功能，专门管理多租赁云计算网络环境，提供虚拟网络中的访问策略、网络隔离、流量监控等。<br>既然是虚拟交换机，自然与传统的物理交换机有着相同的特性，操作中可以按照理解物理交换机的方式去操作。</p>
+<h3 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h3><p><strong>安装openvswitch</strong></p>
+<p><code>sudo apt-get install openvswitch-switch bridge-utils</code></p>
+<p><strong>添加网桥obr0</strong></p>
+<p><code>sudo ovs-vsctl add-br obr0</code></p>
+<p>理解为添加了一个交换机</p>
+<p><strong>将gre0接口加入到网桥obr0， 远程IP写对端IP（创建一个GRE隧道并添加到网桥中）</strong></p>
+<p><code>sudo ovs-vsctl add-port obr0 gre0 -- set Interface gre0 type=gre options:remote_ip=10.168.1.184</code></p>
+<p><strong>查看ovs信息</strong></p>
+<p>$ sudo ovs-vsctl show</p>
+<p>———-分界线</p>
+<p><strong>5、添加docker网桥</strong></p>
+<p>$ sudo brctl addbr kbr0</p>
+<p><strong>将obr0网桥加入kbr0网桥，并启动</strong></p>
+<p>$ sudo brctl addif kbr0 obr0</p>
+<p>//sudo ip link dev kbr0 up</p>
+<p>$ sudo ip link set dev kbr0 up</p>
+<p><strong>查看网桥信息</strong></p>
+<p>$ sudo brctl show</p>
+<p><strong>添加docker网桥配置信息</strong></p>
+<h2 id="配置系统路由参数-防止kubeadm报路由警告"><a href="#配置系统路由参数-防止kubeadm报路由警告" class="headerlink" title="配置系统路由参数,防止kubeadm报路由警告"></a>配置系统路由参数,防止kubeadm报路由警告</h2><pre><code>echo &quot;
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+&quot; &gt;&gt; /etc/sysctl.conf
+</code></pre><p>sysctl -p</p>
+<p>##加载镜像</p>
+<p>for image in <code>ls -l . |awk &#39;{print $9}&#39;</code>;do echo “$image is loading”&amp;&amp;docker load &lt; ${image};done</p>
+<h2 id="导入镜像"><a href="#导入镜像" class="headerlink" title="导入镜像"></a>导入镜像</h2><p>docker load &lt; /root/k8s_images/docker_images/etcd-amd64_v3.1.10.tar<br>docker load &lt;/root/k8s_images/docker_images/flannel\:v0.9.1-amd64.tar<br>docker load &lt;/root/k8s_images/docker_images/k8s-dns-dnsmasq-nanny-amd64_v1.14.7.tar<br>docker load &lt;/root/k8s_images/docker_images/k8s-dns-kube-dns-amd64_1.14.7.tar<br>docker load &lt;/root/k8s_images/docker_images/k8s-dns-sidecar-amd64_1.14.7.tar<br>docker load &lt;/root/k8s_images/docker_images/kube-apiserver-amd64_v1.9.0.tar<br>docker load &lt;/root/k8s_images/docker_images/kube-controller-manager-amd64_v1.9.0.tar<br>docker load &lt;/root/k8s_images/docker_images/kube-scheduler-amd64_v1.9.0.tar<br>docker load &lt; /root/k8s_images/docker_images/kube-proxy-amd64_v1.9.0.tar<br>docker load &lt;/root/k8s_images/docker_images/pause-amd64_3.0.tar<br>docker load &lt; /root/k8s_images/docker_images/kubernetes-dashboard_v1.8.1.tar</p>
+<p>apt-get install -y socat ebtables</p>
+<p>cat kube_apt_key.gpg | apt-key add -<br> echo “deb [arch=amd64] <a href="https://mirrors.ustc.edu.cn/kubernetes/apt" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/kubernetes/apt</a> kubernetes-xenial main” &gt;&gt; /etc/apt/sources.list<br>  apt-get update &amp;&amp; apt-get install -y kubelet kubeadm kubectl</p>
+<h2 id="安装etcd"><a href="#安装etcd" class="headerlink" title="安装etcd"></a>安装etcd</h2><p> apt install etcd<br> systemctl start etcd<br> 检测<br> etcdctl cluster-health</p>
+<p><a href="http://localhost:2379" target="_blank" rel="noopener">http://localhost:2379</a></p>
+<h2 id="配置k8s集群"><a href="#配置k8s集群" class="headerlink" title="配置k8s集群"></a>配置k8s集群</h2><p>重启kubelet并设置开机启动(Master Node都需要配置)</p>
+<h1 id="systemctl-enable-kubelet-amp-amp-sudo-systemctl-start-kubelet"><a href="#systemctl-enable-kubelet-amp-amp-sudo-systemctl-start-kubelet" class="headerlink" title="systemctl enable kubelet &amp;&amp; sudo systemctl start kubelet"></a>systemctl enable kubelet &amp;&amp; sudo systemctl start kubelet</h1><p>systemctl status kubelet</p>
+<p>#参考网站 #</p>
+<p><a href="https://segmentfault.com/a/1190000013903445" target="_blank" rel="noopener">https://segmentfault.com/a/1190000013903445</a></p>
+<ul>
+<li><a href="http://www.mamicode.com/info-detail-2150197.html" target="_blank" rel="noopener">参考</a><br>ubuntu 搭建Kubenetes1.9.2 集群<br><a href="https://www.jianshu.com/p/21a39ee86311" target="_blank" rel="noopener">https://www.jianshu.com/p/21a39ee86311</a></li>
+</ul>
+<p><a href="https://my.oschina.net/andylo25/blog/1618342?from=timeline&amp;isappinstalled=0" target="_blank" rel="noopener">https://my.oschina.net/andylo25/blog/1618342?from=timeline&amp;isappinstalled=0</a></p>
+<p>kubernetes_init.git<br><a href="https://www.jianshu.com/p/0e54aa7a20cf" target="_blank" rel="noopener">https://www.jianshu.com/p/0e54aa7a20cf</a></p>
+<p>DockerCloud利用GitHub构建镜像<br><a href="http://blog.csdn.net/zgkpy/article/details/79181326" target="_blank" rel="noopener">http://blog.csdn.net/zgkpy/article/details/79181326</a></p>
+<p>最有用<br><a href="http://www.mamicode.com/info-detail-1186209.html" target="_blank" rel="noopener">http://www.mamicode.com/info-detail-1186209.html</a></p>
+<p><a href="http://fishcried.com/2016-02-09/openvswitch-ops-guide/" target="_blank" rel="noopener">http://fishcried.com/2016-02-09/openvswitch-ops-guide/</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/030大数据/elasticsearch学习.html" class="pre-post btn btn-default" title="Elasticsearch入门学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Elasticsearch入门学习</span>
+        </a>
+    
+    
+        <a href="/category/018linux/ubuntu/ubuntu中java环境的安装.html" class="next-post btn btn-default" title="ubuntu中java环境的安装">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">ubuntu中java环境的安装</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本部署步骤"><span class="toc-text">基本部署步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#minion节点配置跨主机容器通信"><span class="toc-text">minion节点配置跨主机容器通信</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装步骤"><span class="toc-text">安装步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置系统路由参数-防止kubeadm报路由警告"><span class="toc-text">配置系统路由参数,防止kubeadm报路由警告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#导入镜像"><span class="toc-text">导入镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装etcd"><span class="toc-text">安装etcd</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置k8s集群"><span class="toc-text">配置k8s集群</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#systemctl-enable-kubelet-amp-amp-sudo-systemctl-start-kubelet"><span class="toc-text">systemctl enable kubelet &amp;&amp; sudo systemctl start kubelet</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

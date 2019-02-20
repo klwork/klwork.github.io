@@ -1,0 +1,369 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Ubuntu 14.04 LTS 安装Oracle 11 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Ubuntu 14.04 LTS 安装Oracle 11">
+            
+	            Ubuntu 14.04 LTS 安装Oracle 11
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Oracle" title="Oracle">
+                        Oracle
+                    </a>
+                
+                    <a href="/tags/数据库" title="数据库">
+                        数据库
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2013/05/01</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>2121</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="安装必要的包"><a href="#安装必要的包" class="headerlink" title="安装必要的包"></a>安装必要的包</h1><p>以下安装针对我的平台，</p>
+<p>sudo apt-get install ksh<br>sudo apt-get install libstdc++5<br>sudo apt-get install zlibc</p>
+<p>出错<br>sudo apt-get install elfutils<br>sudo apt-get install expat</p>
+<h1 id="创建用户和组"><a href="#创建用户和组" class="headerlink" title="创建用户和组"></a>创建用户和组</h1><p>sudo groupadd oinstall<br>sudo groupadd dba<br>sudo useradd -g oinstall -G dba  -d /opt/oracle -s /bin/bash oracle<br>sudo passwd oracle</p>
+<p>//设置密码也为oracle</p>
+<p>#修改内核参数#<br>切换到root用户，修改 /etc/sysctl.conf 文件，加上如下参数</p>
+<p>fs.aio-max-nr = 1048576<br>fs.file-max = 6815744<br>kernel.shmall = 2097152<br>kernel.shmmax = 536870912<br>kernel.shmmni = 4096<br>kernel.sem = 250 32000 100 128<br>net.ipv4.ip_local_port_range = 9000 65500<br>net.core.rmem_default = 262144<br>net.core.rmem_max = 4194304<br>net.core.wmem_default = 262144<br>net.core.wmem_max = 1048586</p>
+<p>为使上述配置生效，执行如下命令，如果没有出现错误，就成功</p>
+<h1 id="sbin-sysctl-p"><a href="#sbin-sysctl-p" class="headerlink" title="/sbin/sysctl -p"></a>/sbin/sysctl -p</h1><h2 id="修改用户限制"><a href="#修改用户限制" class="headerlink" title="修改用户限制"></a>修改用户限制</h2><p>vi /etc/security/limits.conf，在文件中加入</p>
+<p>oracle              soft    nproc   2047<br>oracle              hard    nproc   16384<br>oracle              soft    nofile  1024<br>oracle              hard    nofile  65536<br>oracle              soft    stack   10240</p>
+<p>修改用户验证选项<br>root用户下：修改/etc/pam.d/login文件加上如下参数</p>
+<p>修改用户配置文件<br>修改/etc/profile文件加入如下参数<br>if [ $USER = “oracle” ]; then<br>        if [ $SHELL = “/bin/ksh” ]; then<br>              ulimit -p 16384<br>              ulimit -n 65536<br>        else<br>              ulimit -u 16384 -n 65536<br>        fi<br>fi</p>
+<p>创建需要的文件夹（用于安装oracle）并设置其所有权</p>
+<p>mkdir -p /opt/oracle<br>mkdir -p /opt/oraInventory<br>chown -R oracle:oinstall  /opt/oracle<br>chown -R oracle:oinstall  /opt/oraInventory</p>
+<p>为Oracle配置环境变量<br>su oracle<br>cd ~<br>vi .bash_profile</p>
+<p>在文件中加入以下内容</p>
+<p>export ORACLE_BASE=/opt/oracle </p>
+<p>#这个后面可以随便填写<br>export ORACLE_HOME=$ORACLE_BASE/product/11.2.0/dbhome_1</p>
+<p>#数据库的sid<br>export ORACLE_SID=orcl<br>export ORACLE_UNQNAME=orcl</p>
+<p>#默认字符集<br>export NLS_LANG=.AL32UTF8<br>export PATH=${PATH}:${ORACLE_HOME}/bin/;</p>
+<p>oracle本身并不支持ubuntu来安装，所以要进行欺骗oracle的安装程序（sudo执行）：<br>在root用户下执行：</p>
+<p>ln -s /etc /etc/rc.d<br>ln -s /lib/i386-linux-gnu/libgcc_s.so.1 /lib/<br>ln -s /usr/bin/awk /bin/awk<br>ln -s /usr/bin/basename /bin/basename<br>ln -s /usr/bin/rpm /bin/rpm<br>ln -s /usr/lib/i386-linux-gnu/libpthread_nonshared.a /usr/lib/libpthread_nonshared.a<br>ln -s /usr/lib/i386-linux-gnu/libc_nonshared.a /usr/lib/libc_nonshared.a<br>ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6 /lib/<br>ln -s /usr/lib/i386-linux-gnu/libstdc++.so.6 /usr/lib/<br>ln -s /usr/lib/i386-linux-gnu/libstdc++.so.5 /lib/<br>ln -s /usr/lib/i386-linux-gnu/libstdc++.so.5 /usr/lib/</p>
+<p>echo ‘Red Hat Linux release 5’ &gt; /etc/redhat-release</p>
+<p>下载oracle文件到/opt/oracle下（以前建立的home)<br>使用oracle用户登录，然后解压缩Oracle安装文件<br>unzip linux_11gR2_database_1of2.zip<br>解压完成后，会在其下建立文件database。</p>
+<p>cd database<br>chmod 777 runInstaller</p>
+<p>安装oracle无法使用命令/usr/bin/xdpyinfo自动检查显示器颜色</p>
+<p>在root下执行</p>
+<p>#xdpyinfo 记录下name of display：后的字符串，如 127.0.0.1：1.0（也可执行xdpyinfo | grep ‘name of display’）</p>
+<ol start="2">
+<li>#xhost +<br>返回信息为： access control disabled,clients can connect from any host</li>
+</ol>
+<p>3.切换到Oracle用户</p>
+<p>#su - oracle</p>
+<p>4.在Oracle用户下执行命令，注意：一定要和root下的一致。<br>export DISPLAY=:1.0</p>
+<p>5.在Oracle下执行xdpyinfo命令，如果能正常显示，说明设置成功</p>
+<p>乱码问题<br>关闭该界面，先在终端输入：<br>export LANG=zh_CN.gbk<br>然后再执行：<br>./runInstaller</p>
+<p>oracle 11g出现”未找到文件 E:\development_tools\database\oracle\install_d\dbhome\owb\external\oc4j_applications\applications\WFMLRSVCApp.ear”</p>
+<p>2of2\database\stage\Components里文件复制到<br>cp -r Components/ /opt/oracle/database/stage/Component/</p>
+<p>重复安装清空/opt/oraInventory</p>
+<p>遭遇Error in invoking target ‘agent nmhs’ of makefile </p>
+<p>vi $ORACLE_HOME/sysman/lib/ins_emagent.mk</p>
+<p>Search for the line<br>$(MK_EMAGENT_NMECTL)<br>Change it to:<br>$(MK_EMAGENT_NMECTL) -lnnz11</p>
+<blockquote>
+<p><a href="http://www.postgres.org.cn/" target="_blank" rel="noopener">http://www.postgres.org.cn/</a><br><br><a href="http://bbs.pgsqldb.com" target="_blank" rel="noopener">http://bbs.pgsqldb.com</a></p>
+</blockquote>
+<p>打开一个新的终端，输入如下四个命令：<br>sed -i ‘s/^(TNSLSNR_LINKLINE.<em>\$(TNSLSNR_OFILES)) (\$(LINKTTLIBS))/\1 -Wl,–no-as-needed \2/g’ $ORACLE_HOME/network/lib/env_network.mk<br>sed -i ‘s/^(ORACLE_LINKLINE.</em>\$(ORACLE_LINKER)) (\$(PL_FLAGS))/\1 -Wl,–no-as-needed \2/g’ $ORACLE_HOME/rdbms/lib/env_rdbms.mk<br>sed -i ‘s/^(\$LD \$LD_RUNTIME) (\$LD_OPT)/\1 -Wl,–no-as-needed \2/g’ $ORACLE_HOME/bin/genorasdksh<br>sed -i ‘s/^(\s*)(\$(OCRLIBS_DEFAULT))/\1 -Wl,–no-as-needed \2/g’ $ORACLE_HOME/srvm/lib/ins_srvm.mk<br>然后在图形界面点击‘Retry’就能继续安装了。</p>
+<p>最后应该就顺利完成了，按照安装程序提示最后执行两个脚本:<br>sudo /opt/oraInventory/orainstRoot.sh<br>sudo /opt/oracle/product/11.2.0/dbhome_1/root.sh</p>
+<p>没有sudo权限</p>
+<p>linux oracle No protocol specified</p>
+<p>在root用户下执行<br>echo ‘oracle  ALL=(ALL)    ALL’ &gt;&gt; /etc/sudoers</p>
+<p>使用netca来配置监听</p>
+<p>使用dbca来创建数据库</p>
+<p><a href="http://www.linuxidc.com/Linux/2011-12/50092.htm" target="_blank" rel="noopener">http://www.linuxidc.com/Linux/2011-12/50092.htm</a><br><a href="http://www.xuebuyuan.com/1598278.html" target="_blank" rel="noopener">http://www.xuebuyuan.com/1598278.html</a></p>
+<p><a href="http://blog.csdn.net/idber/article/details/9039857" target="_blank" rel="noopener">http://blog.csdn.net/idber/article/details/9039857</a><br><a href="http://www.2cto.com/database/201302/189368.html" target="_blank" rel="noopener">http://www.2cto.com/database/201302/189368.html</a><br><a href="http://www.th7.cn/db/Oracle/201406/58542.shtml" target="_blank" rel="noopener">http://www.th7.cn/db/Oracle/201406/58542.shtml</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/059杂七杂八/武侠看管理.html" class="pre-post btn btn-default" title="从古龙武侠看管理">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">从古龙武侠看管理</span>
+        </a>
+    
+    
+        <a href="/category/020programming/db/postgres/setup.html" class="next-post btn btn-default" title="PostgreSQL 9.2在CentOS 6.3下的安装和windos下的测试">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">PostgreSQL 9.2在CentOS 6.3下的安装和windos下的测试</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装必要的包"><span class="toc-text">安装必要的包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#创建用户和组"><span class="toc-text">创建用户和组</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#sbin-sysctl-p"><span class="toc-text">/sbin/sysctl -p</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改用户限制"><span class="toc-text">修改用户限制</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

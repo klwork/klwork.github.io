@@ -1,0 +1,432 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>PostgreSQL 9.2在CentOS 6.3下的安装和windos下的测试 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="PostgreSQL 9.2在CentOS 6.3下的安装和windos下的测试">
+            
+	            PostgreSQL 9.2在CentOS 6.3下的安装和windos下的测试
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Programming">
+            Programming
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/数据库" title="数据库">
+                        数据库
+                    </a>
+                
+                    <a href="/tags/PostgreSQL" title="PostgreSQL">
+                        PostgreSQL
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2013/05/01</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+            <p class="fa fa-exclamation-triangle warning">
+                本文于<strong>2121</strong>天之前发表，文中内容可能已经过时。
+            </p>
+        
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>在服务器端，我们常常将PostgreSQL安装在linux端,而在本机测试时，本程序猿还是喜欢安装在window端。</p>
+<h1 id="Linux安装步骤"><a href="#Linux安装步骤" class="headerlink" title="Linux安装步骤"></a>Linux安装步骤</h1><h2 id="安装编译源码所需的工具和库"><a href="#安装编译源码所需的工具和库" class="headerlink" title="安装编译源码所需的工具和库"></a>安装编译源码所需的工具和库</h2><pre><code>yum -y install wget gcc readline-devel zlib-devel make
+</code></pre><h2 id="下载源码压缩和解压"><a href="#下载源码压缩和解压" class="headerlink" title="下载源码压缩和解压"></a>下载源码压缩和解压</h2><p>进入源码压缩包下载目录</p>
+<pre><code>cd /usr/src
+</code></pre><p>下载</p>
+<pre><code>wget http://ftp.postgresql.org/pub/source/v9.2.4/postgresql-9.2.4.tar.bz2
+</code></pre><p>解压</p>
+<pre><code>tar jxvf ./postgresql-9.2.4.tar.bz2
+</code></pre><h2 id="执行源码编译配置脚本"><a href="#执行源码编译配置脚本" class="headerlink" title="执行源码编译配置脚本"></a>执行源码编译配置脚本</h2><p>进入解压缩源码目录</p>
+<pre><code>cd ./postgresql-9.2.4
+</code></pre><p>依次执行以下脚本,进行源码编译安装</p>
+<pre><code>./configure
+make
+make install
+</code></pre><h2 id="新增用户和用户组-初始化数据库数据文件目录"><a href="#新增用户和用户组-初始化数据库数据文件目录" class="headerlink" title="新增用户和用户组,初始化数据库数据文件目录"></a>新增用户和用户组,初始化数据库数据文件目录</h2><p>新增用户组</p>
+<pre><code>groupadd postgres
+</code></pre><p>新增用户</p>
+<pre><code>useradd postgres -M -g postgres
+</code></pre><p>新建数据库执行文件目录</p>
+<pre><code>mkdir -p /usr/local/pgsql
+</code></pre><p>新建数据库数据文件目录</p>
+<pre><code>mkdir -p /data/pgsql/data
+</code></pre><p>修改目录拥有者</p>
+<pre><code>chown -R postgres /usr/local/pgsql/.
+chown -R postgres /data/pgsql/data
+chown -R postgres /data/pgsql/data/.
+</code></pre><p>编辑PATH搜索路径<br>    vi /etc/profile<br>在文件的最后</p>
+<pre><code>PATH=/usr/local/pgsql/bin:$PATH
+export PATH
+</code></pre><p>生效PATH搜索路径</p>
+<pre><code>source /etc/profile
+</code></pre><h2 id="执行数据库初始化脚本"><a href="#执行数据库初始化脚本" class="headerlink" title="执行数据库初始化脚本"></a>执行数据库初始化脚本</h2><p>变更登录用户</p>
+<pre><code>su postgres
+</code></pre><p>执行数据库初始化脚本</p>
+<pre><code>/usr/local/pgsql/bin/initdb --encoding=utf8 -D /data/pgsql/data
+</code></pre><p>退出变更登录,回到root权限</p>
+<pre><code>exit
+</code></pre><p>复制PostgreSQL执行脚本</p>
+<pre><code>cp /usr/src/postgresql-9.2.4/contrib/start-scripts/linux /etc/init.d/postgresql
+</code></pre><p>增加执行权限</p>
+<pre><code>chmod +x /etc/init.d/postgresql
+</code></pre><p>编辑PostgreSQL执行脚本，指定数据库文件目录</p>
+<pre><code>vi /etc/init.d/postgresql
+</code></pre><p>修改其中的<code>PGDATA=&quot;/data/pgsql/data&quot;</code></p>
+<p>编辑配置文件，配置可访问数据库的网络地址</p>
+<pre><code>vi /data/pgsql/data/postgresql.conf
+</code></pre><p>listen_addresses = ‘*’</p>
+<h2 id="启动PostgreSQL服务"><a href="#启动PostgreSQL服务" class="headerlink" title="启动PostgreSQL服务"></a>启动PostgreSQL服务</h2><p>启动PostgreSQL</p>
+<pre><code>service postgresql start
+</code></pre><p>重启数据库服务</p>
+<pre><code>service postgresql restart
+</code></pre><h2 id="设置开机自动启动服务"><a href="#设置开机自动启动服务" class="headerlink" title="设置开机自动启动服务"></a>设置开机自动启动服务</h2><pre><code>chkconfig postgresql on
+</code></pre><h2 id="编辑配置文件，设置密码md5验证"><a href="#编辑配置文件，设置密码md5验证" class="headerlink" title="编辑配置文件，设置密码md5验证"></a>编辑配置文件，设置密码md5验证</h2><pre><code>vi /data/pgsql/data/pg_hba.conf
+</code></pre><p>修改器内容如下</p>
+<pre><code># &quot;local&quot; is for Unix domain socket connections only
+local all all md5
+# IPv4 local connections:
+#host all all 127.0.0.1/32 trust
+host all all all md5
+</code></pre><p>trust为明文，这样是危险的，一般改成md5。</p>
+<h2 id="用户和数据库的创建"><a href="#用户和数据库的创建" class="headerlink" title="用户和数据库的创建"></a>用户和数据库的创建</h2><p><strong>创建用户</strong></p>
+<p>需要先启动数据库后，才能执行以下命令</p>
+<pre><code>createuser -W -h 127.0.0.1 testUser
+</code></pre><p>创建用户testUser,-W表示需要输入密码。</p>
+<p><strong>创建数据库</strong></p>
+<pre><code>createdb -U testUser mydb
+</code></pre><p>-U表示用户，mydb为数据库名。</p>
+<h2 id="防火墙设置"><a href="#防火墙设置" class="headerlink" title="防火墙设置"></a>防火墙设置</h2><p>有时客户端访问不了数据库，可能是防火墙的问题，,postgresql默认的访问端口为5432,操作如下:</p>
+<pre><code>/sbin/iptables -I INPUT -p tcp --dport 5432 -j ACCEPT
+/etc/rc.d/init.d/iptables save #保存配置 
+/etc/rc.d/init.d/iptables restart #重启服务
+</code></pre><blockquote>
+<p>其他相关命令如下：<br><br>service iptables stop #关掉防火墙<br><br>chkconfig iptables off #永久关闭防火墙</p>
+</blockquote>
+<h1 id="windows安装步骤"><a href="#windows安装步骤" class="headerlink" title="windows安装步骤"></a>windows安装步骤</h1><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a href="http://www.enterprisedb.com/products-services-training/pgbindownload" target="_blank" rel="noopener">http://www.enterprisedb.com/products-services-training/pgbindownload</a><br>下载一个免安装版本，解压缩到D:\pgsql。</p>
+<h2 id="设置环境变量"><a href="#设置环境变量" class="headerlink" title="设置环境变量"></a>设置环境变量</h2><p>设置环境变量,写一个批处理,setEnv.cmd,内容如下</p>
+<pre><code>set PGHOME=d:\pgsql
+set PATH=%PGHOME%\bin;%path% 
+set PGHOST=localhost 
+set PGLIB=%PGHOME%\lib 
+set PGDATA=%PGHOME%\data
+start
+</code></pre><h2 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h2><pre><code>initdb -D &quot;D:\pgsql\data-new&quot; --encoding=utf8 --locale=C
+</code></pre><blockquote>
+<p>若不使用-U pgsqlUser,则数据库里自动添加当前windows用户为数据库帐号<br>pgsqlUser可以通过net user pgsqlUser 123456 /add,但有的系统可能不支持。就不要搞复杂了。</p>
+</blockquote>
+<h2 id="启动数据库"><a href="#启动数据库" class="headerlink" title="启动数据库"></a>启动数据库</h2><pre><code>D:\pgsql&gt;pg_ctl start
+</code></pre><p>上面命令在setEnv.cmd执行后执行</p>
+<p>如果没有，需要指定PGDATA,<br>进行D:\pgsql\bin,执行</p>
+<pre><code>pg_ctl -D &quot;D:\pgsql\data-new&quot; -l logfile start
+</code></pre><h2 id="停止数据库"><a href="#停止数据库" class="headerlink" title="停止数据库"></a>停止数据库</h2><pre><code>pg_ctl -D &quot;D:\pgsql\data&quot; stop
+</code></pre><h2 id="创建数据库和用户"><a href="#创建数据库和用户" class="headerlink" title="创建数据库和用户"></a>创建数据库和用户</h2><p>和linux类似,需要先启动数据库</p>
+<pre><code>createuser -s -W -h 127.0.0.1 test
+</code></pre><p>s表示为超级用户，-W提示输入密码</p>
+<blockquote>
+<p>删除，执行dropuser -h 127.0.0.1 test</p>
+</blockquote>
+<p>创建数据库</p>
+<pre><code>createdb -h 127.0.0.1 -U test mydb
+</code></pre><p>命令行访问数据库</p>
+<pre><code>psql -h 127.0.0.1 -U test -d  mydb
+</code></pre><p>在psql中进行密码修改</p>
+<pre><code>ALTER USER test PASSWORD &apos;goodluck&apos;;
+</code></pre><blockquote>
+<p>psql的其他基本用法    <br><br>显示当前日期 select current_date;<br><br>计算md5 加密 select md5(‘123456’);<br><br>执行sql语句</p>
+</blockquote>
+<h1 id="PostgreSQL数据库备份与恢复"><a href="#PostgreSQL数据库备份与恢复" class="headerlink" title="PostgreSQL数据库备份与恢复"></a>PostgreSQL数据库备份与恢复</h1><h2 id="备份"><a href="#备份" class="headerlink" title="备份"></a>备份</h2><p><strong>备份整个库</strong></p>
+<pre><code>pg_dump -h 127.0.0.1 -C -U test mydb &gt; mydb.bak
+</code></pre><p><strong>备份整个库表结构</strong></p>
+<pre><code>pg_dump -h 127.0.0.1 -C -s -U test mydb &gt; mydb.sql
+</code></pre><p><strong>备份单个表结构</strong></p>
+<pre><code>pg_dump -h 127.0.0.1 -C -t my_calendar_event -t outsourcing_project -s -U test mydb &gt; mydb.sql
+</code></pre><p>上面是备份两个表的结构，-t指定。</p>
+<h2 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h2><pre><code>psql -h 127.0.0.1 -U test -d  mydb &lt; testdb.bak
+</code></pre><h1 id="学习网站"><a href="#学习网站" class="headerlink" title="学习网站"></a>学习网站</h1><blockquote>
+<p><a href="http://www.postgres.org.cn/" target="_blank" rel="noopener">http://www.postgres.org.cn/</a><br><br><a href="http://bbs.pgsqldb.com" target="_blank" rel="noopener">http://bbs.pgsqldb.com</a></p>
+</blockquote>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/020programming/db/oracle/linux下的安装.html" class="pre-post btn btn-default" title="Ubuntu 14.04 LTS 安装Oracle 11">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Ubuntu 14.04 LTS 安装Oracle 11</span>
+        </a>
+    
+    
+        <a href="/category/059杂七杂八/Hexo建站过程.html" class="next-post btn btn-default" title="使用hexo搭建我的博客">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">使用hexo搭建我的博客</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#开始"><span class="toc-text">开始</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux安装步骤"><span class="toc-text">Linux安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装编译源码所需的工具和库"><span class="toc-text">安装编译源码所需的工具和库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载源码压缩和解压"><span class="toc-text">下载源码压缩和解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行源码编译配置脚本"><span class="toc-text">执行源码编译配置脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新增用户和用户组-初始化数据库数据文件目录"><span class="toc-text">新增用户和用户组,初始化数据库数据文件目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行数据库初始化脚本"><span class="toc-text">执行数据库初始化脚本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动PostgreSQL服务"><span class="toc-text">启动PostgreSQL服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置开机自动启动服务"><span class="toc-text">设置开机自动启动服务</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编辑配置文件，设置密码md5验证"><span class="toc-text">编辑配置文件，设置密码md5验证</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户和数据库的创建"><span class="toc-text">用户和数据库的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#防火墙设置"><span class="toc-text">防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows安装步骤"><span class="toc-text">windows安装步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载"><span class="toc-text">下载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#设置环境变量"><span class="toc-text">设置环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#初始化数据库"><span class="toc-text">初始化数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动数据库"><span class="toc-text">启动数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#停止数据库"><span class="toc-text">停止数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建数据库和用户"><span class="toc-text">创建数据库和用户</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PostgreSQL数据库备份与恢复"><span class="toc-text">PostgreSQL数据库备份与恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#备份"><span class="toc-text">备份</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#恢复"><span class="toc-text">恢复</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#学习网站"><span class="toc-text">学习网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

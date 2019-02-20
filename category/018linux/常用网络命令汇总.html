@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>linux中与网络相关的命令 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="linux中与网络相关的命令">
+            
+	            linux中与网络相关的命令
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/12/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#linux网络命令汇总</p>
+<h2 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h2><p>ifconfig用于输出网络接口配置、调优和debug的各种选项。可以快捷地查看IP地址和其它网络接口的信息。键入ifconfig查看所有启用的网络接口的状态，包括它们的名字。可以指定网络接口的名字来只显示这一个接口的信息。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p><code>ifconfig</code><br><code>ifconfig eth0</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">enp0s5    Link encap:Ethernet  HWaddr 00:1c:42:4b:cf:a2  </span><br><span class="line">          inet addr:10.5.20.17  Bcast:10.5.20.63  Mask:255.255.255.192</span><br><span class="line">          inet6 addr: fe80::3d36:c06:4ec7:1e97/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:555955 errors:0 dropped:267 overruns:0 frame:0</span><br><span class="line">          TX packets:157098 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:400812890 (400.8 MB)  TX bytes:12261729 (12.2 MB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          inet6 addr: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:3418 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:3418 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1 </span><br><span class="line">          RX bytes:243353 (243.3 KB)  TX bytes:243353 (243.3 KB)</span><br></pre></td></tr></table></figure>
+<p>eth0 表示第一块网卡， 其中 HWaddr 表示网卡的物理地址，</p>
+<p>inet addr 用来表示网卡的IP地址，广播地址Bcast:10.5.20.63  掩码地址Mask:255.255.255.192</p>
+<p>lo 是表示主机的回坏地址，这个一般是用来测试一个网络程序，但又不想让局域网或外网的用户能够查看，只能在此台主机上运行和查看所用的网络接口。</p>
+<p>第一行：连接类型：Ethernet（以太网）HWaddr（硬件mac地址）<br>第二行：网卡的IP地址、子网、掩码<br>第三行：UP（代表网卡开启状态）RUNNING（代表网卡的网线被接上）MULTICAST（支持组播）MTU:1500（最大传输单元）：1500字节<br>第四、五行：接收、发送数据包情况统计<br>第七行：接收、发送数据字节数统计信息。</p>
+<h3 id="配置IP地址"><a href="#配置IP地址" class="headerlink" title="配置IP地址"></a>配置IP地址</h3><p><code>ifconfig eth0 192.168.1.10 netmask 255.255.255.0 up</code><br><code>ifconfig eth0 192.168.120.56</code><br><code>ifconfig eth0 192.168.120.56 netmask 255.255.255.0</code></p>
+<p>网卡绑定多IP<br><code>ifconfig eth0:1 192.168.1.99 netmask 255.255.255.0</code></p>
+<h2 id="traceroute"><a href="#traceroute" class="headerlink" title="traceroute"></a>traceroute</h2><p>traceroute命令显示数据包到达目的主机所经过的路由</p>
+<p><code>traceroute www.baidu.com</code></p>
+<h2 id="route"><a href="#route" class="headerlink" title="route"></a>route</h2><h3 id="查看路由表"><a href="#查看路由表" class="headerlink" title="查看路由表"></a>查看路由表</h3><p><code>route -n</code><br>或者<code>netstat -rn</code></p>
+<h3 id="添加默认的网关"><a href="#添加默认的网关" class="headerlink" title="添加默认的网关"></a>添加默认的网关</h3><p><code>route add default gw 10.0.0.254</code><br>相当有<br><code>route add -net 0.0.0.0 netmask 0.0.0.0 gw 10.0.0.254</code></p>
+<p>##ping<br>使用ping 命令来测试网络的连通性<br>ping发送ECHO_REQUEST包到你指定的地址，使用 -c 开关，可以指定发送ECHO_REQUEST包的个数。<br><code>ping  192.168.1.10</code><br><code>ping -c 4 baidu.com</code></p>
+<p>##arp</p>
+<p>可以使用arp命令来配置并查看arp缓存</p>
+<h2 id="host"><a href="#host" class="headerlink" title="host"></a>host</h2><p>host命令用来做DNS查询。如果命令参数是域名，命令会输出关联的IP；如果命令参数是IP，命令则输出关联的域名。</p>
+<p><code>host www.baidu.com</code></p>
+<h2 id="nslookup"><a href="#nslookup" class="headerlink" title="nslookup"></a>nslookup</h2><p>nslookup 用这个命令来显示主机名，可以找到给定域名的所有ip地址。</p>
+<p><code>nslookup www.baidu.com</code><br>会显示如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">www.baidu.com	canonical name = www.a.shifen.com.</span><br><span class="line">Name:	www.a.shifen.com</span><br><span class="line">Address: 115.239.211.112</span><br><span class="line">Name:	www.a.shifen.com</span><br><span class="line">Address: 115.239.210.27</span><br></pre></td></tr></table></figure>
+<h2 id="hostname"><a href="#hostname" class="headerlink" title="hostname"></a>hostname</h2><p>hostname 没有选项，显示主机名字</p>
+<p>hostname –d 显示机器所属域名<br>hostname –f 显示完整的主机名和域名<br>hostname –i 显示当前机器的ip地址</p>
+<h2 id="whois"><a href="#whois" class="headerlink" title="whois"></a>whois</h2><p>whois命令输出指定站点的whois记录，可以查看到更多如谁注册和持有这个站点这样的信息。域名人的联系方式也能查到</p>
+<p><code>whois www.baidu.com</code></p>
+<blockquote>
+<p>没有安装需要<code>sudo apt install whois</code></p>
+</blockquote>
+<h2 id="sar网络查看"><a href="#sar网络查看" class="headerlink" title="sar网络查看"></a>sar网络查看</h2><p><code>sar -n DEV 1 1</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/u013281361/article/details/52021993" target="_blank" rel="noopener">http://blog.csdn.net/u013281361/article/details/52021993</a><br><a href="http://www.cnblogs.com/lpfuture/p/5857738.html" target="_blank" rel="noopener">http://www.cnblogs.com/lpfuture/p/5857738.html</a><br>Linux ifconfig命令详解 <a href="http://blog.hehehehehe.cn/a/17571.htm" target="_blank" rel="noopener">http://blog.hehehehehe.cn/a/17571.htm</a><br><a href="http://www.2cto.com/os/201303/196496.html" target="_blank" rel="noopener">http://www.2cto.com/os/201303/196496.html</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/018linux/perf使用指南.html" class="pre-post btn btn-default" title="perf使用指南">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">perf使用指南</span>
+        </a>
+    
+    
+        <a href="/category/006系统设计/系统容量预估.html" class="next-post btn btn-default" title="如何预估系统容量?">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">如何预估系统容量?</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ifconfig"><span class="toc-text">ifconfig</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置IP地址"><span class="toc-text">配置IP地址</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#traceroute"><span class="toc-text">traceroute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#route"><span class="toc-text">route</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看路由表"><span class="toc-text">查看路由表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加默认的网关"><span class="toc-text">添加默认的网关</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#host"><span class="toc-text">host</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nslookup"><span class="toc-text">nslookup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#hostname"><span class="toc-text">hostname</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#whois"><span class="toc-text">whois</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sar网络查看"><span class="toc-text">sar网络查看</span></a></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a>
+        
+    </li></div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

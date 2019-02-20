@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>参看线程堆栈－jstack | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="参看线程堆栈－jstack">
+            
+	            参看线程堆栈－jstack
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Java">
+            Java
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/JVM" title="JVM">
+                        JVM
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#jstack介绍</p>
+<p>jstack用于生成java虚拟机当前时刻的线程快照。线程快照是当前java虚拟机内每一条线程正在执行的方法堆栈的集合，生成线程快照的主要目的是定位线程出现长时间停顿的原因，如线程间死锁、死循环、请求外部资源导致的长时间等待等。</p>
+<p>线程出现停顿的时候通过jstack来查看各个线程的调用堆栈，就可以知道没有响应的线程到底在后台做什么事情，或者等待什么资源。</p>
+<p>如果java程序崩溃生成core文件，jstack工具可以用来获得core文件的java stack和native stack的信息，从而可以轻松地知道java程序是如何崩溃和在程序何处发生问题。</p>
+<p>另外，jstack工具还可以附属到正在运行的java程序中，看到当时运行的java程序的java stack和native stack的信息, 如果现在运行的java程序呈现hung的状态，jstack是非常有用的。</p>
+<h1 id="命令介绍"><a href="#命令介绍" class="headerlink" title="命令介绍"></a>命令介绍</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>jstack -l 1086 &gt; /tmp/t.txt</p>
+<h2 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h2><p>-F当’jstack [-l] pid’没有相应的时候强制打印栈信息<br>-l长列表. 打印关于锁的附加信息,例如属于java.util.concurrent的ownable synchronizers列表。<br>-m打印java和native c/c++框架的所有栈信息。<br>-h | -help打印帮助信息。<br>pid 需要被打印配置信息的java进程id,可以用jps查询。</p>
+<h1 id="常见的jstack分析步骤"><a href="#常见的jstack分析步骤" class="headerlink" title="常见的jstack分析步骤"></a>常见的jstack分析步骤</h1><p>1.linux下使用top或者pidstat命令查看进程消耗情况</p>
+<p>假设进程号为26147，（通过 <code>pidstat -p 26147 -t -u 1</code> 找到线程号26160 )，也可以通过<code>top －H</code></p>
+<p>2.</p>
+<p>3.进行分析<br>printf %x 26160</p>
+<p>得到311f</p>
+<p>4.jstack命令定位代码</p>
+<p> <code>jstack 26147 | grep 6630 -A 50</code></p>
+<p>也可以先输出到文件，然后进行分析<br>or <code>jstack -l 26147 &gt; t.txt</code><br><code>grep java.lang.Thread.State t.txt | awk &#39;{print $2$3$4$5}&#39; | sort | uniq -c</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&quot;Thread-0&quot; #8 prio=5 os_prio=0 tid=0x00007f64800d9000 nid=0x709f runnable [0x00007f646b039000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">	at java.io.FileOutputStream.writeBytes(Native Method)</span><br><span class="line">	at java.io.FileOutputStream.write(FileOutputStream.java:326)</span><br><span class="line">	at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)</span><br><span class="line">	at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)</span><br><span class="line">	- locked &lt;0x00000000e0c13c60&gt; (a java.io.BufferedOutputStream)</span><br><span class="line">	at java.io.PrintStream.write(PrintStream.java:482)</span><br><span class="line">	- locked &lt;0x00000000e0c08200&gt; (a java.io.PrintStream)</span><br><span class="line">	at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)</span><br><span class="line">	at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:291)</span><br><span class="line">	at sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:104)</span><br><span class="line">	- locked &lt;0x00000000e0c081a8&gt; (a java.io.OutputStreamWriter)</span><br><span class="line">	at java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:185)</span><br><span class="line">	at java.io.PrintStream.write(PrintStream.java:527)</span><br><span class="line">	- eliminated &lt;0x00000000e0c08200&gt; (a java.io.PrintStream)</span><br><span class="line">	at java.io.PrintStream.print(PrintStream.java:669)</span><br><span class="line">	at java.io.PrintStream.println(PrintStream.java:806)</span><br><span class="line">	- locked &lt;0x00000000e0c08200&gt; (a java.io.PrintStream)</span><br><span class="line">	at CpuAll.run(CpuAll.java:15)</span><br><span class="line">	at java.lang.Thread.run(Thread.java:745)</span><br></pre></td></tr></table></figure>
+<p>如果判断CpuAll.run方法有问题。</p>
+<h1 id="使用jstack进行分析"><a href="#使用jstack进行分析" class="headerlink" title="使用jstack进行分析"></a>使用jstack进行分析</h1><p>使用jstack进行分析，需要了解线程的各种状态，可以参考<a href="!--￼3--&gt;/2016/11/06/1javacore/线程基本知识/">线程基本学习</a></p>
+<h2 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h2><p>java.lang.Thread.State枚举类中定义了如下几种类型：</p>
+<ul>
+<li>NEW：线程创建尚未启动。</li>
+<li>RUNNABLE：包括操作系统线程状态中的Ready和Running，可能在等待时间片或者正在执行。</li>
+<li>BLOCKED：线程被阻塞。</li>
+<li>WAITING：不会分配CPU执行时间，直到别的线程显式的唤醒，否则无限期等待。LockSupport.park()，没有设置Timeout参数的Object.wait()和Thread.join()，会导致此现象。</li>
+<li>TIMED_WAITING：不会分配CPU执行时间，直到系统自动唤醒，不需要别的线程显示唤醒。Thread.sleep()，LockSupport.parkNanos()，LockSupport.parkUntil()，设置了超时时间的Object.wait()和Thread.join()，会让线程进入有限期等待。</li>
+<li>TERMINATED：线程执行结束</li>
+</ul>
+<blockquote>
+<p>阻塞状态与等待状态的区别是：阻塞状态的线程是在等待一个排它锁，直到别的线程释放该排它锁，该线程获取到该锁才能退出阻塞状态；</p>
+<p>而等待状态的线程则是等待一段时间，由系统唤醒或者别的线程唤醒，该线程便退出等待状态。 </p>
+</blockquote>
+<p>线程状态转化图如下：</p>
+<p><img src="!--￼4--&gt;/image/java/线程的状态图.png" alt="线程的状态图"></p>
+<h2 id="文件分析"><a href="#文件分析" class="headerlink" title="文件分析"></a>文件分析</h2><p>生成的dump文件的内容如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&quot;Thread-0&quot; #8 prio=5 os_prio=0 tid=0x00007fb8a80d9000 nid=0x312c runnable [0x00007fb89222b000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line">        at java.io.FileOutputStream.writeBytes(Native Method)</span><br><span class="line">        at java.io.FileOutputStream.write(FileOutputStream.java:326)</span><br><span class="line">        at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)</span><br><span class="line">        at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)</span><br><span class="line">        - locked &lt;0x00000000e0c17848&gt; (a java.io.BufferedOutputStream)</span><br><span class="line">        at java.io.PrintStream.write(PrintStream.java:482)</span><br><span class="line">        - locked &lt;0x00000000e0c04920&gt; (a java.io.PrintStream)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:291)</span><br><span class="line">        at sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:104)</span><br><span class="line">        - locked &lt;0x00000000e0c048c8&gt; (a java.io.OutputStreamWriter)</span><br><span class="line">        at java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:185)</span><br><span class="line">        at java.io.PrintStream.write(PrintStream.java:527)</span><br><span class="line">        - eliminated &lt;0x00000000e0c04920&gt; (a java.io.PrintStream)</span><br><span class="line">        at java.io.PrintStream.print(PrintStream.java:669)</span><br><span class="line">        at java.io.PrintStream.println(PrintStream.java:806)</span><br><span class="line">        - locked &lt;0x00000000e0c04920&gt; (a java.io.PrintStream)</span><br><span class="line">        at CpuAll.run(CpuAll.java:15)</span><br><span class="line">        at java.lang.Thread.run(Thread.java:745)</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">        - None</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&quot;Service Thread&quot; #7 daemon prio=9 os_prio=0 tid=0x00007fb8a80bb800 nid=0x312a runnable [0x0000000000000000]</span><br><span class="line">   java.lang.Thread.State: RUNNABLE</span><br><span class="line"></span><br><span class="line">   Locked ownable synchronizers:</span><br><span class="line">        - None</span><br></pre></td></tr></table></figure>
+<p>Service Thread：线程的名字<br>daemon：守护线程<br>prio=10：线程的优先级（默认是5）<br>tid：Java的线程Id（线程在当前虚拟机中的唯一标识）<br>nid：线程本地标识<br>runnable：线程的状态<br>[0x00007fb89222b000]：当前运行的线程在堆中的地址范围</p>
+<p>#常见情况如下</p>
+<h2 id="线程状态为“waiting-for-monitor-entry”"><a href="#线程状态为“waiting-for-monitor-entry”" class="headerlink" title="线程状态为“waiting for monitor entry”"></a>线程状态为“waiting for monitor entry”</h2><p>意味着它 在等待进入一个临界区 ，所以它在”Entry Set“队列中等待。<br>此时线程状态一般都是 Blocked：<br>java.lang.Thread.State: BLOCKED (on object monitor)</p>
+<h2 id="线程状态为“waiting-on-condition”"><a href="#线程状态为“waiting-on-condition”" class="headerlink" title="线程状态为“waiting on condition”"></a>线程状态为“waiting on condition”</h2><p>说明它在等待另一个条件的发生，来把自己唤醒，或者干脆它是调用了 sleep(N)。<br>此时线程状态大致为以下几种：<br>java.lang.Thread.State: WAITING (parking)：一直等那个条件发生；<br>java.lang.Thread.State: TIMED_WAITING (parking或sleeping)：定时的，那个条件不到来，也将定时唤醒自己。</p>
+<h2 id="大量线程在“waiting-for-monitor-entry”"><a href="#大量线程在“waiting-for-monitor-entry”" class="headerlink" title="大量线程在“waiting for monitor entry”"></a>大量线程在“waiting for monitor entry”</h2><p>可能是一个全局锁阻塞住了大量线程。<br>如果短时间内打印的 thread dump 文件反映，随着时间流逝，waiting for monitor entry 的线程越来越多，没有减少的趋势，可能意味着某些线程在临界区里呆的时间太长了，以至于越来越多新线程迟迟无法进入临界区。</p>
+<h2 id="大量线程在“waiting-on-condition”"><a href="#大量线程在“waiting-on-condition”" class="headerlink" title="大量线程在“waiting on condition”"></a>大量线程在“waiting on condition”</h2><p>可能是它们又跑去获取第三方资源，尤其是第三方网络资源，迟迟获取不到Response，导致大量线程进入等待状态。<br>所以如果你发现有大量的线程都处在 Wait on condition，从线程堆栈看，正等待网络读写，这可能是一个网络瓶颈的征兆，因为网络阻塞导致线程无法执行。</p>
+<h2 id="线程状态为“in-Object-wait-”"><a href="#线程状态为“in-Object-wait-”" class="headerlink" title="线程状态为“in Object.wait()”"></a>线程状态为“in Object.wait()”</h2><p>说明它获得了监视器之后，又调用了 java.lang.Object.wait() 方法。<br>每个 Monitor在某个时刻，只能被一个线程拥有，该线程就是 “Active Thread”，而其它线程都是 “Waiting Thread”，分别在两个队列 “ Entry Set”和 “Wait Set”里面等候。在 “Entry Set”中等待的线程状态是 “Waiting for monitor entry”，而在 “Wait Set”中等待的线程状态是 “in Object.wait()”。<br>当线程获得了 Monitor，如果发现线程继续运行的条件没有满足，它则调用对象（一般就是被 synchronized 的对象）的 wait() 方法，放弃了 Monitor，进入 “Wait Set”队列。<br>此时线程状态大致为以下几种：<br>java.lang.Thread.State: TIMED_WAITING (on object monitor)；<br>java.lang.Thread.State: WAITING (on object monitor)；</p>
+<p>#其他常用命令</p>
+<h2 id="统计所有线程分别处于什么状态"><a href="#统计所有线程分别处于什么状态" class="headerlink" title="统计所有线程分别处于什么状态"></a>统计所有线程分别处于什么状态</h2><p><code>grep java.lang.Thread.State dump17 | awk &#39;{print $2$3$4$5}&#39; | sort | uniq -c</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ul>
+<li><a href="http://www.cnblogs.com/zhengyun_ustc/archive/2013/03/18/tda.html" target="_blank" rel="noopener">各种 Java Thread State 第一分析法则</a></li>
+<li><a href="http://www.cnblogs.com/dsping0711/p/5885294.html" target="_blank" rel="noopener">关于Java线程转储分析</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/022java/thread/AQS.html" class="pre-post btn btn-default" title="AbstractQueuedSynchronizer学习">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">AbstractQueuedSynchronizer学习</span>
+        </a>
+    
+    
+        <a href="/category/018linux/linux-shell.html" class="next-post btn btn-default" title="linux shell编程基础">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">linux shell编程基础</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#命令介绍"><span class="toc-text">命令介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本参数"><span class="toc-text">基本参数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常见的jstack分析步骤"><span class="toc-text">常见的jstack分析步骤</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用jstack进行分析"><span class="toc-text">使用jstack进行分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态"><span class="toc-text">线程状态</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件分析"><span class="toc-text">文件分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态为“waiting-for-monitor-entry”"><span class="toc-text">线程状态为“waiting for monitor entry”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态为“waiting-on-condition”"><span class="toc-text">线程状态为“waiting on condition”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大量线程在“waiting-for-monitor-entry”"><span class="toc-text">大量线程在“waiting for monitor entry”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#大量线程在“waiting-on-condition”"><span class="toc-text">大量线程在“waiting on condition”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程状态为“in-Object-wait-”"><span class="toc-text">线程状态为“in Object.wait()”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#统计所有线程分别处于什么状态"><span class="toc-text">统计所有线程分别处于什么状态</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

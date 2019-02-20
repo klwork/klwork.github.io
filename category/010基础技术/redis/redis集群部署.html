@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>redis集群部署 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="redis集群部署">
+            
+	            redis集群部署
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/基础技术">
+            基础技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Redis" title="Redis">
+                        Redis
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/11/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="redis集群部署"><a href="#redis集群部署" class="headerlink" title="redis集群部署"></a>redis集群部署</h1><p><code>cd /root/Downloads</code><br><code>wget http://download.redis.io/releases/redis-3.2.8.tar.gz</code><br><code>mkdir -p /opt/soft/</code></p>
+<p>tar -zxf zxf redis-3.2.8.tar.gz -C /opt/soft/</p>
+<p>cd /opt/soft<br>ln -s redis-3.2.8 redis</p>
+<h2 id="下载新版redis"><a href="#下载新版redis" class="headerlink" title="下载新版redis"></a>下载新版redis</h2><p><code>cd /root/Downloads</code><br><code>wget http://download.redis.io/releases/redis-3.2.8.tar.gz</code></p>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><p><code>mkdir -p /opt/soft/</code><br>tar -zxf zxf redis-3.2.8.tar.gz -C /opt/soft/</p>
+<h2 id="加软连接"><a href="#加软连接" class="headerlink" title="加软连接"></a>加软连接</h2><p>cd /opt/soft/<br>ln -s redis-3.2.8 redis</p>
+<h2 id="编译redis"><a href="#编译redis" class="headerlink" title="编译redis"></a>编译redis</h2><p>yum -y install gcc tcl<br>cd /opt/soft/redis/src<br>make MALLOC=libc<br>检查有没有错误， make test</p>
+<h2 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>vim /etc/profile<br>export PATH=$PATH:/opt/soft/redis/src<br>source /etc/profile</p>
+<ol start="6">
+<li>修改配置文件<br>cd /opt/soft/redis<br>cp redis.conf redis-7000.conf<br>vim redis-7000.conf<br>daemonize no 改为 yes # 是否后台运行<br>port 7000 #端口，如果在同一台机器使用，注意修改端口<br>tcp-keepalive 60 #<br>#bind1 27.0.0.1 #注解此配置，否则任何使用都需要符合此ip限制<br>pidfile redis.pid #所有file默认在dir配置的目录下面<br>stop-writes-on-bgsave-error no #rdb写失败不影响后续写入<br>rdbchecksumno #检查rdb是否正确，损失10%性能<br>dir /opt/soft/redis/data-7000 #data文件存放位置<br>protected-mode no#关闭保护模式<br>cluster-enabled yes #开启集群<br>cluster-config-file nodes.conf #集群配置<br>cluster-node-timeout 15000 #超时检测时间<br>cluster-slave-validity-factor0#防止slave不再failover导致集群不可用<br>cluster-require-full-coverage no #槽点丢失不影响其他部分使用<br>appendonly no #关闭aof模式</li>
+</ol>
+<h2 id="建立7001文件和7002文件"><a href="#建立7001文件和7002文件" class="headerlink" title="建立7001文件和7002文件"></a>建立7001文件和7002文件</h2><p>cp redis-7000.conf redis-7001.conf<br>cp redis-7000.conf redis-7002.conf</p>
+<p>替换配置文件<br>vim redis-7001.conf<br>:%s/7000/7001/g</p>
+<p>vim redis-7002.conf<br>:%s/7000/7002/g</p>
+<p>7001，7002，copy到第二台服务器</p>
+<h2 id="建立数据目录"><a href="#建立数据目录" class="headerlink" title="建立数据目录"></a>建立数据目录</h2><p>redis集群最少3master，3slave。根据机器及其性能分配<br>mkdir data-7000 data-7001 data-7002</p>
+<ol start="8">
+<li>启动6个redis实例<br>服务脚本文件在redis安装目录的utils文件夹里redis_init_script修改下就可用<br>cp utils/redis_init_script /etc/init.d/redis-7000</li>
+</ol>
+<p>修改前5项配置<br>REDISPORT=7000<br>EXEC=/opt/soft/redis/src/redis-server<br>CLIEXEC=/opt/soft/redis/src/redis-cli</p>
+<p>PIDFILE=/opt/soft/redis/data-${REDISPORT}/redis.pid<br>CONF=”/opt/soft/redis/redis-${REDISPORT}.conf”<br>PASSWORD=wdzj2015</p>
+<p>case “$1” in<br>start)<br>if [ -f $PIDFILE ]<br>then<br>echo “$PIDFILE exists, process is already running or crashed”<br>else<br>echo “Starting Redis server…”<br>                $EXEC $CONF<br>fi<br>        ;;<br>stop)<br>if [ ! -f $PIDFILE ]<br>then<br>echo “$PIDFILE does not exist, process is not running”<br>else<br>                PID=$(cat $PIDFILE)<br>echo “Stopping …”<br>if [ -n $PASSWORD ]<br>then<br>                $CLIEXEC -p $REDISPORT -a $PASSWORD shutdown<br>else<br>                $CLIEXEC -p $REDISPORT shutdown<br>fi<br>while [ -x /proc/${PID} ]<br>do<br>echo “Waiting for Redis to shutdown …”<br>sleep 1<br>done<br>echo “Redis stopped”<br>fi<br>        ;;<br>    *)<br>echo “Please use start or stop as first argument”<br>        ;;<br>esac<br>cp /etc/init.d/redis-7000 /etc/init.d/redis-7001<br>    修改端口7000为7001即可<br>cp /etc/init.d/redis-7000 /etc/init.d/redis-7002<br>    修改端口7000为7002即可<br>service redis-7000 start<br>service redis-7001 start<br>service redis-7002 start</p>
+<p>ps -ef | grep redis</p>
+<ol start="9">
+<li>安装执行集群需要的环境<br>yum install -y ruby<br>yum install -y rubygems<br>gem install redis</li>
+<li>配置集群<br>redis-trib.rb create –replicas 1 192.168.11.46:7000 192.168.11.47:7001 192.168.11.46:7002 192.168.11.47:7000 192.168.11.46:7001 192.168.11.47:7002<br>redis-trib.rb最少3个参数，否则报错</li>
+</ol>
+<p>默认前3个是master，后3个是slave<br>Can I set the above configuration? (type ‘yes’ to accept): yes<br>允许redis修改节点信息</p>
+<p>集群配置完成。<br>如果出现长时间wait可以视为创建失败，停掉所有服务，删除所有nodes.conf，文件在conf的$dir下；删除后重启redis，重新执行第十步，直到成功</p>
+<ol start="11">
+<li>检查是否配置好<br>ps-ef|grep redis</li>
+</ol>
+<p>安装成功，检测节点状态<br>登陆redis<br>redis-cli -p 7000 -a wdzj2015 –c<br>redis-cli -h 192.168.11.123 -p 7006 -c<br>执行clusternodes查看是否3master3slave，如图：</p>
+<p>没有fail就表明安装成功。如果有fail检测网络情况。如果不足6个请重复第10步删除nodes.conf后重新创建节点。</p>
+<p>检查节点<br>./redis-trib.rb check 10.254.62.12:7001</p>
+<p>redis-cli -p 7000 -a hyjk2017 -c<br>测试</p>
+<p>SET abc abcvalue EX 60 NX</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://blog.csdn.net/huwei2003/article/details/50973967" target="_blank" rel="noopener">http://blog.csdn.net/huwei2003/article/details/50973967</a><br><a href="http://blog.csdn.net/naixiyi/article/details/51339374" target="_blank" rel="noopener">http://blog.csdn.net/naixiyi/article/details/51339374</a><br><a href="http://blog.csdn.net/yyyuuueeee/article/details/52249732" target="_blank" rel="noopener">http://blog.csdn.net/yyyuuueeee/article/details/52249732</a><br><a href="http://www.tuicool.com/articles/bUVRNn2" target="_blank" rel="noopener">http://www.tuicool.com/articles/bUVRNn2</a><br><a href="https://yq.aliyun.com/articles/61734" target="_blank" rel="noopener">https://yq.aliyun.com/articles/61734</a></p>
+<p>temp<br><a href="http://blog.csdn.net/fengyong7723131/article/details/52995592" target="_blank" rel="noopener">http://blog.csdn.net/fengyong7723131/article/details/52995592</a></p>
+<p><a href="http://blog.csdn.net/sanwenyublog/article/details/53167544" target="_blank" rel="noopener">http://blog.csdn.net/sanwenyublog/article/details/53167544</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/010基础技术/分布式理论/tcp建立连接的状态说明.html" class="pre-post btn btn-default" title="tcp建立连接的状态说明">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">tcp建立连接的状态说明</span>
+        </a>
+    
+    
+        <a href="/category/018linux/netstat.html" class="next-post btn btn-default" title="查看发包的端口－netstat">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">查看发包的端口－netstat</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#redis集群部署"><span class="toc-text">redis集群部署</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载新版redis"><span class="toc-text">下载新版redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#解压"><span class="toc-text">解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#加软连接"><span class="toc-text">加软连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编译redis"><span class="toc-text">编译redis</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加环境变量"><span class="toc-text">添加环境变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立7001文件和7002文件"><span class="toc-text">建立7001文件和7002文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立数据目录"><span class="toc-text">建立数据目录</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

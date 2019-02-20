@@ -1,0 +1,346 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Hbase学习 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Hbase学习">
+            
+	            Hbase学习
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/大数据学习">
+            大数据学习
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+                    <a href="/tags/Hbase" title="Hbase">
+                        Hbase
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/05/17</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="HBase的特性"><a href="#HBase的特性" class="headerlink" title="HBase的特性"></a>HBase的特性</h1><h2 id="容量巨大"><a href="#容量巨大" class="headerlink" title="容量巨大"></a>容量巨大</h2><p>HBase的单表可以有百亿行、百万列</p>
+<h2 id="面向列"><a href="#面向列" class="headerlink" title="面向列"></a>面向列</h2><p>HBase是面向列的存储和权限控制，并支持列独立检索。</p>
+<p>vs传统行式数据库</p>
+<ul>
+<li>数据是按行存储的</li>
+<li>没有索引的查询使用大量I/O</li>
+<li>建立索引和物化视图需要花费大量的时间和资源</li>
+</ul>
+<p>列式数据库的特性</p>
+<ul>
+<li>数据是按行存储的</li>
+<li>数据即索引，只访问查询涉及的列，可以大量降低系统I/O</li>
+<li>数据类型一致，数据特征相似，可以高效压缩</li>
+</ul>
+<h2 id="稀疏性"><a href="#稀疏性" class="headerlink" title="稀疏性"></a>稀疏性</h2><p>在大多数情况下，采用传统行式存储的数据往往是稀疏的，即存在大量为空（NULL）的列，而这些列都是占用存储空间的，这就造成存储空间的浪费。对于HBase来讲，为空的列并不占用存储空间，因此，表可以设计得非常稀疏。</p>
+<h2 id="扩展性"><a href="#扩展性" class="headerlink" title="扩展性"></a>扩展性</h2><p>HBase底层文件存储依赖HDFS，从“基因”上决定了其具备可扩展性。</p>
+<h2 id="高可靠性"><a href="#高可靠性" class="headerlink" title="高可靠性"></a>高可靠性</h2><p>HBase提供WAL和Replication机制。前者保证了数据写入时不会因集群异常而导致写入数据的丢失；后者保证了在集群出现严重问题时，数据不会发生丢失或者损坏。</p>
+<h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>##</p>
+<p>create ‘JSpider_cn.made-in-china.com’,’a’ </p>
+<h2 id="读取"><a href="#读取" class="headerlink" title="读取"></a>读取</h2><p>HBase不能支持where条件、Order by 查询，只支持按照Row key来查询，但是可以通过HBase提供的API进行条件过滤</p>
+<p>scan ‘blogtable’ ,{COLUMNS =&gt; [‘text:’,’info:title’] } —&gt; 列出 文章的内容和标题<br>scan ‘blogtable’ , {COLUMNS =&gt; ‘info:url’ , STARTROW =&gt; ‘2’} —&gt; 根据范围列出 文章的内容和标题</p>
+<p>get ‘blogtable’,’1’, {COLUMN =&gt; ‘info’} —&gt; 列出 文章id 等于1的info 的头(Head)内容<br>get ‘blogtable’,’1’, {COLUMN =&gt; [‘text’,’info:author’]}</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://hub.docker.com/r/cloudera/clusterdock/" target="_blank" rel="noopener">https://hub.docker.com/r/cloudera/clusterdock/</a></p>
+<p><a href="https://blog.csdn.net/scgaliguodong123_/article/details/46626779" target="_blank" rel="noopener">https://blog.csdn.net/scgaliguodong123_/article/details/46626779</a><br><a href="http://www.cnblogs.com/cnmenglang/p/6555828.html" target="_blank" rel="noopener">http://www.cnblogs.com/cnmenglang/p/6555828.html</a></p>
+<p>值得学习<br><a href="https://www.cnblogs.com/charlist/p/7063991.html" target="_blank" rel="noopener">https://www.cnblogs.com/charlist/p/7063991.html</a><br>接口文章<br><a href="https://cloud.tencent.com/developer/article/1018573" target="_blank" rel="noopener">https://cloud.tencent.com/developer/article/1018573</a></p>
+<p><a href="https://blog.csdn.net/dreamsigel/article/details/53835013?fps=1&amp;locationNum=8" target="_blank" rel="noopener">https://blog.csdn.net/dreamsigel/article/details/53835013?fps=1&amp;locationNum=8</a></p>
+<p>Elasticsearch+hbase<br><a href="https://blog.csdn.net/cafebar123/article/details/79430782" target="_blank" rel="noopener">https://blog.csdn.net/cafebar123/article/details/79430782</a></p>
+<p>elasticsearch整合hbase步骤<br><a href="https://blog.csdn.net/high2011/article/details/51596853" target="_blank" rel="noopener">https://blog.csdn.net/high2011/article/details/51596853</a></p>
+<p>mob<br><a href="https://yq.aliyun.com/articles/586784" target="_blank" rel="noopener">https://yq.aliyun.com/articles/586784</a></p>
+<p>搭建安装<br><a href="https://www.jianshu.com/p/b2d9194ad6f5" target="_blank" rel="noopener">https://www.jianshu.com/p/b2d9194ad6f5</a></p>
+<p>HBase中存取图片、文档数据（HBase MOB）<br><a href="https://my.oschina.net/u/234661/blog/1553207" target="_blank" rel="noopener">https://my.oschina.net/u/234661/blog/1553207</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/030大数据/mongod学习.html" class="pre-post btn btn-default" title="Docker下MongoDB复制集">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Docker下MongoDB复制集</span>
+        </a>
+    
+    
+        <a href="/category/030大数据/elasticsearch学习.html" class="next-post btn btn-default" title="Elasticsearch入门学习">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Elasticsearch入门学习</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#HBase的特性"><span class="toc-text">HBase的特性</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#容量巨大"><span class="toc-text">容量巨大</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#面向列"><span class="toc-text">面向列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#稀疏性"><span class="toc-text">稀疏性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展性"><span class="toc-text">扩展性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高可靠性"><span class="toc-text">高可靠性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#操作"><span class="toc-text">操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#读取"><span class="toc-text">读取</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

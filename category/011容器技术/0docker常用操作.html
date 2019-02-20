@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Docker常用操作 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Docker常用操作">
+            
+	            Docker常用操作
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/容器技术">
+            容器技术
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/中间件" title="中间件">
+                        中间件
+                    </a>
+                
+                    <a href="/tags/Docker" title="Docker">
+                        Docker
+                    </a>
+                
+                    <a href="/tags/分布式" title="分布式">
+                        分布式
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/02/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="docker概念"><a href="#docker概念" class="headerlink" title="docker概念"></a>docker概念</h1><p>三个基本概念（镜像／容器／仓库）</p>
+<h2 id="服务启用停用"><a href="#服务启用停用" class="headerlink" title="服务启用停用"></a>服务启用停用</h2><p>sudo service docker start<br>sudo service docker stop</p>
+<h1 id="Docker初步使用"><a href="#Docker初步使用" class="headerlink" title="Docker初步使用"></a>Docker初步使用</h1><p> <code>docker run -i -t --name mytest ubuntu:latest /bin/bash</code></p>
+<blockquote>
+<p>i表示使用交互模式<br>t表示分配一个伪终端<br>docker run = docker create + docker start<br>其他参数<br>-d参数，容器启动后进入后台。</p>
+</blockquote>
+<h1 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h1><h2 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h2><p>docker search maven<br>下载到本地</p>
+<p>docker pull stephenreed/jenkins-java8-maven-git</p>
+<h1 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h1><h2 id="重新进入"><a href="#重新进入" class="headerlink" title="重新进入"></a>重新进入</h2><p>如果容器以后台形式运行，可以使用下面命令进入，这样就可以看到容器的信息。<br>docker exec -ti 243c32535da7  /bin/bash</p>
+<h2 id="查看容器的基本信息"><a href="#查看容器的基本信息" class="headerlink" title="查看容器的基本信息"></a>查看容器的基本信息</h2><p>docker inspect  130a4565c27d</p>
+<p>可以用 grep 或 –format 参数来过滤感兴趣的信息</p>
+<h2 id="终止容器"><a href="#终止容器" class="headerlink" title="终止容器"></a>终止容器</h2><p>docker stop<br>docker stop $(docker ps -a -q)</p>
+<h2 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h2><p>docker rm 命名删除处于终止状态的容器</p>
+<p>删除所有停止的容器<br>docker rm $(docker ps -a -q)</p>
+<p>##数据卷共享</p>
+<p>docker run -it –volumes-from dbdatab –name db1 ubuntu</p>
+<p>docker run –volumes-from dbdatab -ti -v $(pwd):/backup –name worker2 ubuntu </p>
+<p>备份dbdata数据卷容器内的数据卷<br>将本机的当前目录 挂载到 容器的根目录／backup</p>
+<p>docker run -d -P –name web -v /src/webapp:/opt/webapp training/webapp python app.py上面的命令加载主机的/src/webapp目录到容器的/opt/webapp目录：</p>
+<h2 id="使用文件构建"><a href="#使用文件构建" class="headerlink" title="使用文件构建"></a>使用文件构建</h2><p>docker build -t u-cents6 .</p>
+<p>目录下需要干净，只有dock</p>
+<p>#参考网站 #</p>
+<p>docker1.12安装配置及使用笔记<br><a href="http://www.cnblogs.com/ilinuxer/p/6367004.html" target="_blank" rel="noopener">http://www.cnblogs.com/ilinuxer/p/6367004.html</a></p>
+<ul>
+<li><a href="http://www.cnblogs.com/ola2010/p/5524826.html" target="_blank" rel="noopener">dock安装</a></li>
+</ul>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/018linux/ubuntu/ubuntu中java环境的安装.html" class="pre-post btn btn-default" title="ubuntu中java环境的安装">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">ubuntu中java环境的安装</span>
+        </a>
+    
+    
+        <a href="/category/011容器技术/k8s安装.html" class="next-post btn btn-default" title="k8s入门">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">k8s入门</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#docker概念"><span class="toc-text">docker概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#服务启用停用"><span class="toc-text">服务启用停用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Docker初步使用"><span class="toc-text">Docker初步使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#镜像"><span class="toc-text">镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#搜索"><span class="toc-text">搜索</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#容器"><span class="toc-text">容器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#重新进入"><span class="toc-text">重新进入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查看容器的基本信息"><span class="toc-text">查看容器的基本信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#终止容器"><span class="toc-text">终止容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#删除容器"><span class="toc-text">删除容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用文件构建"><span class="toc-text">使用文件构建</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>
