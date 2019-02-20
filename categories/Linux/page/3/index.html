@@ -135,29 +135,6 @@
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/category/018linux/free.html">查看内存使用情况－free</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年11月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    #free
-基本使用free –m
-123              total        used        free      shared  buff/cache   availableMem:        20443...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
                     <a href="/category/018linux/vmstat.html">监控cpu和内存－vmstat命令</a>
                 </h1>
                 <div class="post-meta">  &bull;
@@ -172,6 +149,39 @@
 基本使用每秒采集一次，共计3次
 vmstat 1 3
 12345procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu--...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/category/018linux/netstat.html">查看发包的端口－netstat</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年11月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    #netstat
+可用于列出系统上所有的网络套接字连接情况，包括 tcp, udp 以及 unix 套接字，另外它还能列出处于监听状态（即等待接入请求）的套接字。
+基本使用netstat －an
+参数
+
+
+参数说明
+说明
+
+
+
+
+-a...
                 
             </p>
         </div>
@@ -229,7 +239,7 @@ sudo apt-get install  lib...
         <div class="post-content">
             <div class="post-head home-post-head">
                 <h1 class="post-title">
-                    <a href="/category/018linux/linx-id.html">Linux id 命令</a>
+                    <a href="/category/018linux/常用Linux系统调用.html">常用Linux系统调用</a>
                 </h1>
                 <div class="post-meta">  &bull;
                     <time class="post-date" datetime="" title="">
@@ -239,8 +249,36 @@ sudo apt-get install  lib...
             </div>
             <p class="brief">
                 
-                    id命令用来做什么？id 命令可以显示真实有效的用户 ID(UID) 和组 ID(GID)。UID 是对一个用户的单一身份标识。组 ID（GID）则对应多个UID。
-一些程序可能需要 UID/GID 来运行，我们想知道某个用户的 UI...
+                    #系统调用简介
+linux内核中设置了一组用于实现系统功能的子程序，称为系统调用。系统调用和普通库函数调用非常相似，只是系统调用由操作系统核心提供，运行于核心态，而普通的函数调用由函数库或用户自己提供，运行于用户态。
+#系统调用汇总
+...
+                
+            </p>
+        </div>
+    </article>
+ 
+    <article class="post">
+        
+        <div class="post-content">
+            <div class="post-head home-post-head">
+                <h1 class="post-title">
+                    <a href="/category/018linux/Linux数字转换.html">Linux中十进制和其他进制的互换</a>
+                </h1>
+                <div class="post-meta">  &bull;
+                    <time class="post-date" datetime="" title="">
+                        2016年05月06日
+                    </time>
+                </div>
+            </div>
+            <p class="brief">
+                
+                    Linux数字转换有时需要快速查看二进制的数字为多少
+其他转为十进制((num=2#11011111))
+echo $num
+((num=0xff));
+echo $num
+十进制转为其它进制十进制转八进制echo “obase=8;...
                 
             </p>
         </div>
@@ -269,32 +307,6 @@ sudo netstat -anop | grep 3306
 
 netstat -tnlp
 可以查看监听的端口，其中l是l...
-                
-            </p>
-        </div>
-    </article>
- 
-    <article class="post">
-        
-        <div class="post-content">
-            <div class="post-head home-post-head">
-                <h1 class="post-title">
-                    <a href="/category/018linux/Linux数字转换.html">Linux中十进制和其他进制的互换</a>
-                </h1>
-                <div class="post-meta">  &bull;
-                    <time class="post-date" datetime="" title="">
-                        2016年05月06日
-                    </time>
-                </div>
-            </div>
-            <p class="brief">
-                
-                    Linux数字转换有时需要快速查看二进制的数字为多少
-其他转为十进制((num=2#11011111))
-echo $num
-((num=0xff));
-echo $num
-十进制转为其它进制十进制转八进制echo “obase=8;...
                 
             </p>
         </div>

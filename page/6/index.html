@@ -512,7 +512,7 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/category/018linux/systemtap.html">systemtap学习总结</a>
+                <a href="/category/010基础技术/分布式理论/tcp建立连接的状态说明.html">tcp建立连接的状态说明</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -522,9 +522,10 @@ ifconfigifconfig用于输出网络接口配置、调优和debug的各种选项�
         </div>
         <p class="brief">
             
-                systemtap简介systemtap安装测试安装安装elfutils，提供分析调试信息的库函数，及libcap-dev
-sudo apt-get install elfutils
-sudo apt-get install  lib...
+                #tcp建立连接的状态说明
+TCP连接建立首先要说明的是要明确TCP连接建立的过程需要3次握手，下面举例说明各种状态存在的时刻：
+
+首先在服务器A上开启FTP服务，开始侦听来自远端TCP端口的连接请求，这个时候查看服务器A状态为：LI...
             
         </p>
     </div>
@@ -536,8 +537,8 @@ sudo apt-get install  lib...
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/基础技术">
+            基础技术
         </a>
     </span>
     
@@ -547,6 +548,10 @@ sudo apt-get install  lib...
         <i class="fa fa-tags"></i>
         <span class="tags-meta">
             
+                
+                    <a href="/tags/TCP/IP" title="TCP/IP">
+                        TCP/IP
+                    </a>
                 
             
         </span>
@@ -559,7 +564,7 @@ sudo apt-get install  lib...
             </div>
 
             <div class="post-permalink">
-                <a href="/category/018linux/systemtap.html" class="btn btn-default">Read</a>
+                <a href="/category/010基础技术/分布式理论/tcp建立连接的状态说明.html" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -635,7 +640,7 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/category/018linux/iostat.html">监控IO使用－iostat命令</a>
+                <a href="/category/018linux/grep＋find学习笔记.html">grep＋find学习笔记</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -645,9 +650,13 @@ ctrl+F:下一屏文本，ctrl+B:上一屏文本
         </div>
         <p class="brief">
             
-                #iostat
-iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活动情况, 负载信息。如果没有安装，需要sudo apt-get install sysstat
-基本使用iostat[参数][时间][次数]...
+                grep学习指南grep -［acinv］ ‘搜索内容串’ filename
+参数
+-a：表示以文本文件方式搜索。
+-c：表示计算找到符合行的次数。
+-i：表示忽略字母大小写。
+-n：表示顺便输出行号。
+-v：表示反向选择，即找到没有...
             
         </p>
     </div>
@@ -682,7 +691,7 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
             </div>
 
             <div class="post-permalink">
-                <a href="/category/018linux/iostat.html" class="btn btn-default">Read</a>
+                <a href="/category/018linux/grep＋find学习笔记.html" class="btn btn-default">Read</a>
             </div>
         </footer>
     
@@ -691,16 +700,10 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
 
 <article class="post">
     
-        <div class="post-media">
-            <a href="/category/022java/thread/线程的状态.html">
-                <img class="img-ajax" src="/img/loading.gif" data-src="/image/java/线程的状态图.jpg" alt="java线程状态总结">
-            </a>
-        </div>
-    
     <div class="post-content">
         <div class="post-head home-post-head">
             <h1 class="post-title">
-                <a href="/category/022java/thread/线程的状态.html">java线程状态总结</a>
+                <a href="/category/022java/thread/线程池.html">线程池学习</a>
             </h1>
             <div class="post-meta">  &bull;
                 <time class="post-date" datetime="" title="">
@@ -710,9 +713,7 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
         </div>
         <p class="brief">
             
-                线程的各种状态线程的状态跃迁
-锁(monitor)池和等待池在java中，每个对象都有两个池，锁(monitor)池和等待池
-锁池:假设线程A已经拥有了某个对象(注意:不是类)的锁，而其它的线程想要调用这个对象的某个synchroni...
+                线程池学习schedule、scheduleAtFixedRate和scheduleWithFixedDelay的区别schedule(commod,delay,unit) ，这个方法是说系统启动后，需要等待多久执行，delay是等待...
             
         </p>
     </div>
@@ -736,6 +737,10 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
         <span class="tags-meta">
             
                 
+                    <a href="/tags/高并发" title="高并发">
+                        高并发
+                    </a>
+                
                     <a href="/tags/多线程" title="多线程">
                         多线程
                     </a>
@@ -751,7 +756,7 @@ iostat方便查看CPU、网卡、tty设备、磁盘、CD-ROM 等等设备的活�
             </div>
 
             <div class="post-permalink">
-                <a href="/category/022java/thread/线程的状态.html" class="btn btn-default">Read</a>
+                <a href="/category/022java/thread/线程池.html" class="btn btn-default">Read</a>
             </div>
         </footer>
     
