@@ -1345,7 +1345,8 @@ code {
   padding: 2px 4px;
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  white-space: normal;
+  word-break: break-all;
   color: #666666;
   background: #eee;
   -webkit-border-radius: 3px;
