@@ -99,6 +99,10 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
                                 <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
@@ -177,22 +181,24 @@
 <p>临界区概念<br>一个进程在进入临界区之间，必须得到锁。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">While(true) &#123;</span><br><span class="line">		</span><br><span class="line">    	请求锁</span><br><span class="line">   	临界区</span><br><span class="line"></span><br><span class="line">  	释放锁</span><br><span class="line">	剩余区</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>信号量作为同步工具<br>锁是同步的一种，2值信号量就是一个互斥锁</p>
-<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><h3 id="互斥锁（排它锁、独占锁、写锁、X锁）"><a href="#互斥锁（排它锁、独占锁、写锁、X锁）" class="headerlink" title="互斥锁（排它锁、独占锁、写锁、X锁）"></a>互斥锁（排它锁、独占锁、写锁、X锁）</h3><p>如果事务T对数据A加上排他锁后，则其他事务不能再对A加任任何类型的锁，直到在事务的末尾将资源上的锁释放为止<br>java的内置锁（ synchronized）为互斥锁</p>
+<h2 id="锁的分类"><a href="#锁的分类" class="headerlink" title="锁的分类"></a>锁的分类</h2><p>根据锁只能被单个线程持有还是能被多个线程共同持有，锁可以分为独占锁和共享锁。</p>
+<h3 id="独占锁（排它锁、互斥锁、写锁、X锁）"><a href="#独占锁（排它锁、互斥锁、写锁、X锁）" class="headerlink" title="独占锁（排它锁、互斥锁、写锁、X锁）"></a>独占锁（排它锁、互斥锁、写锁、X锁）</h3><p>独占锁保证任何时候都只有一个线程能得到锁，ReentrantLock就是以独占方式实现的。还有如java的内置锁（ synchronized）</p>
 <blockquote>
-<p>锁在一个时间点只能被一个线程锁占有。根据锁的获取机制，它又划分为“<strong>公平锁</strong>”和“<strong>非公平锁</strong>”。</p>
+<p>如果事务T对数据A加上排他锁后，则其他事务不能再对A加任任何类型的锁，直到在事务的末尾将资源上的锁释放为止。<br>锁在一个时间点只能被一个线程锁占有。根据锁的获取机制，它又划分为“<strong>公平锁</strong>”和“<strong>非公平锁</strong>”。</p>
 </blockquote>
-<h3 id="共享锁（读锁、S锁）"><a href="#共享锁（读锁、S锁）" class="headerlink" title="共享锁（读锁、S锁）"></a>共享锁（读锁、S锁）</h3><p>如果事务T对数据A加上共享锁后，则其他事务只能对A再加共享锁，不能加排他锁，直到已释放所有共享锁。获准共享锁的事务只能读数据，不能修改数据</p>
+<h3 id="共享锁（读锁、S锁）"><a href="#共享锁（读锁、S锁）" class="headerlink" title="共享锁（读锁、S锁）"></a>共享锁（读锁、S锁）</h3><p>共享锁则可以同时由多个线程持有，例如ReadWriteLock读写锁，它允许一个资源可以被多线程同时进行读操作。</p>
 <blockquote>
-<p>能被多个线程同时拥有，能被共享的锁。</p>
+<p>如果事务T对数据A加上共享锁后，则其他事务只能对A再加共享锁，不能加排他锁，直到已释放所有共享锁。获准共享锁的事务只能读数据，不能修改数据<br>能被多个线程同时拥有，能被共享的锁。</p>
 </blockquote>
 <h2 id="其他纬度的分类"><a href="#其他纬度的分类" class="headerlink" title="其他纬度的分类"></a>其他纬度的分类</h2><h3 id="可重入锁"><a href="#可重入锁" class="headerlink" title="可重入锁"></a>可重入锁</h3><p>如果锁具备可重入性，则称作为可重入锁。也就是说，锁可以被单个线程多次获取。<br>当一个线程执行到某个synchronized方法时，比如说method1，而在method1中会调用另外一个synchronized方法method2，此时线程不必重新去申请锁，而是可以直接执行方法method2，synchronized和ReentrantLock都是可重入锁。</p>
-<h3 id="可中断锁"><a href="#可中断锁" class="headerlink" title="可中断锁"></a>可中断锁</h3><p>如果某一线程A正在执行锁中的代码，另一线程B正在等待获取该锁，可能由于等待时间过长，线程B不想等待了，想先处理其他事情，我们可以让它中断自己或者在别的线程中中断它，这种就是可中断锁</p>
+<h3 id="可中断锁"><a href="#可中断锁" class="headerlink" title="可中断锁"></a>可中断锁</h3><p>如果某一线程A正在执行锁中的代码，另一线程B正在等待获取该锁，可能由于等待时间过长，线程B不想等待了，想先处理其他事情，我们可以让它中断自己或者在别的线程中中断它，这种就是可中断锁。</p>
 <h3 id="公平锁"><a href="#公平锁" class="headerlink" title="公平锁"></a>公平锁</h3><p>公平锁即尽量以请求锁的顺序来获取锁。比如同是有多个线程在等待一个锁，当这个锁被释放时，等待时间最久的线程（最先请求的线程）会获得该所，这种就是公平锁。</p>
-<p>在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序, ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。</p>
+<p>在Java中，synchronized就是非公平锁，它无法保证等待的线程获取锁的顺序, ReentrantLock和ReentrantReadWriteLock，它默认情况下是非公平锁，但是可以设置为公平锁。<br>例如<code>ReentrantLock pairLock = new ReentrantLock（true）</code></p>
+<h3 id="自旋锁"><a href="#自旋锁" class="headerlink" title="自旋锁"></a>自旋锁</h3><p>自旋锁则是，当前线程在获取锁时，如果发现锁已经被其他线程占有，它不马上阻塞自己，在不放弃CPU使用权的情况下，多次尝试获取（默认次数是10，可以使用-XX：PreBlockSpinsh参数设置该值）。<br>如果尝试指定的次数后仍没有获取到锁则当前线程才会被阻塞挂起。</p>
 <h2 id="不同视角"><a href="#不同视角" class="headerlink" title="不同视角"></a>不同视角</h2><h3 id="数据库系统的角度"><a href="#数据库系统的角度" class="headerlink" title="数据库系统的角度"></a>数据库系统的角度</h3><p>锁分为以下三种类型。独占锁,共享锁,更新锁</p>
 <h3 id="从程序员的角度看"><a href="#从程序员的角度看" class="headerlink" title="从程序员的角度看"></a>从程序员的角度看</h3><p>乐观锁（Optimistic Lock）<br>乐观锁的概念，他的核心思路就是，每次不加锁而是假设没有冲突而去完成某项操作，如果因为冲突失败就重试，直到成功为止。常见的乐观锁技术（CAS），乐观锁，是一种无锁方案。</p>
 <p>悲观锁（Pessimistic Lock）<br>需要程序员直接管理数据或对象上的加锁处理，并负责获取、共享和放弃正在使用的数据上的任何锁。</p>
-<p>悲观锁，也是基于数据库的锁机制实现</p>
+<p>悲观锁，也是基于数据库的锁机制实现。</p>
 
     </div>
     
@@ -210,15 +216,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/category/018linux/mpstat.html" class="pre-post btn btn-default" title="多CPU监控-mpstat">
+        <a href="/category/018linux/systemtap.html" class="pre-post btn btn-default" title="systemtap学习总结">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">多CPU监控-mpstat</span>
+            <span class="hidden-xs">systemtap学习总结</span>
         </a>
     
     
-        <a href="/category/010基础技术/redis/redis集群部署.html" class="next-post btn btn-default" title="redis集群部署">
+        <a href="/category/018linux/mpstat.html" class="next-post btn btn-default" title="多CPU监控-mpstat">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">redis集群部署</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">多CPU监控-mpstat</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -268,7 +274,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#锁的学习"><span class="toc-text">锁的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的出现"><span class="toc-text">锁的出现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的分类"><span class="toc-text">锁的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#互斥锁（排它锁、独占锁、写锁、X锁）"><span class="toc-text">互斥锁（排它锁、独占锁、写锁、X锁）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共享锁（读锁、S锁）"><span class="toc-text">共享锁（读锁、S锁）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他纬度的分类"><span class="toc-text">其他纬度的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁"><span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可中断锁"><span class="toc-text">可中断锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公平锁"><span class="toc-text">公平锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同视角"><span class="toc-text">不同视角</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库系统的角度"><span class="toc-text">数据库系统的角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从程序员的角度看"><span class="toc-text">从程序员的角度看</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#锁的学习"><span class="toc-text">锁的学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的出现"><span class="toc-text">锁的出现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#锁的分类"><span class="toc-text">锁的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#独占锁（排它锁、互斥锁、写锁、X锁）"><span class="toc-text">独占锁（排它锁、互斥锁、写锁、X锁）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#共享锁（读锁、S锁）"><span class="toc-text">共享锁（读锁、S锁）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他纬度的分类"><span class="toc-text">其他纬度的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#可重入锁"><span class="toc-text">可重入锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可中断锁"><span class="toc-text">可中断锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公平锁"><span class="toc-text">公平锁</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自旋锁"><span class="toc-text">自旋锁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#不同视角"><span class="toc-text">不同视角</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据库系统的角度"><span class="toc-text">数据库系统的角度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从程序员的角度看"><span class="toc-text">从程序员的角度看</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

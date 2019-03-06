@@ -99,6 +99,10 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
                                 <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
@@ -187,7 +191,8 @@
 <h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><p><code>mvn deploy -Dmaven.test.skip=true</code></p>
 <h2 id="assembly"><a href="#assembly" class="headerlink" title="assembly"></a>assembly</h2><p><code>mvn assembly:assembly -Dmaven.test.skip=true</code></p>
 <h1 id="其他技巧"><a href="#其他技巧" class="headerlink" title="其他技巧"></a>其他技巧</h1><h2 id="复制依赖"><a href="#复制依赖" class="headerlink" title="复制依赖"></a>复制依赖</h2><p><code>mvn dependency:copy-dependencies -DoutputDirectory=lib</code></p>
-<h2 id="生成一个项目"><a href="#生成一个项目" class="headerlink" title="生成一个项目"></a>生成一个项目</h2><p><code>mvn archetype:generate  -DarchetypeCatalog=internal -DgroupId=cn.everlook.myweb -DartifactId=myweb -DarchetypeArtifactId=maven-archetype-webapp</code></p>
+<h2 id="生成项目"><a href="#生成项目" class="headerlink" title="生成项目"></a>生成项目</h2><h3 id="简单java"><a href="#简单java" class="headerlink" title="简单java"></a>简单java</h3><p><code>mvn archetype:generate -DgroupId=com.klwork.learn -DartifactId=learn-java-core -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false</code></p>
+<h3 id="web项目"><a href="#web项目" class="headerlink" title="web项目"></a>web项目</h3><p><code>mvn archetype:generate  -DarchetypeCatalog=internal -DgroupId=com.klwork.myweb -DartifactId=myweb -DarchetypeArtifactId=maven-archetype-webapp</code></p>
 <h2 id="改变版本号"><a href="#改变版本号" class="headerlink" title="改变版本号"></a>改变版本号</h2><p><code>mvn versions:set -DnewVersion=1.0.0-SNAPSHOTS</code></p>
 <h2 id="安装外部文件到本地"><a href="#安装外部文件到本地" class="headerlink" title="安装外部文件到本地"></a>安装外部文件到本地</h2><p><code>mvn install:install-file -DgroupId=eleSign -DartifactId=bjcaprotobuf -Dversion=1.0.0 -Dpackaging=jar -Dfile=bjcaprotobuf-1.0.0.jar</code> </p>
 <h2 id="将jar部署到自己的maven私服中"><a href="#将jar部署到自己的maven私服中" class="headerlink" title="将jar部署到自己的maven私服中"></a>将jar部署到自己的maven私服中</h2><p><code>mvn deploy:deploy-file -DgroupId=com.ibm.db2 -DartifactId=db2jcc -Dversion=3.59.81 -Dpackaging=jar -Dfile=db2jcc-3.59.81.jar   -Durl=http://112.124.0.156:8081/nexus/content/repositories/releases -DrepositoryId=deployRelease</code></p>
@@ -214,9 +219,9 @@
         </a>
     
     
-        <a href="/category/003风控/风险管理基础.html" class="next-post btn btn-default" title="风险管理基础">
+        <a href="/category/003风控/统计基础.html" class="next-post btn btn-default" title="统计基础">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">风险管理基础</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">统计基础</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -266,7 +271,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#package"><span class="toc-text">package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install"><span class="toc-text">install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy"><span class="toc-text">deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assembly"><span class="toc-text">assembly</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他技巧"><span class="toc-text">其他技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制依赖"><span class="toc-text">复制依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个项目"><span class="toc-text">生成一个项目</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变版本号"><span class="toc-text">改变版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装外部文件到本地"><span class="toc-text">安装外部文件到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将jar部署到自己的maven私服中"><span class="toc-text">将jar部署到自己的maven私服中</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#package"><span class="toc-text">package</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#install"><span class="toc-text">install</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deploy"><span class="toc-text">deploy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#assembly"><span class="toc-text">assembly</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他技巧"><span class="toc-text">其他技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#复制依赖"><span class="toc-text">复制依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成项目"><span class="toc-text">生成项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#简单java"><span class="toc-text">简单java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#web项目"><span class="toc-text">web项目</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#改变版本号"><span class="toc-text">改变版本号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装外部文件到本地"><span class="toc-text">安装外部文件到本地</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#将jar部署到自己的maven私服中"><span class="toc-text">将jar部署到自己的maven私服中</span></a></li></ol></li></ol>
         
     </div>
 </aside>

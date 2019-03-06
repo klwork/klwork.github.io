@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>Ubuntu 16.04的配置和安装 | Klwork</title>
+<title>Ubuntu软件安装和配置 | Klwork</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
@@ -99,6 +99,10 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
                                 <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
@@ -127,9 +131,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Ubuntu 16.04的配置和安装">
+        <h1 id="Ubuntu软件安装和配置">
             
-	            Ubuntu 16.04的配置和安装
+	            Ubuntu软件安装和配置
             
         </h1>
         <div class="post-meta">
@@ -173,7 +177,8 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="常用安装"><a href="#常用安装" class="headerlink" title="常用安装"></a>常用安装</h1><h2 id="设置SSH服务"><a href="#设置SSH服务" class="headerlink" title="设置SSH服务"></a>设置SSH服务</h2><p><code>apt-get install openssh-server</code></p>
+        <h1 id="常用安装"><a href="#常用安装" class="headerlink" title="常用安装"></a>常用安装</h1><p>版本为Ubuntu16.04</p>
+<h2 id="设置SSH服务"><a href="#设置SSH服务" class="headerlink" title="设置SSH服务"></a>设置SSH服务</h2><p><code>apt-get install openssh-server</code></p>
 <p>确认安装SSH服务成功与否</p>
 <p><code>ps -ef | grep sshd</code></p>
 <p>看到sshd表明ssh-server启动;否则 <code>/etc/init.d/ssh start</code> 手动进行启动</p>
@@ -185,6 +190,19 @@
 <p>如果没有ssh-copy,可以使用<br><code>cat ~/.ssh/id_rsa.pub | ssh test@192.168.200.1 &quot;cat - &gt;&gt; ~/.ssh/authorized_keys&quot;</code></p>
 <h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p><code>ssh test@192.168.200.1</code></p>
 <h2 id="安装unrar"><a href="#安装unrar" class="headerlink" title="安装unrar"></a>安装unrar</h2><p><code>sudo apt install  unrar</code></p>
+<h2 id="安装sz-rz"><a href="#安装sz-rz" class="headerlink" title="安装sz/rz"></a>安装sz/rz</h2><p>进入到su环境</p>
+<pre><code>cd /tmp 
+wget http://www.ohse.de/uwe/releases/lrzsz-0.12.20.tar.gz
+tar zxvf lrzsz-0.12.20.tar.gz &amp;&amp; cd lrzsz-0.12.20
+./configure &amp;&amp; make &amp;&amp; make install
+</code></pre><p>默认把lsz和lrz安装到了/usr/local/bin/目录下，现在我们并不能直接使用，下面创建软链接，并命名为rz/sz：</p>
+<pre><code>cd /usr/bin
+ln -s /usr/local/bin/lrz rz
+ln -s /usr/local/bin/lsz sz
+</code></pre><p>rz命令本地上传文件到服务器<br>sz命令发送文件到本地</p>
+<blockquote>
+<p>打开SecureCRT软件 -&gt; Options -&gt; session options -&gt; X/Y/Zmodem 下可以设置上传和下载的目录。</p>
+</blockquote>
 <h2 id="安装git和svn"><a href="#安装git和svn" class="headerlink" title="安装git和svn"></a>安装git和svn</h2><p>sudo apt-get install  git<br>sudo apt-get install subversion</p>
 <h2 id="安装flashplugin"><a href="#安装flashplugin" class="headerlink" title="安装flashplugin"></a>安装flashplugin</h2><p>sudo apt-get install flashplugin-installer</p>
 <h2 id="安装Chrome"><a href="#安装Chrome" class="headerlink" title="安装Chrome"></a>安装Chrome</h2><p>到 <a href="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" target="_blank" rel="noopener">https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb</a> 下载最新的安装文件。</p>
@@ -320,7 +338,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用安装"><span class="toc-text">常用安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置SSH服务"><span class="toc-text">设置SSH服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地机器上使用ssh-keygen产生公钥私钥对"><span class="toc-text">在本地机器上使用ssh-keygen产生公钥私钥对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用ssh-copy-id将公钥复制到远程机器中"><span class="toc-text">用ssh-copy-id将公钥复制到远程机器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装unrar"><span class="toc-text">安装unrar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git和svn"><span class="toc-text">安装git和svn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装flashplugin"><span class="toc-text">安装flashplugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Chrome"><span class="toc-text">安装Chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装中文man手册"><span class="toc-text">安装中文man手册</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用配置"><span class="toc-text">常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户配置"><span class="toc-text">用户配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo不用输入密码的方法"><span class="toc-text">sudo不用输入密码的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#允许su到root"><span class="toc-text">允许su到root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换国内软件源"><span class="toc-text">更换国内软件源</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#常用安装"><span class="toc-text">常用安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#设置SSH服务"><span class="toc-text">设置SSH服务</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#在本地机器上使用ssh-keygen产生公钥私钥对"><span class="toc-text">在本地机器上使用ssh-keygen产生公钥私钥对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用ssh-copy-id将公钥复制到远程机器中"><span class="toc-text">用ssh-copy-id将公钥复制到远程机器中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装unrar"><span class="toc-text">安装unrar</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装sz-rz"><span class="toc-text">安装sz/rz</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装git和svn"><span class="toc-text">安装git和svn</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装flashplugin"><span class="toc-text">安装flashplugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装Chrome"><span class="toc-text">安装Chrome</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装中文man手册"><span class="toc-text">安装中文man手册</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#常用配置"><span class="toc-text">常用配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用户配置"><span class="toc-text">用户配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sudo不用输入密码的方法"><span class="toc-text">sudo不用输入密码的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#允许su到root"><span class="toc-text">允许su到root</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#更换国内软件源"><span class="toc-text">更换国内软件源</span></a></li></ol></li></ol>
         
     </div>
 </aside>

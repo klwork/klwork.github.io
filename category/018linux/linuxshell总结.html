@@ -99,6 +99,10 @@
                             </li>
                         
                             <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
                                 <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
                             </li>
                         
@@ -169,7 +173,9 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="管道-与-xargs"><a href="#管道-与-xargs" class="headerlink" title="管道 与 xargs"></a>管道 与 xargs</h1><p>管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)<br>有些命令只能接受参数，就需要使用xargs。</p>
+        <h1 id="管道-与-xargs"><a href="#管道-与-xargs" class="headerlink" title="管道 与 xargs"></a>管道 与 xargs</h1><p>管道将一个命令的stdout（标准输出）重新定向到另一个命令的stdin（标准输入)，也就是说接收标准输入的命令才可以用作管道右边。</p>
+<p>常用来作为接收数据管道命令有：sed,awk,cut,head,top,less,more,wc,join,sort,split 等等，都是些文本处理命令</p>
+<h2 id="为什么要有xargs"><a href="#为什么要有xargs" class="headerlink" title="为什么要有xargs?"></a>为什么要有xargs?</h2><p>有些命令例如cp，echo等，只能接受参数，就需要使用xargs。</p>
 <p>xargs是一个很有用的命令，它擅长将标准输入数据转换成命令行参数。xargs能够处理stdin并将其转换为特定命令的命令行参数。</p>
 <h2 id="使用例子"><a href="#使用例子" class="headerlink" title="使用例子"></a>使用例子</h2><h3 id="将单行输入转换成多行输出"><a href="#将单行输入转换成多行输出" class="headerlink" title="将单行输入转换成多行输出"></a>将单行输入转换成多行输出</h3><p><code>echo &quot;1 2 3 4 5 6 7 8 9&quot; | xargs -n 3</code><br>将输出<br>1 2 3<br>4 5 6<br>7 8 9</p>
 <h3 id="用-d选项为输入指定一个定制的定界符"><a href="#用-d选项为输入指定一个定制的定界符" class="headerlink" title="用-d选项为输入指定一个定制的定界符"></a>用-d选项为输入指定一个定制的定界符</h3><p><code>echo &quot;splitXsplitXsplitXsplit&quot; | xargs -d X</code></p>
@@ -199,15 +205,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/category/018linux/linux-shell.html" class="pre-post btn btn-default" title="linux shell编程基础">
+        <a href="/category/022java/thread/线程池.html" class="pre-post btn btn-default" title="线程池学习">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">linux shell编程基础</span>
+            <span class="hidden-xs">线程池学习</span>
         </a>
     
     
-        <a href="/category/018linux/0Vi常用操作.html" class="next-post btn btn-default" title="我的Vi常用操作">
+        <a href="/category/018linux/ubuntu/centos7配置.html" class="next-post btn btn-default" title="Centos7环境配置">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">我的Vi常用操作</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Centos7环境配置</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -257,7 +263,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#管道-与-xargs"><span class="toc-text">管道 与 xargs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用例子"><span class="toc-text">使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#将单行输入转换成多行输出"><span class="toc-text">将单行输入转换成多行输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-d选项为输入指定一个定制的定界符"><span class="toc-text">用-d选项为输入指定一个定制的定界符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从文本读取，一行一个"><span class="toc-text">从文本读取，一行一个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定不变的命令参数，使用I"><span class="toc-text">固定不变的命令参数，使用I</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#管道-与-xargs"><span class="toc-text">管道 与 xargs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么要有xargs"><span class="toc-text">为什么要有xargs?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用例子"><span class="toc-text">使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#将单行输入转换成多行输出"><span class="toc-text">将单行输入转换成多行输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用-d选项为输入指定一个定制的定界符"><span class="toc-text">用-d选项为输入指定一个定制的定界符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#从文本读取，一行一个"><span class="toc-text">从文本读取，一行一个</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#固定不变的命令参数，使用I"><span class="toc-text">固定不变的命令参数，使用I</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
         
     </div>
 </aside>

@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Linux日常命令 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Linux日常命令">
+            
+	            Linux日常命令
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/常用" title="常用">
+                        常用
+                    </a>
+                
+                    <a href="/tags/更新" title="更新">
+                        更新
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/05/06</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="日常操作"><a href="#日常操作" class="headerlink" title="日常操作"></a>日常操作</h1><h2 id="ssh相关操作"><a href="#ssh相关操作" class="headerlink" title="ssh相关操作"></a>ssh相关操作</h2><h3 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h3><p><code>ssh -p 10622  ww@10.21.10.11</code></p>
+<h3 id="copy文件到服务器"><a href="#copy文件到服务器" class="headerlink" title="copy文件到服务器"></a>copy文件到服务器</h3><p><code>scp spark-1.6.1-bin-hadoop2.6.tgz root@10.254.62.6:/root/Public</code></p>
+<p>或者使用<code>rz</code></p>
+<h2 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h2><p><code>wget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</code></p>
+<h2 id="压缩和解压缩"><a href="#压缩和解压缩" class="headerlink" title="压缩和解压缩"></a>压缩和解压缩</h2><p>压缩c<br><code>tar -cvf jpg.tar *.jpg</code></p>
+<p>解压缩x<br><code>tar zxvf apache-tomcat-7.0.41.tar.gz</code></p>
+<p>解压指定文件夹：<br><code>tar -xzvf jdk-8u131-linux-x64.tar.gz -C /usr/local/java</code></p>
+<p>其他参数参考<br>-f: 必须参数，放在最后，后面只能接档案名。<br>-z：有gzip属性的<br>-j：有bz2属性的<br>-Z：有compress属性的<br>-v：显示所有过程<br>-O：将文件解开到标准输出</p>
+<h2 id="列表显示文件"><a href="#列表显示文件" class="headerlink" title="列表显示文件"></a>列表显示文件</h2><p><code>ls -lh</code></p>
+<h2 id="树形参看本目录下的文件"><a href="#树形参看本目录下的文件" class="headerlink" title="树形参看本目录下的文件"></a>树形参看本目录下的文件</h2><p><code>tree -L 2</code></p>
+<h2 id="查找目录下的文件"><a href="#查找目录下的文件" class="headerlink" title="查找目录下的文件"></a>查找目录下的文件</h2><p><code>sudo find / -name my.cnf</code></p>
+<p>指定查询深度</p>
+<p><code>find . -maxdepth 1 -name &#39;docker&#39;</code></p>
+<p><code>find /data/ -mtime -5</code></p>
+<blockquote>
+<p>最近访问时间 access time （-atime）、最近更改时间 modify time （-mtime） 和 最近状态改动时间 change time（-ctime），可以使用<code>stat a.txt</code></p>
+</blockquote>
+<h2 id="grep查询文件内容"><a href="#grep查询文件内容" class="headerlink" title="grep查询文件内容"></a>grep查询文件内容</h2><p><code>grep &#39;call调用请\|TransDate&#39; *.log</code><br><code>grep 交易凭证 *.log -C5</code></p>
+<p>查询目录下的指定文件中搜索you文本<br><code>find ./ -name &quot;*.txt&quot; | xargs grep &quot;you&quot; {}\;</code></p>
+<p>使用egrep</p>
+<p><code>egrep &#39;call调用.*XM2016111100000026&#39; default.log.2016-11-25.0.log -A30</code></p>
+<blockquote>
+<p>-A：显示匹配到字符那行的后面n行<br>-B：显示匹配到字符那行的前面n行<br>-C：显示匹配到字符那行的前后n行</p>
+</blockquote>
+<h2 id="建立符号链接（目的到源）"><a href="#建立符号链接（目的到源）" class="headerlink" title="建立符号链接（目的到源）"></a>建立符号链接（目的到源）</h2><p><code>ln -s /usr/local/bin/abc abc</code></p>
+<h2 id="复制文件"><a href="#复制文件" class="headerlink" title="复制文件"></a>复制文件</h2><p><code>cp *.png *.jpeg *.gif /destpath</code></p>
+<p>如果想剪切，就把cp改为mv</p>
+<h2 id="用户和权限操作"><a href="#用户和权限操作" class="headerlink" title="用户和权限操作"></a>用户和权限操作</h2><p><code>ls -al</code>参看文件的权限</p>
+<blockquote>
+<p>drwxr-xr-x表示的含义：<br>第1个字符：表示文档的类型，d表示是目录，-表示是文件<br>ugo<br>第2~4个字符：文件所有者的权限（u表示，user）<br>第5~7个字符：所有者同组成员的权限（g表示，group）<br>第8~10个字符：其他用户的权限（o表示，other）</p>
+<p>八进制的语法表示为r(4)、w(2)、x(1)、-(0),4表示读权限,2表示写权限,1表示执行权限，0表示没有权限。<br>例如：-rw-r–r– (644) 只有拥有者有读写权限；而属组用户和其他用户只有读权限<br>-rwxrwxrwx (777)  所有用户都有读、写、执行权限</p>
+</blockquote>
+<p>新增加一个用户并将其加入到存在的用户组developers中<br><code>useradd -G developers ww</code></p>
+<p>查看该用户的属性<br><code>id ww</code></p>
+<p>将一个已有用户增加到一个已存在的用户组developers中<br><code>usermod -a -G developers ww</code></p>
+<p>将ww的主要用户组改为 developers，则直接使用 -g 选项<br><code>usermod -g developers ww</code></p>
+<p>修改 tmp 目录所属用户为 root，用户组为 root<br><code>chown -R root:root /tmp</code></p>
+<p>修改 tmp 目录为所有权限<br><code>chmod -R 777 /tmp</code></p>
+<h1 id="系统基本信息"><a href="#系统基本信息" class="headerlink" title="系统基本信息"></a>系统基本信息</h1><h2 id="linux版本"><a href="#linux版本" class="headerlink" title="linux版本"></a>linux版本</h2><p>查看系统版本</p>
+<p><code>lsb_release -a</code></p>
+<p><code>cat /proc/version</code>正在运行的内核版本<br>输入”cat /etc/issue”, 显示的是发行版本信息</p>
+<h2 id="cpu信息"><a href="#cpu信息" class="headerlink" title="cpu信息"></a>cpu信息</h2><p><code>cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c</code></p>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><p><code>cat /proc/meminfo</code></p>
+<h2 id="磁盘"><a href="#磁盘" class="headerlink" title="磁盘"></a>磁盘</h2><p><code>sudo fdisk -l</code></p>
+<h1 id="系统维护"><a href="#系统维护" class="headerlink" title="系统维护"></a>系统维护</h1><h2 id="磁盘使用情况"><a href="#磁盘使用情况" class="headerlink" title="磁盘使用情况"></a>磁盘使用情况</h2><p><code>df -h</code></p>
+<h2 id="文件大小"><a href="#文件大小" class="headerlink" title="文件大小"></a>文件大小</h2><p>当前文件夹下的文件大小<br><code>du -sh *</code></p>
+<p>进行排序并且显示前5个</p>
+<p> <code>du -h /mydata/ --max-depth=2 |sort -n | head -5</code></p>
+<p>查找系统中的大目录<br><code>sudo du -h / --max-depth=1 | sort -nr | head -5</code></p>
+<p>查找目录下的大文件</p>
+<p> <code>sudo find /mydata  -type f -size +500M  -print0 | xargs -0 ls -lh  | sort -nr</code></p>
+<h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><h3 id="查询那些进程在使用"><a href="#查询那些进程在使用" class="headerlink" title="查询那些进程在使用"></a>查询那些进程在使用</h3><p><code>ps -eo pid,user,cmd | grep ssh</code></p>
+<h3 id="显示某个程序是否在运行"><a href="#显示某个程序是否在运行" class="headerlink" title="显示某个程序是否在运行"></a>显示某个程序是否在运行</h3><p><code>ps -aux | grep &quot;memcached&quot;</code></p>
+<h2 id="使用lsof查看占用端口的进程"><a href="#使用lsof查看占用端口的进程" class="headerlink" title="使用lsof查看占用端口的进程"></a>使用lsof查看占用端口的进程</h2><p><code>lsof -i :3306</code></p>
+<p>或者使用</p>
+<p><code>sudo netstat -anop | grep 3306</code></p>
+<blockquote>
+<p>-p 选项查看进程信息</p>
+</blockquote>
+<p><code>netstat -tnlp</code></p>
+<p>可以查看监听的端口，其中l是listening, p是显示program, n是显示ip而不是name, t只查看tcp的内容</p>
+<h2 id="检查包的安装情况"><a href="#检查包的安装情况" class="headerlink" title="检查包的安装情况"></a>检查包的安装情况</h2><p><code>rpm -qa |grep jdk</code></p>
+<p>安装<br><code>rpm -ivh jdk-7-linux-i586.rpm</code></p>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p><code>sudo shutdown -h now</code></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/manong--/p/8012324.html" target="_blank" rel="noopener">tar</a><br><a href="https://www.cnblogs.com/grimm/p/5622491.html" target="_blank" rel="noopener">linux查看cpu、内存、版本信息</a><br><a href="https://www.cnblogs.com/jxhd1/p/6528574.html" target="_blank" rel="noopener">Linux 中将用户添加到组的指令</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/030大数据/mongod学习.html" class="pre-post btn btn-default" title="Docker下MongoDB复制集">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Docker下MongoDB复制集</span>
+        </a>
+    
+    
+        <a href="/category/011容器技术/k8s安装.html" class="next-post btn btn-default" title="k8s入门">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">k8s入门</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#日常操作"><span class="toc-text">日常操作</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh相关操作"><span class="toc-text">ssh相关操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#登录"><span class="toc-text">登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#copy文件到服务器"><span class="toc-text">copy文件到服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载文件"><span class="toc-text">下载文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#压缩和解压缩"><span class="toc-text">压缩和解压缩</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#列表显示文件"><span class="toc-text">列表显示文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#树形参看本目录下的文件"><span class="toc-text">树形参看本目录下的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#查找目录下的文件"><span class="toc-text">查找目录下的文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grep查询文件内容"><span class="toc-text">grep查询文件内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#建立符号链接（目的到源）"><span class="toc-text">建立符号链接（目的到源）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#复制文件"><span class="toc-text">复制文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用户和权限操作"><span class="toc-text">用户和权限操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统基本信息"><span class="toc-text">系统基本信息</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#linux版本"><span class="toc-text">linux版本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#cpu信息"><span class="toc-text">cpu信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#内存"><span class="toc-text">内存</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘"><span class="toc-text">磁盘</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#系统维护"><span class="toc-text">系统维护</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#磁盘使用情况"><span class="toc-text">磁盘使用情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件大小"><span class="toc-text">文件大小</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进程"><span class="toc-text">进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#查询那些进程在使用"><span class="toc-text">查询那些进程在使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#显示某个程序是否在运行"><span class="toc-text">显示某个程序是否在运行</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用lsof查看占用端口的进程"><span class="toc-text">使用lsof查看占用端口的进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#检查包的安装情况"><span class="toc-text">检查包的安装情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关机"><span class="toc-text">关机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>
