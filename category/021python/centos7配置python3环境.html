@@ -1,0 +1,341 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>centos7配置python3环境 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="centos7配置python3环境">
+            
+	            centos7配置python3环境
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Python">
+            Python
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/03/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="安装python3"><a href="#安装python3" class="headerlink" title="安装python3"></a>安装python3</h1><p>安装依赖包</p>
+<p><code>yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make libffi-devel</code></p>
+<p>进行安装</p>
+<pre><code>wget https://www.python.org/ftp/python/3.7.1/Python-3.7.1.tar.xz
+tar -xvJf  Python-3.7.1.tar.xz
+cd Python-3.7.1
+./configure --enable-optimizations --prefix=/usr/local/python3
+make &amp;&amp; make install
+</code></pre><blockquote>
+<p>执行这步是后面最好加上 –enable-optimizations 会自动安装pip3及优化配置</p>
+</blockquote>
+<p>如果出现ModuleNotFoundError: No module named ‘_ctypes’的解决办法， <code>yum install libffi-devel -y</code>，如果不能采取下面的方式。</p>
+<pre><code>wget http://mirror.centos.org/centos/7/os/x86_64/Packages/libffi-devel-3.0.13-18.el7.x86_64.rpm
+rpm -ivh libffi-devel-3.0.13-18.el7.x86_64.rpm
+</code></pre><p>以前的安装python进行备份<br><code>mv /usr/bin/python /usr/bin/python_old2</code></p>
+<p>创建软连接</p>
+<pre><code>ln -s /usr/local/python3/bin/python3 /usr/bin/python
+ln -s /usr/local/python3/bin/python3 /usr/bin/python3
+ln -s /usr/local/python3/bin/pip3 /usr/bin/pip3
+</code></pre><p>加入到环境变量</p>
+<p>修改~/.bash_profile,加入<br>    export export PATH=/usr/local/python3/bin/:$PATH</p>
+<p>测试</p>
+<p><code>pip3 -V</code></p>
+<h2 id="修改yum配置文件"><a href="#修改yum配置文件" class="headerlink" title="修改yum配置文件"></a>修改yum配置文件</h2><h3 id="修改yum配置文件-1"><a href="#修改yum配置文件-1" class="headerlink" title="修改yum配置文件"></a>修改yum配置文件</h3><p>sudo vi /usr/bin/yum</p>
+<p>#将第一行指定的python版本改为python2.7</p>
+<p>#!/usr/bin/python 改为 #!/usr/bin/python2.7</p>
+<h3 id="urlgrabber文件修改"><a href="#urlgrabber文件修改" class="headerlink" title="urlgrabber文件修改"></a>urlgrabber文件修改</h3><p>sudo vi /usr/libexec/urlgrabber-ext-down</p>
+<p>#将第一行的/usr/bin/python改为/usr/bin/python2.7</p>
+<h1 id="安装jupyter"><a href="#安装jupyter" class="headerlink" title="安装jupyter"></a>安装jupyter</h1><p><code>pip3 install jupyter</code></p>
+<p>如果要访问另一台机器，比如远端服务器上的 notebook, 即默认是不支持 172.104.105.119:8888 这样的访问，需要额外配置</p>
+<p>首先执行<code>jupyter notebook --generate-config --allow-root</code>生成配置文件</p>
+<p>修改生成的配置文件<code>vim /root/.jupyter/jupyter_notebook_config.py</code>，修改配置项为如下的内容。<br>c.NotebookApp.ip = ‘10.168.1.100’</p>
+<p>然后执行就可以打开了<br><code>jupyter notebook  --allow-root</code></p>
+<h1 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h1><p><a href="https://blog.csdn.net/slwhy/article/details/79930662" target="_blank" rel="noopener">centos7 安装 Python3 并配置 pip3</a><br><a href="https://www.cnblogs.com/wooya/p/6371511.html" target="_blank" rel="noopener">使用国内镜像源来加速python pypi包的安装</a><br><a href="https://blog.csdn.net/simple_the_best/article/details/77005400" target="_blank" rel="noopener">设置 jupyter notebook 可远程访问</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/031spark/虚拟环境下spark环境安装配置.html" class="pre-post btn btn-default" title="虚拟环境下spark环境安装配置">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">虚拟环境下spark环境安装配置</span>
+        </a>
+    
+    
+        <a href="/category/018linux/ubuntu/ubuntu配置vagrant.html" class="next-post btn btn-default" title="ubuntu环境下使用vagrant创建虚拟机">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">ubuntu环境下使用vagrant创建虚拟机</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装python3"><span class="toc-text">安装python3</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改yum配置文件"><span class="toc-text">修改yum配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改yum配置文件-1"><span class="toc-text">修改yum配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#urlgrabber文件修改"><span class="toc-text">urlgrabber文件修改</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装jupyter"><span class="toc-text">安装jupyter</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考网站"><span class="toc-text">参考网站</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

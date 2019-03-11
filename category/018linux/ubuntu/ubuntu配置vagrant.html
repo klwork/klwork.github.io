@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="Klwork">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+<meta name="description" content="klwork">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>ubuntu环境下使用vagrant创建虚拟机 | Klwork</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(/image/ban.png)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="wangwei">
+            <!--<img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">-->
+        </a>
+        <h2 style="color: #FAEBD7">专注于快乐的事情</h2>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">Klwork</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>主页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/常用/"><i class="fa "></i>常用</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/tags/更新/"><i class="fa "></i>近期更新</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/机器学习/"><i class="fa "></i>机器学习</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/FRM学习之路/"><i class="fa "></i>FRM学习之路</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/about"><i class="fa "></i>关于</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="ubuntu环境下使用vagrant创建虚拟机">
+            
+	            ubuntu环境下使用vagrant创建虚拟机
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Linux">
+            Linux
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/03/09</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h1 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h1><p>宿主环境为ubuntu 17,计划在上面安装3台虚拟主机。</p>
+<p>10.168.1.100 master<br>10.168.1.101 node1<br>10.168.1.102 node2</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>vagrant需要首先安装virtualBox，假设已经安装。</p>
+<p> <code>sudo apt-get install vagrant</code></p>
+<p>进入到一个目录，执行<br><code>vagrant init centos/7</code>，会在目录下建立Vagrantfile文件</p>
+<h2 id="定制化Vagrantfile文件"><a href="#定制化Vagrantfile文件" class="headerlink" title="定制化Vagrantfile文件"></a>定制化Vagrantfile文件</h2><p>修改原有的Vagrantfile文件，如下</p>
+<pre><code>Vagrant.configure(&quot;2&quot;) do |config|
+  config.vm.box = &quot;centos/7&quot;
+  config.vm.define :master do |master|
+    master.vm.hostname = &quot;10.168.1.100&quot;
+    master.vm.provider :virtualbox do |v|
+      v.name = &quot;10.168.1.100&quot;
+      v.memory = 1024
+      v.cpus = 2
+    end
+    master.vm.network :public_network, ip: &quot;10.168.1.100&quot;,bridge: &quot;enp3s0&quot;,auto_config: false
+    master.vm.provision :shell, path: &quot;bootstrap_master.sh&quot;
+  end
+
+
+  (1..2).each do |i|
+    config.vm.define &quot;node#{i}&quot; do |node|
+      node.vm.hostname = &quot;10.168.1.10#{i}&quot;
+      node.vm.provider :virtualbox do |v|
+        v.memory = 512
+        v.cpus = 1
+      end
+      node.vm.network :public_network, ip: &quot;10.168.1.10#{i}&quot;,bridge: &quot;enp3s0&quot;,auto_config: false
+    end
+  end
+
+  config.vm.provision :shell, path: &quot;bootstrap.sh&quot;
+end
+</code></pre><h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p><code>vagrant up</code></p>
+<p>启动完成后有个.vagrant目录，其文件目录可能如下</p>
+<pre><code>└── machines
+    ├── master
+    │   └── virtualbox
+    │       ├── action_provision
+    │       ├── action_set_name
+    │       ├── creator_uid
+    │       ├── id
+    │       ├── index_uuid
+    │       ├── private_key
+    │       └── synced_folders
+    ├── node1
+    │   └── virtualbox
+    │       ├── action_provision
+    │       ├── action_set_name
+    │       ├── creator_uid
+    │       ├── id
+    │       ├── index_uuid
+    │       ├── private_key
+    │       └── synced_folders
+    └── node2
+        └── virtualbox
+            ├── action_provision
+            ├── action_set_name
+            ├── creator_uid
+            ├── id
+            ├── index_uuid
+            ├── private_key
+            └── synced_folders
+</code></pre><p>表示安装了三个机器,master,node1,node2.</p>
+<h2 id="进入到安装的系统"><a href="#进入到安装的系统" class="headerlink" title="进入到安装的系统"></a>进入到安装的系统</h2><p><code>vagrant ssh master</code><br><code>vagrant ssh node1</code></p>
+<h3 id="如果修改了配置如何生效"><a href="#如果修改了配置如何生效" class="headerlink" title="如果修改了配置如何生效"></a>如果修改了配置如何生效</h3><p><code>vagrant reload --provision</code></p>
+<p>/vagrant这个目录是自动映射的，被映射到你刚刚建立的文件夹，这样就方便我们以后在开发机中进行开发，在虚拟机中进行运行效果测试了。</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><pre><code>vagrant init  　 # 建立 Vagrant File
+vagrant up  　　 # 建立虚拟机(或开机)
+vagrant halt  　# 关闭虚拟机
+vagrant reload  # 重启虚拟机
+vagrant ssh  　  # SSH 至虚拟机
+vagrant status   # 查看虚拟机运行状态
+vagrant destroy  # 删除虚拟机
+vagrant suspend #暂停虚拟机(类似休眠)
+vagrant resume #唤醒虚拟机
+</code></pre><h1 id="VBoxManage-命令"><a href="#VBoxManage-命令" class="headerlink" title="VBoxManage 命令"></a>VBoxManage 命令</h1><p>vagrant依赖virtualBox，virtualBox下的命令行操作如下：</p>
+<p>查看当前虚拟机</p>
+<p><code>VBoxManage list vms</code></p>
+<p>查看当前正在运行的虚拟机</p>
+<p><code>VBoxManage list runningvms</code></p>
+<p>关闭虚拟机<br><code>VBoxManage controlvm 14c2d90b-a0ee-48cd-885a-6b20d50c5c04 poweroff</code></p>
+<p>删除<br><code>VBoxManage unregistervm 87bf00c7-8468-430e-b68f-446a95e73c93  --delete</code></p>
+<h1 id="错误集"><a href="#错误集" class="headerlink" title="错误集"></a>错误集</h1><p>解决安装laravel/homestead vagrant环境报”A VirtualBox machine with the name ‘homestead’ already exists.”的错误。<br>使用上面的VBoxManage unregistervm的删除即可。</p>
+<p>Vagrant network collides with a non-hostonly network<br>ip地址设置192.168.2.10<br>其他参考<br><a href="https://stackoverflow.com/questions/39049717/vagrant-network-collides-with-a-non-hostonly-network" target="_blank" rel="noopener">https://stackoverflow.com/questions/39049717/vagrant-network-collides-with-a-non-hostonly-network</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/kikajack/article/details/80072256" target="_blank" rel="noopener">Vagrant 手册之多个虚拟机 multi-machine</a><br><a href="https://blog.csdn.net/huxiaotong_exp/article/details/82557662" target="_blank" rel="noopener">VBoxManage 命令详解</a><br><a href="https://www.cnblogs.com/wangkongming/p/4301021.html" target="_blank" rel="noopener">使用vagrant部署开发环境</a><br><a href="https://blog.hedzr.com/2017/05/02/vagrant-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">VAGRANT 网络配置</a><br><a href="https://www.cnblogs.com/wangkongming/p/4301021.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangkongming/p/4301021.html</a><br><a href="https://www.jianshu.com/p/a1bc23bc7892" target="_blank" rel="noopener">https://www.jianshu.com/p/a1bc23bc7892</a></p>
+<p><a href="https://blog.csdn.net/kikajack/article/details/80032131" target="_blank" rel="noopener">https://blog.csdn.net/kikajack/article/details/80032131</a><br><a href="https://www.cnblogs.com/xubing-613/p/6844564.html" target="_blank" rel="noopener">ssh免密码登录
+</a></p>
+<p><a href="https://www.cnblogs.com/chuanqimessi/p/4704850.html" target="_blank" rel="noopener">https://www.cnblogs.com/chuanqimessi/p/4704850.html</a></p>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Klwork</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/category/021python/centos7配置python3环境.html" class="pre-post btn btn-default" title="centos7配置python3环境">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">centos7配置python3环境</span>
+        </a>
+    
+    
+        <a href="/category/031spark/mac下spark环境配置.html" class="next-post btn btn-default" title="mac下配置pyspark环境">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">mac下配置pyspark环境</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+<script>
+//----自定义js----------------
+function createImgEventFullScreen() {
+var imgs = $(".post-body").find("img");
+//console.log(imgs);
+for(var i = 0;i < imgs.length;i++) {
+// $(imgs[i]).click(createCover(imgs[i]));
+imgs[i].onclick= function(e) {
+var src = e.srcElement.currentSrc;
+createCover(src)
+}
+}
+
+function createCover (src) {
+//console.log(src);
+var cover = $("<div id='fullScreenCover' class='zhao-cover-img-container'><img class='zhao-cover-img' src='"+src+"'/></div>");
+$("#fullScreenCover").remove();
+$("body").append(cover);
+$("body").addClass("zhao-no-scroll");
+$("#fullScreenCover").click(function(){
+$("#fullScreenCover").remove();
+$("body").removeClass("zhao-no-scroll");
+})
+}
+}
+setTimeout(function(){
+createImgEventFullScreen();
+},1000)
+
+</script>
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">Table of Contents</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#说明"><span class="toc-text">说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定制化Vagrantfile文件"><span class="toc-text">定制化Vagrantfile文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#进入到安装的系统"><span class="toc-text">进入到安装的系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#如果修改了配置如何生效"><span class="toc-text">如果修改了配置如何生效</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VBoxManage-命令"><span class="toc-text">VBoxManage 命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#错误集"><span class="toc-text">错误集</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+<script src="http://libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+
+</body>
+</html>

@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>Centos7环境配置 | Klwork</title>
+<title>虚拟环境下spark环境安装配置 | Klwork</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
@@ -131,9 +131,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Centos7环境配置">
+        <h1 id="虚拟环境下spark环境安装配置">
             
-	            Centos7环境配置
+	            虚拟环境下spark环境安装配置
             
         </h1>
         <div class="post-meta">
@@ -141,8 +141,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Linux">
-            Linux
+        <a href="/categories/大数据学习">
+            大数据学习
         </a>
     </span>
     
@@ -153,8 +153,8 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Centos" title="Centos">
-                        Centos
+                    <a href="/tags/Spark" title="Spark">
+                        Spark
                     </a>
                 
             
@@ -166,7 +166,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2016/11/06</span>
+            <span class="date-meta">2019/03/10</span>
         </span>
         
     
@@ -177,15 +177,42 @@
     </div>
     
     <div class="post-body post-content">
-        <h1 id="修改yum源"><a href="#修改yum源" class="headerlink" title="修改yum源"></a>修改yum源</h1><p>更新，安装wget</p>
-<p><code>sudo yum update</code></p>
-<p><code>sudo yum install wget</code></p>
-<p>进入/etc/yum.repos.d</p>
-<p><code>sudo mv CentOS-Base.repo CentOS-Base.repo.bak</code></p>
-<p>下载阿里源的文件<br><code>sudo wget -O CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</code></p>
-<p>sudo wget -O CentOS-Base.repo <a href="http://mirrors.163.com/.help/CentOS6-Base-163.repo" target="_blank" rel="noopener">http://mirrors.163.com/.help/CentOS6-Base-163.repo</a><br>运行yum makecache生成缓存</p>
-<p><code>yum clean all</code><br><code>yum makecache</code></p>
-<h1 id="安装jdk8"><a href="#安装jdk8" class="headerlink" title="安装jdk8"></a>安装jdk8</h1><p><code>sudo yum install java-1.8.0-openjdk</code></p>
+        <h1 id="机器配置"><a href="#机器配置" class="headerlink" title="机器配置"></a>机器配置</h1><p>假设已经成功配置了三台虚拟机器，分别为:master,node1,node2。<br>安装的都为centos7。</p>
+<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装JDK开发插件"><a href="#安装JDK开发插件" class="headerlink" title="安装JDK开发插件"></a>安装JDK开发插件</h2><p>在master机器中</p>
+<p>安装<br><code>yum install -y  java-1.8.0-openjdk-devel</code></p>
+<blockquote>
+<p>通过<code>rpm -qa | grep openjdk</code>查看OpenJDK版本</p>
+</blockquote>
+<p>查看OpenJDK路径<br><code>whereis java</code></p>
+<p>编辑 /etc/profile，添加的代码如下</p>
+<pre><code>export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.201.b09-2.el7_6.x86_64
+
+export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+
+export PATH=$PATH:$JAVA_HOME/bin
+</code></pre><p>使配置生效<br><code>source /etc/profile</code></p>
+<h3 id="设定-ssh-key"><a href="#设定-ssh-key" class="headerlink" title="设定 ssh key"></a>设定 ssh key</h3><p>在master机器中</p>
+<pre><code>sudo su -
+vim ~/.ssh/id_rsa.pub
+</code></pre><p> 复制其中的内容<br> 自己的机器也需要进行复制<br> <code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code><br>在node1和node2机器中</p>
+<pre><code>vim ~/.ssh/authorized_keys
+</code></pre><p>将上面复制的文件，放在其中。</p>
+<p>在master机器中：<br>执行<code>ssh node1</code>，如果能够登录，则设置成功。</p>
+<h3 id="启动hdfs"><a href="#启动hdfs" class="headerlink" title="启动hdfs"></a>启动hdfs</h3><p><code>hdfs namenode -format</code></p>
+<p><code>$HADOOP_PREFIX/sbin/start-dfs.sh</code></p>
+<p>成功会启动3个进程</p>
+<p>4228 NameNode<br>4327 DataNode<br>4488 SecondaryNameNode</p>
+<p>测试是否成功</p>
+<p>使用 <code>hdfs dfsadmin -report</code>或者访问浏览器进行访问。<br><code>http://10.168.1.100:50070</code></p>
+<h3 id="启动yard"><a href="#启动yard" class="headerlink" title="启动yard"></a>启动yard</h3><p><code>$HADOOP_PREFIX/sbin/start-yarn.sh</code></p>
+<p>这时会多启动进程<br>4816 NodeManager<br>4713 ResourceManager</p>
+<p>netstat -nlop</p>
+<h3 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h3><p>进入到master机器，执行<br><code>$SPARK_HOME/sbin/start-all.sh</code></p>
+<p>访问<br><code>http://10.168.1.100:8080/</code></p>
+<p>启动进程如下<br>5175 Master<br>5244 Worker</p>
+<h3 id="启动hive"><a href="#启动hive" class="headerlink" title="启动hive"></a>启动hive</h3><p>启动<br>nohup hive –service metastore &amp;</p>
+<h3 id="pyspark测试"><a href="#pyspark测试" class="headerlink" title="pyspark测试"></a>pyspark测试</h3><p>pyspark –master spark://10.168.1.100:7077</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/cstzhou/p/6437270.html" target="_blank" rel="noopener">大数据常见错误解决方案</a></p>
 
     </div>
     
@@ -203,15 +230,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/category/018linux/linuxshell总结.html" class="pre-post btn btn-default" title="Linux shell 总结">
+        <a href="/category/031spark/PySpark 的背后原理.html" class="pre-post btn btn-default" title="PySpark的背后原理">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Linux shell 总结</span>
+            <span class="hidden-xs">PySpark的背后原理</span>
         </a>
     
     
-        <a href="/category/018linux/grep＋find学习笔记.html" class="next-post btn btn-default" title="grep＋find学习笔记">
+        <a href="/category/021python/centos7配置python3环境.html" class="next-post btn btn-default" title="centos7配置python3环境">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">grep＋find学习笔记</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">centos7配置python3环境</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -261,7 +288,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#修改yum源"><span class="toc-text">修改yum源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装jdk8"><span class="toc-text">安装jdk8</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器配置"><span class="toc-text">机器配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装JDK开发插件"><span class="toc-text">安装JDK开发插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设定-ssh-key"><span class="toc-text">设定 ssh key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hdfs"><span class="toc-text">启动hdfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动yard"><span class="toc-text">启动yard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动spark"><span class="toc-text">启动spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hive"><span class="toc-text">启动hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pyspark测试"><span class="toc-text">pyspark测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
         
     </div>
 </aside>
