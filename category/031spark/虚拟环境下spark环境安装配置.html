@@ -29,7 +29,7 @@
     <!--Title-->
 
 
-<title>虚拟环境下spark环境安装配置 | Klwork</title>
+<title>虚拟环境下spark相关软件的安装配置 | Klwork</title>
 
 
     <link rel="alternate" href="/atom.xml" title="Klwork" type="application/atom+xml">
@@ -131,9 +131,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="虚拟环境下spark环境安装配置">
+        <h1 id="虚拟环境下spark相关软件的安装配置">
             
-	            虚拟环境下spark环境安装配置
+	            虚拟环境下spark相关软件的安装配置
             
         </h1>
         <div class="post-meta">
@@ -178,7 +178,7 @@
     
     <div class="post-body post-content">
         <h1 id="机器配置"><a href="#机器配置" class="headerlink" title="机器配置"></a>机器配置</h1><p>假设已经成功配置了三台虚拟机器，分别为:master,node1,node2。<br>安装的都为centos7。</p>
-<h1 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h1><h2 id="安装JDK开发插件"><a href="#安装JDK开发插件" class="headerlink" title="安装JDK开发插件"></a>安装JDK开发插件</h2><p>在master机器中</p>
+<h1 id="安装JDK开发插件"><a href="#安装JDK开发插件" class="headerlink" title="安装JDK开发插件"></a>安装JDK开发插件</h1><p>在master机器中</p>
 <p>安装<br><code>yum install -y  java-1.8.0-openjdk-devel</code></p>
 <blockquote>
 <p>通过<code>rpm -qa | grep openjdk</code>查看OpenJDK版本</p>
@@ -191,28 +191,134 @@ export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/li
 
 export PATH=$PATH:$JAVA_HOME/bin
 </code></pre><p>使配置生效<br><code>source /etc/profile</code></p>
-<h3 id="设定-ssh-key"><a href="#设定-ssh-key" class="headerlink" title="设定 ssh key"></a>设定 ssh key</h3><p>在master机器中</p>
+<h1 id="设定-ssh-key"><a href="#设定-ssh-key" class="headerlink" title="设定 ssh key"></a>设定 ssh key</h1><p>在master机器中</p>
 <pre><code>sudo su -
 vim ~/.ssh/id_rsa.pub
 </code></pre><p> 复制其中的内容<br> 自己的机器也需要进行复制<br> <code>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code><br>在node1和node2机器中</p>
 <pre><code>vim ~/.ssh/authorized_keys
 </code></pre><p>将上面复制的文件，放在其中。</p>
 <p>在master机器中：<br>执行<code>ssh node1</code>，如果能够登录，则设置成功。</p>
-<h3 id="启动hdfs"><a href="#启动hdfs" class="headerlink" title="启动hdfs"></a>启动hdfs</h3><p><code>hdfs namenode -format</code></p>
-<p><code>$HADOOP_PREFIX/sbin/start-dfs.sh</code></p>
+<h1 id="配置hdfs"><a href="#配置hdfs" class="headerlink" title="配置hdfs"></a>配置hdfs</h1><h2 id="启动hdfs"><a href="#启动hdfs" class="headerlink" title="启动hdfs"></a>启动hdfs</h2><p>Hadoop 2.7.7</p>
+<p><code>hdfs namenode -format</code></p>
+<p><code>$HADOOP_PREFIX/sbin/start-dfs.sh</code><br><code>$HADOOP_PREFIX/sbin/stop-dfs.sh</code></p>
 <p>成功会启动3个进程</p>
 <p>4228 NameNode<br>4327 DataNode<br>4488 SecondaryNameNode</p>
 <p>测试是否成功</p>
 <p>使用 <code>hdfs dfsadmin -report</code>或者访问浏览器进行访问。<br><code>http://10.168.1.100:50070</code></p>
-<h3 id="启动yard"><a href="#启动yard" class="headerlink" title="启动yard"></a>启动yard</h3><p><code>$HADOOP_PREFIX/sbin/start-yarn.sh</code></p>
+<h2 id="启动yard"><a href="#启动yard" class="headerlink" title="启动yard"></a>启动yard</h2><p><code>$HADOOP_PREFIX/sbin/start-yarn.sh</code></p>
 <p>这时会多启动进程<br>4816 NodeManager<br>4713 ResourceManager</p>
 <p>netstat -nlop</p>
-<h3 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h3><p>进入到master机器，执行<br><code>$SPARK_HOME/sbin/start-all.sh</code></p>
+<h1 id="配置spark"><a href="#配置spark" class="headerlink" title="配置spark"></a>配置spark</h1><h2 id="启动spark"><a href="#启动spark" class="headerlink" title="启动spark"></a>启动spark</h2><p>进入到master机器，执行<br><code>$SPARK_HOME/sbin/start-all.sh</code></p>
 <p>访问<br><code>http://10.168.1.100:8080/</code></p>
 <p>启动进程如下<br>5175 Master<br>5244 Worker</p>
-<h3 id="启动hive"><a href="#启动hive" class="headerlink" title="启动hive"></a>启动hive</h3><p>启动<br>nohup hive –service metastore &amp;</p>
-<h3 id="pyspark测试"><a href="#pyspark测试" class="headerlink" title="pyspark测试"></a>pyspark测试</h3><p>pyspark –master spark://10.168.1.100:7077</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/cstzhou/p/6437270.html" target="_blank" rel="noopener">大数据常见错误解决方案</a></p>
+<h1 id="配置hive"><a href="#配置hive" class="headerlink" title="配置hive"></a>配置hive</h1><h2 id="启动hive"><a href="#启动hive" class="headerlink" title="启动hive"></a>启动hive</h2><p>MySQL作为元数据管理,初始化配置<br><code>$HIVE_HOME/bin/schematool  -dbType mysql -initSchema</code></p>
+<h3 id="启动metastore"><a href="#启动metastore" class="headerlink" title="启动metastore"></a>启动metastore</h3><p><code>nohup hive --service metastore &amp;</code></p>
+<h3 id="启动hiveserve2"><a href="#启动hiveserve2" class="headerlink" title="启动hiveserve2"></a>启动hiveserve2</h3><p><code>nohup  hive --service hiveserver2 &amp;</code></p>
+<h3 id="使用beeline"><a href="#使用beeline" class="headerlink" title="使用beeline"></a>使用beeline</h3><p><code>beeline</code><br>然后执行<br><code>! connect jdbc:hive2://10.168.1.100:10000 hive hive</code></p>
+<h4 id="可能出现的错误"><a href="#可能出现的错误" class="headerlink" title="可能出现的错误"></a>可能出现的错误</h4><p>为了避免出现<code>User: root is not allowed to impersonate hive</code></p>
+<p>需要在hadoop的配置文件core-site.xml中添加如下属性：</p>
+<pre><code>&lt;property&gt;
+        &lt;name&gt;hadoop.proxyuser.root.hosts&lt;/name&gt;
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+        &lt;name&gt;hadoop.proxyuser.root.groups&lt;/name&gt;
+        &lt;value&gt;*&lt;/value&gt;
+&lt;/property&gt;
+</code></pre><p>将core-site.xml同步到其他机器<br><code>scp -r core-site.xml root@node2:/usr/local/hadoop/etc/hadoop/</code></p>
+<p>重新启动hdfs</p>
+<h3 id="启动hive客户端"><a href="#启动hive客户端" class="headerlink" title="启动hive客户端"></a>启动hive客户端</h3><p><code>hive</code></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h1 id="安装pyspark"><a href="#安装pyspark" class="headerlink" title="安装pyspark"></a>安装pyspark</h1><h2 id="pyspark测试"><a href="#pyspark测试" class="headerlink" title="pyspark测试"></a>pyspark测试</h2><p><code>pyspark --master spark://10.168.1.100:7077</code></p>
+<h2 id="提交spark程序进行测试"><a href="#提交spark程序进行测试" class="headerlink" title="提交spark程序进行测试"></a>提交spark程序进行测试</h2><p><code>spark-submit --master spark://10.168.1.100:7077 test.py 5</code></p>
+<blockquote>
+<p>如果PYSPARK_DRIVER_PYTHON有问题，需要重新设置 <code>export PYSPARK_DRIVER_PYTHON=python3</code></p>
+</blockquote>
+<h1 id="配置zookper"><a href="#配置zookper" class="headerlink" title="配置zookper"></a>配置zookper</h1><h2 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h2><ol>
+<li>下载zookeeper-3.4.13.tar.gz，<br>解压在<code>/root/zookeeper/zookeeper-3.4.13</code></li>
+</ol>
+<h2 id="配置zoo-cfg文件"><a href="#配置zoo-cfg文件" class="headerlink" title="配置zoo.cfg文件"></a>配置zoo.cfg文件</h2><p><code>vim /root/zookeeper/zookeeper-3.4.13/conf/zoo.cfg</code><br>设置文件目录和日志目录; server.0/1/2表示分别在三台机器上分别安装zookeeper服务</p>
+<pre><code>dataLogDir=/root/zookeeper/log
+server.0=master:8880:7770
+server.1=node1:8881:7771
+server.2=node2:8882:7772
+</code></pre><blockquote>
+<p>其他配置：<br>dataDir：ZooKeeper 会在内存中保存系统快照，并定期写入该路径指定的文件夹中。</p>
+</blockquote>
+<p> master节点配置好的文件分发到slave节点<br>scp -r /root/zookeeper root@node1:/root/<br>scp -r /root/zookeeper root@node2:/root/</p>
+<h2 id="myid文件"><a href="#myid文件" class="headerlink" title="myid文件"></a>myid文件</h2><p>myid文件位于zoo.cfg中dataDir配置的目录下</p>
+<ol>
+<li>在三台机器上新增myid文件 ,分别创建文件输入0 1 2 . 存放的标识本台服务器的文件<br>是整个zk集群用来发现彼此的一个重要标识.<br>具体操作：<br>在master机器上执行<code>echo &quot;0&quot; &gt; /root/zookeeper/data/myid</code><br>在node-1机器上<code>echo &quot;1&quot; &gt; /root/zookeeper/data/myid</code><br>在node-2机器上<code>echo &quot;2&quot; &gt; /root/zookeeper/data/myid</code></li>
+</ol>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>分别在3个系统中启动， <code>zkServer.sh start</code><br>jps命令查看，输出启动进程如下：<br>366 QuorumPeerMain</p>
+<p><code>zkServer.sh status</code>命令可查看状况，会有一个leader，两个follower</p>
+<h2 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h2><h1 id="配置hbase"><a href="#配置hbase" class="headerlink" title="配置hbase"></a>配置hbase</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
+<li><p>解压hbase安装包<br><code>tar -zxvf hbase-1.2.6-bin.tar.gz</code></p>
+</li>
+<li><p>修改 hbase-site.xml 配置<br>进入 /root/hbase/hbase-1.2.6/conf 路径<br>hbase.rootdir 是hbase数据在hdfs上存储路径<br>hbase.cluster.distributed 分布式存储<br>hbase.zookeeper.quorum 使用zookeeper管理</p>
+<configuration><br><property><br>  <name>hbase.rootdir</name><br>  <value>hdfs://master:9000/hbase</value><br></property><br><property><br>  <name>hbase.cluster.distributed</name><br>  <value>true</value><br></property><br><property><br>  <name>hbase.zookeeper.quorum</name><br>  <value>master,node1,node2</value><br></property><br></configuration>
+</li>
+<li><p>修改 hbase-env.sh 配置<br>进入 /root/hbase/hbase-1.2.6/conf 路径<br>export JAVA_HOME=/usr/local/jdk1.8.0_161<br>export HADOOP_PREFIX=/usr/local/hadoop<br>export HBASE_CLASSPATH=${HADOOP_PREFIX}/etc/hadoop<br>export HBASE_MANAGES_ZK=false</p>
+</li>
+<li><p>修改regionservers 配置<br>进入 /root/hbase/hbase-1.2.6/conf 路径<br>vim regionservers<br>node-1<br>node-2</p>
+</li>
+<li><p>将master配置拷贝到slave<br>scp -r /root/hbase root@node1:/root/<br>scp -r /root/hbase root@node2:/root/</p>
+</li>
+<li><p>配置hbase环境变量<br>vim /etc/profile<br>source /etc/profile</p>
+</li>
+</ol>
+<h2 id="启动hbase"><a href="#启动hbase" class="headerlink" title="启动hbase"></a>启动hbase</h2><p>先需要启动hdfs和zookeeper<br><code>start-dfs.sh</code><br><code>zkServer.sh start</code><br><code>start-hbase.sh</code><br>访问hbase的web监控  <code>http://10.168.1.100:16010/master-status</code></p>
+<h2 id="启动客户端"><a href="#启动客户端" class="headerlink" title="启动客户端"></a>启动客户端</h2><h1 id="配置kafka"><a href="#配置kafka" class="headerlink" title="配置kafka"></a>配置kafka</h1><h2 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h2><ol>
+<li><p>解压<br><code>tar -zxvf kafka_2.11-1.1.1.tgz</code></p>
+</li>
+<li><p>修改配置<br> <code>cd /root/kafka/kafka_2.11-1.1.1/config</code><br> <code>vim server.properties</code>，修改如下：</p>
+<pre><code>broker.id=0
+log.dirs=/root/kafka/kafkalogs/
+zookeeper.connect=10.168.1.100:2181
+</code></pre></li>
+<li><p>将master配置拷贝到slave<br><code>scp -r /root/kafka root@node1:/root/</code><br><code>scp -r /root/kafka root@node2:/root/</code></p>
+</li>
+<li><p>配置slave节点</p>
+<p><code>cd /root/kafka/kafka_2.11-1.0.0/config</code><br><code>vim server.properties</code><br>修改node-1为broker.id=1<br>node-2为broker.id=2</p>
+</li>
+</ol>
+<h2 id="启动kafka"><a href="#启动kafka" class="headerlink" title="启动kafka"></a>启动kafka</h2><p>   在每台机器上都要启动</p>
+<pre><code>cd /root/kafka/kafka_2.11-1.1.1/bin
+./kafka-server-start.sh /root/kafka/kafka_2.11-1.1.1/config/server.properties 2&gt;&amp;1 &amp;
+</code></pre><p>jps命令参看，如下</p>
+<p>26887 Kafka</p>
+<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><h3 id="创建一个topic"><a href="#创建一个topic" class="headerlink" title="创建一个topic"></a>创建一个topic</h3><p>创建3个分区，每个分区都分配3个副本<br>      <code>./kafka-topics.sh --create --zookeeper master:2181 --replication-factor 3 --partitions 3 --topic test-topic</code></p>
+<h3 id="列出所有的topic"><a href="#列出所有的topic" class="headerlink" title="列出所有的topic"></a>列出所有的topic</h3><p><code>./kafka-topics.sh --list --zookeeper master:2181</code></p>
+<h3 id="参看topic的分区情况"><a href="#参看topic的分区情况" class="headerlink" title="参看topic的分区情况"></a>参看topic的分区情况</h3><p><code>kafka-topics.sh  --zookeeper master:2181 --describe --topic test-topic-1</code></p>
+<h3 id="启动kafka生产者"><a href="#启动kafka生产者" class="headerlink" title="启动kafka生产者"></a>启动kafka生产者</h3><p>在master启动<br>      <code>./kafka-console-producer.sh --broker-list master:9092 --topic kafka_test</code><br>输入一些数据。</p>
+<h3 id="启动kafka消费者"><a href="#启动kafka消费者" class="headerlink" title="启动kafka消费者"></a>启动kafka消费者</h3><p>在node2上启动<br>       <code>./kafka-console-consumer.sh --bootstrap-server master:9092 --topic kafka_test --from-beginning</code></p>
+<p>会发现数据显示出来了。</p>
+<h3 id="查询topic内容"><a href="#查询topic内容" class="headerlink" title="查询topic内容"></a>查询topic内容</h3><p><code>./kafka-console-consumer.sh --bootstrap-server master:9092 --topic my-topic --from-beginning</code></p>
+<h3 id="查询topic的在分区上的消息数量"><a href="#查询topic的在分区上的消息数量" class="headerlink" title="查询topic的在分区上的消息数量"></a>查询topic的在分区上的消息数量</h3><p><code>kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list master:9092 --topic test-topic</code></p>
+<h3 id="测试-2"><a href="#测试-2" class="headerlink" title="测试"></a>测试</h3><p><code>kafka-producer-perf-test.sh --topic test-topic --num-records 500000 --record-size 200 --throughput -1 --producer-props bootstrap.servers=master:9092,node1:9092,node2:9092</code></p>
+<h2 id="安装监控界面"><a href="#安装监控界面" class="headerlink" title="安装监控界面"></a>安装监控界面</h2><p><a href="http://www.kafkatool.com/download.html" target="_blank" rel="noopener">http://www.kafkatool.com/download.html</a><br><a href="https://www.cnblogs.com/frankdeng/p/9452982.html" target="_blank" rel="noopener">参看</a></p>
+<h1 id="配置sqoop"><a href="#配置sqoop" class="headerlink" title="配置sqoop"></a>配置sqoop</h1><h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><ol>
+<li>下载<br><a href="http://mirrors.hust.edu.cn/apache/sqoop/1.4.7" target="_blank" rel="noopener">http://mirrors.hust.edu.cn/apache/sqoop/1.4.7</a></li>
+<li><p>解压<br><code>tar -zxvf sqoop-1.4.7.bin__hadoop-2.6.0.tar.gz</code></p>
+</li>
+<li><p>复制mysql连接jar<br>将 mysql-connector-java-5.1.44-bin.jar包放到/root/sqoop/sqoop-1.4.7.bin__hadoop-2.6.0/lib</p>
+</li>
+</ol>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>进入sqoop下的conf配置文件目录， 复制 sqoop-env-template.sh 为 sqoop-env.sh<br><code>cp sqoop-env-template.sh sqoop-env.sh</code></p>
+<p>编辑 sqoop-env.sh文件，<code>vim sqoop-env.sh</code><br>给HADOOP_COMMON_HOME添加hadoop安装路径，注意去掉#号<br>HADOOP_MAPRED_HOME也添加hadoop为安装路径。</p>
+<h2 id="测试-3"><a href="#测试-3" class="headerlink" title="测试"></a>测试</h2><p><code>sqoop help</code></p>
+<h1 id="配置airflow"><a href="#配置airflow" class="headerlink" title="配置airflow"></a>配置airflow</h1><p>先升级pip<br><code>pip3 install --upgrade pip</code></p>
+<p><code>export SLUGIFY_USES_TEXT_UNIDECODE=yes</code><br><code>pip3 install apache-airflow</code><br><code>pip3 install tenacity==4.12.0</code></p>
+<p><code>airflow initdb</code><br><code>airflow webserver -p 9080</code></p>
+<p><a href="https://stackoverflow.com/questions/37048856/how-to-install-airflow" target="_blank" rel="noopener">问题</a></p>
+<h1 id="安装Flume"><a href="#安装Flume" class="headerlink" title="安装Flume"></a>安装Flume</h1><h2 id="安装配置"><a href="#安装配置" class="headerlink" title="安装配置"></a>安装配置</h2><p><code>wget http://mirrors.tuna.tsinghua.edu.cn/apache/flume/1.8.0/apache-flume-1.8.0-bin.tar.gz</code><br><code>tar –zxvf apache-flume-1.8.0-bin.tar.gz</code><br>解压缩到<br><code>/root/flume/apache-flume-1.8.0-bin</code></p>
+<p>配置环境变量：</p>
+<p>export FLUME_HOME=/root/flume/apache-flume-1.8.0-bin<br>export FLUME_CONF_DIR=$FLUME_HOME/con</p>
+<p>测试<code>flume-ng version</code></p>
+<h2 id="配置flume-env-sh"><a href="#配置flume-env-sh" class="headerlink" title="配置flume-env.sh"></a>配置flume-env.sh</h2><p>cd conf<br>cp flume-env.sh.template flume-env.sh<br>vim flume-env.sh</p>
+<p>cp flume-conf.properties.template flume-conf.properties</p>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p>日志<br>/usr/local/hadoop/logs/hadoop-root-datanode-10.168.1.100.out<br>tail -n 300 hadoop-root-datanode-10.168.1.100.log</p>
+<p>d to add storage directory [DISK]file:/var/hadoop/hadoop-datanode/<br>org.apache.hadoop.hdfs.server.common.IncorrectVersionException: Unexpected version of storage directory /var/hadoop/hadoop-datanode. Reported: -57. Expecting = -56.</p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.cnblogs.com/cstzhou/p/6437270.html" target="_blank" rel="noopener">大数据常见错误解决方案</a><br><a href="https://blog.csdn.net/seashouwang/article/details/81699178" target="_blank" rel="noopener">Hbase1.3.1集群</a><br><a href="https://blog.csdn.net/shuaigexiaobo/article/details/78114221" target="_blank" rel="noopener">版本</a><br><a href="https://www.cnblogs.com/frankdeng/p/9403883.html" target="_blank" rel="noopener">Kafka（二）CentOS7.5搭建Kafka2.11-1.1.0集群与简单测试</a><br><a href="https://blog.csdn.net/zpf336/article/details/86482036" target="_blank" rel="noopener">Apache Airflow 安装</a><br><a href="https://blog.csdn.net/maizi1045/article/details/79481686" target="_blank" rel="noopener">Hive官方使用手册——新Hive CLI(Beeline CLI)</a></p>
 
     </div>
     
@@ -230,15 +336,10 @@ vim ~/.ssh/id_rsa.pub
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/category/031spark/PySpark 的背后原理.html" class="pre-post btn btn-default" title="PySpark的背后原理">
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">PySpark的背后原理</span>
-        </a>
     
-    
-        <a href="/category/021python/centos7配置python3环境.html" class="next-post btn btn-default" title="centos7配置python3环境">
+        <a href="/category/031spark/PySpark 的背后原理.html" class="next-post btn btn-default" title="PySpark的背后原理">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">centos7配置python3环境</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">PySpark的背后原理</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -288,7 +389,7 @@ createImgEventFullScreen();
     <div class="widget">
         <h3 class="title">Table of Contents</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器配置"><span class="toc-text">机器配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#步骤"><span class="toc-text">步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装JDK开发插件"><span class="toc-text">安装JDK开发插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#设定-ssh-key"><span class="toc-text">设定 ssh key</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hdfs"><span class="toc-text">启动hdfs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动yard"><span class="toc-text">启动yard</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动spark"><span class="toc-text">启动spark</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hive"><span class="toc-text">启动hive</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pyspark测试"><span class="toc-text">pyspark测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#机器配置"><span class="toc-text">机器配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装JDK开发插件"><span class="toc-text">安装JDK开发插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#设定-ssh-key"><span class="toc-text">设定 ssh key</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置hdfs"><span class="toc-text">配置hdfs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动hdfs"><span class="toc-text">启动hdfs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动yard"><span class="toc-text">启动yard</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置spark"><span class="toc-text">配置spark</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动spark"><span class="toc-text">启动spark</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置hive"><span class="toc-text">配置hive</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#启动hive"><span class="toc-text">启动hive</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动metastore"><span class="toc-text">启动metastore</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hiveserve2"><span class="toc-text">启动hiveserve2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用beeline"><span class="toc-text">使用beeline</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#可能出现的错误"><span class="toc-text">可能出现的错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动hive客户端"><span class="toc-text">启动hive客户端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装pyspark"><span class="toc-text">安装pyspark</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#pyspark测试"><span class="toc-text">pyspark测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#提交spark程序进行测试"><span class="toc-text">提交spark程序进行测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置zookper"><span class="toc-text">配置zookper</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#解压安装"><span class="toc-text">解压安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置zoo-cfg文件"><span class="toc-text">配置zoo.cfg文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#myid文件"><span class="toc-text">myid文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他操作"><span class="toc-text">其他操作</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置hbase"><span class="toc-text">配置hbase</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动hbase"><span class="toc-text">启动hbase</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动客户端"><span class="toc-text">启动客户端</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置kafka"><span class="toc-text">配置kafka</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装-1"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#启动kafka"><span class="toc-text">启动kafka</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-1"><span class="toc-text">测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个topic"><span class="toc-text">创建一个topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出所有的topic"><span class="toc-text">列出所有的topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参看topic的分区情况"><span class="toc-text">参看topic的分区情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动kafka生产者"><span class="toc-text">启动kafka生产者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动kafka消费者"><span class="toc-text">启动kafka消费者</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询topic内容"><span class="toc-text">查询topic内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查询topic的在分区上的消息数量"><span class="toc-text">查询topic的在分区上的消息数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#测试-2"><span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装监控界面"><span class="toc-text">安装监控界面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置sqoop"><span class="toc-text">配置sqoop</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载安装"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置"><span class="toc-text">配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试-3"><span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置airflow"><span class="toc-text">配置airflow</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Flume"><span class="toc-text">安装Flume</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装配置"><span class="toc-text">安装配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置flume-env-sh"><span class="toc-text">配置flume-env.sh</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#问题"><span class="toc-text">问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
         
     </div>
 </aside>

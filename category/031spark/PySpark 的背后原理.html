@@ -219,7 +219,7 @@
 <p>把前面运行时架构图中Executor部分单独拉出来，如下图所示，橙色部分为JVM进程，白色部分为Python进程，每个Executor上有一个公共的pyspark.deamon进程，负责接收Task请求，并fork pyspark.worker进程单独处理每个Task，实际数据处理过程中，pyspark.worker进程和JVM Task会较频繁地进行本地Socket数据通信。</p>
 <p><img src="/image/spark/pyspark-executor.png" alt="png"></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>总体上来说，PySpark是借助Py4j实现Python调用Java，来驱动Spark应用程序，本质上主要还是JVM runtime，Java到Python的结果返回是通过本地Socket完成。虽然这种架构保证了Spark核心代码的独立性，但是在大数据场景下，JVM和Python进程间频繁的数据通信导致其性能损耗较多，恶劣时还可能会直接卡死，所以建议对于大规模机器学习或者Streaming应用场景还是慎用PySpark，尽量使用原生的Scala/Java编写应用程序，对于中小规模数据量下的简单离线任务，可以使用PySpark快速部署提交。</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://sharkdtu.com/posts/pyspark-internal.html" target="_blank" rel="noopener">原文地址</a></p>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="http://sharkdtu.com/posts/pyspark-internal.html" target="_blank" rel="noopener">原文地址</a><br><a href="https://blog.csdn.net/lantian0802/article/details/36376873" target="_blank" rel="noopener">PySpark内部实现</a></p>
 
     </div>
     
@@ -237,10 +237,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
+        <a href="/category/031spark/虚拟环境下spark环境安装配置.html" class="pre-post btn btn-default" title="虚拟环境下spark相关软件的安装配置">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">虚拟环境下spark相关软件的安装配置</span>
+        </a>
     
-        <a href="/category/031spark/虚拟环境下spark环境安装配置.html" class="next-post btn btn-default" title="虚拟环境下spark环境安装配置">
+    
+        <a href="/category/021python/centos7配置python3环境.html" class="next-post btn btn-default" title="centos7配置python3环境">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">虚拟环境下spark环境安装配置</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">centos7配置python3环境</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
